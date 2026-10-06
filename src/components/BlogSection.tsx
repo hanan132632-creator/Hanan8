@@ -43,12 +43,46 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
     return ARTICLES_DATA.filter((a) => {
       // Category filter
       if (selectedCategory !== 'all') {
-        if (selectedCategory === 'gems' && !a.id.includes('diamond') && !a.id.includes('emerald')) return false;
+        if (
+          selectedCategory === 'gems' &&
+          !a.id.includes('diamond') &&
+          !a.id.includes('emerald') &&
+          !a.id.includes('sapphire') &&
+          !a.id.includes('birthstone') &&
+          !a.id.includes('tanzanite')
+        )
+          return false;
         if (selectedCategory === 'pearls' && !a.id.includes('pearl')) return false;
-        if (selectedCategory === 'metals' && !a.id.includes('silver') && !a.id.includes('hallmark')) return false;
-        if (selectedCategory === 'care' && !a.id.includes('care')) return false;
-        if (selectedCategory === 'invest' && !a.id.includes('gold-bullion')) return false;
-        if (selectedCategory === 'history' && !a.id.includes('ring-styles') && !a.id.includes('bespoke')) return false;
+        if (
+          selectedCategory === 'metals' &&
+          !a.id.includes('silver') &&
+          !a.id.includes('hallmark') &&
+          !a.id.includes('platinum')
+        )
+          return false;
+        if (
+          selectedCategory === 'care' &&
+          !a.id.includes('care') &&
+          !a.id.includes('travel') &&
+          !a.id.includes('safe-jewelry')
+        )
+          return false;
+        if (
+          selectedCategory === 'invest' &&
+          !a.id.includes('gold-bullion') &&
+          !a.id.includes('craftsmanship') &&
+          !a.id.includes('colored-diamond')
+        )
+          return false;
+        if (
+          selectedCategory === 'history' &&
+          !a.id.includes('ring-styles') &&
+          !a.id.includes('bespoke') &&
+          !a.id.includes('heritage') &&
+          !a.id.includes('estate') &&
+          !a.id.includes('tennis-bracelet')
+        )
+          return false;
       }
 
       // Search query filter

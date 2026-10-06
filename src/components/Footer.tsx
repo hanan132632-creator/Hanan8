@@ -2,6 +2,7 @@ import React from 'react';
 import { ShieldCheck, Gem, Award, Mail, Phone, MapPin, Globe } from 'lucide-react';
 import { Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
+import { ARTICLES_DATA } from '../data/articles.ts';
 
 interface FooterProps {
   language: Language;
@@ -78,7 +79,9 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => onNavigate('journal')}
                   className="hover:text-[#D4AF37] transition-colors cursor-pointer"
                 >
-                  {language === 'ar' ? 'المدونة (4 مقالات معتمدة)' : 'Journal (4 Articles)'}
+                  {language === 'ar'
+                    ? `المدونة (${ARTICLES_DATA.length} مقالاً معتمداً)`
+                    : `Journal (${ARTICLES_DATA.length} Articles)`}
                 </button>
               </li>
               <li>

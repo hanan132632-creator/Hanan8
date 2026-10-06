@@ -214,16 +214,18 @@ export const SiteSectionsModal: React.FC<SiteSectionsModalProps> = ({
                       {section.description}
                     </p>
 
-                    {/* If it's the Blog, display the list of 4 articles */}
+                    {/* If it's the Blog, display the list of articles with scroll */}
                     {section.subItems && (
                       <div className="pt-2 border-t border-[#D4AF37]/15 space-y-1">
-                        <span className="text-[10px] uppercase font-bold text-[#8C7A5B] block">
-                          {language === 'ar' ? 'المقالات المنشورة في المجلة:' : 'Published Articles:'}
-                        </span>
-                        <ul className="text-[11px] text-[#18181B]/80 space-y-1">
+                        <div className="flex items-center justify-between text-[10px] uppercase font-bold text-[#8C7A5B]">
+                          <span>{language === 'ar' ? `المقالات المنشورة (${articlesCount} مقالاً):` : `Published Articles (${articlesCount}):`}</span>
+                          <span className="font-mono text-[#D4AF37] font-semibold">{language === 'ar' ? 'قابلة للقراءة' : 'EEAT'}</span>
+                        </div>
+                        <ul className="text-[11px] text-[#18181B]/80 space-y-1 max-h-44 overflow-y-auto pr-1 scrollbar-thin">
                           {section.subItems.map((item, idx) => (
-                            <li key={item.id} className="flex items-center gap-1.5 truncate">
+                            <li key={item.id} className="flex items-center gap-1.5 truncate hover:text-[#B8902A] transition-colors">
                               <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0" />
+                              <span className="text-[10px] text-[#8C7A5B] font-mono shrink-0">{idx + 1}.</span>
                               <span className="truncate">{item.title}</span>
                             </li>
                           ))}

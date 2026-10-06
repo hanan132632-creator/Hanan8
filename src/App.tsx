@@ -161,6 +161,98 @@ export default function App() {
       <main className="flex-1">
         {activeTab === 'home' && (
           <div>
+            {/* Top Royal Site Navigation Icon & Directory Bar (أول الصفحة الرئيسية) */}
+            <div className="bg-[#18181B] text-[#FAF8F5] border-b-2 border-[#D4AF37]/40 py-3 px-4 sm:px-6 shadow-md">
+              <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+                <div className="flex items-center gap-3 w-full md:w-auto">
+                  {/* The prominent Sections Icon button */}
+                  <button
+                    onClick={() => setIsSiteSectionsOpen(true)}
+                    className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#B8902A] hover:opacity-95 text-[#18181B] font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer shrink-0"
+                    title={language === 'ar' ? 'انقر لفتح دليل كافة أقسام الموقع' : 'Click to view all site sections'}
+                  >
+                    <Compass className="w-4 h-4 text-[#18181B]" />
+                    <span>{language === 'ar' ? 'أقسام الموقع الرئيسي' : 'Site Sections'}</span>
+                    <span className="bg-[#18181B] text-[#D4AF37] px-2 py-0.5 rounded-full text-[11px] font-mono font-extrabold">
+                      {ARTICLES_DATA.length} {language === 'ar' ? 'مقالاً' : 'Arts'}
+                    </span>
+                  </button>
+
+                  <div className="hidden sm:block text-xs text-white/80">
+                    <span className="text-[#D4AF37] font-semibold">
+                      {language === 'ar' ? 'ما يشمله الموقع:' : 'Includes:'}
+                    </span>{' '}
+                    <span className="text-white/70">
+                      {language === 'ar'
+                        ? `المتجر · المدونة (${ARTICLES_DATA.length} مقالاً) · من نحن · اتصل بنا · سياسة الخصوصية · شروط الاستخدام`
+                        : `Store · Journal (${ARTICLES_DATA.length} Articles) · About · Contact · Privacy · Terms`}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Direct quick navigation shortcuts */}
+                <div className="flex items-center gap-1.5 flex-wrap justify-center text-[11px] font-medium text-white/90">
+                  <button
+                    onClick={() => {
+                      setActiveTab('catalog');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
+                  >
+                    {t.theStore}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveTab('journal');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-[#D4AF37]/25 border border-[#D4AF37]/50 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer font-bold flex items-center gap-1"
+                  >
+                    <span>{t.theBlog}</span>
+                    <span className="font-mono text-[10px] bg-[#18181B] text-[#D4AF37] px-1 rounded font-bold">
+                      {ARTICLES_DATA.length}
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveTab('about');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
+                  >
+                    {t.aboutUs}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveTab('contact');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
+                  >
+                    {t.contactUs}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveTab('privacy');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
+                  >
+                    {t.privacyPolicy}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setActiveTab('terms');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
+                  >
+                    {t.termsOfUse}
+                  </button>
+                </div>
+              </div>
+            </div>
+
             {/* Hero Section */}
             <Hero
               language={language}

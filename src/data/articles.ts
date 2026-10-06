@@ -3,8 +3,9 @@ import heroImg from '../assets/images/hero_luxury_jewelry_1791298014265.jpg';
 import ringImg from '../assets/images/product_solitaire_ring_1791298025877.jpg';
 import bullionImg from '../assets/images/gold_bullion_investment_1791298056029.jpg';
 import pearlImg from '../assets/images/product_pearl_bracelet_1791298046092.jpg';
+import { ARTICLES_BATCH_2 } from './articles-batch2.ts';
 
-export const ARTICLES_DATA: Article[] = [
+const INITIAL_ARTICLES: Article[] = [
   {
     id: 'definitive-4cs-diamond-guide',
     slug: 'definitive-4cs-diamond-buying-guide',
@@ -685,3 +686,5 @@ Upon patron confirmation, noble gold is vacuum-cast and handed to master stone s
     ],
   },
 ];
+
+export const ARTICLES_DATA: Article[] = [...INITIAL_ARTICLES, ...ARTICLES_BATCH_2];
