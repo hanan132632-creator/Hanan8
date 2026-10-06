@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, ShieldCheck, Gem, Truck, ArrowLeft, ArrowRight, Sparkles } from 'lucide-react';
+import { Award, ShieldCheck, Gem, Truck, ArrowLeft, ArrowRight, Sparkles, Home } from 'lucide-react';
 import { Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { HERO_IMAGE } from '../data/products.ts';
@@ -28,12 +28,19 @@ export const Hero: React.FC<HeroProps> = ({ language, onExplore, onBookVip }) =>
         <div className="absolute inset-0 bg-gradient-to-r from-[#18181B]/90 via-[#18181B]/60 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="max-w-3xl space-y-6">
-          {/* Natural unboxed kicker without pill box */}
-          <div className="flex items-center gap-2 text-xs font-medium text-[#D4AF37] tracking-wider uppercase">
-            <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-            <span>{t.heroBadge}</span>
+          {/* Explicit Home Page Identifier and Badge */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#D4AF37]/20 border border-[#D4AF37]/60 text-[#D4AF37] text-xs font-bold font-serif-luxury shadow-xs">
+              <Home className="w-3.5 h-3.5" />
+              <span>{language === 'ar' ? 'الرئيسية (الصفحة الرئيسية)' : 'Home (Main Page)'}</span>
+            </span>
+            <span className="text-[#FAF8F5]/30">·</span>
+            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-[#FAF8F5]/80 tracking-wider uppercase">
+              <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <span>{t.heroBadge}</span>
+            </div>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] font-serif-luxury [text-wrap:balance]">

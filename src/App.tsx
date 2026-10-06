@@ -32,6 +32,7 @@ import {
   Sparkles,
   BookOpen,
   Compass,
+  Home,
   ShoppingBag,
   Users,
   PhoneCall,
@@ -173,9 +174,6 @@ export default function App() {
                   >
                     <Compass className="w-4 h-4 text-[#18181B]" />
                     <span>{language === 'ar' ? 'أقسام الموقع الرئيسي' : 'Site Sections'}</span>
-                    <span className="bg-[#18181B] text-[#D4AF37] px-2 py-0.5 rounded-full text-[11px] font-mono font-extrabold">
-                      {ARTICLES_DATA.length} {language === 'ar' ? 'مقالاً' : 'Arts'}
-                    </span>
                   </button>
 
                   <div className="hidden sm:block text-xs text-white/80">
@@ -184,14 +182,24 @@ export default function App() {
                     </span>{' '}
                     <span className="text-white/70">
                       {language === 'ar'
-                        ? `المتجر · المدونة (${ARTICLES_DATA.length} مقالاً) · من نحن · اتصل بنا · سياسة الخصوصية · شروط الاستخدام`
-                        : `Store · Journal (${ARTICLES_DATA.length} Articles) · About · Contact · Privacy · Terms`}
+                        ? `الرئيسية · المتجر · المدونة (${ARTICLES_DATA.length} مقالاً) · من نحن · اتصل بنا · سياسة الخصوصية · شروط الاستخدام`
+                        : `Home · Store · Journal (${ARTICLES_DATA.length} Articles) · About · Contact · Privacy · Terms`}
                     </span>
                   </div>
                 </div>
 
                 {/* Direct quick navigation shortcuts */}
                 <div className="flex items-center gap-1.5 flex-wrap justify-center text-[11px] font-medium text-white/90">
+                  <button
+                    onClick={() => {
+                      setActiveTab('home');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="px-2.5 py-1 rounded-lg bg-[#D4AF37] text-[#18181B] font-bold shadow-xs transition-colors cursor-pointer flex items-center gap-1"
+                  >
+                    <Home className="w-3 h-3" />
+                    <span>{t.navHome}</span>
+                  </button>
                   <button
                     onClick={() => {
                       setActiveTab('catalog');
@@ -280,8 +288,8 @@ export default function App() {
                       </h3>
                       <p className="text-xs text-[#8C7A5B]">
                         {language === 'ar'
-                          ? `يشمل الموقع: المتجر، المدونة (${ARTICLES_DATA.length} مقالات)، من نحن، اتصل بنا، سياسة الخصوصية، وشروط الاستخدام`
-                          : `Includes: Store, Journal (${ARTICLES_DATA.length} Articles), About, Contact, Privacy, and Terms`}
+                          ? `يشمل الموقع: الرئيسية، المتجر، المدونة (${ARTICLES_DATA.length} مقالات)، من نحن، اتصل بنا، سياسة الخصوصية، وشروط الاستخدام`
+                          : `Includes: Home, Store, Journal (${ARTICLES_DATA.length} Articles), About, Contact, Privacy, and Terms`}
                       </p>
                     </div>
                   </div>
@@ -296,8 +304,30 @@ export default function App() {
                 </div>
 
                 {/* Grid of the core main sections */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-                  {/* 1. المتجر */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3 sm:gap-4">
+                  {/* 1. الرئيسية */}
+                  <button
+                    onClick={() => {
+                      setActiveTab('home');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="p-3.5 rounded-xl border-2 border-[#D4AF37] bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="p-2 rounded-lg bg-[#18181B] text-[#D4AF37]">
+                        <Home className="w-4 h-4" />
+                      </div>
+                      <span className="text-[10px] text-[#B8902A] font-mono font-bold">01</span>
+                    </div>
+                    <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
+                      {t.navHome}
+                    </span>
+                    <span className="text-[11px] text-[#8C7A5B] block mt-0.5 truncate">
+                      {language === 'ar' ? 'الصفحة الرئيسية' : 'Current Page'}
+                    </span>
+                  </button>
+
+                  {/* 2. المتجر */}
                   <button
                     onClick={() => {
                       setActiveTab('catalog');
@@ -309,7 +339,7 @@ export default function App() {
                       <div className="p-2 rounded-lg bg-white border border-slate-200 group-hover:border-[#D4AF37]/40 text-[#D4AF37]">
                         <ShoppingBag className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] text-slate-500 font-mono">01</span>
+                      <span className="text-[10px] text-slate-500 font-mono">02</span>
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
                       {t.theStore}
@@ -319,7 +349,7 @@ export default function App() {
                     </span>
                   </button>
 
-                  {/* 2. المدونة (مع كتابة عدد المقالات: 4 مقالات) */}
+                  {/* 3. المدونة (مع كتابة عدد المقالات) */}
                   <button
                     onClick={() => {
                       setActiveTab('journal');
@@ -332,7 +362,7 @@ export default function App() {
                         <BookOpen className="w-4 h-4" />
                       </div>
                       <span className="text-[10px] bg-[#18181B] text-[#D4AF37] px-1.5 py-0.5 rounded font-mono font-bold">
-                        {ARTICLES_DATA.length} {language === 'ar' ? 'مقالات' : 'Arts'}
+                        {ARTICLES_DATA.length} {language === 'ar' ? 'مقالاً' : 'Arts'}
                       </span>
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
@@ -343,7 +373,7 @@ export default function App() {
                     </span>
                   </button>
 
-                  {/* 3. من نحن */}
+                  {/* 4. من نحن */}
                   <button
                     onClick={() => {
                       setActiveTab('about');
@@ -355,7 +385,7 @@ export default function App() {
                       <div className="p-2 rounded-lg bg-white border border-slate-200 group-hover:border-[#D4AF37]/40 text-emerald-600">
                         <Users className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] text-slate-500 font-mono">03</span>
+                      <span className="text-[10px] text-slate-500 font-mono">04</span>
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
                       {t.aboutUs}
@@ -365,7 +395,7 @@ export default function App() {
                     </span>
                   </button>
 
-                  {/* 4. اتصل بنا */}
+                  {/* 5. اتصل بنا */}
                   <button
                     onClick={() => {
                       setActiveTab('contact');
@@ -377,7 +407,7 @@ export default function App() {
                       <div className="p-2 rounded-lg bg-white border border-slate-200 group-hover:border-[#D4AF37]/40 text-blue-600">
                         <PhoneCall className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] text-slate-500 font-mono">04</span>
+                      <span className="text-[10px] text-slate-500 font-mono">05</span>
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
                       {t.contactUs}
@@ -387,7 +417,7 @@ export default function App() {
                     </span>
                   </button>
 
-                  {/* 5. سياسة الخصوصية */}
+                  {/* 6. سياسة الخصوصية */}
                   <button
                     onClick={() => {
                       setActiveTab('privacy');
@@ -399,7 +429,7 @@ export default function App() {
                       <div className="p-2 rounded-lg bg-white border border-slate-200 group-hover:border-[#D4AF37]/40 text-purple-600">
                         <ShieldCheck className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] text-slate-500 font-mono">05</span>
+                      <span className="text-[10px] text-slate-500 font-mono">06</span>
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
                       {t.privacyPolicy}
@@ -409,7 +439,7 @@ export default function App() {
                     </span>
                   </button>
 
-                  {/* 6. شروط الاستخدام */}
+                  {/* 7. شروط الاستخدام */}
                   <button
                     onClick={() => {
                       setActiveTab('terms');
@@ -421,7 +451,7 @@ export default function App() {
                       <div className="p-2 rounded-lg bg-white border border-slate-200 group-hover:border-[#D4AF37]/40 text-rose-600">
                         <Scale className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] text-slate-500 font-mono">06</span>
+                      <span className="text-[10px] text-slate-500 font-mono">07</span>
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
                       {t.termsOfUse}

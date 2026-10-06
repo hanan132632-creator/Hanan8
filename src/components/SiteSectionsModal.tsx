@@ -2,6 +2,7 @@ import React from 'react';
 import {
   X,
   Compass,
+  Home,
   ShoppingBag,
   BookOpen,
   Users,
@@ -36,9 +37,23 @@ export const SiteSectionsModal: React.FC<SiteSectionsModalProps> = ({
 
   const t = TRANSLATIONS[language];
   const ArrowIcon = language === 'ar' ? ArrowLeft : ArrowRight;
-  const articlesCount = ARTICLES_DATA.length; // 4 articles
+  const articlesCount = ARTICLES_DATA.length; // dynamic count
 
   const sectionsList = [
+    {
+      id: 'home',
+      title: t.navHome,
+      badge: language === 'ar' ? 'الصفحة الرئيسية' : 'Home Frontpage',
+      badgeHighlight: true,
+      description:
+        language === 'ar'
+          ? 'واجهة البوتيك الملكية الرسمية: عروض تشكيلات الألماس والذهب الأكثر طلباً، شهادات الضمان المعتمدة GIA، وضمان الأصالة والشحن المؤمن.'
+          : 'Official royal boutique frontpage: fine jewelry hero collection, GIA certification guarantees, and brand heritage.',
+      icon: Home,
+      color: 'text-[#D4AF37]',
+      bg: 'bg-[#D4AF37]/15',
+      actionTab: 'home',
+    },
     {
       id: 'catalog',
       title: t.theStore,

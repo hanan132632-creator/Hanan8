@@ -73,20 +73,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={onOpenSiteSections}
               className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#D4AF37]/20 hover:bg-[#D4AF37]/30 text-[#D4AF37] border border-[#D4AF37]/40 transition-colors font-semibold cursor-pointer"
-              title={language === 'ar' ? 'انقر لعرض كافة أقسام الموقع وعدد المقالات' : 'Open Site Sections & Article Directory'}
+              title={language === 'ar' ? 'انقر لعرض كافة أقسام الموقع' : 'Open Site Sections'}
             >
               <Compass className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>{t.siteSections}</span>
-              <span className="text-[10px] bg-[#D4AF37] text-[#18181B] px-1 rounded font-mono font-bold">
-                {language === 'ar' ? `${articlesCount} مقالات` : `${articlesCount} Arts`}
-              </span>
             </button>
 
             <span className="hidden md:inline text-white/30">|</span>
             <span className="hidden md:inline text-white/70">
               {language === 'ar'
-                ? `أقسام الموقع تشمل: المتجر · المدونة (${articlesCount} مقالات) · من نحن · اتصل بنا · سياسة الخصوصية · شروط الاستخدام`
-                : `Site includes: Store · Journal (${articlesCount} Articles) · About · Contact · Privacy · Terms`}
+                ? `أقسام الموقع تشمل: الرئيسية · المتجر · المدونة (${articlesCount} مقالات) · من نحن · اتصل بنا · سياسة الخصوصية · شروط الاستخدام`
+                : `Site includes: Home · Store · Journal (${articlesCount} Articles) · About · Contact · Privacy · Terms`}
             </span>
           </div>
 
@@ -124,14 +121,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             title={language === 'ar' ? 'فهرس وأقسام الموقع الرئيسي' : 'Site Sections & Directory'}
           >
             <Compass className="w-5 h-5 text-[#B8902A]" />
-            <div className="hidden sm:flex flex-col text-right rtl:text-right ltr:text-left">
-              <span className="text-xs font-bold text-[#18181B] font-serif-luxury leading-tight">
-                {t.siteSections}
-              </span>
-              <span className="text-[10px] text-[#8C7A5B] font-mono leading-tight">
-                {language === 'ar' ? `${articlesCount} مقالات` : `${articlesCount} Articles`}
-              </span>
-            </div>
+            <span className="hidden sm:inline text-xs font-bold text-[#18181B] font-serif-luxury leading-tight">
+              {t.siteSections}
+            </span>
           </button>
 
           <button
