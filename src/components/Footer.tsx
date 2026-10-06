@@ -193,7 +193,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li className="text-[11px] text-[#FAF8F5]/60">
                 <span className="block text-[#D4AF37]">{t.officialEmail}:</span>
-                <span className="font-mono">concierge@royal-elite.jewels</span>
+                <span className="font-mono">concierge@hanan.blog</span>
               </li>
             </ul>
           </div>

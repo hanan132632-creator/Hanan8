@@ -350,4 +350,338 @@ Premier wealth advisors consistently advise maintaining 5% to 15% of aggregate n
       },
     ],
   },
+  {
+    id: 'natural-pearls-vs-cultured',
+    slug: 'natural-wild-pearls-vs-cultured-pearls-appraisal',
+    titleAr: 'الفرق الجوهري بين اللؤلؤ الطبيعي الحر ولؤلؤ المزارع: أسرار التقييم المخبري والتاريخي',
+    titleEn: 'Natural Wild Pearls vs Cultured Pearls: Gemological Differentiation & Appraisal Secrets',
+    summaryAr: 'دراسة جيولوجية وتاريخية توضح الفروق الدقيقة بين لآلئ الخليج العربي الطبيعية ولآلئ المزارع المستزرعة، مع شرح اختبارات الأشعة السينية X-Ray لكشف طبقات النادر العضوية.',
+    summaryEn: 'A scientific analysis detailing structural divergences between Persian Gulf wild pearls and cultured pearls, detailing microradiography and X-ray luminescence protocols.',
+    categoryAr: 'علوم الأحجار واللؤلؤ',
+    categoryEn: 'Natural Pearls & Gemology',
+    publishDate: '2026-10-04',
+    readTimeAr: '8 دقائق قراءة',
+    readTimeEn: '8 min read',
+    featuredImage: pearlImg,
+    author: {
+      nameAr: 'د. ليلى الشريف',
+      nameEn: 'Dr. Laila Al-Sharif',
+      titleAr: 'أستاذة علوم الأحجار العضوية وخبير لؤلؤ معتمد',
+      titleEn: 'Senior Organic Gemologist & Certified Pearl Appraiser',
+      credentialsAr: 'دكتوراه في علوم البحار الحيوية، خبيرة فحص لؤلؤ معتمدة من معهد دانات (DANAT) لفحص الأحجار الكريمة بالبحرين.',
+      credentialsEn: 'Ph.D. in Marine Biology, certified pearl specialist accredited by DANAT Gem & Pearl Testing Institute.',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
+    },
+    tableOfContentsAr: [
+      'مقدمة: مكانة اللؤلؤ الطبيعي في التراث والقصور الملكية',
+      '1. التكوين العضوي: صدفة الطبيعة مقابل التدخل البشري',
+      '2. الفحص المخبري بالأشعة السينية (X-Ray Microradiography)',
+      '3. البريق الصدفي (Orient & Luster) وسماكة طبقات النادر',
+      '4. معايير تقييم اللؤلؤ الطبيعي في المزادات العالمية',
+    ],
+    tableOfContentsEn: [
+      'Introduction: Sovereign Lore of Natural Marine Pearls',
+      '1. Organic Genesis: Accidental Intrusion vs Human Seeding',
+      '2. Laboratory Authentication via X-Ray Microradiography',
+      '3. Nacre Thickness & Prismatic Orient Interference',
+      '4. International Auction Valuation Metrics',
+    ],
+    sections: [
+      {
+        headingAr: 'مقدمة: مكانة اللؤلؤ الطبيعي في التراث والقصور الملكية',
+        headingEn: 'Introduction: Sovereign Lore of Natural Marine Pearls',
+        contentAr: `على مر العصور، كان اللؤلؤ الطبيعي الحر المستخرج من مياه الخليج العربي أثمن مقتنيات الملوك وأميرات العائلات الحاكمة. وخلافاً للأحجار الكريمة المعدنية التي تتطلب القطع والصقل لإظهار بريقها، يولد اللؤلؤ مكتملاً بجماله الفطري من باطن المحارة.
+ومع انتشار اللؤلؤ المستزرع في بدايات القرن العشرين، أصبح الفحص العلمي الدقيق هو الضمان الوحيد للتمييز بين حبة لؤلؤ تشكلت صدفة عبر عقود من الزمن وتستحق ملايين الريالات، وأخرى استزرعت في مزارع مائية تجارية.`,
+        contentEn: `Throughout human chronicle, wild natural pearls harvested from the historic oyster banks of the Arabian Gulf represented the pinnacle of royal adornment. Unlike crystalline minerals requiring faceting, pearls emerge as self-contained organic masterworks.
+With the 20th-century advent of cultured bead nucleated pearls, laboratory discernment became critical to distinguish rare wild gems command auction fortunes from commercial harvests.`,
+      },
+      {
+        headingAr: '1. الفحص المخبري بالأشعة السينية والكشف عن النواة',
+        headingEn: '1. Laboratory X-Ray Microradiography & Nucleus Detection',
+        contentAr: `السبيل القاطع الوحيد للتمييز بين اللؤلؤ الطبيعي والمستزرع يتم من خلال تقنية التصوير الشعاعي الرقمي بالأشعة السينية (X-Ray Radiography).
+في اللؤلؤ الطبيعي، تُظهر صور الأشعة السينية حلقات متحدة المركز من مادة النادر العضوية تمتد من المركز وحتى السطح الخارجي كحلقات جذع الشجرة، دون أي أثر لنواة صناعية. أما في اللؤلؤ المستزرع، فتظهر نواة خرزية دائرية ضخمة مصنوعة من صدف المياه العذبة يحيط بها غلاف رقيق من النادر لا يتجاوز مليمترات قليلة.`,
+        contentEn: `The definitive scientific method to separate natural wild pearls from cultured varieties relies on direct-digital X-ray microradiography and computed tomography (CT).
+Natural pearls exhibit concentric organic growth rings throughout their cross-section resembling tree rings. Cultured specimens unambiguously reveal a solid synthetic bead nucleus enveloped by a millimeter-thin veneer of nacre.`,
+      },
+    ],
+  },
+  {
+    id: 'colombian-emeralds-guide',
+    slug: 'colombian-emeralds-muzo-jardin-guide',
+    titleAr: 'دليل الزمرد الكولومبي الملكي: أسرار نقاء مناجم موزو وفهم شوائب الحديقة الخضراء (Jardin)',
+    titleEn: 'The Royal Colombian Emerald Guide: Muzo Origin & Deciphering The Jardin Inclusions',
+    summaryAr: 'دليل تخصصي لعشاق الزمرد الأخضر يشرح أسباب تفوق زمرد كولومبيا التاريخي، وكيف تدل شوائب الجاردان الداخلية على أصالة الحجر الطبيعي غير المعالج.',
+    summaryEn: 'An exhaustive connoisseur treatise on Colombian Muzo and Chivor emeralds, interpreting structural three-phase inclusions and the poetry of internal jardin.',
+    categoryAr: 'الأحجار الكريمة النادرة',
+    categoryEn: 'Rare Precious Stones',
+    publishDate: '2026-10-05',
+    readTimeAr: '9 دقائق قراءة',
+    readTimeEn: '9 min read',
+    featuredImage: ringImg,
+    author: {
+      nameAr: 'د. كريم الهاشمي',
+      nameEn: 'Dr. Karim Al-Hashemi',
+      titleAr: 'خبير تقييم أول ومحاضر معهد GIA الدولي',
+      titleEn: 'Senior Gemologist & GIA Graduate Appraiser',
+      credentialsAr: 'خريج معهد الأحجار الكريمة الأمريكي (GIA)، 18 عاماً من الخبرة في فحص الألماس والزمرد بمختبرات بوجوتا ودبي.',
+      credentialsEn: 'GIA Graduate Gemologist (GG), veteran appraiser specializing in South American beryls and color-grade analytics.',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+    },
+    tableOfContentsAr: [
+      'مقدمة: سحر الزمرد الأخضر عبر العصور',
+      '1. مناجم كولومبيا الأسطورية (موزو وشيفور وكوسكويز)',
+      '2. شوائب الحديقة (Jardin): بصمة الطبيعة التي لا تتكرر',
+      '3. الشوائب ثلاثية الأطوار (Three-Phase Inclusions)',
+      '4. درجات المعالجة بالزيوت الطبيعية (Minor vs Moderate Oil)',
+    ],
+    tableOfContentsEn: [
+      'Introduction: Sovereign Mystique of Imperial Beryl',
+      '1. Legendary Colombian Mines: Muzo, Chivor & Coscuez',
+      '2. Deciphering the Internal Jardin (Moss-Like Fingerprints)',
+      '3. Diagnostic Three-Phase Fluid Inclusions',
+      '4. Clarity Enhancement Grading: Insignificant to Heavy Resin',
+    ],
+    sections: [
+      {
+        headingAr: 'مناجم كولومبيا الأسطورية وسر اللون الأخضر الدافئ',
+        headingEn: 'Legendary Colombian Mines & The Chromium Hue Factor',
+        contentAr: `يستمد الزمرد الكولومبي مكانته المتصدرة عالمياً من التوازن الكيميائي الدقيق في تركيبته البلورية؛ إذ يكتسب لونه الأخضر المشبع الفاتن من عنصر الكروم النادر، مع شبه انعدام لعنصر الحديد الذي يضفي صبغة رمادية أو زرقاء قاتمة على زمرد مناطق أخرى في العالم.
+مناجم موزو (Muzo) التاريخية، المحاطة بالجبال الشاهقة، تُنتج أحجاراً تتميز بظاهرة التوهج الذاتي الأخضر المخملي (Velvety Warm Green) التي لا تضاهيها أي أحجار كريمة أخرى.`,
+        contentEn: `Colombian emeralds command international preeminence owing to unique geological thermodynamics. Their radiant saturated green emanates predominantly from chromium trace elements in sedimentary host rocks, virtually free of iron quenching that dulls African emeralds.
+Muzo deposit specimens display a celebrated velvety, internally glowing verdant tone that remains legendary across high jewelry auctions.`,
+      },
+      {
+        headingAr: 'شوائب الحديقة (Jardin): لماذا تعد دليلاً على أصالة الحجر؟',
+        headingEn: 'The Poetic Jardin: Immutable Proof of Geological Authenticity',
+        contentAr: `على عكس الألماس الذي يُطلب فيه الخلو التام من الشوائب، فإن الزمرد الطبيعي الخالي تماماً من الشوائب عملياً غير موجود في الطبيعة؛ وأي حجر زمرد يبدو نظيفاً بنسبة 100% ورخيص الثمن هو حتماً زجاج مقلد أو حجر صناعي مخبري (Hydrothermal Synthetic).
+يطلق علماء الأحجار الكريمة على الشوائب الداخلية للزمرد اسم "الحديقة" (Le Jardin) لما تشبهه من خيوط طحلبية ناعمة وفقاعات سائلة وغازية وبلورات هاليد الملح (Three-phase inclusions) تؤكد المنشأ الجيولوجي الطبيعي للحجر دون أدنى شك.`,
+        contentEn: `Unlike diamonds where flawless clarity is coveted, perfectly inclusion-free emeralds essentially do not exist in nature; an emerald devoid of inclusions is either synthetic or paste glass.
+Gemologists poeticize internal emerald patterns as "Le Jardin" (the garden), referencing delicate dendritic veils, halite cubes, and multiphase fluid-gas chambers that decisively certify authentic natural origin.`,
+      },
+    ],
+  },
+  {
+    id: 'hallmarks-and-karats-guide',
+    slug: 'definitive-hallmarking-gold-silver-platinum-guide',
+    titleAr: 'دليل قراءة دمغات الذهب والفضة والبلاتين: كيف تفك رموز الصاغة المجهرية وتتحقق من العيارات',
+    titleEn: 'The Definitive Hallmarking Guide: How to Read Micro-Assay Stamps on Gold, Silver & Platinum',
+    summaryAr: 'دليل عملي مصور يشرح كيفية فك رموز الدمغات الرسمية المعتمدة (Au 750, Au 875, Ag 925, Pt 950)، وأختام مكاتب الفحص الخليجية والأوروبية لحماية المشتري من الغش التجاري.',
+    summaryEn: 'A practical metallurgical manual breaking down laser and punched assay hallmarks across European and Gulf standards, enabling instant verification of metal karats.',
+    categoryAr: 'المعادن الثمينة والدمغات',
+    categoryEn: 'Metallurgy & Assay Stamps',
+    publishDate: '2026-10-05',
+    readTimeAr: '7 دقائق قراءة',
+    readTimeEn: '7 min read',
+    featuredImage: bullionImg,
+    author: {
+      nameAr: 'المهندسة نورة المنصور',
+      nameEn: 'Eng. Noura Al-Mansoor',
+      titleAr: 'كبيرة مهندسي المعادن وفاحصة دمغات معتمدة',
+      titleEn: 'Senior Metallurgist & Certified Assay Specialist',
+      credentialsAr: 'ماجستير في هندسة المعادن الثمينة، خبيرة معتمدة في تقنيات مطيافية الأشعة السينية (XRF) وفحص السبائك الخليجية والأوروبية.',
+      credentialsEn: 'M.Sc. in Metallurgy, certified specialist in X-ray Fluorescence (XRF) spectrometry and precious metal assay protocols.',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
+    },
+    tableOfContentsAr: [
+      'ما هي الدمغة الرسمية ولماذا هي إلزامية قانونياً؟',
+      '1. رموز دمغات الذهب: 750 (18k) و 875 (21k) و 999 (24k)',
+      '2. دمغات الفضة البريطانية والأوروبية: 925 و Sterling',
+      '3. دمغات البلاتين الملكي: Pt 950 و 900',
+      '4. استخدام عدسة الصائغ 10x لفحص جودة الدمغة ونظافتها',
+    ],
+    tableOfContentsEn: [
+      'The Legal Mandate of Official Precious Metal Assay',
+      '1. Decoding Gold Fineness: 750 (18k), 875 (21k), 999.9 (24k)',
+      '2. British & International Sterling Silver Hallmarks: 925 Standard',
+      '3. Royal Platinum Fineness: Pt 950 vs Pt 900',
+      '4. Using a 10x Jeweler Loupe for Clean Strike Verification',
+    ],
+    sections: [
+      {
+        headingAr: 'فك شفرة الأرقام الثلاثية على المشغولات الذهبية',
+        headingEn: 'Deciphering Millesimal Fineness Numbers on Fine Jewelry',
+        contentAr: `تعتمد المعايير الدولية والأنظمة الخليجية نظام الأجزاء من الألف (Millesimal Fineness) لدمغ المعادن الثمينة:
+- الرقم 750: يعني عيار 18 قيراط، أي أن القطعة تحتوي على 75% ذهباً خالصاً و 25% معادن تقوية.
+- الرقم 875: يعني عيار 21 قيراط، أي 87.5% ذهب نقي، وهو العيار الأكثر شعبية في الأعراس والمناسبات التراثية الخليجية.
+- الرقم 999 أو 999.9: يعني ذهب خالص بنسبة 99.99% وهو عيار سبائك الاستثمار السيادية 24 قيراط.
+- الرقم 925: الدمغة العالمية للفضة الإسترلينية النقية.
+- الرمز Pt 950: دمغة البلاتين النقي بنسبة 95%.`,
+        contentEn: `Global assay authorities mandate the millesimal fineness stamping system to declare pure elemental percentage:
+- 750: Identifies 18 karat gold (75.0% pure elemental gold alloyed with 25% refining metals).
+- 875: Identifies 21 karat gold (87.5% purity), the Middle Eastern benchmark for heritage bridal dowries.
+- 999.9: Denotes 24 karat absolute fine gold reserved for minted investment bars.
+- 925: The universal benchmark for British sterling silver.
+- Pt 950: Pure platinum hallmarking reflecting 95.0% noble metal content.`,
+      },
+      {
+        headingAr: 'الفارق بين الدمغ الميكانيكي والحفر بالليزر الحديث',
+        headingEn: 'Traditional Punch Strikes vs Precision Laser Inscription',
+        contentAr: `في الماضي، كانت الدمغات تُدق يدوياً بواسطة قوالب فولاذية (Steel Punches)، مما كان يترك أحياناً انبعاجات طفيفة على الحزام الرفيع للخواتم. اليوم، تستخدم المختبرات الرسمية أجهزة الحفر الليزري الميكروي (Micro-Laser Hallmarking) التي تحفر الأرقام وشعار وزارة التجارة بدقة متناهية لا تُرى إلا بعدسة التكبير، دون أي تشويه لشكل القطعة أو ملمسها الناعم.`,
+        contentEn: `Historical hallmarking utilized physical hardened steel punch stamps, which occasionally stressed thin ring shanks. Contemporary accredited assay offices employ non-deforming micro-laser ablation, inscribing indelible hallmark codes readable under 10x magnification without altering structural tolerances.`,
+      },
+    ],
+  },
+  {
+    id: 'engagement-ring-styles-history',
+    slug: 'architectural-evolution-royal-engagement-rings',
+    titleAr: 'تطور وتاريخ تصاميم خواتم الخطوبة والسوليتير الملكية: من العصر الفيكتوري إلى العصر الحديث',
+    titleEn: 'The Architectural Evolution of Royal Engagement Rings: From Victorian to Modern Solitaires',
+    summaryAr: 'رحلة تاريخية شيقة توثق ولادة تقليد خواتم الألماس، وتطور ترصيع السوليتير، ومخالب برونج، وهندسة آرت ديكو الشهيرة في تصاميم أشهر دور المجوهرات الملكية.',
+    summaryEn: 'A curatorial overview tracking the cultural, geological, and architectural metamorphosis of bridal solitaire rings across Georgian, Edwardian, and Art Deco epochs.',
+    categoryAr: 'تاريخ الفنون والمجوهرات',
+    categoryEn: 'Jewelry History & Design',
+    publishDate: '2026-10-06',
+    readTimeAr: '8 دقائق قراءة',
+    readTimeEn: '8 min read',
+    featuredImage: heroImg,
+    author: {
+      nameAr: 'الأستاذ فيصل السديري',
+      nameEn: 'Master Artisan Faisal Al-Sudairi',
+      titleAr: 'رئيس ورشة الصياغة والترميم الملكي',
+      titleEn: 'Head of Royal Restoration & Master Jeweler',
+      credentialsAr: 'خبير صياغة حاصل على وسام الحرفية الذهبية، 24 عاماً في ترميم المجوهرات الملكية والقطع التراثية النادرة.',
+      credentialsEn: 'Master Goldsmith & Royal Conservator with 24 years restoring sovereign jewelry and private collection heirlooms.',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+    },
+    tableOfContentsAr: [
+      'متى بدأ تقليد خاتم الخطوبة الألماسي في التاريخ؟',
+      '1. الطراز الفيكتوري والرموز العاطفية في صياغة الذهب',
+      '2. العصر الإدواردي وظهور البلاتين وشبكات الدانتيل المعدنية',
+      '3. طراز الآرت ديكو (Art Deco) وثورة الخطوط الهندسية الصارمة',
+      '4. ابتكار ترصيع السوليتير ذو الست مخالب والبريق الحديث',
+    ],
+    tableOfContentsEn: [
+      'The Archduke Maximilian Commission of 1477',
+      '1. Victorian Sentimentalism & Floral Metallurgy',
+      '2. The Edwardian Era: Platinum Lace & Filigree Mastery',
+      '3. Art Deco Architectural Geometry & Baguette Stepped Cuts',
+      '4. The Modern 6-Prong Elevated Solitaire Revolution',
+    ],
+    sections: [
+      {
+        headingAr: 'من أرشيدوق النمسا 1477 إلى ثورة الآرت ديكو',
+        headingEn: 'From Archduke Maximilian to the Art Deco Metamorphosis',
+        contentAr: `يعود أول توثيق تاريخي لخاتم خطوبة مرصع بالألماس إلى عام 1477 عندما قدم الأرشيدوق مكسيميليان النمساوي خاتماً مرصعاً بألماس يشكل حرف M إلى ماري أميرة بورغوندي.
+ولكن ثورة التصاميم الحقيقية انطلقت في عشرينيات القرن العشرين مع حركة الآرت ديكو (Art Deco)، حيث تحول الصاغة من الزخارف النباتية المعقدة إلى الخطوط الهندسية الحادة، وتنسيق الألماس الباجيت والزمرد حول حجر السوليتير المركزي ليعكس روح الحداثة والجرأة.`,
+        contentEn: `The recorded provenance of diamond bridal jewelry originated in 1477 when Archduke Maximilian of Austria commissioned a diamond ring forming the initial 'M' for Mary of Burgundy.
+However, modern ring architecture coalesced during the 1920s Art Deco revolution, abandoning naturalistic swirls in favor of crystalline symmetry, stepped baguette accents, and clean platinum profiles that continue inspiring royal commissions today.`,
+      },
+      {
+        headingAr: 'ترصيع السوليتير المرفوع وأثره على إشعاع الضوء',
+        headingEn: 'Elevated Prong Solitaire Settings & Maximum Light Performance',
+        contentAr: `في أواخر القرن التاسع عشر، كان الألماس يُثبت داخل قواعد مغلقة من الأسفل (Bezel Settings)، مما كان يحجب الضوء عن قاع الحجر. وجاء التحول العبقري بابتكار الترصيع ذي المخالب المرتفعة (Prong Setting) الذي رفع الألماسة في الهواء وسمح للضوء بالدخول من كافة الجوانب، لتتحول الألماسة من مجرد حجر مثبت إلى شعلة ضوئية براقة تخطف الأبصار.`,
+        contentEn: `Pre-industrial jewelry mounted diamonds deep within enclosed collets (bezel settings), inhibiting sub-surface photon entry. The late 19th-century invention of elevated prong baskets liberated the gem, funneling ambient illumination through the pavilion facets to trigger the hypnotic fire admired in contemporary solitaire rings.`,
+      },
+    ],
+  },
+  {
+    id: 'colored-diamonds-rarity',
+    slug: 'fancy-color-diamonds-rarity-valuation-guide',
+    titleAr: 'أسرار الألماس الملون النادر (Fancy Color Diamonds): القيمة الاستثمارية لألوان الوردي والأزرق والأصفر',
+    titleEn: 'The Enigma of Fancy Color Diamonds: Scarcity, Molecular Grading & Auction Valuations',
+    summaryAr: 'دليل استثماري علمي يستكشف أندر كنوز الأرض: الألماس الوردي والأزرق والأصفر، وأسباب وصول أسعار القيراط الواحد منها إلى ملايين الدولارات في مزادات سوثبيز وكريستيز.',
+    summaryEn: 'An advanced gemological treatise examining lattice deformation and nitrogen/boron impurities responsible for Fancy Vivid Pink, Blue, and Canary Yellow diamonds.',
+    categoryAr: 'علوم الأحجار الكريمة',
+    categoryEn: 'Gemological Science',
+    publishDate: '2026-10-06',
+    readTimeAr: '9 دقائق قراءة',
+    readTimeEn: '9 min read',
+    featuredImage: pearlImg,
+    author: {
+      nameAr: 'د. كريم الهاشمي',
+      nameEn: 'Dr. Karim Al-Hashemi',
+      titleAr: 'خبير تقييم أول ومحاضر معهد GIA الدولي',
+      titleEn: 'Senior Gemologist & GIA Graduate Appraiser',
+      credentialsAr: 'خريج معهد الأحجار الكريمة الأمريكي (GIA)، 18 عاماً من الخبرة في فحص الألماس والزمرد بمختبرات بوجوتا ودبي.',
+      credentialsEn: 'GIA Graduate Gemologist (GG), veteran appraiser specializing in South American beryls and color-grade analytics.',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+    },
+    tableOfContentsAr: [
+      'مقدمة: ما هو الألماس الملون ولماذا يشكل 0.01% فقط من الإنتاج العالمي؟',
+      '1. الألماس الوردي (Fancy Pink) ولغز إغلاق منجم أرجيل',
+      '2. الألماس الأزرق (Fancy Blue) وسر ذرات البورون النادرة',
+      '3. الألماس الأصفر الكناري (Canary Yellow) وتشبع النيتروجين',
+      '4. نظام تقييم الألوان بمعهد GIA (Faint إلى Fancy Vivid)',
+    ],
+    tableOfContentsEn: [
+      'Introduction: The 0.01% Phenomenon of Natural Color Carbon',
+      '1. Fancy Pink Diamonds & The Historic Argyle Mine Closure',
+      '2. Fancy Blue Diamonds & Sub-Crustal Boron Trace Physics',
+      '3. Canary Yellows: Nitrogen Atomic Clusters',
+      '4. GIA Intensity Benchmark: Faint to Fancy Vivid',
+    ],
+    sections: [
+      {
+        headingAr: 'ظاهرة الألماس الملون: طفرات جيولوجية نادرة للغاية',
+        headingEn: 'The Molecular Physics of Fancy Color Phenomena',
+        contentAr: `من بين كل 10,000 ألماسة طبيعية يتم استخراجها من باطن الأرض، توجد ألماسة ملونة واحدة فقط تستوفي معايير الألماس الملون النادر (Fancy Color Diamond).
+خلافاً للأحجار الكريمة الأخرى التي تكتسب ألوانها من عناصر معدنية دخيلة، فإن الألماس الوردي يكتسب لونه الساحر من تشوه مجهري في الشبكة البلورية لذرات الكربون بفعل ضغوط باطنية هائلة، مما يجعله معجزة جيولوجية لا يمكن تكرارها. ومع إغلاق منجم أرجيل الشهير في أستراليا، تضاعفت أسعار الألماس الوردي بنسب قياسية تفوقت على كافة المؤشرات المالية العالمية.`,
+        contentEn: `For every 10,000 carats of gem-quality diamonds mined, merely a single carat possesses sufficient coloration to qualify as a GIA Fancy Color Diamond.
+While Canary Yellows derive their hue from isolated nitrogen atoms and Blues from boron traces, Fancy Pink diamonds owe their coloration to plastic deformation in the carbon crystal lattice. Following the closure of Australia's Argyle mine, natural pink diamonds achieved historic capital appreciation exceeding major equity indices.`,
+      },
+      {
+        headingAr: 'درجات التشبع والتقييم الاستثماري العالمي',
+        headingEn: 'GIA Color Intensity Spectrum & Ultra-High Net Worth Hedging',
+        contentAr: `يقيم معهد GIA الألماس الملون وفق مقياس تشبع لوني فريد يبدأ من Faint (خافت جداً) ويمر بـ Light و Fancy و Fancy Intense وحتى قمة الهرم Fancy Vivid (حيوي مشبع للغاية).
+كلما ارتفعت درجة التشبع اللوني وتجانس الحجر مع وزن يتجاوز 1 قيراط، تحول الحجر إلى عملة نادرة تنافس عليها أكبر الصناديق الاستثمارية العائلية وأثرياء العالم في المزادات الدولية الكبرى.`,
+        contentEn: `GIA evaluates colored diamonds across specialized saturation tiers: Faint, Light, Fancy, Fancy Intense, Fancy Deep, and the pinnacle Fancy Vivid.
+Specimens exhibiting Fancy Vivid saturation coupled with verified eye-clean clarity represent portable, sovereign-grade wealth reserves sought by elite family offices and royal collection conservators globally.`,
+      },
+    ],
+  },
+  {
+    id: 'bespoke-jewelry-commission-guide',
+    slug: 'bespoke-high-jewelry-commission-process-guide',
+    titleAr: 'دليل تصميم المجوهرات الملكية المخصصة (Bespoke): من الرسم اليدوي والتجسيم 3D إلى الترصيع النهائي',
+    titleEn: 'Commissioning Bespoke Sovereign High Jewelry: From Gouache Sketch to Micro-Pavé Setting',
+    summaryAr: 'دليل عملي يشرح مراحل طلب وصياغة قطعة مجوهرات حصرية خاصة بك في البوتيك: اختيار الحجر المركزي، الرسم بالألوان المائية، الطباعة ثلاثية الأبعاد، والترصيع المجهري.',
+    summaryEn: 'An inside look into our grand atelier bespoke commission protocol: loose stone curation, gouache rendering, CAD wax prototype, and master goldsmithing.',
+    categoryAr: 'الصياغة اليدوية والتصميم',
+    categoryEn: 'Bespoke Haute Joaillerie',
+    publishDate: '2026-10-06',
+    readTimeAr: '7 دقائق قراءة',
+    readTimeEn: '7 min read',
+    featuredImage: heroImg,
+    author: {
+      nameAr: 'الأستاذ فيصل السديري',
+      nameEn: 'Master Artisan Faisal Al-Sudairi',
+      titleAr: 'رئيس ورشة الصياغة والترميم الملكي',
+      titleEn: 'Head of Royal Restoration & Master Jeweler',
+      credentialsAr: 'خبير صياغة حاصل على وسام الحرفية الذهبية، 24 عاماً في ترميم المجوهرات الملكية والقطع التراثية النادرة.',
+      credentialsEn: 'Master Goldsmith & Royal Conservator with 24 years restoring sovereign jewelry and private collection heirlooms.',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+    },
+    tableOfContentsAr: [
+      'ما هي خدمة التصميم المخصص (Bespoke Haute Joaillerie)؟',
+      'المرحلة 1: جلسة الاستشارة واختيار الحجر الخام أو المعتمد',
+      'المرحلة 2: الرسم الفني اليدوي بألوان الجواش (Gouache Rendering)',
+      'المرحلة 3: النمذجة الرقمية ثلاثية الأبعاد وبروفة الشمع',
+      'المرحلة 4: الصب والترصيع المجهري والدمغ الرسمي',
+    ],
+    tableOfContentsEn: [
+      'The Essence of Bespoke Haute Joaillerie Commissions',
+      'Phase 1: Private Salon Consultation & Gemstone Sourcing',
+      'Phase 2: Master Gouache Watercolor Illustration',
+      'Phase 3: Precision CAD Modeling & 3D Wax Prototype Trial',
+      'Phase 4: Casting, Micro-Pavé Setting & Official Assay Stamping',
+    ],
+    sections: [
+      {
+        headingAr: 'تحويل الرؤية الشخصية إلى تحفة إرث عائلي',
+        headingEn: 'Transforming Personal Vision into Eternal Heirloom',
+        contentAr: `خدمة التصميم الخاص (Bespoke) هي أسمى درجات الفخامة في عالم المجوهرات الراقية؛ حيث لا يقتصر الأمر على شراء قطعة معروضة في واجهة المتجر، بل يشارك العميل كشريك إبداعي في ولادة قطعة فريدة من نوعها في العالم لا يملك أحد شبيهاً لها.
+تبدأ الرحلة بجلسة خاصة في صالون كبار العملاء لتحديد المناسبة، نوع المعدن المفضل (ذهب أصفر أو أبيض 18k أو بلاتين 950)، واختيار الحجر المركزي سواء كان ألماسة نادرة بشهادة GIA أو ياقوتاً سيلانياً أو زمرد موزو كولومبي.`,
+        contentEn: `Bespoke commission represents the apex of high jewelry artistry. Rather than acquiring a ready-to-wear piece, the patron becomes a co-creator of an unrepeatable family artifact destined to span centuries.
+The journey initiates with a confidential salon session to define silhouette parameters, precious alloy preferences (18k yellow, white, or platinum 950), and direct curation of certified center gems.`,
+      },
+      {
+        headingAr: 'من بروفة الشمع إلى الترصيع المجهري الدقيق',
+        headingEn: 'From Wax Prototype Fitting to Microscopic Diamond Setting',
+        contentAr: `بعد اعتماد الرسم اليدوي، يقوم فريق النمذجة بتصميم القطعة على برامج هندسية دقيقة وطباعة نموذج شمعي ملموس بالحجم الطبيعي، يمكن للعميل تجربته ولمسه للتأكد من الراحة والتناسق قبل صب الذهب.
+تنتقل القطعة بعد ذلك إلى أيدي كبار الصاغة لصب الذهب عيار 18k أو 21k، ثم الترصيع تحت المجاهر البصرية عالية الدقة (Microscope Setting) لضمان ثبات كل حجر ألماسي بافيه وتوجيهه بزاوية تعكس أقصى بريق للضوء.`,
+        contentEn: `Following gouache sketch sign-off, master modelers engineer parametric CAD renders and 3D-print an exact resin/wax prototype for tactile ergonomic fitting.
+Upon patron confirmation, noble gold is vacuum-cast and handed to master stone setters who mount micro-pavé diamonds under high-magnification microscopes, ensuring absolute mechanical resilience and maximized light reflection.`,
+      },
+    ],
+  },
 ];

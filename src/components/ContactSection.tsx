@@ -228,7 +228,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ language }) => {
                   <span className="font-bold text-[#18181B] block font-serif-luxury">
                     {t.officialEmail}
                   </span>
-                  <span className="text-[#B8902A] font-mono">concierge@royal-elite.jewels</span>
+                  <span className="text-[#B8902A] font-mono">concierge@hanan.blog</span>
                 </div>
               </div>
             </div>

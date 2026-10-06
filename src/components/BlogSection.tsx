@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BookOpen, Calendar, Clock, ArrowRight, ArrowLeft, ShieldCheck, Sparkles } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { BookOpen, Calendar, Clock, ArrowRight, ArrowLeft, ShieldCheck, Sparkles, Search, X } from 'lucide-react';
 import { Article, Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { ARTICLES_DATA } from '../data/articles.ts';
@@ -14,6 +14,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
   const t = TRANSLATIONS[language];
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const ArrowIcon = language === 'ar' ? ArrowLeft : ArrowRight;
 
   if (selectedArticle) {
@@ -29,31 +30,54 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
   }
 
   const categories = [
-    { id: 'all', labelAr: 'كافة المقالات المخبرية', labelEn: 'All Dissertations' },
-    { id: 'gems', labelAr: 'علوم الألماس والأحجار', labelEn: 'Diamond & Gemology' },
+    { id: 'all', labelAr: `كافة المقالات (${ARTICLES_DATA.length})`, labelEn: `All Articles (${ARTICLES_DATA.length})` },
+    { id: 'gems', labelAr: 'الألماس والأحجار النادرة', labelEn: 'Diamonds & Rare Gems' },
+    { id: 'pearls', labelAr: 'اللؤلؤ الطبيعي', labelEn: 'Natural Marine Pearls' },
     { id: 'metals', labelAr: 'المعادن والدمغات 925', labelEn: 'Assaying & Silver 925' },
     { id: 'care', labelAr: 'العناية والصيانة', labelEn: 'Care & Restoration' },
     { id: 'invest', labelAr: 'الاستثمار والسبائك', labelEn: 'Bullion Investment' },
+    { id: 'history', labelAr: 'تاريخ الخواتم والصياغة', labelEn: 'History & Bespoke Craft' },
   ];
 
-  const filteredArticles = ARTICLES_DATA.filter((a) => {
-    if (selectedCategory === 'all') return true;
-    if (selectedCategory === 'gems') return a.id.includes('diamond');
-    if (selectedCategory === 'metals') return a.id.includes('silver');
-    if (selectedCategory === 'care') return a.id.includes('care');
-    if (selectedCategory === 'invest') return a.id.includes('gold-bullion');
-    return true;
-  });
+  const filteredArticles = useMemo(() => {
+    return ARTICLES_DATA.filter((a) => {
+      // Category filter
+      if (selectedCategory !== 'all') {
+        if (selectedCategory === 'gems' && !a.id.includes('diamond') && !a.id.includes('emerald')) return false;
+        if (selectedCategory === 'pearls' && !a.id.includes('pearl')) return false;
+        if (selectedCategory === 'metals' && !a.id.includes('silver') && !a.id.includes('hallmark')) return false;
+        if (selectedCategory === 'care' && !a.id.includes('care')) return false;
+        if (selectedCategory === 'invest' && !a.id.includes('gold-bullion')) return false;
+        if (selectedCategory === 'history' && !a.id.includes('ring-styles') && !a.id.includes('bespoke')) return false;
+      }
+
+      // Search query filter
+      if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase();
+        const matchTitle = (a.titleAr + a.titleEn).toLowerCase().includes(query);
+        const matchSummary = (a.summaryAr + a.summaryEn).toLowerCase().includes(query);
+        const matchAuthor = (a.author.nameAr + a.author.nameEn).toLowerCase().includes(query);
+        const matchCategory = (a.categoryAr + a.categoryEn).toLowerCase().includes(query);
+        return matchTitle || matchSummary || matchAuthor || matchCategory;
+      }
+
+      return true;
+    });
+  }, [selectedCategory, searchQuery]);
 
   const featured = ARTICLES_DATA[0];
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Editorial Header */}
-      <div className="text-center max-w-3xl mx-auto space-y-4 mb-10">
+      <div className="text-center max-w-3xl mx-auto space-y-4 mb-8">
         <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#B8902A] tracking-wider uppercase">
           <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-          <span>{t.journalBadge}</span>
+          <span>
+            {language === 'ar'
+              ? `مجلة المجوهرات EEAT · ${ARTICLES_DATA.length} مقالات منشورة`
+              : `EEAT Gemological Journal · ${ARTICLES_DATA.length} Articles`}
+          </span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-bold text-[#18181B] font-serif-luxury [text-wrap:balance]">
           {t.journalTitle}
@@ -61,6 +85,32 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
         <p className="text-xs sm:text-sm text-[#18181B]/70 leading-relaxed font-light">
           {t.journalSubtitle}
         </p>
+
+        {/* Search Bar */}
+        <div className="max-w-md mx-auto pt-2">
+          <div className="relative">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder={
+                language === 'ar'
+                  ? 'ابحث في مقالات الألماس، الفضة، الذهب، واللؤلؤ...'
+                  : 'Search treatises by gem, metal, or topic...'
+              }
+              className="w-full px-4 py-2.5 pr-10 rtl:pr-10 rtl:pl-10 ltr:pl-10 ltr:pr-10 text-xs sm:text-sm rounded-xl border border-slate-300 focus:border-[#D4AF37] focus:outline-none bg-white shadow-inner"
+            />
+            <Search className="w-4 h-4 text-[#8C7A5B] absolute right-3 rtl:right-3 ltr:left-3 top-3.5" />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute left-3 rtl:left-3 ltr:right-3 top-3 text-slate-400 hover:text-slate-700"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+        </div>
 
         {/* Categories selector buttons */}
         <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
