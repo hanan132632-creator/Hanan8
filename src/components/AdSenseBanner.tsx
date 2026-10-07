@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
+
+const ADSENSE_CLIENT_ID = 'ca-pub-3298241753177072';
 
 interface AdSenseBannerProps {
   type: 'leaderboard' | 'sidebar' | 'in_article';
@@ -10,24 +12,36 @@ interface AdSenseBannerProps {
 export const AdSenseBanner: React.FC<AdSenseBannerProps> = ({ type, language }) => {
   const t = TRANSLATIONS[language];
 
+  useEffect(() => {
+    try {
+      const win = window as unknown as { adsbygoogle?: unknown[] };
+      win.adsbygoogle = win.adsbygoogle || [];
+      win.adsbygoogle.push({});
+    } catch {
+      // Ignore adsbygoogle errors in development
+    }
+  }, []);
+
   if (type === 'leaderboard') {
     return (
       <div className="w-full my-8">
-        <div className="max-w-4xl mx-auto border border-[#D4AF37]/25 bg-[#FAF8F5]/80 rounded-xl p-4 text-center">
+        <div className="max-w-4xl mx-auto border border-[#D4AF37]/25 bg-[#FAF8F5]/90 rounded-xl p-4 text-center overflow-hidden">
           <div className="text-[11px] tracking-wider uppercase text-[#8C7A5B] font-medium mb-2">
             {t.adDisclosure}
           </div>
-          <div className="h-24 sm:h-28 bg-gradient-to-r from-[#18181B]/5 via-[#D4AF37]/10 to-[#18181B]/5 rounded-lg flex flex-col items-center justify-center p-3 border border-[#D4AF37]/15">
-            <span className="text-xs sm:text-sm font-medium text-[#18181B]/80 font-serif-luxury">
-              {language === 'ar'
-                ? 'مساحة إعلانية متوافقة مع سياسات شبكة Google AdSense الإعلانية'
-                : 'Verified Google AdSense Responsive Display Banner Slot'}
-            </span>
-            <span className="text-[11px] text-[#8C7A5B] mt-1">
-              {language === 'ar'
-                ? 'إعلانات تفاعلية ملائمة لاهتمامات مقتني التحف والمجوهرات الراقية (728x90 / Responsive)'
-                : 'Targeted High Jewelry & Luxury Lifestyle Contextual Placement'}
-            </span>
+          {/* Real Google AdSense Unit */}
+          <ins
+            className="adsbygoogle"
+            style={{ display: 'block', minHeight: '90px' }}
+            data-ad-client={ADSENSE_CLIENT_ID}
+            data-ad-slot="auto"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          />
+          <div className="mt-2 text-[10px] text-[#8C7A5B]/80">
+            {language === 'ar'
+              ? 'مساحة إعلانية متوافقة مع Google AdSense (ca-pub-3298241753177072)'
+              : 'Google AdSense Verified Placement (ca-pub-3298241753177072)'}
           </div>
         </div>
       </div>
@@ -36,17 +50,21 @@ export const AdSenseBanner: React.FC<AdSenseBannerProps> = ({ type, language }) 
 
   if (type === 'sidebar') {
     return (
-      <div className="w-full my-6 border border-[#D4AF37]/25 bg-[#FAF8F5] rounded-xl p-4 text-center">
+      <div className="w-full my-6 border border-[#D4AF37]/25 bg-[#FAF8F5] rounded-xl p-4 text-center overflow-hidden">
         <div className="text-[10px] tracking-wider uppercase text-[#8C7A5B] font-medium mb-2">
           {t.adDisclosure}
         </div>
-        <div className="h-64 bg-gradient-to-b from-[#18181B]/5 via-[#D4AF37]/10 to-[#18181B]/5 rounded-lg flex flex-col items-center justify-center p-4 border border-[#D4AF37]/15">
-          <span className="text-xs font-semibold text-[#18181B]/80 font-serif-luxury">
-            {language === 'ar' ? 'مساحة إعلان عمودي Google AdSense' : 'Google AdSense Skyscraper Slot'}
-          </span>
-          <span className="text-[11px] text-[#8C7A5B] mt-2">
-            {language === 'ar' ? 'إعلانات فاخرة معتمدة (300x250)' : 'Responsive 300x250 Rectangle Unit'}
-          </span>
+        {/* Real Google AdSense Skyscraper/Rectangle Unit */}
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block', minHeight: '250px' }}
+          data-ad-client={ADSENSE_CLIENT_ID}
+          data-ad-slot="auto"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+        <div className="mt-2 text-[10px] text-[#8C7A5B]/80">
+          {language === 'ar' ? 'إعلان Google AdSense معتمد' : 'Google AdSense Verified Ad Unit'}
         </div>
       </div>
     );
@@ -54,16 +72,23 @@ export const AdSenseBanner: React.FC<AdSenseBannerProps> = ({ type, language }) 
 
   return (
     <div className="my-8 py-2">
-      <div className="border border-dashed border-[#D4AF37]/35 bg-[#FAF8F5] rounded-xl p-4 text-center">
+      <div className="border border-dashed border-[#D4AF37]/35 bg-[#FAF8F5] rounded-xl p-4 text-center overflow-hidden">
         <div className="text-[10px] tracking-wider uppercase text-[#8C7A5B] font-medium mb-1.5">
           {t.adDisclosure}
         </div>
-        <div className="h-20 bg-gradient-to-r from-[#D4AF37]/5 via-[#064E3B]/5 to-[#D4AF37]/5 rounded-lg flex flex-col items-center justify-center p-2">
-          <span className="text-xs text-[#18181B]/75 font-serif-luxury">
-            {language === 'ar'
-              ? 'مساحة إعلانية مدمجة داخل محتوى المقال (In-Article Ad Unit)'
-              : 'Native In-Article Contextual Ad Placement'}
-          </span>
+        {/* Real In-Article Google AdSense Unit */}
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block', textAlign: 'center' }}
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client={ADSENSE_CLIENT_ID}
+          data-ad-slot="auto"
+        />
+        <div className="mt-1.5 text-[10px] text-[#8C7A5B]/80">
+          {language === 'ar'
+            ? 'مساحة إعلانية مدمجة Google AdSense داخل المحتوى'
+            : 'Google AdSense Native In-Article Placement'}
         </div>
       </div>
     </div>
