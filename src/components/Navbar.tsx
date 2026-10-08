@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'catalog', label: t.theStore },
     {
       id: 'journal',
-      label: language === 'ar' ? `المدونة (${articlesCount} مقالات)` : `Journal (${articlesCount} Articles)`,
+      label: language === 'ar' ? `المدونة (${articlesCount} مقالاً)` : `Journal (${articlesCount} Articles)`,
       hasBadge: true,
     },
     { id: 'tools', label: t.navTools },
@@ -209,7 +209,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => handleNavClick('journal')}
                 className="text-[#B8902A] font-semibold hover:underline"
               >
-                {language === 'ar' ? `المدونة (${articlesCount} مقالات)` : `Journal (${articlesCount} Articles)`}
+                {language === 'ar' ? `المدونة (${articlesCount} مقالاً)` : `Journal (${articlesCount} Articles)`}
               </button>
               <span>·</span>
               <button

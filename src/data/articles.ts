@@ -4,6 +4,34 @@ import ringImg from '../assets/images/product_solitaire_ring_1791298025877.jpg';
 import bullionImg from '../assets/images/gold_bullion_investment_1791298056029.jpg';
 import pearlImg from '../assets/images/product_pearl_bracelet_1791298046092.jpg';
 import { ARTICLES_BATCH_2 } from './articles-batch2.ts';
+import { ARTICLES_BATCH_3 } from './articles-batch3.ts';
+
+const ARTICLE_ENGAGEMENT_METRICS: Record<string, { views: number; likes: number }> = {
+  'definitive-4cs-diamond-guide': { views: 3420, likes: 285 },
+  'silver-925-authentication-guide': { views: 2890, likes: 214 },
+  'jewelry-care-polishing-secrets': { views: 3150, likes: 246 },
+  'gold-bullion-wealth-investment': { views: 4210, likes: 368 },
+  'natural-vs-cultured-pearls': { views: 2640, likes: 198 },
+  'colombian-emerald-jardin-guide': { views: 2310, likes: 182 },
+  'hallmarks-decoding-gold-silver': { views: 3780, likes: 310 },
+  'royal-engagement-rings-history': { views: 2190, likes: 175 },
+  'fancy-color-diamonds-guide': { views: 2540, likes: 205 },
+  'bespoke-jewelry-craftsmanship': { views: 1870, likes: 156 },
+  'sapphire-ruby-corundum-guide': { views: 2490, likes: 202 },
+  'platinum-950-vs-white-gold-18k': { views: 3340, likes: 279 },
+  'tennis-bracelet-buying-guide': { views: 2980, likes: 234 },
+  'arab-islamic-jewelry-heritage': { views: 2120, likes: 168 },
+  'natural-vs-lab-grown-diamonds': { views: 4650, likes: 395 },
+  'estate-antique-jewelry-collecting': { views: 1950, likes: 154 },
+  'travel-with-fine-jewelry-guide': { views: 2730, likes: 221 },
+  'birthstones-calendar-guide': { views: 3260, likes: 262 },
+  'diamond-fluorescence-guide': { views: 3510, likes: 288 },
+  'gold-craftsmanship-tax-calculation': { views: 3890, likes: 325 },
+  'tanzanite-pleochroism-guide': { views: 1820, likes: 147 },
+  'safe-jewelry-storage-vault-guide': { views: 2410, likes: 194 },
+  'gemstone-setting-styles-masterclass': { views: 1985, likes: 164 },
+  'diamond-certificates-gem-labs-decoding-guide': { views: 2340, likes: 192 },
+};
 
 const INITIAL_ARTICLES: Article[] = [
   {
@@ -687,4 +715,15 @@ Upon patron confirmation, noble gold is vacuum-cast and handed to master stone s
   },
 ];
 
-export const ARTICLES_DATA: Article[] = [...INITIAL_ARTICLES, ...ARTICLES_BATCH_2];
+export const ARTICLES_DATA: Article[] = [
+  ...INITIAL_ARTICLES,
+  ...ARTICLES_BATCH_2,
+  ...ARTICLES_BATCH_3,
+].map((art) => {
+  const metric = ARTICLE_ENGAGEMENT_METRICS[art.id];
+  return {
+    ...art,
+    viewsCount: art.viewsCount ?? metric?.views ?? 1850,
+    likesCount: art.likesCount ?? metric?.likes ?? 142,
+  };
+});

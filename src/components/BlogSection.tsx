@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { BookOpen, Calendar, Clock, ArrowRight, ArrowLeft, ShieldCheck, Sparkles, Search, X } from 'lucide-react';
+import { BookOpen, Calendar, Clock, ArrowRight, ArrowLeft, ShieldCheck, Sparkles, Search, X, Eye, Heart } from 'lucide-react';
 import { Article, Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { ARTICLES_DATA } from '../data/articles.ts';
@@ -77,6 +77,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
         if (
           selectedCategory === 'history' &&
           !a.id.includes('ring-styles') &&
+          !a.id.includes('setting-styles') &&
           !a.id.includes('bespoke') &&
           !a.id.includes('heritage') &&
           !a.id.includes('estate') &&
@@ -183,12 +184,24 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
           </div>
           <div className="lg:col-span-5 p-6 sm:p-10 flex flex-col justify-between space-y-6">
             <div className="space-y-3">
-              <div className="flex items-center gap-2 text-xs text-[#8C7A5B] font-medium tracking-wider uppercase">
+              <div className="flex items-center gap-2 text-xs text-[#8C7A5B] font-medium tracking-wider uppercase flex-wrap">
                 <span className="text-[#B8902A] font-bold">
                   {language === 'ar' ? 'المقال الاسترشادي الرئيسي' : 'Featured Treatise'}
                 </span>
                 <span>·</span>
                 <span>{language === 'ar' ? featured.readTimeAr : featured.readTimeEn}</span>
+                <span>·</span>
+                <span className="inline-flex items-center gap-1 text-slate-600 font-normal">
+                  <Eye className="w-3.5 h-3.5 text-[#B8902A]" />
+                  <span>{featured.viewsCount?.toLocaleString() ?? '1,985'}</span>
+                  <span>{language === 'ar' ? 'مشاهدة' : 'views'}</span>
+                </span>
+                <span>·</span>
+                <span className="inline-flex items-center gap-1 text-slate-600 font-normal">
+                  <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500/20" />
+                  <span>{featured.likesCount?.toLocaleString() ?? '164'}</span>
+                  <span>{language === 'ar' ? 'إعجاب' : 'likes'}</span>
+                </span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold text-[#18181B] group-hover:text-[#B8902A] transition-colors font-serif-luxury leading-snug">
@@ -246,10 +259,22 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
 
               <div className="p-5 flex flex-col justify-between flex-1 space-y-4">
                 <div className="space-y-2">
-                  <div className="flex items-center gap-1.5 text-[11px] text-[#8C7A5B]">
-                    <span>{language === 'ar' ? article.categoryAr : article.categoryEn}</span>
-                    <span>·</span>
-                    <span>{language === 'ar' ? article.readTimeAr : article.readTimeEn}</span>
+                  <div className="flex items-center justify-between text-[11px] text-[#8C7A5B] flex-wrap gap-1">
+                    <div className="flex items-center gap-1.5">
+                      <span>{language === 'ar' ? article.categoryAr : article.categoryEn}</span>
+                      <span>·</span>
+                      <span>{language === 'ar' ? article.readTimeAr : article.readTimeEn}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-slate-500 font-medium">
+                      <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد المشاهدات' : 'Views'}>
+                        <Eye className="w-3 h-3 text-[#B8902A]" />
+                        <span>{article.viewsCount?.toLocaleString() ?? '1,840'}</span>
+                      </span>
+                      <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد الإعجابات' : 'Likes'}>
+                        <Heart className="w-3 h-3 text-rose-500 fill-rose-500/20" />
+                        <span>{article.likesCount?.toLocaleString() ?? '142'}</span>
+                      </span>
+                    </div>
                   </div>
 
                   <h4 className="text-base font-bold text-[#18181B] group-hover:text-[#B8902A] transition-colors font-serif-luxury leading-snug line-clamp-2">

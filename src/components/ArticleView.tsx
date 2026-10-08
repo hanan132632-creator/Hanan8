@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Check, Bookmark, BookOpen, ShieldCheck } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Check, Bookmark, BookOpen, ShieldCheck, Eye, Heart } from 'lucide-react';
 import { Article, Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { AdSenseBanner } from './AdSenseBanner.tsx';
@@ -24,6 +24,56 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
   const PrevArrow = language === 'ar' ? ArrowRight : ArrowLeft;
   const NextArrow = language === 'ar' ? ArrowLeft : ArrowRight;
   const [copied, setCopied] = useState(false);
+  const storageKey = `boutique_liked_article_${article.id}`;
+  const [isLiked, setIsLiked] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem(storageKey) === 'true';
+    } catch {
+      return false;
+    }
+  });
+  const [currentLikes, setCurrentLikes] = useState<number>(() => {
+    const base = article.likesCount ?? 142;
+    try {
+      return localStorage.getItem(storageKey) === 'true' ? base + 1 : base;
+    } catch {
+      return base;
+    }
+  });
+
+  useEffect(() => {
+    const key = `boutique_liked_article_${article.id}`;
+    let liked = false;
+    try {
+      liked = localStorage.getItem(key) === 'true';
+    } catch {
+      liked = false;
+    }
+    setIsLiked(liked);
+    const base = article.likesCount ?? 142;
+    setCurrentLikes(liked ? base + 1 : base);
+  }, [article.id, article.likesCount]);
+
+  const handleToggleLike = () => {
+    const key = `boutique_liked_article_${article.id}`;
+    if (isLiked) {
+      setIsLiked(false);
+      setCurrentLikes((prev) => Math.max(0, prev - 1));
+      try {
+        localStorage.removeItem(key);
+      } catch {
+        // ignore
+      }
+    } else {
+      setIsLiked(true);
+      setCurrentLikes((prev) => prev + 1);
+      try {
+        localStorage.setItem(key, 'true');
+      } catch {
+        // ignore
+      }
+    }
+  };
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -99,7 +149,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
 
       {/* Article Header */}
       <header className="space-y-4 border-b border-[#D4AF37]/20 pb-8">
-        <div className="flex items-center gap-2 text-xs font-semibold text-[#B8902A] tracking-wider uppercase">
+        <div className="flex items-center gap-2 text-xs font-semibold text-[#B8902A] tracking-wider uppercase flex-wrap">
           <span>{language === 'ar' ? article.categoryAr : article.categoryEn}</span>
           <span aria-hidden="true">·</span>
           <span className="flex items-center gap-1 text-slate-500 font-normal">
@@ -110,6 +160,18 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
           <span className="flex items-center gap-1 text-slate-500 font-normal">
             <Clock className="w-3.5 h-3.5" />
             <span>{language === 'ar' ? article.readTimeAr : article.readTimeEn}</span>
+          </span>
+          <span aria-hidden="true">·</span>
+          <span className="flex items-center gap-1 text-slate-600 font-medium">
+            <Eye className="w-3.5 h-3.5 text-[#B8902A]" />
+            <span>{article.viewsCount?.toLocaleString() ?? '2,340'}</span>
+            <span>{t.viewsLabel}</span>
+          </span>
+          <span aria-hidden="true">·</span>
+          <span className="flex items-center gap-1 text-rose-600 font-medium">
+            <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
+            <span>{currentLikes.toLocaleString()}</span>
+            <span>{t.likesLabel}</span>
           </span>
         </div>
 
@@ -148,10 +210,26 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
+            <button
+              onClick={handleToggleLike}
+              className={`p-2 px-3 rounded-lg border text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer ${
+                isLiked
+                  ? 'bg-rose-50 border-rose-300 text-rose-700 font-bold shadow-xs'
+                  : 'bg-white border-[#D4AF37]/30 text-slate-700 hover:text-rose-600 hover:border-rose-300'
+              }`}
+              title={language === 'ar' ? 'إبداء الإعجاب بهذا المقال' : 'Like this article'}
+            >
+              <Heart className={`w-3.5 h-3.5 ${isLiked ? 'fill-rose-500 text-rose-500' : 'text-slate-500'}`} />
+              <span>{isLiked ? t.likedArticle : t.likeArticle}</span>
+              <span className="px-1.5 py-0.5 rounded-full text-[10px] bg-slate-100 text-slate-700 font-bold">
+                {currentLikes.toLocaleString()}
+              </span>
+            </button>
+
             <button
               onClick={handleCopyLink}
-              className="p-2 rounded-lg bg-white border border-[#D4AF37]/30 text-slate-700 hover:text-[#18181B] text-xs flex items-center gap-1.5 shadow-sm"
+              className="p-2 rounded-lg bg-white border border-[#D4AF37]/30 text-slate-700 hover:text-[#18181B] text-xs flex items-center gap-1.5 shadow-xs cursor-pointer"
               title="Copy article link"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
@@ -203,6 +281,35 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
             {idx === 1 && <AdSenseBanner type="in_article" language={language} />}
           </div>
         ))}
+      </div>
+
+      {/* Reader Engagement & Feedback Box */}
+      <div className="my-10 p-6 bg-gradient-to-r from-[#FAF8F5] via-white to-[#FAF8F5] border border-[#D4AF37]/35 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-right rtl:sm:text-right ltr:sm:text-left shadow-xs">
+        <div className="space-y-1">
+          <h4 className="text-base font-bold text-[#18181B] font-serif-luxury">
+            {language === 'ar' ? 'هل كان هذا التحليل التخصصي مفيداً ومثرياً لك؟' : 'Was this specialized gemological analysis valuable to you?'}
+          </h4>
+          <p className="text-xs text-[#8C7A5B]">
+            {language === 'ar'
+              ? `سجل تقييمك لمساعدتنا على تقديم أثرى المحتويات — انضم إلى ${currentLikes.toLocaleString()} قارئاً أبدوا إعجابهم بهذا البحث.`
+              : `Share your appraisal — join ${currentLikes.toLocaleString()} connoisseurs who endorsed this research.`}
+          </p>
+        </div>
+
+        <button
+          onClick={handleToggleLike}
+          className={`px-5 py-2.5 rounded-xl border text-xs font-bold flex items-center gap-2 shadow-xs transition-all cursor-pointer shrink-0 ${
+            isLiked
+              ? 'bg-rose-50 border-rose-400 text-rose-700 shadow-rose-100 ring-2 ring-rose-200'
+              : 'bg-white border-[#D4AF37] text-[#18181B] hover:border-rose-400 hover:text-rose-600'
+          }`}
+        >
+          <Heart className={`w-4 h-4 ${isLiked ? 'fill-rose-500 text-rose-500' : 'text-slate-600'}`} />
+          <span>{isLiked ? (language === 'ar' ? 'شكراً لك! تم تسجيل إعجابك' : 'Thank you! Liked') : (language === 'ar' ? 'أعجبني هذا المقال' : 'Helpful Analysis')}</span>
+          <span className="px-2 py-0.5 rounded-full text-xs bg-slate-100 text-[#18181B] font-bold">
+            {currentLikes.toLocaleString()}
+          </span>
+        </button>
       </div>
 
       {/* Bottom AdSense Banner Slot */}

@@ -117,6 +117,10 @@ export const TRANSLATIONS = {
     shareArticle: 'مشاركة المعرفة',
     backToArticles: 'العودة لجميع المقالات',
     readFullArticle: 'قراءة التحليل والمقال كاملاً',
+    viewsLabel: 'مشاهدة',
+    likesLabel: 'إعجاب',
+    likeArticle: 'أعجبني هذا التحليل',
+    likedArticle: 'تم الإعجاب بنجاح',
 
     // Interactive Tools
     toolsSectionTitle: 'الأدوات التفاعلية للمقتني الذكي',
@@ -297,6 +301,10 @@ export const TRANSLATIONS = {
     shareArticle: 'Share Dissertation',
     backToArticles: 'Back to All Articles',
     readFullArticle: 'Read Full Gemological Analysis',
+    viewsLabel: 'Views',
+    likesLabel: 'Likes',
+    likeArticle: 'Helpful Article',
+    likedArticle: 'Liked',
 
     // Interactive Tools
     toolsSectionTitle: 'Interactive Tools for Discerning Collectors',

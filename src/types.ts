@@ -70,6 +70,8 @@ export interface Article {
   publishDate: string;
   readTimeAr: string;
   readTimeEn: string;
+  viewsCount?: number;
+  likesCount?: number;
   author: Author;
   featuredImage: string;
   tableOfContentsAr: string[];

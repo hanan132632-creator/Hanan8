@@ -70,11 +70,11 @@ export const SiteSectionsModal: React.FC<SiteSectionsModalProps> = ({
     {
       id: 'journal',
       title: t.theBlog,
-      badge: language === 'ar' ? `${articlesCount} مقالات حصرية متخصصة` : `${articlesCount} Verified Articles`,
+      badge: language === 'ar' ? `${articlesCount} مقالاً حصرياً متخصصاً` : `${articlesCount} Verified Articles`,
       badgeHighlight: true,
       description:
         language === 'ar'
-          ? `مجلة المجوهرات وأبحاث EEAT: تضم (${articlesCount} مقالات متقدمة) بأقلام خبراء معتمدين في فحص الألماس 4Cs، تمييز الفضة 925، العناية بالمجوهرات، والاستثمار في الذهب.`
+          ? `مجلة المجوهرات وأبحاث EEAT: تضم (${articlesCount} مقالاً متقدماً) بأقلام خبراء معتمدين في فحص الألماس 4Cs، تمييز الفضة 925، العناية بالمجوهرات، والاستثمار في الذهب.`
           : `Editorial Gemological Journal featuring (${articlesCount} in-depth research articles) on 4Cs diamond buying, authenticating 925 silver, fine jewelry restoration, and bullion asset hedging.`,
       icon: BookOpen,
       color: 'text-amber-500',
@@ -168,7 +168,7 @@ export const SiteSectionsModal: React.FC<SiteSectionsModalProps> = ({
               <span>{t.siteSections}</span>
               <span className="text-white/40">·</span>
               <span className="text-emerald-400 font-mono font-bold">
-                {language === 'ar' ? `المدونة تحتوي على ${articlesCount} مقالات` : `${articlesCount} Articles Published`}
+                {language === 'ar' ? `المدونة تحتوي على ${articlesCount} مقالاً` : `${articlesCount} Articles Published`}
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-bold font-serif-luxury text-white">
