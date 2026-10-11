@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Check, Bookmark, BookOpen, ShieldCheck, Eye, Heart } from 'lucide-react';
 import { Article, Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
-import { AdSenseBanner } from './AdSenseBanner.tsx';
 
 interface ArticleViewProps {
   article: Article;
@@ -144,8 +143,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
         </div>
       </div>
 
-      {/* Top Compliant AdSense Banner (Leaderboard) */}
-      <AdSenseBanner type="leaderboard" language={language} />
+
 
       {/* Article Header */}
       <header className="space-y-4 border-b border-[#D4AF37]/20 pb-8">
@@ -277,8 +275,6 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
               {language === 'ar' ? section.contentAr : section.contentEn}
             </div>
 
-            {/* In-Article AdSense Banner inserted after section 2 */}
-            {idx === 1 && <AdSenseBanner type="in_article" language={language} />}
           </div>
         ))}
       </div>
@@ -312,8 +308,6 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
         </button>
       </div>
 
-      {/* Bottom AdSense Banner Slot */}
-      <AdSenseBanner type="leaderboard" language={language} />
 
       {/* Dedicated Next & Previous Article Navigation (المقال السابق والمقال التالي) */}
       <nav aria-label="Article Pagination" className="my-10 pt-8 border-t-2 border-[#D4AF37]/30">

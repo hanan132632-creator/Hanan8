@@ -15,6 +15,7 @@ import { ContactSection } from './components/ContactSection.tsx';
 import { LegalPages } from './components/LegalPages.tsx';
 import { ProductDetailModal } from './components/ProductDetailModal.tsx';
 import { CartDrawer } from './components/CartDrawer.tsx';
+import { WishlistDrawer } from './components/WishlistDrawer.tsx';
 import { CookieBanner } from './components/CookieBanner.tsx';
 import { SiteSectionsModal } from './components/SiteSectionsModal.tsx';
 import { Footer } from './components/Footer.tsx';
@@ -55,12 +56,25 @@ export default function App() {
       return [];
     }
   });
+  const DEFAULT_WISHLIST_IDS = [
+    'solitaire-crown-ring',
+    'emerald-royal-suite',
+    'sapphire-heritage-necklace',
+    'pearl-diamond-tennis-bracelet',
+  ];
+  const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [wishlistIds, setWishlistIds] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('royal_elite_wishlist');
-      return saved ? JSON.parse(saved) : [];
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed;
+        }
+      }
+      return DEFAULT_WISHLIST_IDS;
     } catch {
-      return [];
+      return DEFAULT_WISHLIST_IDS;
     }
   });
 
@@ -87,6 +101,18 @@ export default function App() {
     setWishlistIds((prev) =>
       prev.includes(product.id) ? prev.filter((id) => id !== product.id) : [...prev, product.id]
     );
+  };
+
+  const wishlistProducts = PRODUCTS_DATA.filter((p) => wishlistIds.includes(p.id));
+
+  const handleAddAllWishlistToCart = () => {
+    wishlistProducts.forEach((product) => {
+      handleAddToCart(product);
+    });
+  };
+
+  const handleRestoreDefaultWishlist = () => {
+    setWishlistIds(DEFAULT_WISHLIST_IDS);
   };
 
   const handleAddToCart = (
@@ -154,6 +180,7 @@ export default function App() {
         cartCount={totalCartCount}
         wishlistCount={wishlistIds.length}
         onOpenCart={() => setIsCartOpen(true)}
+        onOpenWishlist={() => setIsWishlistOpen(true)}
         onOpenSiteSections={() => setIsSiteSectionsOpen(true)}
         articlesCount={ARTICLES_DATA.length}
       />
@@ -713,6 +740,19 @@ export default function App() {
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
         onClearCart={handleClearCart}
+        language={language}
+      />
+
+      {/* Global Royal Wishlist Drawer */}
+      <WishlistDrawer
+        isOpen={isWishlistOpen}
+        onClose={() => setIsWishlistOpen(false)}
+        wishlistProducts={wishlistProducts}
+        onRemoveWishlist={handleToggleWishlist}
+        onAddToCart={handleAddToCart}
+        onQuickView={(p) => setQuickViewProduct(p)}
+        onRestoreDefaults={handleRestoreDefaultWishlist}
+        onAddAllToCart={handleAddAllWishlistToCart}
         language={language}
       />
 

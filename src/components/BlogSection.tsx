@@ -4,7 +4,6 @@ import { Article, Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { ARTICLES_DATA } from '../data/articles.ts';
 import { ArticleView } from './ArticleView.tsx';
-import { AdSenseBanner } from './AdSenseBanner.tsx';
 
 interface BlogSectionProps {
   language: Language;
@@ -167,8 +166,6 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
         </div>
       </div>
 
-      {/* Top Compliant AdSense Banner */}
-      <AdSenseBanner type="leaderboard" language={language} />
 
       {/* Featured Lead Article */}
       {selectedCategory === 'all' && featured && (
@@ -302,10 +299,29 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
           ))}
         </div>
 
-        {/* Sidebar Column (col 4): AdSense unit + Gemological certification accreditation note */}
+        {/* Sidebar Column (col 4): Curated Gemology Guide + Trustworthiness note */}
         <div className="lg:col-span-4 space-y-6">
-          {/* AdSense Skyscraper Widget */}
-          <AdSenseBanner type="sidebar" language={language} />
+          {/* Curated Connoisseur Highlights Card */}
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-[#18181B] to-[#27272A] text-[#FAF8F5] border border-[#D4AF37]/40 shadow-lg space-y-4">
+            <div className="flex items-center gap-2 text-xs font-semibold text-[#D4AF37] uppercase tracking-wider">
+              <Sparkles className="w-4 h-4 text-[#D4AF37]" />
+              <span>{language === 'ar' ? 'أبحاث استشارية حصرية' : 'Exclusive Advisory Research'}</span>
+            </div>
+            <h4 className="text-base font-bold font-serif-luxury text-[#FAF8F5] leading-snug">
+              {language === 'ar'
+                ? 'دليل المقتنيات الاستثمارية والأحجار الكريمة النادرة'
+                : 'Rare Gemstones & Sovereign Investment Dossiers'}
+            </h4>
+            <p className="text-xs text-white/70 leading-relaxed">
+              {language === 'ar'
+                ? 'استكشفي أحدث التحليلات الموثقة حول نقاء الألماس الطبيعي، الذهب الخالص عيار 24k، والشهادات المخبرية العالمية الصادرة عن GIA وSSEF.'
+                : 'Explore peer-reviewed analyses on natural diamond clarity, 24k sovereign gold purity, and international lab certificates from GIA & SSEF.'}
+            </p>
+            <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-[#D4AF37]">
+              <span>{language === 'ar' ? 'تحديثات أسبوعية موثقة' : 'Verified Weekly Updates'}</span>
+              <span>{ARTICLES_DATA.length} {language === 'ar' ? 'مقالاً متاحاً' : 'Essays'}</span>
+            </div>
+          </div>
 
           {/* EEAT Trustworthiness Box */}
           <div className="p-6 rounded-2xl bg-[#FAF8F5] border border-[#D4AF37]/30 space-y-3">

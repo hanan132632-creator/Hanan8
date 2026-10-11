@@ -24,6 +24,7 @@ interface NavbarProps {
   cartCount: number;
   wishlistCount: number;
   onOpenCart: () => void;
+  onOpenWishlist: () => void;
   onOpenSiteSections: () => void;
   articlesCount?: number;
 }
@@ -36,6 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   cartCount,
   wishlistCount,
   onOpenCart,
+  onOpenWishlist,
   onOpenSiteSections,
   articlesCount = 4,
 }) => {
@@ -156,7 +158,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Zone 3: Primary interactive action cluster */}
         <div className="flex items-center gap-2 sm:gap-3">
           <button
-            onClick={() => handleNavClick('catalog')}
+            onClick={onOpenWishlist}
             className={`p-2 sm:px-3 sm:py-2 text-xs rounded-lg transition-colors flex items-center gap-1.5 ${
               wishlistCount > 0 ? 'text-[#B8902A]' : 'text-[#18181B]/70 hover:text-[#18181B]'
             }`}
@@ -254,7 +256,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="xl:hidden bg-[#FAF8F5] border-b border-[#D4AF37]/20 px-6 py-5 shadow-xl transition-all">
-          <div className="pb-3 mb-3 border-b border-[#D4AF37]/20 flex items-center justify-between">
+          <div className="pb-3 mb-3 border-b border-[#D4AF37]/20 flex items-center justify-between gap-2">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
@@ -266,6 +268,20 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>{t.siteSections}</span>
               <span className="bg-[#D4AF37] text-[#18181B] px-1 rounded text-[10px]">
                 {articlesCount}
+              </span>
+            </button>
+
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenWishlist();
+              }}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#D4AF37]/40 text-[#B8902A] text-xs font-semibold bg-white shadow-xs"
+            >
+              <Heart className="w-3.5 h-3.5 fill-[#D4AF37] text-[#D4AF37]" />
+              <span>{t.wishlist}</span>
+              <span className="bg-[#D4AF37] text-[#18181B] px-1.5 rounded-full text-[10px] font-mono font-bold">
+                {wishlistCount}
               </span>
             </button>
           </div>

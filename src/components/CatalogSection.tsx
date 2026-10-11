@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Filter, SlidersHorizontal, RotateCcw, Gem, Sparkles } from 'lucide-react';
+import { Filter, SlidersHorizontal, RotateCcw, Gem, Sparkles, Heart } from 'lucide-react';
 import { Product, Language, ProductCategory, MetalType, GemstoneType } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { ProductCard } from './ProductCard.tsx';
@@ -31,17 +31,20 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
   const [gemstoneFilter, setGemstoneFilter] = useState<GemstoneType | 'all'>('all');
   const [sortBy, setSortBy] = useState<'featured' | 'price_asc' | 'price_desc' | 'weight'>('featured');
   const [showFiltersMobile, setShowFiltersMobile] = useState<boolean>(false);
+  const [onlyWishlist, setOnlyWishlist] = useState<boolean>(false);
 
   const resetFilters = () => {
     setCategoryFilter('all');
     setMetalFilter('all');
     setGemstoneFilter('all');
     setSortBy('featured');
+    setOnlyWishlist(false);
   };
 
   const filteredProducts = useMemo(() => {
     return products
       .filter((item) => {
+        if (onlyWishlist && !wishlistIds.includes(item.id)) return false;
         if (categoryFilter !== 'all' && item.category !== categoryFilter) return false;
         if (metalFilter !== 'all' && item.metal !== metalFilter) return false;
         if (gemstoneFilter !== 'all' && item.gemstone !== gemstoneFilter) return false;
@@ -53,7 +56,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
         if (sortBy === 'weight') return b.weightGrams - a.weightGrams;
         return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
       });
-  }, [products, categoryFilter, metalFilter, gemstoneFilter, sortBy]);
+  }, [products, categoryFilter, metalFilter, gemstoneFilter, sortBy, onlyWishlist, wishlistIds]);
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -69,7 +72,29 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
           </h2>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+          {/* Wishlist quick filter toggle */}
+          <button
+            onClick={() => setOnlyWishlist(!onlyWishlist)}
+            className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer ${
+              onlyWishlist
+                ? 'bg-[#B8902A] text-white border border-[#B8902A]'
+                : 'bg-white border border-[#D4AF37]/35 text-[#8C7A5B] hover:text-[#18181B] hover:border-[#D4AF37]'
+            }`}
+            title={language === 'ar' ? 'عرض القطع المحفوظة في المفضلة فقط' : 'Show only favorited pieces'}
+          >
+            <Heart
+              className={`w-3.5 h-3.5 ${
+                onlyWishlist ? 'fill-white text-white' : 'fill-[#D4AF37] text-[#D4AF37]'
+              }`}
+            />
+            <span>
+              {language === 'ar'
+                ? `المفضلة فقط (${wishlistIds.length})`
+                : `Favorites (${wishlistIds.length})`}
+            </span>
+          </button>
+
           <span className="text-xs text-[#8C7A5B] font-mono tabular-nums">
             {filteredProducts.length} {t.productCount}
           </span>
