@@ -7,24 +7,52 @@ import { ArticleView } from './ArticleView.tsx';
 
 interface BlogSectionProps {
   language: Language;
+  selectedArticle?: Article | null;
+  onSelectArticle?: (article: Article | null) => void;
 }
 
-export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
+export const BlogSection: React.FC<BlogSectionProps> = ({
+  language,
+  selectedArticle: controlledArticle,
+  onSelectArticle: onControlledSelectArticle,
+}) => {
   const t = TRANSLATIONS[language];
-  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const [internalArticle, setInternalArticle] = useState<Article | null>(null);
+  const selectedArticle = controlledArticle !== undefined ? controlledArticle : internalArticle;
+
+  const handleSelectArticle = (art: Article | null) => {
+    if (onControlledSelectArticle) {
+      onControlledSelectArticle(art);
+    } else {
+      setInternalArticle(art);
+    }
+    try {
+      if (art) {
+        window.location.hash = `article-${art.id}`;
+      } else {
+        window.location.hash = 'journal';
+      }
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    } catch {
+      // fallback
+    }
+  };
+
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const ArrowIcon = language === 'ar' ? ArrowLeft : ArrowRight;
 
   if (selectedArticle) {
     return (
-      <ArticleView
-        article={selectedArticle}
-        language={language}
-        onBack={() => setSelectedArticle(null)}
-        onSelectArticle={(art) => setSelectedArticle(art)}
-        allArticles={ARTICLES_DATA}
-      />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <ArticleView
+          article={selectedArticle}
+          language={language}
+          onBack={() => handleSelectArticle(null)}
+          onSelectArticle={(art) => handleSelectArticle(art)}
+          allArticles={ARTICLES_DATA}
+        />
+      </div>
     );
   }
 
@@ -170,7 +198,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
       {/* Featured Lead Article */}
       {selectedCategory === 'all' && featured && (
         <div
-          onClick={() => setSelectedArticle(featured)}
+          onClick={() => handleSelectArticle(featured)}
           className="mb-12 bg-white rounded-3xl border border-[#D4AF37]/30 overflow-hidden shadow-xl hover:shadow-2xl transition-all cursor-pointer grid grid-cols-1 lg:grid-cols-12 group"
         >
           <div className="lg:col-span-7 aspect-[16/10] lg:aspect-auto overflow-hidden bg-[#FAF8F5]">
@@ -244,7 +272,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
           {filteredArticles.map((article) => (
             <div
               key={article.id}
-              onClick={() => setSelectedArticle(article)}
+              onClick={() => handleSelectArticle(article)}
               className="group bg-white rounded-2xl border border-[#D4AF37]/25 hover:border-[#D4AF37] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
             >
               <div className="aspect-[16/10] overflow-hidden bg-[#FAF8F5]">
@@ -289,10 +317,17 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
                   <span className="text-[#8C7A5B] font-medium">
                     {language === 'ar' ? article.author.nameAr : article.author.nameEn}
                   </span>
-                  <span className="font-semibold text-[#B8902A] flex items-center gap-1">
-                    <span>{language === 'ar' ? 'قراءة' : 'Read'}</span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelectArticle(article);
+                    }}
+                    className="font-semibold text-[#B8902A] hover:underline flex items-center gap-1 cursor-pointer"
+                  >
+                    <span>{language === 'ar' ? 'قراءة المقال' : 'Read Article'}</span>
                     <ArrowIcon className="w-3 h-3" />
-                  </span>
+                  </button>
                 </div>
               </div>
             </div>

@@ -16,7 +16,7 @@ import {
   Sparkles,
   FileText,
 } from 'lucide-react';
-import { Language } from '../types.ts';
+import { Language, Article } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { ARTICLES_DATA } from '../data/articles.ts';
 
@@ -25,6 +25,7 @@ interface SiteSectionsModalProps {
   onClose: () => void;
   language: Language;
   onNavigate: (tab: string, category?: string) => void;
+  onSelectArticle?: (article: Article) => void;
 }
 
 export const SiteSectionsModal: React.FC<SiteSectionsModalProps> = ({
@@ -32,6 +33,7 @@ export const SiteSectionsModal: React.FC<SiteSectionsModalProps> = ({
   onClose,
   language,
   onNavigate,
+  onSelectArticle,
 }) => {
   if (!isOpen) return null;
 
@@ -83,6 +85,7 @@ export const SiteSectionsModal: React.FC<SiteSectionsModalProps> = ({
       subItems: ARTICLES_DATA.map((art) => ({
         id: art.id,
         title: language === 'ar' ? art.titleAr : art.titleEn,
+        article: art,
       })),
     },
     {
@@ -238,7 +241,20 @@ export const SiteSectionsModal: React.FC<SiteSectionsModalProps> = ({
                         </div>
                         <ul className="text-[11px] text-[#18181B]/80 space-y-1 max-h-44 overflow-y-auto pr-1 scrollbar-thin">
                           {section.subItems.map((item, idx) => (
-                            <li key={item.id} className="flex items-center gap-1.5 truncate hover:text-[#B8902A] transition-colors">
+                            <li
+                              key={item.id}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                if (item.article && onSelectArticle) {
+                                  onSelectArticle(item.article);
+                                } else {
+                                  onNavigate('journal');
+                                }
+                                onClose();
+                              }}
+                              className="flex items-center gap-1.5 truncate hover:text-[#B8902A] transition-colors cursor-pointer py-1 px-1.5 rounded-lg hover:bg-white/80"
+                              title={item.title}
+                            >
                               <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0" />
                               <span className="text-[10px] text-[#8C7A5B] font-mono shrink-0">{idx + 1}.</span>
                               <span className="truncate">{item.title}</span>

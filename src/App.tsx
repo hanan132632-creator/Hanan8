@@ -23,7 +23,7 @@ import { ProductCard } from './components/ProductCard.tsx';
 import { PRODUCTS_DATA } from './data/products.ts';
 import { ARTICLES_DATA } from './data/articles.ts';
 import { TRANSLATIONS } from './data/translations.ts';
-import { Language, Product, CartItem, ProductCategory } from './types.ts';
+import { Language, Product, CartItem, ProductCategory, Article } from './types.ts';
 import {
   Gem,
   ShieldCheck,
@@ -43,7 +43,17 @@ import {
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('ar');
-  const [activeTab, setActiveTab] = useState<string>('home');
+  const [activeTab, setActiveTab] = useState<string>(() => {
+    try {
+      const hash = window.location.hash;
+      if (hash.startsWith('#article-')) return 'journal';
+      const clean = hash.replace('#', '');
+      if (['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms'].includes(clean)) {
+        return clean;
+      }
+    } catch {}
+    return 'home';
+  });
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all');
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
@@ -63,6 +73,16 @@ export default function App() {
     'pearl-diamond-tennis-bracelet',
   ];
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(() => {
+    try {
+      const hash = window.location.hash;
+      if (hash.startsWith('#article-')) {
+        const artId = hash.replace('#article-', '');
+        return ARTICLES_DATA.find((a) => a.id === artId) || null;
+      }
+    } catch {}
+    return null;
+  });
   const [wishlistIds, setWishlistIds] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('royal_elite_wishlist');
@@ -77,6 +97,34 @@ export default function App() {
       return DEFAULT_WISHLIST_IDS;
     }
   });
+
+  // Sync URL hash with activeTab and selectedArticle
+  useEffect(() => {
+    const handleHashChange = () => {
+      try {
+        const hash = window.location.hash;
+        if (hash.startsWith('#article-')) {
+          const artId = hash.replace('#article-', '');
+          const found = ARTICLES_DATA.find((a) => a.id === artId);
+          if (found) {
+            setSelectedArticle(found);
+            setActiveTab('journal');
+          }
+        } else {
+          const tab = hash.replace('#', '');
+          if (['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms'].includes(tab)) {
+            setActiveTab(tab);
+            if (tab === 'journal') {
+              setSelectedArticle(null);
+            }
+          }
+        }
+      } catch {}
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Sync RTL and lang attributes
   useEffect(() => {
@@ -113,6 +161,15 @@ export default function App() {
 
   const handleRestoreDefaultWishlist = () => {
     setWishlistIds(DEFAULT_WISHLIST_IDS);
+  };
+
+  const handleOpenArticle = (article: Article) => {
+    setSelectedArticle(article);
+    setActiveTab('journal');
+    try {
+      window.location.hash = `article-${article.id}`;
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    } catch {}
   };
 
   const handleAddToCart = (
@@ -175,6 +232,9 @@ export default function App() {
         activeTab={activeTab}
         onTabChange={(tab) => {
           setActiveTab(tab);
+          if (tab === 'journal') {
+            setSelectedArticle(null);
+          }
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
         cartCount={totalCartCount}
@@ -653,17 +713,14 @@ export default function App() {
                 {ARTICLES_DATA.slice(0, 3).map((article) => (
                   <div
                     key={article.id}
-                    onClick={() => {
-                      setActiveTab('journal');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="p-5 rounded-2xl bg-white border border-[#D4AF37]/25 hover:border-[#D4AF37] transition-all cursor-pointer shadow-sm hover:shadow-md flex flex-col justify-between space-y-4"
+                    onClick={() => handleOpenArticle(article)}
+                    className="p-5 rounded-2xl bg-white border border-[#D4AF37]/25 hover:border-[#D4AF37] transition-all cursor-pointer shadow-sm hover:shadow-md flex flex-col justify-between space-y-4 group"
                   >
                     <div className="space-y-2">
                       <span className="text-[11px] text-[#8C7A5B] block font-mono uppercase">
                         {language === 'ar' ? article.categoryAr : article.categoryEn} · {article.readTimeAr}
                       </span>
-                      <h4 className="text-base font-bold text-[#18181B] font-serif-luxury line-clamp-2">
+                      <h4 className="text-base font-bold text-[#18181B] group-hover:text-[#B8902A] transition-colors font-serif-luxury line-clamp-2">
                         {language === 'ar' ? article.titleAr : article.titleEn}
                       </h4>
                       <p className="text-xs text-[#18181B]/70 line-clamp-3 font-light leading-relaxed">
@@ -675,10 +732,17 @@ export default function App() {
                       <span className="text-[#8C7A5B]">
                         {language === 'ar' ? article.author.nameAr : article.author.nameEn}
                       </span>
-                      <span className="text-[#B8902A] font-semibold flex items-center gap-1">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleOpenArticle(article);
+                        }}
+                        className="text-[#B8902A] font-semibold flex items-center gap-1 hover:underline cursor-pointer"
+                      >
                         <span>{language === 'ar' ? 'قراءة التحليل' : 'Read'}</span>
                         <ArrowIcon className="w-3 h-3" />
-                      </span>
+                      </button>
                     </div>
                   </div>
                 ))}
@@ -701,7 +765,13 @@ export default function App() {
         )}
 
         {/* Journal Tab */}
-        {activeTab === 'journal' && <BlogSection language={language} />}
+        {activeTab === 'journal' && (
+          <BlogSection
+            language={language}
+            selectedArticle={selectedArticle}
+            onSelectArticle={setSelectedArticle}
+          />
+        )}
 
         {/* Interactive Tools Tab */}
         {activeTab === 'tools' && <ToolsSection language={language} />}
@@ -763,7 +833,12 @@ export default function App() {
         language={language}
         onNavigate={(tab) => {
           setActiveTab(tab);
+          if (tab === 'journal') setSelectedArticle(null);
           window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        onSelectArticle={(art) => {
+          handleOpenArticle(art);
+          setIsSiteSectionsOpen(false);
         }}
       />
 
@@ -775,6 +850,7 @@ export default function App() {
         language={language}
         onNavigate={(tab) => {
           setActiveTab(tab);
+          if (tab === 'journal') setSelectedArticle(null);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
         onOpenPrivacy={() => {
