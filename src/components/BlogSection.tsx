@@ -64,7 +64,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
           selectedCategory === 'care' &&
           !a.id.includes('care') &&
           !a.id.includes('travel') &&
-          !a.id.includes('safe-jewelry')
+          !a.id.includes('safe-jewelry') &&
+          !a.id.includes('capsule')
         )
           return false;
         if (
@@ -81,7 +82,8 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
           !a.id.includes('bespoke') &&
           !a.id.includes('heritage') &&
           !a.id.includes('estate') &&
-          !a.id.includes('tennis-bracelet')
+          !a.id.includes('tennis-bracelet') &&
+          !a.id.includes('capsule')
         )
           return false;
       }

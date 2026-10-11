@@ -31,6 +31,7 @@ const ARTICLE_ENGAGEMENT_METRICS: Record<string, { views: number; likes: number 
   'safe-jewelry-storage-vault-guide': { views: 2410, likes: 194 },
   'gemstone-setting-styles-masterclass': { views: 1985, likes: 164 },
   'diamond-certificates-gem-labs-decoding-guide': { views: 2340, likes: 192 },
+  'timeless-jewelry-capsule-wardrobe-guide': { views: 3820, likes: 345 },
 };
 
 const INITIAL_ARTICLES: Article[] = [

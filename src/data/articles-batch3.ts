@@ -1,6 +1,7 @@
 import { Article } from '../types.ts';
 import gemSettingImg from '../assets/images/gem_setting_craft_1791478730390.jpg';
 import gemCertImg from '../assets/images/gem_certificate_lab_1791478715397.jpg';
+import heroImg from '../assets/images/hero_luxury_jewelry_1791298014265.jpg';
 
 export const ARTICLES_BATCH_3: Article[] = [
   // 23. أساليب وتقنيات ترصيع الأحجار الكريمة والمجوهرات
@@ -376,4 +377,275 @@ Adhering to this structured protocol elevates diamond acquisition from a specula
       },
     ],
   },
+  // 25. دليل كبسولة المجوهرات الفاخرة (Capsule Jewelry Collection)
+  {
+    id: 'timeless-jewelry-capsule-wardrobe-guide',
+    slug: 'timeless-luxury-jewelry-capsule-guide',
+    titleAr: 'دليل كبسولة المجوهرات الفاخرة: كيف تقتنين قطعاً خالدة تعكس هويتكِ وتدوم لأجيال؟',
+    titleEn: 'The Timeless Luxury Jewelry Capsule: How to Curate Enduring Pieces That Reflect Your Identity & Span Generations',
+    summaryAr: 'دليل استشاري عملي صِيغ بخبرة صاغة وخبراء تنسيق المجوهرات الفاخرة، يوضح كيفية بناء مجموعة مجوهرات ذكية ومتناسقة (Capsule Collection) تجمع بين الذهب الخالص والأحجار الكريمة، مع معايير مطابقة درجات البشرة (Undertones)، أسرار العناية الكيميائية بالبريق، وقواعد توريث القطع الاستثمارية.',
+    summaryEn: 'An authoritative masterclass on curating an enduring high-jewelry capsule collection: balancing pure gold alloys with precious gemstones, matching skin undertones, mastering at-home gem chemistry, and securing heirloom value.',
+    categoryAr: 'أسرار الأناقة والاقتناء',
+    categoryEn: 'Fine Jewelry Styling & Curation',
+    publishDate: '2026-10-11',
+    readTimeAr: '11 دقيقة قراءة',
+    readTimeEn: '11 min read',
+    viewsCount: 3820,
+    likesCount: 345,
+    featuredImage: heroImg,
+    author: {
+      nameAr: 'أ. حنان المنصور',
+      nameEn: 'Hanan Al-Mansour',
+      titleAr: 'كبيرة مستشاري التنسيق والمقتنيات الفاخرة ومؤسسة المجلة',
+      titleEn: 'Principal High Jewelry Stylist & Heritage Curation Consultant',
+      credentialsAr: 'استشارية معتمدة في تصميم وتنسيق المجوهرات الفاخرة، خبرة 15 عاماً في استشارات الخزائن الملكية والشخصية والمجموعات المتوارثة، وباحثة متخصصة في الحلي التراثية.',
+      credentialsEn: 'Advanced Consultant in High Jewelry Styling & Heritage Curation, 15 years advising private collectors on heirloom wardrobe capsules, investment jewelry, and historic goldsmithing traditions.',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
+    },
+    tableOfContentsAr: [
+      'مقدمة: ما هي فلسفة كبسولة المجوهرات ولماذا تتفوق الجودة على الكمية؟',
+      '1. الركائز الخمس لكبسولة المجوهرات الأساسية اليومية والمسائية',
+      '2. علم التناغم اللوني: مطابقة المعدن النفيس مع الدرجة التحتية لبشرتكِ (Undertone)',
+      '3. معادلة العيار والمتانة: متى تختارين 18k ومتى تفضلين 21k أو البلاتين 950؟',
+      '4. كيمياء العناية المنزلية بالبريق: أخطاء شائعة تطفئ وهج الأحجار والذهب',
+      '5. فن دمج الطبقات والرصف (Layering & Stacking): قواعد التوازن البصري دون تكلف',
+      '6. استراتيجية الاقتناء المستدام وتوريث القطع الثمينة للأجيال القادمة',
+    ],
+    tableOfContentsEn: [
+      'Introduction: The Jewelry Capsule Philosophy — Timeless Substance Over Transient Trends',
+      '1. The 5 Foundational Anchor Pieces for Flawless Everyday & Evening Versatility',
+      '2. Color Harmony Science: Matching Precious Metals to Your Natural Skin Undertone',
+      '3. Karat Purity vs. Tensile Durability: When to Invest in 18k, 21k, or Platinum 950',
+      '4. At-Home Maintenance Chemistry: Critical Pitfalls That Dull Precious Gems and Gold',
+      '5. The Art of Sophisticated Layering: Visual Balance, Proportion, and Focal Stacking Rules',
+      '6. Generational Heirloom Strategy: Curating Pieces That Appreciate in Sentiment and Value',
+    ],
+    sections: [
+      {
+        headingAr: 'مقدمة: ما هي فلسفة كبسولة المجوهرات ولماذا تتفوق الجودة على الكمية؟',
+        headingEn: 'Introduction: The Jewelry Capsule Philosophy — Timeless Substance Over Transient Trends',
+        contentAr: `في عصر تطغى عليه صيحات الموضة السريعة التي تتبدل شهرياً، يجد الكثير من عشاق الأناقة أنفسهم أمام صناديق مجوهرات متخمة بقطع متفرقة، يصعب تنسيقها معاً أو ارتداؤها في الحياة اليومية العملية، وسرعان ما تفقد رونقها وجاذبيتها. هنا تحديداً تبرز فلسفة "كبسولة المجوهرات" (Jewelry Capsule Wardrobe) كنهج اقتناء راقٍ ومستدام.
+
+كبسولة المجوهرات ليست تقشفاً، بل هي أعلى درجات الذكاء الاستهلاكي والفني؛ إنها فن اختيار عدد مدروس بعناية من القطع الفاخرة، المصنوعة من معادن نبيلة وأحجار كريمة أصيلة، تمتاز بتصميم انسيابي عابر للزمن (Timeless). تتميز كل قطعة في الكبسولة بقدرتها على الوقوف بمفردها لتمنح لمسة فخامة هادئة في صباح عمل اعتيادي، أو الاندماج بسلاسة مع قطع أخرى لتتحول إلى إطلالة مسائية مبهرة.
+
+الاستثمار في كبسولة مجوهرات موثوقة يحقق ثلاث فوائد فورية:
+1. التخلص من حيرة التنسيق اليومي، حيث تتناغم جميع قطعك معاً بشكل تلقائي.
+2. الحفاظ على القيمة المالية، فالذهب النقي عيار 18k و21k والألماس الطبيعي المعتمد يحفظان القوة الشرائية عبر السنين.
+3. صناعة قصة شخصية؛ فالقطعة التي ترتدينها يومياً تصبح جزءاً من هويتكِ المرئية وذاكرة أحبائك.`,
+        contentEn: `In an era dominated by hyper-accelerated fast-fashion trends that evaporate as quickly as they emerge, discerning collectors often face jewelry boxes overflowing with disconnected novelties. These impulse acquisitions rarely harmonize, prove uncomfortable for daily living, and rapidly lose aesthetic luster. Here lies the transformative power of the "Fine Jewelry Capsule Wardrobe."
+
+A jewelry capsule is not austere minimalism; it represents the absolute pinnacle of intentional luxury and curatorial intelligence. It is the disciplined art of acquiring a focused suite of masterfully crafted pieces wrought from noble metals and certified gemstones, defined by architectural, seasonless silhouettes. Every singular element possesses the chameleon-like versatility to whisper quiet sophistication in an executive boardroom, yet seamlessly harmonize into layered splendor for a formal royal gala.
+
+Curating a dedicated capsule yields three immediate strategic returns:
+1. Total elimination of styling friction: every piece in the vault intuitively dialogues with the next.
+2. Generational wealth preservation: solid 18k/21k gold alloys and certified natural diamonds endure as tangible capital.
+3. Intimate narrative resonance: jewelry worn with daily regularity becomes an indelible visual signature and cherished family artifact.`,
+      },
+      {
+        headingAr: '1. الركائز الخمس لكبسولة المجوهرات الأساسية اليومية والمسائية',
+        headingEn: '1. The 5 Foundational Anchor Pieces for Flawless Everyday & Evening Versatility',
+        contentAr: `لبناء كبسولتكِ الأولى بنجاح، لا تحتاجين إلى شراء عشرات القطع دفعة واحدة؛ بل يكفي البدء بخمس ركائز جوهرية تشكل العمود الفقري لصندوق مجوهراتكِ:
+
+1. أقراط الأزرار السوليتير (Solitaire Stud Earrings):
+تُعد الأقراط الملتصقة بشحمة الأذن حجر الزاوية للإشراقة اليومية. اختيار حجرين متطابقين من الألماس الطبيعي أو المويسانيت عالي النقاء بحجم يتراوح بين 0.50 إلى 1.00 قيراط لكل أذن، مثبتين بترصيع مخالبي من الذهب الأبيض عيار 18k أو البلاتين، يمنح وجهكِ انعكاساً ضوئياً ساحراً دون أن يعيق حركتكِ أو استخدام الهاتف.
+
+2. قلادة الترقوة الناعمة (Dainty Collar Pendant):
+سلسال ذهبي رقيق بطول 42 إلى 45 سم يعانق عظمة الترقوة بنعومة، يحمل دلاية ذات دلالة شخصية (مثل قطرة ألماس، أو نقش هندسي إسلامي ناعم، أو حجر كريم يمثل شهر الميلاد). هذه القلادة هي القطعة التي يمكنكِ النوم والاستحمام بها دون قلق، وتمنحكِ دائماً إحساساً بالاكتمال.
+
+3. سوار التنس الماسي أو البانجل الأنبوبي (Tennis Bracelet or Classic Bangle):
+سوار التنس بحركته المرنة وبريقه المتصل هو قمة الأناقة الكلاسيكية. أما لعاشقات الخطوط المعمارية القوية، فإن السوار الأنبوبي (Solid Gold Bangle) المقفل بمفصل خفي من الذهب عيار 18k يمنح المعصم ثقلاً وفخامة تلفت الأنظار بنعومة.
+
+4. خاتم التوقيع الشخصي (The Signature Ring):
+خاتم ذو حضور مميز ترتدينه في إصبع الوسطى أو السبابة، يختلف عن خاتم الزواج أو الخطوبة. قد يكون خاتم إترنيتي (Eternity Band) مرصعاً بالكامل بحبات أماس ناعمة، أو خاتماً عريضاً من الذهب المصقول بتقنية الساتان (Satin-Brushed Gold) يعكس ذوقكِ الخاص المستقل.
+
+5. أقراط الحلقات المريحة (Everyday Huggie & Medium Hoops):
+أقراط دائرية سميكة بحجم صغير إلى متوسط (بقطر 12 إلى 20 ملم)، سهلة الفتح والإغلاق بآلية الكليك (Clicker Clasp). إنها الخيار المثالي لإضفاء روح عصرية دافئة تتناسب مع الياقات العالية، القمصان الكلاسيكية، أو العبايات الأنيقة.`,
+        contentEn: `To construct a triumphant foundational capsule, one need not amass dozens of fragmented pieces; curating these five architectural pillars establishes an impenetrable foundation:
+
+1. Solitaire Diamond or Gem Stud Earrings:
+Directly flanking the jawline, stud earrings serve as the facial illumination compass. Selecting a matched pair of certified diamonds (0.50 to 1.00 carat per ear) or fine gems mounted in low-profile, four-prong 18k white gold or platinum crowns ensures maximum scintillation without telephone or headset interference.
+
+2. Dainty Collarbone Pendant Necklace:
+A fluid cable chain measuring 42 to 45 centimeters resting precisely at the suprasternal notch. Accented with a solitary bezel-set diamond droplet, historic medallion, or subtle solitaire gem, this piece functions as a second skin—never requiring removal, effortlessly providing quiet completion.
+
+3. The Flexible Diamond Tennis Bracelet or Solid Bangle:
+A continuous channel of articulated brilliant diamonds delivers unbroken sparkle with every gesture. For patrons inclined toward architectural minimalism, a solid 18k oval bangle with a concealed precision clasp delivers satisfying metallurgical weight and timeless presence.
+
+4. The Signature Statement Ring:
+Distinct from formal bridal bands, this index or middle-finger jewel captures personal gravitas. Options span from a full-cut pavé eternity band to a substantial, satin-brushed gold dome ring celebrating tactile metallurgy and sculptural craftsmanship.
+
+5. The Architectural Huggie or Medium Hoop:
+Snug ear-hugging hoops (12 to 20 mm inner diameter) engineered with a secure snap-bar closure. They frame the face with contemporary kinetic energy, harmonizing equally well with tailored business suiting, casual daytime cashmere, or regal evening abayas.`,
+      },
+      {
+        headingAr: '2. علم التناغم اللوني: مطابقة المعدن النفيس مع الدرجة التحتية لبشرتكِ (Undertone)',
+        headingEn: '2. Color Harmony Science: Matching Precious Metals to Your Natural Skin Undertone',
+        contentAr: `من أكثر الأسرار التي تميز خبراء تنسيق المجوهرات عن الهواة هو فهم "الدرجة التحتية للبشرة" (Skin Undertone). قد تشتري سيدة قطعة مجوهرات باهظة الثمن لكنها تشعر بأنها تبدو شاحبة أو باهتة عند ارتدائها، والسبب لا يعود إلى جودة القطعة بل إلى تنافر موجات الضوء المنعكسة بين المعدن والبشرة.
+
+كيف تحددين الدرجة التحتية لبشرتكِ بدقة؟
+قفي بجوار نافذة في ضوء النهار الطبيعي واقلبي معصمكِ لفحص الأوردة:
+
+- البشرة الدافئة (Warm Undertone):
+  * العلامات: تظهر أوردة المعصم باللون الأخضر الزيتوني، وتكتسب البشرة سمرة ذهبية غنية بسرعة في الصيف.
+  * المعادن المثالية: الذهب الأصفر عيار 18k و21k يضفي توهجاً ملكياً فورياً. كما أن الذهب الوردي (Rose Gold) بلمسته النحاسية الدافئة يمنح البشرة الحنطية والعربية نضارة استثنائية.
+  * الأحجار المناسبة: الزمرد الكولومبي الأخضر، الياقوت الأحمر (Ruby)، السترين، والتوباز العسلي.
+
+- البشرة الباردة (Cool Undertone):
+  * العلامات: تظهر أوردة المعصم بلون أزرق أو أرجواني مائل للبنفسجي، وتتعرض البشرة للاحمرار والتحسس بسهولة تحت الشمس.
+  * المعادن المثالية: الذهب الأبيض عيار 18k المغطى بطبقة الروديوم اللامعة، البلاتين النقي 950، والفضة الإسترلينية عيار 925. تعكس هذه المعادن نقاءً بلورياً يبرز برودة البشرة الأرستقراطية.
+  * الأحجار المناسبة: الياقوت الأزرق الملكي (Sapphire)، الألماس ناصع البياض (فئات D-F)، التنزانيت البنفسجي، وحجر الزبرجد (Aquamarine).
+
+- البشرة المحايدة (Neutral Undertone):
+  * العلامات: مزيج من الأوردة الزرقاء والخضراء، مع قدرة متوازنة على التسمير دون احمرار شديد.
+  * المعادن المثالية: هنا تتمتعين بحرية مطلقة! يمكنكِ ارتداء أي معدن بثقة، بل والتألق بصيحة مزج المعادن المتعددة (Mixed Metals) كدمج سوار ذهب أصفر مع خاتم من الذهب الأبيض في يد واحدة بأناقة متناهية.`,
+        contentEn: `The cardinal secret distinguishing seasoned high-jewelry stylists from retail novices is the rigorous application of dermatological colorimetry: matching metallurgical alloys to intrinsic skin undertones. An exceptionally costly jewel may visually wash out the wearer or clash aggressively simply due to chromatic wavelength disharmony.
+
+How to Accurately Diagnose Your Undertone:
+Examine the underside of your wrist under diffuse, indirect natural midday daylight:
+
+- Warm Undertones:
+  * Diagnostic Markers: Subcutaneous veins reflect olive or greenish tints; skin tans to rich golden-bronze undertones without immediate sunburn.
+  * Optimal Alloys: Rich 18k and 21k yellow gold infuse luminous vitality. Warm alloyed 18k Rose Gold delivers exquisite organic harmony against Mediterranean, Arab, and warm Asian complexions.
+  * Harmonious Gems: Colombian emeralds, Burmese rubies, golden citrine, imperial topaz, and warm champagne diamonds.
+
+- Cool Undertones:
+  * Diagnostic Markers: Forearm veins display vivid cobalt blue or deep amethyst purple; skin burns or flushes pink under solar exposure.
+  * Optimal Alloys: Rhodium-plated 18k White Gold, hypoallergenic Platinum 950, and mirror-finished Sterling Silver 925. These alloys act as optical mirrors that accentuate alabaster and pink-undertone clarity.
+  * Harmonious Gems: Royal Ceylon sapphires, colorless diamonds (grades D to F), violet-blue tanzanite, and crystalline aquamarines.
+
+- Neutral Undertones:
+  * Diagnostic Markers: An ambiguous, balanced distribution of blue-green vascular undertones, capable of tanning without rapid erythema.
+  * Optimal Alloys: The unrestricted collector's playground. Neutral palettes effortlessly command tri-color golds (yellow, rose, and white simultaneously) with high-fashion nonchalance.`,
+      },
+      {
+        headingAr: '3. معادلة العيار والمتانة: متى تختارين 18k ومتى تفضلين 21k أو البلاتين 950؟',
+        headingEn: '3. Karat Purity vs. Tensile Durability: When to Invest in 18k, 21k, or Platinum 950',
+        contentAr: `الذهب الخالص بطبيعته الجيولوجية (عيار 24 قيراط بنقاوة 99.9%) معدن غاية في الليونة والمرونة، مما يجعله غير صالح ميكانيكياً لتثبيت الأحجار الكريمة أو مقاومة الاحتكاك اليومي لليدين دون أن يتعرض للخدوش العميقة أو الانحناء. لذلك، تعتمد بيوت المجوهرات العالمية على سبائك الذهب المعززة بمعادن أخرى لتحقيق التوازن بين القيمة والصلابة:
+
+- عيار 18 قيراط (Au 750):
+  * التركيب: 75% ذهب خالص + 25% معادن تقوية (فضة، نحاس، زنك، أو بالاديوم).
+  * الأفضل لـ: المجوهرات اليومية الراقية، الخواتم المرصعة بالألماس والأحجار الثمينة، الأساور ذات الأقفال الدقيقة.
+  * الميزة: يوفر أقصى تماسك هيكلي لحماية مخالب الترصيع من الارتخاء، مع بريق لوني دافئ وفخم تعتمده أرقى دور المجوهرات العالمية في باريس وجنيف.
+
+- عيار 21 قيراط (Au 875):
+  * التركيب: 87.5% ذهب خالص + 12.5% معادن مضافة.
+  * الأفضل لـ: الأساور العريضة والسبائك والمشغولات التراثية التي تعتمد على وزن الذهب ذاته كقيمة ادخارية وزينة.
+  * الميزة: لونه أصفر ذهبي عميق وفاقع، يحمل قيمة إعادة بيع ممتازة في أسواق الخليج والشرق الأوسط، لكنه أكثر قابلية للانثناء إذا صُمم بسماكات رقيقة جداً.
+
+- البلاتين 950 (Pt 950):
+  * التركيب: 95% بلاتين نقي + 5% روثينيوم أو إيريديوم.
+  * الأفضل لـ: خواتم السوليتير الفاخرة المخصصة للاستخدام اليومي لمدى الحياة، وأصحاب البشرة الحساسة تجاه النيكل.
+  * الميزة: كثافة مادية عالية جداً، لا يفقد وزنه بالاحتكاك بل ينضغط، ومخالبه تمسك الألماسات الضخمة بأمان مطلق يمتد لقرون.`,
+        contentEn: `Geologically pure 24-karat gold (99.9% purity) is remarkably ductile. In its raw unalloyed state, it cannot mechanically anchor faceted gemstones or withstand kinetic friction without suffering structural deformation and deep abrasive marring. Haute joaillerie ateliers formulate strategic alloys to strike precise equilibria between pure capital value and mechanical tensile strength:
+
+- 18 Karat Gold (Au 750 / 75.0% Pure Gold):
+  * Metallurgical Matrix: 75% pure gold bonded with 25% hardening noble metals (copper, silver, zinc, or palladium).
+  * Ideal Applications: Everyday high jewelry, diamond crowns, micro-pavé settings, and articulated box-clasp mechanisms.
+  * Key Advantage: Exceptional structural resilience that permanently locks gem prongs against deformation, universally adopted by Place Vendôme and Swiss luxury ateliers.
+
+- 21 Karat Gold (Au 875 / 87.5% Pure Gold):
+  * Metallurgical Matrix: 87.5% pure gold and 12.5% strengthening alloys.
+  * Ideal Applications: Heritage bangles, solid chains, and heirloom investment sets where metal weight functions as both decorative ornament and liquid treasury reserve.
+  * Key Advantage: Rich, vivid sunburst yellow coloration highly revered throughout Arabian markets with superb cash-out liquidity, requiring thicker architectural profiles to avoid bending.
+
+- Platinum 950 (Pt 950 / 95.0% Pure Platinum):
+  * Metallurgical Matrix: 95% elemental platinum alloyed with ruthenium or iridium.
+  * Ideal Applications: Lifetime solitaire engagement crowns and hypoallergenic settings for clients prone to alloy dermatitis.
+  * Key Advantage: Immense metallurgical density. Platinum does not wear away when scratched; it displaces into an antique patina, holding major diamonds with unyielding structural tenacity across centuries.`,
+      },
+      {
+        headingAr: '4. كيمياء العناية المنزلية بالبريق: أخطاء شائعة تطفئ وهج الأحجار والذهب',
+        headingEn: '4. At-Home Maintenance Chemistry: Critical Pitfalls That Dull Precious Gems and Gold',
+        contentAr: `كثيراً ما نتلقى في صالونات الفحص مجوهرات باهظة تبدو معتمة وفاقدة للحياة، ليكتشف الفحص المخبري أن السبب ليس رداءة الحجر أو المعدن، بل تراكم أغشية كيميائية ناتجة عن عادات منزلية خاطئة. إليكِ المحاذير الأربعة الأهم لحماية مجوهراتكِ:
+
+1. خطأ "العطور والكريمات":
+العطور تحتوي على مركبات كحولية ومثبتات زيتية، بينما تحتوي مستحضرات الوقاية من الشمس على أكاسيد زنك وتيتانيوم. رش العطر فوق القلادة يترك طبقة لزجة مجهرية على الوجه السفلي للألماس (Pavilion)، مما يعطل انكسار الضوء الداخلي ويطفئ "النار" الماسية تماماً. الحل: اتبعي قاعدة الصاغة الصارمة: "المجوهرات هي آخر ما ترتدينه عند الخروج، وأول ما تخلعينه عند العودة".
+
+2. فخ "الكلور ومياه المسابح":
+الكلور والمطهرات الكيميائية هي العدو اللدود للذهب! يتفاعل الكلور كيميائياً مع النحاس والنيكل الموجودين داخل سبيكة الذهب عيار 18k، مما يسبب ما يُعرف بـ "تآكل الإجهاد الحبيبي" (Stress Corrosion Cracking). هذا التآكل يجعل مخالب الخاتم هشة كالبسكويت وتتكسر فجأة دون صدمة واضحة، متسببة في ضياع الحجر الثمين.
+
+3. كارثة جهاز الموجات فوق الصوتية (Ultrasonic Cleaner):
+على الرغم من انتشار أجهزة التنظيف بالموجات فوق الصوتية المنزلية، إلا أن استخدامها عشوائياً يعد كارثة حقيقية على بعض الأحجار:
+- الزمرد الكولومبي يحتوي على شوائب طبيعية (Jardin) تُعالج بالزيوت الطبيعية، واهتزازات الجهاز تطرد الزيت وتترك الزمردة بيضاء مليئة بالشروخ!
+- اللؤلؤ الطبيعي، الأوبال، والمرجان أحجار عضوية مسامية تذوب وتتلف تماماً بفعل الموجات والحرارة.
+
+4. الطريقة المنزلية الآمنة الوحيدة:
+وعاء صغير من الماء الفاتر (وليس المغلي)، مع قطرتين من صابون غسيل الأطباق السائل المعتدل والخالي من المواد المبيضة، وفرشاة أسنان أطفال فائقة النعومة. دعي القطعة تنقع لمدة 10 دقائق، ثم مرري الفرشاة بلطف خلف الأحجار وفي الزوايا الداخلية، واشطفيها بماء فاتر ثم جففيها بمنديل ميكروفايبر ناعم خالي من الوبر.`,
+        contentEn: `In appraisal ateliers, we routinely inspect prestigious gems rendered completely lifeless. Microscopic inspection almost universally reveals micro-chemical residues accumulated from improper domestic habits rather than inherent mineral flaws. Master these four chemistry imperatives:
+
+1. The Fragrance and Cosmeceutical Trap:
+Fine perfumes deploy denatured ethyl alcohol and synthetic fixation oils, while sunscreens contain heavy zinc and titanium oxides. Misting perfume over a diamond necklace coats the light-refracting pavilion facets with a sticky, light-blocking film, extinguishing total internal reflection. Always adhere to the jeweler's canon: "Jewelry is the final item you put on, and the very first you take off."
+
+2. The Chlorine and Swimming Pool Hazard:
+Chlorinated pool sanitizers are ruthless metallurgical oxidizers. Chlorine chemically leaches copper and nickel alloys out of 18k and 14k gold matrices, instigating stress corrosion cracking. This microscopic brittleness causes prongs to snap without warning, precipitating the catastrophic loss of valuable diamonds.
+
+3. The Ultrasonic Cleaner Peril:
+While desktop ultrasonic baths clean solid diamonds effectively, deploying them indiscriminately onto delicate gems invites tragedy:
+- Natural Emeralds feature organic inclusions (jardin) traditionally conditioned with cedarwood oil. High-frequency cavitation violently strips this oil, leaving the stone fractured and cloudy.
+- Pearls, Opals, and Coral are soft, porous organic gems whose crystalline lattices fracture permanently under ultrasonic agitation.
+
+4. The Sovereign Safe Cleaning Protocol:
+A ceramic bowl of lukewarm water tempered with two drops of neutral, unscented dishwashing liquid. Soak the jewels for 10 minutes, gently brush behind the stone mountings using an ultra-soft infant toothbrush, rinse under running lukewarm water (with the drain securely plugged), and pat dry with an lint-free optical microfiber cloth.`,
+      },
+      {
+        headingAr: '5. فن دمج الطبقات والرصف (Layering & Stacking): قواعد التوازن البصري دون تكلف',
+        headingEn: '5. The Art of Sophisticated Layering: Visual Balance, Proportion, and Focal Stacking Rules',
+        contentAr: `إن تنسيق قطع متعددة معاً فن تحكمه قواعد هندسية وجمالية؛ فالهدف هو خلق لوحة متناغمة تعبر عن الثراء البصري دون أن تبدو الإطلالة مزدحمة أو فوضوية. إليكِ القواعد الذهبية لدمج مجوهراتكِ باحترافية:
+
+قاعدة المسافات المتدرجة للقلائد (Necklace Spacing):
+- لتجنب تشابك السلاسل، احرصي على ترك فارق لا يقل عن 5 إلى 7 سنتيمترات بين كل قلادة وأخرى.
+- مثال التنسيق المثالي:
+  1. تشوكر ناعم أو سلسال بتصميم حبل بطول 40 سم يلتف حول قاعدة الرقبة.
+  2. قلادة بحلية دائرية أو حجر بيضاوي بطول 45 سم تستقر على عظمة الترقوة.
+  3. سلسال أطول بتعليقة طولية أو ميدالية عملة قديمة بطول 55 سم يمنح امتداداً رأسياً يُظهر الرقبة أكثر رشاقة وطولاً.
+
+قاعدة السوار البطل والتابع (Bracelet Stacking):
+عند تجميع الأساور على معصم واحد، اختاري قطعة واحدة فقط لتكون هي "النجم الرئيسي" (مثلاً سوار التنس الماسي أو سوار كارتييه العريض)، وأحيطيها بسوارين أنعم منها بكثير من حيث السُمك، مثل سلسال ذهبي مبروم ناعم. تذكري دائماً: إذا ارتديتِ ساعة يد معدنية بارزة، ضعي الأساور خلف الساعة باتجاه الذراع وليس أمامها لحماية زجاج الساعة من الخدش.
+
+قاعدة الأيدي المتوازنة (Hand Balance):
+إذا اخترتِ ارتداء خاتم كوكتيل ضخم بحجر كريم بارز في يدكِ اليمنى، دعي اليد اليسرى هادئة واكتفي فيها بخاتم الزواج أو حلقة ذهبية ناعمة جداً. التناظر الزائد يجعل المظهر مصطنعاً، بينما التوازن غير المتماثل (Asymmetrical Balance) يمنحكِ جاذبية فطرية لا تُقاوم.`,
+        contentEn: `Layering jewelry is an exercise in architectural rhythm. The objective is to assemble a cohesive visual tableau that radiates effortless luxury without descending into chaotic clutter. Master these spatial parameters:
+
+The Graduated Spacing Rule for Necklaces:
+- To prevent unsightly chain knotting, maintain an absolute minimum offset of 5 to 7 centimeters between each chain.
+- The Definitive 3-Tier Layering Blueprint:
+  1. Base Choker / Rope Chain (40 cm): Hugging the neck base for structural foundation.
+  2. Medallion / Solitaire Pendant (45 cm): Anchoring the suprasternal notch.
+  3. Elongated Vertical Lariat or Coin Talisman (55 cm): Creating an elegant vertical silhouette that visually elongates the neckline.
+
+The Anchor & Whisper Rule for Wrist Stacking:
+When staging wrist cuffs, designate one indisputable "Anchor Piece" (such as a diamond tennis bracelet or substantial gold bangle), flanking it with whisper-thin cable or paperclip chains. Critical ergonomic rule: if paired alongside a luxury timepiece, position gold bangles proximal to the forearm rather than distal to the watch crown, protecting the sapphire crystal from mechanical abrasions.
+
+Asymmetrical Hand Balance:
+Should your right hand command an opulent colored cocktail ring on the middle finger, preserve restraint on the opposite hand with understated micro-eternity bands. Rigid bilateral symmetry feels stiff and performative; organic asymmetrical equilibrium exudes innate Parisian nonchalance.`,
+      },
+      {
+        headingAr: '6. استراتيجية الاقتناء المستدام وتوريث القطع الثمينة للأجيال القادمة',
+        headingEn: '6. Generational Heirloom Strategy: Curating Pieces That Appreciate in Sentiment and Value',
+        contentAr: `في ختام رحلة بناء كبسولتكِ، تذكري دائماً أن المجوهرات الفاخرة ليست مجرد أكسسوار استهلاكي، بل هي أحد أشكال الثروة المحمولة والأصول العاطفية النادرة التي لا تبلى. القطعة التي تختارينها اليوم بعناية وبذهب خالص وأحجار كريمة معتمدة، ستكون بعد ثلاثين أو خمسين عاماً رمزاً عائلياً غالياً ترتديه ابنتكِ أو حفيدتكِ، وتروي به قصتكِ وحضوركِ.
+
+قائمة الفحص النهائية قبل اقتناء أي قطعة جديدة لكبسولتكِ:
+1. هل المعدن من الذهب النقي (18k أو 21k) أو البلاتين 950 وخالٍ تماماً من الطلاء الزائل؟
+2. هل الأحجار الكريمة مصحوبة بشهادة مخبرية مستقلة ومعتمدة (مثل GIA أو IGI) تؤكد طبيعتها ونقاءها؟
+3. هل تصميم القطعة مريح هندسياً ويمكن ارتداؤه مع أكثر من 5 إطلالات مختلفة في خزانتكِ؟
+4. هل تشعرين بالارتباط والبهجة الحقيقية عند ارتدائها؟
+
+إذا كانت الإجابة "نعم"، فأنتِ لستِ فقط بصدد شراء قطعة مجوهرات، بل تؤسسين لتاريخ من الأناقة الخالدة التي لا يمحوها مرور الزمن.
+
+نرحب بكِ دائماً في صالون **بوتيك مجوهرات النخبة الملكية**، حيث يسعد مستشارونا بمساعدتكِ خطوة بخطوة في اختيار وفحص قطعكِ الأساسية وتصميم كبسولتكِ الخاصة بأعلى معايير الصياغة العالمية.`,
+        contentEn: `As you cultivate your permanent high-jewelry capsule, remember that genuine fine jewelry is never a transient expenditure; it is portable, tactile capital and an intimate repository of family history. The noble gold and certified gems you acquire today will, decades hence, serve as treasured heirlooms gracing the hands of daughters and granddaughters, keeping your memory vibrantly alive.
+
+The Definitive 4-Point Pre-Acquisition Audit:
+1. Metallurgical Authenticity: Is the alloy solid 18k/21k gold or Platinum 950, free from ephemeral electroplated base metals?
+2. Scientific Certification: Are precious center gems accompanied by rigorous third-party laboratory dossiers (GIA, IGI, Gübelin)?
+3. Ergonomic Adaptability: Can the jewel transition seamlessly across at least five distinct styling ensembles in your lifestyle wardrobe?
+4. Emotional Spark: Does the piece evoke authentic personal joy and visceral confidence the moment it makes contact with your skin?
+
+If every answer resonates affirmative, you are not merely acquiring jewelry—you are curating an enduring legacy destined to outlive fleeting centuries.
+
+We warmly invite you to consult with our master artisans and high jewelry curators at **Royal Elite Boutique**, where we accompany patrons in hand-selecting certified stones and bespoke foundational treasures that transcend generations.`,
+      },
+    ],
+  },
 ];
+
