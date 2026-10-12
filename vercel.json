@@ -1,10 +1,9 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
   "rewrites": [
     {
-      "source": "/((?!robots\\.txt|sitemap\\.xml|ads\\.txt|manifest\\.json|\\.well-known/).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
@@ -18,11 +17,7 @@
         },
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        },
-        {
-          "key": "X-Robots-Tag",
-          "value": "all"
+          "value": "public, max-age=3600, must-revalidate"
         }
       ]
     },
@@ -35,7 +30,7 @@
         },
         {
           "key": "Cache-Control",
-          "value": "public, max-age=3600"
+          "value": "public, max-age=3600, must-revalidate"
         }
       ]
     },
@@ -48,7 +43,7 @@
         },
         {
           "key": "Cache-Control",
-          "value": "public, max-age=3600"
+          "value": "public, max-age=3600, must-revalidate"
         }
       ]
     }

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Navbar } from './components/Navbar.tsx';
 import { Hero } from './components/Hero.tsx';
 import { CollectionsBar } from './components/CollectionsBar.tsx';
@@ -41,9 +41,105 @@ import {
   Coins,
 } from 'lucide-react';
 
+// Helper to look up an article safely by id, slug, or normalized string
+const findArticle = (idOrSlug: string): Article | null => {
+  if (!idOrSlug) return null;
+  const clean = idOrSlug.trim().toLowerCase().replace(/^article-/, '');
+  return (
+    ARTICLES_DATA.find((a) => a.id.toLowerCase() === clean || (a.slug && a.slug.toLowerCase() === clean)) ||
+    ARTICLES_DATA.find((a) => a.id.toLowerCase().includes(clean) || clean.includes(a.id.toLowerCase())) ||
+    null
+  );
+};
+
+const parseRouteFromLocation = (): { tab: string; article: Article | null } => {
+  try {
+    const search = new URLSearchParams(window.location.search);
+    const hash = window.location.hash || '';
+
+    // 1. Direct article param: ?article=... or ?tab=journal&article=...
+    const articleParam = search.get('article');
+    if (articleParam) {
+      const art = findArticle(articleParam);
+      if (art) return { tab: 'journal', article: art };
+    }
+
+    // 2. Tab param: ?tab=...
+    const tabParam = search.get('tab');
+    if (tabParam) {
+      // Check if tabParam is actually an article ID!
+      const art = findArticle(tabParam);
+      if (art) return { tab: 'journal', article: art };
+
+      const knownTabs = ['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms'];
+      if (knownTabs.includes(tabParam)) {
+        return { tab: tabParam, article: null };
+      }
+    }
+
+    // 3. Hash routing: #article-... or #catalog etc.
+    if (hash.startsWith('#article-')) {
+      const artId = hash.replace('#article-', '');
+      const art = findArticle(artId);
+      if (art) return { tab: 'journal', article: art };
+    } else if (hash.startsWith('#')) {
+      const cleanHash = hash.replace('#', '');
+      const art = findArticle(cleanHash);
+      if (art) return { tab: 'journal', article: art };
+      const knownTabs = ['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms'];
+      if (knownTabs.includes(cleanHash)) {
+        return { tab: cleanHash, article: null };
+      }
+    }
+  } catch {
+    // fallback
+  }
+  return { tab: 'home', article: null };
+};
+
+const syncBrowserUrl = (tab: string, article: Article | null) => {
+  try {
+    const url = new URL(window.location.href);
+    if (article) {
+      url.searchParams.set('tab', 'journal');
+      url.searchParams.set('article', article.id);
+      url.hash = `article-${article.id}`;
+      window.history.replaceState({ tab: 'journal', articleId: article.id }, '', url.toString());
+
+      // Update document title, description, and canonical tag
+      const title = `${article.titleAr} | بوتيك مجوهرات النخبة الملكية`;
+      document.title = title;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', article.summaryAr || '');
+      const canonicalEl = document.getElementById('canonical-url') || document.querySelector('link[rel="canonical"]');
+      if (canonicalEl) {
+        canonicalEl.setAttribute('href', `https://hanan.blog/?tab=journal&article=${article.id}`);
+      }
+    } else {
+      if (tab === 'home') {
+        url.search = '';
+        url.hash = '';
+        window.history.replaceState({ tab: 'home' }, '', url.pathname);
+        document.title = 'بوتيك مجوهرات النخبة الملكية | Royal Elite High Jewelry Boutique';
+        const canonicalEl = document.getElementById('canonical-url') || document.querySelector('link[rel="canonical"]');
+        if (canonicalEl) canonicalEl.setAttribute('href', 'https://hanan.blog/');
+      } else {
+        url.searchParams.set('tab', tab);
+        url.searchParams.delete('article');
+        url.hash = tab;
+        window.history.replaceState({ tab }, '', url.toString());
+        const canonicalEl = document.getElementById('canonical-url') || document.querySelector('link[rel="canonical"]');
+        if (canonicalEl) canonicalEl.setAttribute('href', `https://hanan.blog/?tab=${tab}`);
+      }
+    }
+  } catch {}
+};
+
 export default function App() {
   const [language, setLanguage] = useState<Language>('ar');
-  const [activeTab, setActiveTab] = useState<string>('home');
+  const initialRoute = useMemo(() => parseRouteFromLocation(), []);
+  const [activeTab, setActiveTab] = useState<string>(initialRoute.tab);
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(initialRoute.article);
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all');
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
@@ -63,7 +159,6 @@ export default function App() {
     'pearl-diamond-tennis-bracelet',
   ];
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
-  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [wishlistIds, setWishlistIds] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('royal_elite_wishlist');
@@ -84,6 +179,24 @@ export default function App() {
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
   }, [language]);
+
+  // Sync route on mount and on popstate/hashchange
+  useEffect(() => {
+    syncBrowserUrl(activeTab, selectedArticle);
+
+    const handleUrlChange = () => {
+      const route = parseRouteFromLocation();
+      setActiveTab(route.tab);
+      setSelectedArticle(route.article);
+    };
+
+    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('hashchange', handleUrlChange);
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('hashchange', handleUrlChange);
+    };
+  }, []);
 
   // Persist cart
   useEffect(() => {
@@ -119,9 +232,19 @@ export default function App() {
   const handleOpenArticle = (article: Article) => {
     setSelectedArticle(article);
     setActiveTab('journal');
+    syncBrowserUrl('journal', article);
     try {
       window.scrollTo({ top: 0, behavior: 'auto' });
     } catch {}
+  };
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    if (tab === 'journal') {
+      setSelectedArticle(null);
+    }
+    syncBrowserUrl(tab, null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleAddToCart = (
@@ -175,20 +298,21 @@ export default function App() {
   const featuredProducts = PRODUCTS_DATA.filter((p) => p.featured);
   const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+  const knownTabs = ['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms'];
+  const effectiveTab = knownTabs.includes(activeTab)
+    ? activeTab
+    : selectedArticle
+      ? 'journal'
+      : 'home';
+
   return (
     <div className="min-h-screen bg-[#FAF8F5] text-[#18181B] flex flex-col font-sans">
       {/* Top 3-Zone Navigation */}
       <Navbar
         language={language}
         onLanguageChange={setLanguage}
-        activeTab={activeTab}
-        onTabChange={(tab) => {
-          setActiveTab(tab);
-          if (tab === 'journal') {
-            setSelectedArticle(null);
-          }
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
+        activeTab={effectiveTab}
+        onTabChange={handleTabChange}
         cartCount={totalCartCount}
         wishlistCount={wishlistIds.length}
         onOpenCart={() => setIsCartOpen(true)}
@@ -199,7 +323,7 @@ export default function App() {
 
       {/* Main Content Router */}
       <main className="flex-1">
-        {activeTab === 'home' && (
+        {effectiveTab === 'home' && (
           <div>
             {/* Top Royal Site Navigation Icon & Directory Bar (أول الصفحة الرئيسية) */}
             <div className="bg-[#18181B] text-[#FAF8F5] border-b-2 border-[#D4AF37]/40 py-3 px-4 sm:px-6 shadow-md">
@@ -230,29 +354,20 @@ export default function App() {
                 {/* Direct quick navigation shortcuts */}
                 <div className="flex items-center gap-1.5 flex-wrap justify-center text-[11px] font-medium text-white/90">
                   <button
-                    onClick={() => {
-                      setActiveTab('home');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('home')}
                     className="px-2.5 py-1 rounded-lg bg-[#D4AF37] text-[#18181B] font-bold shadow-xs transition-colors cursor-pointer flex items-center gap-1"
                   >
                     <Home className="w-3 h-3" />
                     <span>{t.navHome}</span>
                   </button>
                   <button
-                    onClick={() => {
-                      setActiveTab('catalog');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('catalog')}
                     className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
                   >
                     {t.theStore}
                   </button>
                   <button
-                    onClick={() => {
-                      setActiveTab('journal');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('journal')}
                     className="px-2.5 py-1 rounded-lg bg-[#D4AF37]/25 border border-[#D4AF37]/50 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer font-bold flex items-center gap-1"
                   >
                     <span>{t.theBlog}</span>
@@ -261,37 +376,25 @@ export default function App() {
                     </span>
                   </button>
                   <button
-                    onClick={() => {
-                      setActiveTab('about');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('about')}
                     className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
                   >
                     {t.aboutUs}
                   </button>
                   <button
-                    onClick={() => {
-                      setActiveTab('contact');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('contact')}
                     className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
                   >
                     {t.contactUs}
                   </button>
                   <button
-                    onClick={() => {
-                      setActiveTab('privacy');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('privacy')}
                     className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
                   >
                     {t.privacyPolicy}
                   </button>
                   <button
-                    onClick={() => {
-                      setActiveTab('terms');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('terms')}
                     className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
                   >
                     {t.termsOfUse}
@@ -303,14 +406,8 @@ export default function App() {
             {/* Hero Section */}
             <Hero
               language={language}
-              onExplore={() => {
-                setActiveTab('catalog');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              onBookVip={() => {
-                setActiveTab('contact');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
+              onExplore={() => handleTabChange('catalog')}
+              onBookVip={() => handleTabChange('contact')}
             />
 
             {/* Comprehensive Site Sections Directory (أقسام الموقع الرئيسي) */}
@@ -368,10 +465,7 @@ export default function App() {
 
                   {/* 2. المتجر */}
                   <button
-                    onClick={() => {
-                      setActiveTab('catalog');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('catalog')}
                     className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
                   >
                     <div className="flex items-center justify-between mb-2">
@@ -390,10 +484,7 @@ export default function App() {
 
                   {/* 3. المدونة (مع كتابة عدد المقالات) */}
                   <button
-                    onClick={() => {
-                      setActiveTab('journal');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('journal')}
                     className="p-3.5 rounded-xl border-2 border-[#D4AF37] bg-gradient-to-br from-amber-50/40 via-white to-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
                   >
                     <div className="flex items-center justify-between mb-2">
@@ -414,10 +505,7 @@ export default function App() {
 
                   {/* 4. من نحن */}
                   <button
-                    onClick={() => {
-                      setActiveTab('about');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('about')}
                     className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
                   >
                     <div className="flex items-center justify-between mb-2">
@@ -436,10 +524,7 @@ export default function App() {
 
                   {/* 5. اتصل بنا */}
                   <button
-                    onClick={() => {
-                      setActiveTab('contact');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('contact')}
                     className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
                   >
                     <div className="flex items-center justify-between mb-2">
@@ -458,10 +543,7 @@ export default function App() {
 
                   {/* 6. سياسة الخصوصية */}
                   <button
-                    onClick={() => {
-                      setActiveTab('privacy');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('privacy')}
                     className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
                   >
                     <div className="flex items-center justify-between mb-2">
@@ -480,10 +562,7 @@ export default function App() {
 
                   {/* 7. شروط الاستخدام */}
                   <button
-                    onClick={() => {
-                      setActiveTab('terms');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    onClick={() => handleTabChange('terms')}
                     className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
                   >
                     <div className="flex items-center justify-between mb-2">
@@ -509,8 +588,7 @@ export default function App() {
               selectedCategory={selectedCategory}
               onSelectCategory={(cat) => {
                 setSelectedCategory(cat);
-                setActiveTab('catalog');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                handleTabChange('catalog');
               }}
             />
 
@@ -528,10 +606,7 @@ export default function App() {
                 </div>
 
                 <button
-                  onClick={() => {
-                    setActiveTab('catalog');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
+                  onClick={() => handleTabChange('catalog')}
                   className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#B8902A] hover:underline"
                 >
                   <span>{language === 'ar' ? 'عرض الكتالوج كاملاً' : 'View Full Catalog'}</span>
@@ -578,20 +653,14 @@ export default function App() {
 
                     <div className="pt-2 flex flex-wrap gap-4">
                       <button
-                        onClick={() => {
-                          setActiveTab('about');
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
+                        onClick={() => handleTabChange('about')}
                         className="px-6 py-3 bg-[#D4AF37] hover:bg-[#B8902A] text-[#18181B] font-bold text-xs sm:text-sm rounded-xl transition-colors"
                       >
                         {t.navAbout}
                       </button>
 
                       <button
-                        onClick={() => {
-                          setActiveTab('tools');
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
+                        onClick={() => handleTabChange('tools')}
                         className="px-6 py-3 bg-white/10 hover:bg-white/15 text-white border border-[#D4AF37]/40 text-xs sm:text-sm rounded-xl transition-colors"
                       >
                         {t.goldCalcTitle}
@@ -704,7 +773,7 @@ export default function App() {
         )}
 
         {/* Catalog Tab */}
-        {activeTab === 'catalog' && (
+        {effectiveTab === 'catalog' && (
           <CatalogSection
             products={PRODUCTS_DATA}
             language={language}
@@ -717,28 +786,31 @@ export default function App() {
         )}
 
         {/* Journal Tab */}
-        {activeTab === 'journal' && (
+        {effectiveTab === 'journal' && (
           <BlogSection
             language={language}
             selectedArticle={selectedArticle}
-            onSelectArticle={setSelectedArticle}
+            onSelectArticle={(art) => {
+              setSelectedArticle(art);
+              syncBrowserUrl('journal', art);
+            }}
           />
         )}
 
         {/* Interactive Tools Tab */}
-        {activeTab === 'tools' && <ToolsSection language={language} />}
+        {effectiveTab === 'tools' && <ToolsSection language={language} />}
 
         {/* About Tab */}
-        {activeTab === 'about' && <AboutSection language={language} />}
+        {effectiveTab === 'about' && <AboutSection language={language} />}
 
         {/* Contact Tab */}
-        {activeTab === 'contact' && <ContactSection language={language} />}
+        {effectiveTab === 'contact' && <ContactSection language={language} />}
 
         {/* Privacy Tab */}
-        {activeTab === 'privacy' && <LegalPages language={language} initialTab="privacy" />}
+        {effectiveTab === 'privacy' && <LegalPages language={language} initialTab="privacy" />}
 
         {/* Terms Tab */}
-        {activeTab === 'terms' && <LegalPages language={language} initialTab="terms" />}
+        {effectiveTab === 'terms' && <LegalPages language={language} initialTab="terms" />}
       </main>
 
       {/* Global Product Dossier Modal */}
@@ -749,8 +821,7 @@ export default function App() {
         onAddToCart={handleAddToCart}
         onOpenRingSizer={() => {
           setQuickViewProduct(null);
-          setActiveTab('tools');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          handleTabChange('tools');
         }}
       />
 
@@ -783,11 +854,7 @@ export default function App() {
         isOpen={isSiteSectionsOpen}
         onClose={() => setIsSiteSectionsOpen(false)}
         language={language}
-        onNavigate={(tab) => {
-          setActiveTab(tab);
-          if (tab === 'journal') setSelectedArticle(null);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
+        onNavigate={handleTabChange}
         onSelectArticle={(art) => {
           handleOpenArticle(art);
           setIsSiteSectionsOpen(false);
@@ -800,19 +867,9 @@ export default function App() {
       {/* Comprehensive Footer */}
       <Footer
         language={language}
-        onNavigate={(tab) => {
-          setActiveTab(tab);
-          if (tab === 'journal') setSelectedArticle(null);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        onOpenPrivacy={() => {
-          setActiveTab('privacy');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        onOpenTerms={() => {
-          setActiveTab('terms');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
+        onNavigate={handleTabChange}
+        onOpenPrivacy={() => handleTabChange('privacy')}
+        onOpenTerms={() => handleTabChange('terms')}
       />
     </div>
   );
