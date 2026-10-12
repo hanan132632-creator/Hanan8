@@ -43,17 +43,7 @@ import {
 
 export default function App() {
   const [language, setLanguage] = useState<Language>('ar');
-  const [activeTab, setActiveTab] = useState<string>(() => {
-    try {
-      const hash = window.location.hash;
-      if (hash.startsWith('#article-')) return 'journal';
-      const clean = hash.replace('#', '');
-      if (['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms'].includes(clean)) {
-        return clean;
-      }
-    } catch {}
-    return 'home';
-  });
+  const [activeTab, setActiveTab] = useState<string>('home');
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all');
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
@@ -73,16 +63,7 @@ export default function App() {
     'pearl-diamond-tennis-bracelet',
   ];
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
-  const [selectedArticle, setSelectedArticle] = useState<Article | null>(() => {
-    try {
-      const hash = window.location.hash;
-      if (hash.startsWith('#article-')) {
-        const artId = hash.replace('#article-', '');
-        return ARTICLES_DATA.find((a) => a.id === artId) || null;
-      }
-    } catch {}
-    return null;
-  });
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [wishlistIds, setWishlistIds] = useState<string[]>(() => {
     try {
       const saved = localStorage.getItem('royal_elite_wishlist');
@@ -97,34 +78,6 @@ export default function App() {
       return DEFAULT_WISHLIST_IDS;
     }
   });
-
-  // Sync URL hash with activeTab and selectedArticle
-  useEffect(() => {
-    const handleHashChange = () => {
-      try {
-        const hash = window.location.hash;
-        if (hash.startsWith('#article-')) {
-          const artId = hash.replace('#article-', '');
-          const found = ARTICLES_DATA.find((a) => a.id === artId);
-          if (found) {
-            setSelectedArticle(found);
-            setActiveTab('journal');
-          }
-        } else {
-          const tab = hash.replace('#', '');
-          if (['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms'].includes(tab)) {
-            setActiveTab(tab);
-            if (tab === 'journal') {
-              setSelectedArticle(null);
-            }
-          }
-        }
-      } catch {}
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
 
   // Sync RTL and lang attributes
   useEffect(() => {
@@ -167,7 +120,6 @@ export default function App() {
     setSelectedArticle(article);
     setActiveTab('journal');
     try {
-      window.location.hash = `article-${article.id}`;
       window.scrollTo({ top: 0, behavior: 'auto' });
     } catch {}
   };

@@ -42,20 +42,6 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
   const [searchQuery, setSearchQuery] = useState<string>('');
   const ArrowIcon = language === 'ar' ? ArrowLeft : ArrowRight;
 
-  if (selectedArticle) {
-    return (
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <ArticleView
-          article={selectedArticle}
-          language={language}
-          onBack={() => handleSelectArticle(null)}
-          onSelectArticle={(art) => handleSelectArticle(art)}
-          allArticles={ARTICLES_DATA}
-        />
-      </div>
-    );
-  }
-
   const categories = [
     { id: 'all', labelAr: `كافة المقالات (${ARTICLES_DATA.length})`, labelEn: `All Articles (${ARTICLES_DATA.length})` },
     { id: 'gems', labelAr: 'الألماس والأحجار النادرة', labelEn: 'Diamonds & Rare Gems' },
@@ -128,6 +114,20 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       return true;
     });
   }, [selectedCategory, searchQuery]);
+
+  if (selectedArticle) {
+    return (
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <ArticleView
+          article={selectedArticle}
+          language={language}
+          onBack={() => handleSelectArticle(null)}
+          onSelectArticle={(art) => handleSelectArticle(art)}
+          allArticles={ARTICLES_DATA}
+        />
+      </div>
+    );
+  }
 
   const featured = ARTICLES_DATA[0];
 
