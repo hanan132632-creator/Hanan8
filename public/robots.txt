@@ -1,4 +1,36 @@
+# Allow all crawlers and verification bots full access
 User-agent: *
 Allow: /
 
+# Google Search Console & Googlebot
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
+# Google AdSense
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+# Google Play Console & Security Checkers
+User-agent: Google-Play
+Allow: /
+
+User-agent: Google-Safety
+Allow: /
+
+# Sitemap
 Sitemap: https://hanan.blog/sitemap.xml
