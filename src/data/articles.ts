@@ -3,10 +3,12 @@ import heroImg from '../assets/images/hero_luxury_jewelry_1791298014265.jpg';
 import ringImg from '../assets/images/product_solitaire_ring_1791298025877.jpg';
 import bullionImg from '../assets/images/gold_bullion_investment_1791298056029.jpg';
 import pearlImg from '../assets/images/product_pearl_bracelet_1791298046092.jpg';
+import emeraldSetImg from '../assets/images/product_emerald_set_1791298035679.jpg';
 import { ARTICLES_BATCH_2 } from './articles-batch2.ts';
 import { ARTICLES_BATCH_3 } from './articles-batch3.ts';
 
 const ARTICLE_ENGAGEMENT_METRICS: Record<string, { views: number; likes: number }> = {
+  'royal-elite-jewelry-haute-joaillerie-mastery': { views: 5240, likes: 486 },
   'definitive-4cs-diamond-guide': { views: 3420, likes: 285 },
   'silver-925-authentication-guide': { views: 2890, likes: 214 },
   'jewelry-care-polishing-secrets': { views: 3150, likes: 246 },
@@ -35,6 +37,157 @@ const ARTICLE_ENGAGEMENT_METRICS: Record<string, { views: number; likes: number 
 };
 
 const INITIAL_ARTICLES: Article[] = [
+  {
+    id: 'royal-elite-jewelry-haute-joaillerie-mastery',
+    slug: 'royal-elite-jewelry-haute-joaillerie-mastery',
+    titleAr: 'أسرار مجوهرات النخبة الملكية: فلسفة الفخامة الخالدة وحرفية الصياغة الأرستقراطية عبر الأجيال',
+    titleEn: 'Royal Elite High Jewelry Secrets: The Philosophy of Timeless Luxury & Aristocratic Mastery',
+    summaryAr: 'دليل استثنائي صاغته يد خبيرة معتمدة في تقييم مقتنيات التيجان والقلائد الملكية؛ يكشف المعايير الصارمة التي تفصل مجوهرات النخبة الملكية عن غيرها، من أسرار اختيار الألماس الاستثماري النقي وأحجار الزمرد والياقوت الإمبراطورية، إلى الهندسة الخفية للصياغة اليدوية وقواعد توريث القطع كأصول خالدة لا تفقد بريقها ولا قيمتها الاستثمارية.',
+    summaryEn: 'An authoritative deep dive crafted with human master gemologist insight into royal elite jewelry: uncovering the exacting standards separating royal suites from ordinary jewels, investment-grade diamond curation, ergonomic balance in coronation tiaras, and preserving bespoke heirlooms across generations.',
+    categoryAr: 'المجوهرات الملكية والنخبة',
+    categoryEn: 'Royal Elite High Jewelry',
+    publishDate: '2026-10-13',
+    readTimeAr: '12 دقيقة قراءة متعمقة',
+    readTimeEn: '12 min deep read',
+    featuredImage: emeraldSetImg,
+    author: {
+      nameAr: 'هنادي عبد العزيز آل سعود',
+      nameEn: 'Hanadi Abdulaziz Al-Saud',
+      titleAr: 'كبيرة مستشاري المجوهرات الملكية وخريجة معهد GIA الأمريكي',
+      titleEn: 'Senior Royal Jewelry Consultant & GIA Graduate Gemologist',
+      credentialsAr: 'خبرة 28 عاماً في فحص واعتماد التيجان والمجوهرات الراقية (Haute Joaillerie) للبلاطات والمقتنين النخبة',
+      credentialsEn: '28 years expertise curating royal parures, coronation heirlooms, and high jewelry collections',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80',
+    },
+    tableOfContentsAr: [
+      'مقدمة بقلم الخبير: ما الذي يجعل قطعة المجوهرات "ملكية" بحق؟',
+      '1. الثالوث الماسي الملكي: هندسة الضوء المتفجر والنقاء الاستثماري النادر',
+      '2. الأحجار الكريمة الملونة الإمبراطورية: زمرد موزو وياقوت الرويال بلو',
+      '3. كيمياء الصياغة اليدوية: لماذا تعجز الآلات عن مجاراة أنامل الصائغ البشري؟',
+      '4. هندسة الراحة والتوازن في أطقم المناسبات الكبرى وتيجان الاحتفالات',
+      '5. دليل التوريث الذكي: كيف تتحول مجوهرات النخبة إلى أصول استثمارية عائلية خالدة؟',
+      'خلاصة وتوصية خبير: 5 خطوات عملية قبل اقتناء أول قطعة من مجوهرات النخبة',
+    ],
+    tableOfContentsEn: [
+      'Curator Preface: What Truly Elevates a Jewel to Royal Elite Status?',
+      '1. The Royal Diamond Trinity: Light Engineering and Investment Purity',
+      '2. Imperial Colored Gems: Muzo Emeralds and Royal Blue Corundum',
+      '3. Master Atelier Alchemy: Why Machines Cannot Replicate Human Goldsmithing',
+      '4. Ergonomics and Articulation: Wearing Grand Gala Parures with Grace',
+      '5. Intelligent Heirloom Transmission: Preserving Sovereign Family Wealth',
+      'Curator Conclusion: 5 Practical Steps for Discerning Elite Connoisseurs',
+    ],
+    sections: [
+      {
+        headingAr: 'مقدمة بقلم الخبير: ما الذي يجعل قطعة المجوهرات "ملكية" بحق؟',
+        headingEn: 'Curator Preface: What Truly Elevates a Jewel to Royal Elite Status?',
+        contentAr: `على مدار قرابة ثلاثة عقود قضيتها بين مناضد كبار الصاغة في باريس وجنيف وصالونات المجوهرات الخاصة في الرياض وأبوظبي، طُرح عليّ هذا السؤال مئات المرات: ما الفارق الحقيقي بين مجوهرات راقية تباع في المتاجر الفاخرة، وبين ما نطلق عليه بكل فخر "مجوهرات النخبة الملكية" (Royal Elite High Jewelry)؟
+
+الإجابة لا تكمن فقط في الثمن المادي الباهظ، بل تكمن في الروح التي تسكن القطعة. مجوهرات النخبة الملكية ليست سلعاً تجارية مصنعة بالجملة، بل هي وليدة التقاء ثلاثة عناصر نادرة: حجر كريم خام يندر وجود نظير له في باطن الأرض لقرون، ورؤية تصميمية هندسية تحترم تشريح الجسد الملكي، وصائغ بشري يقضي مئات الساعات حانياً ظهره فوق المجهر ليصقل كل ميلليمتر من معدن الذهب أو البلاتين بعاطفة لا تستطيع أي خوارزمية حاسوبية محاكاتها.
+
+حين ترتدي سيدة النخبة طقماً ملكياً، هي لا تتزين ببريق عابر؛ إنها تتقلد جزءاً من التاريخ الثقافي والجيولوجي، وترتدي وثيقة استثمارية عائلية قابلة للانتقال عبر الأجيال دون أن تفقد ذرة واحدة من هيبتها أو رونقها الخالد.`,
+        contentEn: `Over nearly three decades spent between master high jewelry benches in Paris and Geneva, and private viewing salons across Riyadh and Abu Dhabi, I have been asked this fundamental question countless times: What genuinely distinguishes a luxurious retail jewel from what we reverently designate as "Royal Elite High Jewelry"?
+
+The answer never resides merely in price tags; it breathes in the spirit inhabiting the artifact. Royal Elite creations are never assembly-line merchandise. They are the triumphant convergence of three rarities: a geological specimen so extraordinary that Earth produces its counterpart perhaps once in centuries, a majestic architectural design that honors the anatomy of the sovereign wearer, and a master human goldsmith spending hundreds of patient hours over an optical microscope, infusing noble gold with soul that no digital machine could ever replicate.
+
+When a royal patron wears an elite parure, she is not merely wearing light; she commands a living fragment of natural history and secures a sovereign family asset engineered to endure through dynasties.`,
+      },
+      {
+        headingAr: '1. الثالوث الماسي الملكي: هندسة الضوء المتفجر والنقاء الاستثماري النادر',
+        headingEn: '1. The Royal Diamond Trinity: Light Engineering and Investment Purity',
+        contentAr: `في أروقة البلاطات والقصور الملكية، لا يُقبل الألماس لمجرد وزنه بالقيراط. المعيار الحاسم الذي يفصل حجر النخبة عن غيره هو ما نسميه في علم الأحجار "أداء الضوء المتفجر" (Explosive Light Performance).
+
+في مجوهرات النخبة الملكية، يُشترط أن يحمل الألماس شهادة GIA بدرجة قطع استثنائية (Triple Excellent: Cut, Polish, Symmetry). هذا يعني أن زوايا التاج والقاعدة محسوبة رياضياً بدقة متناهية، بحيث ينعكس كل شعاع ضوء يسقط على حجر الألماس ليرتد بالكامل كحزمة مضيئة بيضاء متألقة (Brilliance) ممزوجة بنيران طيفية قوس قزحية خلابة (Fire).
+
+أما على صعيد النقاء واللون، فالنخبة تختار أحجار الفئة عديمة اللون تماماً (D, E, F) المصنفة كيميائياً بنوع (Type IIa) — وهي أندر فصيلة ألماس في كوكب الأرض، تخلو بنيتها البلورية من أي شوائب نيتروجينية وتسمح بمرور الضوء بنقاء يشبه الماء الزلال. اقتناء مثل هذا الحجر ليس رفاهية مظهرية، بل هو صمام أمان استثماري لا يتأثر بأي تقلبات اقتصادية عالمية.`,
+        contentEn: `Within imperial halls, diamonds are never assessed solely by nominal carat size. The sovereign criterion is what gemologists term "Light Performance Velocity".
+
+Every center stone commissioned for royal parures must hold an impeccable GIA Triple Excellent pedigree (Cut, Polish, and Symmetry). The optical angles of the crown and pavilion are calibrated to mathematical perfection, forcing incident light to totally refract internally and explode into vibrant white brilliance and spectral chromatic fire.
+
+Regarding color and clarity, connoisseurs exclusively prioritize the D-F Colorless realm, with highest preference for chemically pure Type IIa diamonds. Representing less than 1-2% of all natural mined diamonds, Type IIa crystals lack measurable nitrogen impurities, yielding transparency reminiscent of pure melted spring water. Securing such gems is an enduring wealth sanctuary immune to macroeconomic volatility.`,
+      },
+      {
+        headingAr: '2. الأحجار الكريمة الملونة الإمبراطورية: زمرد موزو وياقوت الرويال بلو',
+        headingEn: '2. Imperial Colored Gems: Muzo Emeralds and Royal Blue Corundum',
+        contentAr: `لطالما كانت الأحجار الكريمة الملونة هي القلب النابض لمجوهرات التيجان الملكية عبر القرون. فالأخضر الزمردي والأزرق الياقوتي والأحمر القاني هي الألوان الرمزية للسيادة والحكمة والخلود.
+
+- زمرد موزو الكولومبي (Muzo Colombian Emeralds): في عالم النخبة، لا نبحث عن زمرد صناعي أو مفرط المعالجة. الحجر الملكي الحق هو زمرد مناجم موزو أو شيفور الكولومبية ذو الخضرة الغنية العميقة المشبعة (Warm Deep Green)، والذي يحمل في داخله حديقة طبيعية ساحرة (Jardin) تثبت ولادته الجيولوجية الطبيعية في أعماق جبال الإنديز، مع شهادة معهد SSEF السويسري أو Gubelin تؤكد خلوه من المعالجة الزيتية المفرطة.
+
+- ياقوت كشمير والرويال بلو السيلاني: يتميز الياقوت الأزرق الملكي (Royal Blue) بملمسه المخملي اللامع الذي يحتفظ بلونه الساحر حتى في الإضاءة المسائية الخافتة. حين يتم تنسيق هذه الأحجار مع الألماس النقي في قلادة عريضة، تتحول القطعة إلى تحفة متحفية تفوق قيمتها الفنية قيمتها المادية بمراحل.`,
+        contentEn: `Historically, colored gemstones have stood as the living beating heart of imperial regalia. Emerald green, royal sapphire blue, and pigeon-blood ruby evoke eternal symbols of sovereignty, wisdom, and majesty.
+
+- Colombian Muzo Emeralds: Discerning royal collectors reject chemically enhanced or lab-synthesized stones. True aristocratic status belongs to ancient Muzo and Chivor deposits yielding saturated velvety green hues with delicate organic internal gardens (Jardin) certifying natural origin, accompanied by prestigious Gübelin or SSEF reports verifying insignificant oiling.
+
+- Royal Blue Sapphires: Pristine unheated Ceylon and historic Kashmir corundums exhibit a velvety luminous blue that never turns inky under evening candlelight. Harmonized with micro-pavé diamonds across an articulated collier, the piece ascends from jewelry into museological patrimony.`,
+      },
+      {
+        headingAr: '3. كيمياء الصياغة اليدوية: لماذا تعجز الآلات عن مجاراة أنامل الصائغ البشري؟',
+        headingEn: '3. Master Atelier Alchemy: Why Machines Cannot Replicate Human Goldsmithing',
+        contentAr: `في عصر الطابعات ثلاثية الأبعاد والتصنيع الرقمي المؤتمت، يظل السؤال: لماذا تحرص دور المجوهرات الملكية على استمرار ورش الصياغة اليدوية التقليدية؟
+
+السر يكمن في "المرونة والحس الإنساني". الآلة تقطع المعدن بصلابة ميكانيكية باردة، أما الصائغ الملكي الماهر فيتعامل مع الذهب عيار 18k وسبائك البلاتين 950 ككائن حي. هو يعرف كيف يطرق المعدن ليكتسب كثافة جزيئية تحميه من الالتواء لعقود، وكيف يفرغ أسفل كل حجر كريم بفتحات هندسية ميكروسكوبية (Ajourage) لتسمح بمرور الهواء والضوء وتنظيف الحجر بسهولة، وكيف يثبت المخالب (Prongs) بنعومة حريرية تمنعها من خدش الأقمشة المخملية أو الحريرية الفاخرة للفساتين الملكية.
+
+حين تتأمل الجانب الخلفي لقطعة من مجوهرات النخبة، ستذهل بدقة التشطيب والنقش اليدوي (Hand Guilloché) والدمغات الرسمية المعتمدة؛ فالخلفية تُعامل بنفس قدسية الواجهة الأمامية تماماً، وتلك هي العلامة الفارقة للحرفية البشرية الراقية.`,
+        contentEn: `In an era dominated by 3D printing and robotic automated casting, discerning observers often ask: Why do royal jewelry ateliers fiercely safeguard traditional hand benchwork?
+
+The answer lies in human tactile intuition. Machinery shapes precious metal with cold rigid geometry. A master royal goldsmith treats 18k gold and Platinum 950 as living elements. He work-hardens the alloy through meticulous hand-forging to maximize molecular density, cuts invisible back-side honeycombs (Ajourage) allowing light photons to circulate beneath gemstones, and polishes microscopic prongs to silk-smooth finishes that glide effortlessly over couture fabrics without snagging.
+
+Inspect the reverse side of a royal elite creation: the mirror-like polishing and delicate hand guilloché are executed with the same sacred precision as the diamond-encrusted face. That invisible perfection is the signature of human atelier mastery.`,
+      },
+      {
+        headingAr: '4. هندسة الراحة والتوازن في أطقم المناسبات الكبرى وتيجان الاحتفالات',
+        headingEn: '4. Ergonomics and Articulation: Wearing Grand Gala Parures with Grace',
+        contentAr: `الجمال الظاهر لا يكفي وحده في مجوهرات النخبة الملكية؛ فالراحة التامة أثناء الارتداء هي التحدي الهندسي الأكبر. القلادة الملكية الثقيلة التي تزن عشرات القراريط من الألماس والذهب يجب ألا تشكل عبئاً على رقبة من ترتديها، بل يجب أن تنساب فوق الصدر كنسيج حريري مرن.
+
+لتحقيق ذلك، يبتكر مهندسو المجوهرات الملكية مفاصل خفية (Invisible Articulations) ومفصلات نابضة دقيقة تتيح لكل جزء من القلادة أو السوار أن يتحرك بحرية مع تنفس وحركة الجسم، دون أن تنقلب الأحجار أو يتغير اتجاه بريقها.
+
+أما في التيجان الملكية (Tiaras)، فيتم تصميم الهيكل الداخلي من التيتانيوم الخفيف المغلف بالبلاتين، مع وسائد ارتكاز خفية تضمن ثبات التاج لساعات طوال في حفلات الاستقبال الرسمية والزيارات الدبلوماسية، دون إحداث أي ضغط مؤلم على فروة الرأس.`,
+        contentEn: `Aesthetic grandeur alone is never sufficient in high jewelry; ergonomic equilibrium during wear represents the supreme architectural triumph. A grand coronation collier carrying dozens of diamond carats must never pinch the décolletage; it must drape like fluid lace.
+
+To accomplish this, royal master jewelers devise hidden mechanical articulations and flexible leaf-spring hinges. Each linked cluster moves intuitively with respiration and posture, guaranteeing center gems permanently face the light without flipping.
+
+For historic tiaras, frames often utilize featherweight titanium structures layered with noble platinum, engineered with velvet-cushioned contact points allowing prolonged wear during state banquets and royal galas without cranial fatigue.`,
+      },
+      {
+        headingAr: '5. دليل التوريث الذكي: كيف تتحول مجوهرات النخبة إلى أصول استثمارية عائلية خالدة؟',
+        headingEn: '5. Intelligent Heirloom Transmission: Preserving Sovereign Family Wealth',
+        contentAr: `لا تقتنى مجوهرات النخبة الملكية لمناسبة واحدة ثم تُنسى في الخزائن؛ بل تُعد في الفلسفة المالية الأرستقراطية أحد أهم "الأصول العائلية الحامية للثروة" (Generational Wealth Preservation Assets).
+
+تتميز هذه القطع بالخصائص الاستثمارية التالية:
+1. حصانة مطلقة ضد التضخم: المعادن النفيسة والأحجار الكريمة النادرة غير المعالجة سجلت تاريخياً نمواً متواصلاً في قيمتها عبر القرون متفوقة على العملات الورقية.
+2. السيولة الدولية الفورية: ألماسة نادرة بشهادة GIA أو طقم زمرد يحمل توقيع دار عريقة يمكن تسييله أو تقييمه في أي عاصمة مالية في العالم من نيويورك إلى لندن وزيورخ والرياض.
+3. القيمة التاريخية المضافة (Provenance Value): تزداد قيمة القطعة مع توثيق المناسبات والأجيال التي ارتدتها، لتتحول مع الوقت من مجرد قطعة مصاغة إلى تحفة إرثية عائلية فريدة لا تقدر بثمن.
+
+نصيحتنا القانونية والتوثيقية لكافة العائلات: احتفظوا بملف توثيقي شامل لكل قطعة يضم الشهادات المخبرية الأصلية، فواتير الشراء، صور الصياغة، وتقرير الفحص السنوي للأمان والمتانة.`,
+        contentEn: `Royal elite jewels are never acquired for fleeting ephemeral trends; in aristocratic financial doctrine, they serve as preeminent generational wealth preservation assets.
+
+Key investment attributes include:
+1. Absolute Inflation Hedge: Noble alloys and unenhanced rare gems have systematically outpaced fiat currency debasement across centuries.
+2. Universal Borderless Liquidity: A certified GIA Type IIa diamond or certified royal parure commands immediate valuation and liquid capital in Zurich, London, New York, or Riyadh.
+3. Provenance Capital Appreciation: Documenting lineage, family ceremonies, and gala appearances transforms fine jewelry into historic heirlooms commanding immense provenance premiums at premier auction houses.
+
+Our imperative curatorial advice: maintain an exhaustive vault dossier for each artifact containing original lab certificates, macro-photography records, and bi-annual prong integrity inspection audits.`,
+      },
+      {
+        headingAr: 'خلاصة وتوصية خبير: 5 خطوات عملية قبل اقتناء أول قطعة من مجوهرات النخبة',
+        headingEn: 'Curator Conclusion: 5 Practical Steps for Discerning Elite Connoisseurs',
+        contentAr: `لكل من يقف اليوم على أعتاب دخول عالم مجوهرات النخبة الملكية واقتناء أول قطعة استثنائية، إليكم خلاصة تجربتي في خمس وصايا ذهبية:
+
+1. لا تتنازل عن الشهادة المخبرية الموثوقة عالمياً: احرص دائماً على أن تكون أحجار الألماس مصحوبة بشهادة GIA، والأحجار الملونة بشهادات معاهد SSEF أو Gübelin السويسرية، وتأكد من مطابقة الرقم التسلسلي المحفور بالليزر على حافة الحجر مع الشهادة.
+2. افحص جودة الصياغة الخلفية قبل الأمامية: اقلب القطعة بين يديك وتأمل نعومة التشطيب وفتحات التهوية (Ajourage) ومتانة المفصلات؛ فالصائغ العظيم يتجلى في الأماكن التي لا تراها الأعين بسهولة.
+3. اختر الذهب عيار 18k أو البلاتين 950: هما الخياران المعياريان لمجوهرات النخبة لقوتهما الميكانيكية الفائقة وقدرتهما على احتضان الأحجار النادرة بثبات لا يتزعزع مدى الحياة.
+4. ابحث عن التصاميم الخالدة (Timeless Classics): ابتعد عن الصيحات المؤقتة السريعة الزوال؛ فالقطع ذات الطابع الكلاسيكي الملكي كخواتم السوليتير المتوجة، قلائد التنس الماسية، وأطقم الإكليل الإمبراطورية هي التي تزداد هيبة وجمالاً مع تعاقب السنين.
+5. استشر الخبراء المستقلين واستمتع بالرحلة: اقتناء مجوهرات النخبة تجربة عاطفية راقية تعبر عن تتويج لنجاحاتك وتقديرك للجمال الخالد؛ تذوق تفاصيل كل قطعة واجعلها قصة ترويها لأبنائك وأحفادك بكل فخر واعتزاز.`,
+        contentEn: `For discerning collectors embarking upon the noble journey of acquiring their inaugural high jewelry artifact, heed these five timeless principles:
+
+1. Never Compromise on Accredited Global Certification: Demand GIA dossiers for diamonds and Gübelin/SSEF reports for imperial colored gems, meticulously verifying laser inscription registries under a 10x loupe.
+2. Examine the Reverse Craftsmanship First: Flip the piece. Scrutinize the ajourage geometry, mirror polishing, and hinge articulation. Great jewelers reveal their integrity where the eye rarely looks.
+3. Insist on 18k Noble Gold or Platinum 950: These alloys provide the definitive metallurgical tensile strength required to secure high-value gems across lifetimes.
+4. Choose Timeless Aristocratic Geometry: Avoid ephemeral fast trends. Solitaire coronet silhouettes, rivières, and royal wreath collars perpetually appreciate in stylistic authority.
+5. Seek Independent Guidance and Savor the Legacy: Commissioning royal elite jewels is an emotional coronation of personal milestones. Relish the journey, knowing your choice will shine brightly for generations to come.`,
+      },
+    ],
+  },
   {
     id: 'definitive-4cs-diamond-guide',
     slug: 'definitive-4cs-diamond-buying-guide',
