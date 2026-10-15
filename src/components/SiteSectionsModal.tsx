@@ -117,11 +117,11 @@ export const SiteSectionsModal: React.FC<SiteSectionsModalProps> = ({
     {
       id: 'privacy',
       title: t.privacyPolicy,
-      badge: language === 'ar' ? 'AdSense & GDPR' : 'Compliance & Cookies',
+      badge: language === 'ar' ? 'الخصوصية & GDPR' : 'Privacy & Cookies',
       description:
         language === 'ar'
-          ? 'الامتثال الصارم لسياسات Google AdSense وملفات تعريف الارتباط DART ومعايير حماية البيانات العامة للمستخدمين.'
-          : 'Full compliance with Google AdSense privacy terms, DoubleClick DART cookies, and GDPR/CCPA data integrity guidelines.',
+          ? 'الامتثال الصارم لمعايير حماية البيانات العامة والخصوصية الرقمية المعتمدة للمستخدمين.'
+          : 'Full compliance with global digital privacy standards, cookie governance, and GDPR data integrity guidelines.',
       icon: ShieldCheck,
       color: 'text-purple-500',
       bg: 'bg-purple-500/10',
@@ -283,8 +283,8 @@ export const SiteSectionsModal: React.FC<SiteSectionsModalProps> = ({
             <Sparkles className="w-4 h-4 text-[#D4AF37]" />
             <span>
               {language === 'ar'
-                ? 'كافة أقسام الموقع مستوفية لسياسات Google AdSense وشروط تجارة المجوهرات المعتمدة.'
-                : 'All sections comply 100% with Google AdSense publishing standards & jewelry assay rules.'}
+                ? 'كافة أقسام الموقع مستوفية لأعلى معايير الشفافية وشروط تجارة المجوهرات المعتمدة.'
+                : 'All sections comply 100% with sovereign jewelry assay rules & transparent trade standards.'}
             </span>
           </div>
           <button

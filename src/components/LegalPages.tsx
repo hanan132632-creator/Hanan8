@@ -57,17 +57,17 @@ export const LegalPages: React.FC<LegalPagesProps> = ({ language, initialTab = '
 
           <section className="space-y-3">
             <h2 className="text-base sm:text-lg font-bold text-[#18181B] font-serif-luxury">
-              {language === 'ar' ? '1. الالتزام بسياسات Google AdSense وملفات تعريف الارتباط (Cookies)' : '1. Google AdSense & Third-Party Advertising Cookies'}
+              {language === 'ar' ? '1. سياسة الخصوصية وملفات تعريف الارتباط الرقمية (Cookies)' : '1. Digital Privacy & Cookie Governance'}
             </h2>
             <p>
               {language === 'ar'
-                ? 'يستخدم موقع «بوتيك مجوهرات النخبة الملكية» خدمات إعلانية وتحليلية مقدمة من Google Inc. ومنها Google AdSense. تستخدم هذه الخدمات ملفات تعريف الارتباط (مثل ملف تعريف الارتباط DoubleClick DART) لخدمة الإعلانات للمستخدمين استناداً إلى زيارتهم لهذا الموقع أو مواقع ويب أخرى على شبكة الإنترنت.'
-                : 'Royal Elite High Jewelry uses Google AdSense and affiliated services to deliver contextual advertising. Google utilizes cookies (such as the DoubleClick DART cookie) to serve ads based on your visit to this and other internet locations.'}
+                ? 'يستخدم موقع «بوتيك مجوهرات النخبة الملكية» ملفات تعريف الارتباط الأساسية والتقنية الآمنة لضمان أداء الأدوات التفاعلية (مثل حاسبة الذهب ومقياس الخواتم) وتأمين تجربة تصفح فاخرة وسلسة لكافة الزوار والعملاء.'
+                : 'Royal Elite High Jewelry utilizes strictly secure operational cookies to ensure peak responsiveness across our interactive gemological utilities, ring sizers, and bullion calculators, providing a seamless luxury experience.'}
             </p>
             <p>
               {language === 'ar'
-                ? 'يحق للمستخدمين في أي وقت إلغاء الاشتراك في استخدام ملف تعريف الارتباط DART لخدمة الإعلانات القائمة على الاهتمامات من خلال زيارة سياسة خصوصية شبكة Google الإعلانية وشبكة المحتوى على الرابط: https://policies.google.com/technologies/ads'
-                : 'Users may opt out of personalized advertising by visiting Google Ad Settings at https://policies.google.com/technologies/ads or adjusting browser settings.'}
+                ? 'يحق للمستخدمين في أي وقت التحكم في تفضيلات ملفات تعريف الارتباط عبر لوحة الإعدادات أو متصفح الويب دون التأثير على استعراض الكتالوج والقطع الملكية.'
+                : 'Clients retain full control over non-essential cookie preferences at any time via in-app preferences or browser settings without hindering access to our high jewelry collections.'}
             </p>
           </section>
 

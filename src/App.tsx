@@ -556,7 +556,7 @@ export default function App() {
                       {t.privacyPolicy}
                     </span>
                     <span className="text-[11px] text-[#8C7A5B] block mt-0.5 truncate">
-                      {language === 'ar' ? 'امتثال AdSense و GDPR' : 'Cookies & GDPR'}
+                      {language === 'ar' ? 'الخصوصية ومعايير GDPR' : 'Privacy & GDPR'}
                     </span>
                   </button>
 
@@ -861,7 +861,7 @@ export default function App() {
         }}
       />
 
-      {/* AdSense & GDPR Cookie Consent Banner */}
+      {/* Privacy & GDPR Cookie Consent Banner */}
       <CookieBanner language={language} />
 
       {/* Comprehensive Footer */}

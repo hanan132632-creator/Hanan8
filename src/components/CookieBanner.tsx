@@ -11,7 +11,7 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ language }) => {
   const t = TRANSLATIONS[language];
   const [isOpen, setIsOpen] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
-  const [adSenseConsent, setAdSenseConsent] = useState(true);
+  const [marketingConsent, setMarketingConsent] = useState(true);
   const [analyticsConsent, setAnalyticsConsent] = useState(true);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ language }) => {
   const handleAcceptAll = () => {
     localStorage.setItem(
       'royal_elite_cookie_consent',
-      JSON.stringify({ essential: true, adsense: true, analytics: true, timestamp: Date.now() })
+      JSON.stringify({ essential: true, marketing: true, analytics: true, timestamp: Date.now() })
     );
     setIsOpen(false);
   };
@@ -34,7 +34,7 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ language }) => {
   const handleEssentialOnly = () => {
     localStorage.setItem(
       'royal_elite_cookie_consent',
-      JSON.stringify({ essential: true, adsense: false, analytics: false, timestamp: Date.now() })
+      JSON.stringify({ essential: true, marketing: false, analytics: false, timestamp: Date.now() })
     );
     setIsOpen(false);
   };
@@ -42,7 +42,7 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ language }) => {
   const handleSavePreferences = () => {
     localStorage.setItem(
       'royal_elite_cookie_consent',
-      JSON.stringify({ essential: true, adsense: adSenseConsent, analytics: analyticsConsent, timestamp: Date.now() })
+      JSON.stringify({ essential: true, marketing: marketingConsent, analytics: analyticsConsent, timestamp: Date.now() })
     );
     setShowPreferences(false);
     setIsOpen(false);
@@ -95,7 +95,7 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ language }) => {
           <div className="space-y-4">
             <div className="flex items-center justify-between border-b border-white/10 pb-3">
               <h4 className="text-sm font-semibold text-[#D4AF37] font-serif-luxury">
-                {language === 'ar' ? 'تخصيص أذونات ملفات الارتباط وسياسة Google AdSense' : 'Manage Cookie & AdSense Permissions'}
+                {language === 'ar' ? 'تخصيص أذونات ملفات الارتباط وسياسة الخصوصية' : 'Manage Cookie & Privacy Preferences'}
               </h4>
               <button
                 onClick={() => setShowPreferences(false)}
@@ -118,16 +118,16 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ language }) => {
 
               <div className="p-3 rounded-lg bg-white/5 border border-white/10">
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="font-semibold text-[#FAF8F5]">{language === 'ar' ? 'إعلانات AdSense' : 'Google AdSense'}</span>
+                  <span className="font-semibold text-[#FAF8F5]">{language === 'ar' ? 'التسويق والشراكات' : 'Marketing & Partners'}</span>
                   <input
                     type="checkbox"
-                    checked={adSenseConsent}
-                    onChange={(e) => setAdSenseConsent(e.target.checked)}
+                    checked={marketingConsent}
+                    onChange={(e) => setMarketingConsent(e.target.checked)}
                     className="w-4 h-4 accent-[#D4AF37] cursor-pointer"
                   />
                 </div>
                 <p className="text-[11px] text-white/60">
-                  {language === 'ar' ? 'عرض إعلانات ملائمة للاهتمامات ومصادقة AdSense.' : 'Contextual high-jewelry ad units and partner analytics.'}
+                  {language === 'ar' ? 'عرض توصيات ملائمة للاهتمامات وتفضيلات الفخامة.' : 'Contextual high-jewelry recommendations and partner preferences.'}
                 </p>
               </div>
 

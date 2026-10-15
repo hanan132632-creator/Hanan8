@@ -171,11 +171,11 @@ export const TRANSLATIONS = {
     riyadhFlagship: 'معرض الرياض الرئيسي: طريق الأمير محمد بن سلمان، حي النخيل',
     dubaiFlagship: 'معرض دبي: مركز دبي المالي العالمي (DIFC)، البوابة 4',
 
-    // Legal & AdSense Compliance
-    privacyTitle: 'سياسة الخصوصية وملفات تعريف الارتباط (AdSense & GDPR Compliant)',
+    // Legal & Privacy Compliance
+    privacyTitle: 'سياسة الخصوصية وملفات تعريف الارتباط (GDPR Compliant)',
     termsTitle: 'شروط الاستخدام، سياسة الضمان والاسترجاع',
-    privacyIntro: 'تلتزم دار مجوهرات النخبة الملكية بأعلى معايير حماية الخصوصية الرقمية وامتثالها التام لسياسات Google AdSense وقوانين حماية البيانات العامة (GDPR/CCPA). نحن نستخدم ملفات تعريف الارتباط المعتمدة لتحسين تجربة التصفح وعرض إعلانات ملائمة باحترام تام لخصوصية العميل.',
-    cookieBannerText: 'نستخدم ملفات تعريف الارتباط وتقنيات القياس المعتمدة من Google AdSense لتحسين تجربتكِ الفاخرة وضمان عمل الأدوات التفاعلية.',
+    privacyIntro: 'تلتزم دار مجوهرات النخبة الملكية بأعلى معايير حماية الخصوصية الرقمية وقوانين حماية البيانات العامة (GDPR/CCPA). نحن نستخدم ملفات تعريف الارتباط المعتمدة لتحسين تجربة التصفح وتخصيص تجربة التصفح باحترام تام لخصوصية العميل.',
+    cookieBannerText: 'نستخدم ملفات تعريف الارتباط وتقنيات القياس المعتمدة لتحسين تجربتكِ الفاخرة وضمان عمل الأدوات التفاعلية وسلاسة التصفح.',
     cookieAcceptAll: 'قبول كافة الملفات',
     cookieEssentialOnly: 'الملفات الأساسية فقط',
     cookieCustomize: 'تخصيص الخيارات',
@@ -295,7 +295,7 @@ export const TRANSLATIONS = {
     // Journal / Blog EEAT
     journalBadge: 'Gemological Research & Advisory Journal',
     journalTitle: 'Sovereign Knowledge: Metallurgy, Diamond Grading & Wealth Preservation',
-    journalSubtitle: 'Exhaustive editorial dissertations written by certified gemologists to provide profound insights adhering strictly to Google AdSense & EEAT criteria.',
+    journalSubtitle: 'Exhaustive editorial dissertations written by certified gemologists to provide profound insights adhering strictly to academic EEAT criteria.',
     authorBy: 'Authored by',
     tableOfContents: 'Table of Contents',
     shareArticle: 'Share Dissertation',
@@ -355,11 +355,11 @@ export const TRANSLATIONS = {
     riyadhFlagship: 'Riyadh Flagship: Prince Mohammed Bin Salman Rd, Al Nakheel',
     dubaiFlagship: 'Dubai Salon: DIFC Gate Village, Gate 4',
 
-    // Legal & AdSense Compliance
-    privacyTitle: 'Privacy Policy & Cookies (AdSense & GDPR Compliant)',
+    // Legal & Privacy Compliance
+    privacyTitle: 'Privacy Policy & Cookies (GDPR Compliant)',
     termsTitle: 'Terms of Service, Authenticity Warranty & Returns',
-    privacyIntro: 'Royal Elite Jewels complies stringently with digital privacy standards, Google AdSense publisher policies, and General Data Protection Regulations (GDPR/CCPA). We employ verified analytics and advertising cookies with maximum respect for client anonymity.',
-    cookieBannerText: 'We utilize certified Google AdSense and analytics cookies to optimize your luxury browsing experience and ensure interactive tool fidelity.',
+    privacyIntro: 'Royal Elite Jewels complies stringently with digital privacy standards and General Data Protection Regulations (GDPR/CCPA). We employ verified analytics and operational cookies with maximum respect for client anonymity.',
+    cookieBannerText: 'We utilize certified security and analytics cookies to optimize your luxury browsing experience and ensure interactive tool fidelity.',
     cookieAcceptAll: 'Accept All Cookies',
     cookieEssentialOnly: 'Essential Only',
     cookieCustomize: 'Customize',

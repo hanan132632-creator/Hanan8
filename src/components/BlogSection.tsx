@@ -369,7 +369,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             <p className="text-xs text-[#18181B]/70 leading-relaxed">
               {language === 'ar'
                 ? 'كافة المقالات والأدلة التحريرية في مجلة النخبة الملكية كُتبت بواسطة خبراء معتمدين وحاصلين على زمالة معهد الأحجار الكريمة الأمريكي (GIA) وجمعية سوق لندن للسبائك (LBMA)، بما يضمن دقة بنسبة 100% وخلوها من المحتوى الآلي غير المحقق.'
-                : 'All editorial articles and treatises are penned exclusively by GIA Graduate Gemologists and metallurgical engineers, strictly adhering to Google AdSense unique value principles.'}
+                : 'All editorial articles and treatises are penned exclusively by GIA Graduate Gemologists and metallurgical engineers, strictly adhering to rigorous research and peerless gemological expertise.'}
             </p>
           </div>
         </div>
