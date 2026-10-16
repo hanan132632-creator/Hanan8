@@ -2,6 +2,7 @@ import { Article } from '../types.ts';
 import gemSettingImg from '../assets/images/gem_setting_craft_1791478730390.jpg';
 import gemCertImg from '../assets/images/gem_certificate_lab_1791478715397.jpg';
 import heroImg from '../assets/images/hero_luxury_jewelry_1791298014265.jpg';
+import unheatedGemstonesImg from '../assets/images/unheated_gemstones_lab_1792188421538.jpg';
 
 export const ARTICLES_BATCH_3: Article[] = [
   // 23. أساليب وتقنيات ترصيع الأحجار الكريمة والمجوهرات
@@ -647,5 +648,244 @@ We warmly invite you to consult with our master artisans and high jewelry curato
       },
     ],
   },
+  // 26. دليل اقتناء وتثمين الأحجار الكريمة النادرة غير المعالجة (Unheated & Untreated Gemstones)
+  {
+    id: 'unheated-natural-gemstones-investment-guide',
+    slug: 'unheated-natural-gemstones-investment-guide',
+    titleAr: 'دليل اقتناء وتثمين الأحجار الكريمة النادرة غير المعالجة (Unheated Gemstones): سر استثمار النخبة في ياقوت بورما، زفير كشمير، وزمرد موزو',
+    titleEn: 'The Connoisseur’s Guide to Unheated Natural Gemstones: Why Elite Collectors Bet on Untreated Burmese Rubies, Kashmir Sapphires & Muzo Emeralds',
+    summaryAr: 'تحليل استقصائي رفيع المستوى صِيغ بقلم عالمة جيولوجيا ومقيمة معتمدة لدى كبرى المختبرات السويسرية، يكشف الفوارق الميكروسكوبية والمالية الحاسمة بين الأحجار الكريمة الطبيعية 100% غير المعالجة حرارياً (Unheated) وتلك المعالجة بالأفران وملء الشقوق، مع تفكيك شفرات شهادات SSEF وGübelin، وأسرار تحديد المصدر الجغرافي لأندر أحجار الياقوت والزفير والزمرد الملكي.',
+    summaryEn: 'A masterclass on sovereign unheated gemstones by a Swiss-accredited gemological scientist: dissecting microscopic rutile inclusions, decoding SSEF/Gübelin laboratory dossiers, geographic provenance premiums (Mogok, Kashmir, Muzo), and valuation dynamics separating untouched geological miracles from commercial furnace-heated stones.',
+    categoryAr: 'استثمار الأحجار الكريمة الملكية',
+    categoryEn: 'Imperial Gemstone Investment & Science',
+    publishDate: '2026-10-16',
+    readTimeAr: '14 دقيقة قراءة متعمقة',
+    readTimeEn: '14 min authoritative read',
+    viewsCount: 4120,
+    likesCount: 375,
+    featuredImage: unheatedGemstonesImg,
+    author: {
+      nameAr: 'د. رزان بنت فيصل التميمي',
+      nameEn: 'Dr. Razan Al-Tamimi, Ph.D.',
+      titleAr: 'كبيرة علماء الجيولوجيا والأحجار الكريمة ومقومة معتمدة لدى مختبرات SSEF وGübelin',
+      titleEn: 'Senior Gemological Scientist & Sovereign High Jewelry Appraiser',
+      credentialsAr: 'دكتوراه في الجيولوجيا البلورية من جامعة كامبريدج، زميلة معهد الأحجار الكريمة البريطاني (FGA) ومعهد GIA، 22 عاماً في الفحص الطيفي للمقتنيات الملكية ومزادات جنيف ولندن الاستثمارية.',
+      credentialsEn: 'Ph.D. in Crystallography (Cambridge), FGA & GIA Graduate Gemologist, 22 years specializing in high-resolution spectroscopy, geographic origin arbitration, and royal parure valuations.',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80',
+    },
+    tableOfContentsAr: [
+      'مقدمة بقلم الخبير: لماذا تمثل الأحجار غير المعالجة حرارياً قمة هرم الثروة السيادية؟',
+      '1. تشريح المعالجات الحرارية: ما الذي يحدث للبلورة داخل أفران درجات الحرارة الفائقة؟',
+      '2. ثالوث الملوك: ياقوت دم الحمام البورمي، زفير كشمير المخملي، وزمرد موزو الأسطوري',
+      '3. أسرار المجهر المخبري: كيف يكشف العلماء "حرير الروتيل السليم" ويفضحون الحشوات الزجاجية؟',
+      '4. قراءة شهادات المختبرات العالمية الصارمة (SSEF, Gübelin, GIA, AGL): مصطلحات لا تقبل المساومة',
+      '5. فجوة الأسعار الاستثمارية: لماذا يدفع المقتنون أضعاف السعر مقابل عبارة "No Indications of Heating"؟',
+      '6. بروتوكول الاقتناء الآمن: 6 خطوات حاسمة قبل ضخ رؤوس الأموال في الأحجار الملونة النادرة',
+    ],
+    tableOfContentsEn: [
+      'Curator Preface: Why Untreated Gemstones Stand at the Apex of Sovereign Wealth',
+      '1. Thermal Physics Decoded: What Happens to the Crystal Lattice in High-Temperature Furnaces?',
+      '2. The Imperial Trinity: Burmese Pigeon’s Blood Ruby, Velvety Kashmir Sapphire & Muzo Emerald',
+      '3. Microscopic Evidence: Detecting Intact Rutile Silk vs. Melted Glass and Beryllium Diffusion',
+      '4. Decoding Tier-1 Laboratory Dossiers (SSEF, Gübelin, GIA, AGL): Terms You Must Never Compromise',
+      '5. The Valuation Chasm: Why Discerning Collectors Pay Exponential Premiums for "No Heat"',
+      '6. Prudent Acquisition Protocol: 6 Non-Negotiable Steps Before Deploying Capital into Colored Gems',
+    ],
+    sections: [
+      {
+        headingAr: 'مقدمة بقلم الخبير: لماذا تمثل الأحجار غير المعالجة حرارياً قمة هرم الثروة السيادية؟',
+        headingEn: 'Curator Preface: Why Untreated Gemstones Stand at the Apex of Sovereign Wealth',
+        contentAr: `خلال عقدين ونيّف قضيتها بين كواليس مختبرات الأحجار الكريمة في بازل وجنيف، وغرف المزايدات المغلقة في كريستيز وسوذبيز، شهدت مئات التحولات في ذائقة كبار المقتنين وصناديق التحوط العائلية. لكن قاعدة ذهبية واحدة ظلت ثابتة لا تتزعزع: "في عالم الأحجار الكريمة الملونة (الكوروندوم والبريل)، الطبيعة الصامتة التي لم تلمسها أفران البشر هي الملاذ الأخير للندرة المطلقة".
+
+إن أكثر من 95% إلى 98% من أحجار الياقوت (Ruby) والزفير (Sapphire) المتداولة في الأسواق التجارية العالمية قد خضعت لنوع أو آخر من المعالجة الحرارية الصارمة لتعديل لونها أو إذابة شوائبها. وبالتالي، فإن الحجر الذي يخرج من رحم الأرض بلون أحمر قاني مشتعل أو أزرق مخملي عميق، دون أن يحتاج إلى فرن صهره صائغ، هو معجزة جيولوجية تحدث مرة واحدة بين ملايين الأطنان من الصخور.
+
+هذه النسبة الضئيلة جداً (أقل من 2%) من الأحجار الكريمة الطبيعية غير المعالجة (Unheated / Untreated) هي التي تشكل العمود الفقري للتيجان الملكية التاريخية والمقتنيات المتحفية، وهي الأصل الاستثماري الوحيد الذي أثبتت المؤشرات التاريخية قدرته على مضاعفة قيمته الرأسمالية بوتيرة تفوق الألماس الأبيض التقليدي بمرات عديدة.`,
+        contentEn: `Over more than two decades immersed within the rigorous analytical sanctums of Swiss gemological laboratories in Basel and Zurich, and the tense private salons of Christie's and Sotheby's, I have witnessed countless evolutions in collector sentiment and family office allocations. Yet one sovereign doctrine remains unassailable: "In the realm of noble colored corundum and beryl, immaculate natural purity untouched by human thermal furnaces represents the ultimate frontier of rarity."
+
+Over 95% to 98% of rubies and sapphires circulating within global commercial retail channels have endured severe artificial thermal alteration to enhance saturation or dissolve visual inclusions. Consequently, a crystalline corundum that emerges from the subterranean mantle blessed with innate "Pigeon’s Blood" vivid red or velvety royal blue—requiring no pyrochemical intervention—is a geological anomaly born perhaps once in millions of tons of host marble.
+
+This minuscule fraction—under 2% of global production—forms the structural backbone of coronation parures and sovereign treasury collections. Decades of auction sales indices demonstrate that untreated natural gemstones consistently outpace standardized white diamonds in capital appreciation and crisis liquidity.`,
+      },
+      {
+        headingAr: '1. تشريح المعالجات الحرارية: ما الذي يحدث للبلورة داخل أفران درجات الحرارة الفائقة؟',
+        headingEn: '1. Thermal Physics Decoded: What Happens to the Crystal Lattice in High-Temperature Furnaces?',
+        contentAr: `لفهم سبب الفارق السعري الهائل، يجب أن نغوص في فيزياء المعالجة. عندما يُستخرج حجر زفير باهت أو ياقوت غائم بشوائب حريرية كثيفة (Rutile Needles)، يقوم التجار بوضعه في أفران صناعية عالية التقنية تحت درجات حرارة تتراوح بين 1400 إلى 1850 درجة مئوية.
+
+ماذا يحدث داخل البلورة عند هذه الدرجات القصوى؟
+1. **إعادة توزيع العناصر النزرة (Trace Elements):** في الزفير، تتفاعل أيونات الحديد (Fe2+) والتيتانيوم (Ti4+) تحت الحرارة لإنشاء ما يُعرف بنقل الشحنة بين الذرات (Inter-Valence Charge Transfer)، مما يُكسب الحجر لوناً أزرق داكناً وموحداً لم يكن يمتلكه في الأصل.
+2. **إذابة الحرير المجهري (Silk Dissolution):** تنصهر إبر الروتيل الدقيقة وتنتشر ذراتها في الشبكة البلورية، مما يجعل الحجر يبدو أكثر صفاءً للعين المجردة.
+3. **المعالجات العدوانية (Aggressive Treatments):** في الحالات الأسوأ، تُستخدم درجات حرارة مع تدفق زجاجي غني بالرصاص (Lead-Glass Filling) لملء الكسور العميقة، أو نشر البريليوم الخارجي (Beryllium Diffusion) لتغيير لون الياقوت السطحي جذرياً.
+
+النتيجة الجيولوجية: الحجر المعالج حرارياً يفقد هويته الفطرية ويتحول إلى "منتج نصف صناعي". ورغم أن المعالجة الحرارية البسيطة مقبولة تجارياً بشرط الإفصاح الكامل، إلا أنها تسلبه صفة الاستثمار الملكي النادر.`,
+        contentEn: `To comprehend the exponential valuation spread, one must examine solid-state physics at atomic scales. When sub-economic corundum displaying milky translucency or uneven zoning is extracted, commercial treaters place the rough inside high-temperature crucibles heated between 1,400°C and 1,850°C.
+
+What transpires within the aluminum oxide lattice at these extreme thermodynamics?
+1. Inter-Valence Charge Transfer: Thermal activation mobilizes trace iron (Fe²⁺) and titanium (Ti⁴⁺) cations into adjacent octahedral sites, dramatically amplifying blue light absorption and creating an artificial, uniform blue hue.
+2. Rutile Silk Dissolution: Needle-like inclusions of titanium dioxide (TiO₂) liquefy and migrate throughout the corundum lattice, artificially clarifying stones that were otherwise semi-opaque.
+3. Invasive Interventions: In lower-grade material, high heat is coupled with lead-silica glass flux to bridge deep fissures, or external lattice diffusion utilizing beryllium atoms to synthesize exotic padparadscha or orange hues.
+
+The gemological reality: A heated gem has surrendered its primordial state, functioning as an industrially modified material. While basic thermal enhancement is commercially ubiquitous, it definitively strips the gemstone of sovereign investment status.`,
+      },
+      {
+        headingAr: '2. ثالوث الملوك: ياقوت دم الحمام البورمي، زفير كشمير المخملي، وزمرد موزو الأسطوري',
+        headingEn: '2. The Imperial Trinity: Burmese Pigeon’s Blood Ruby, Velvety Kashmir Sapphire & Muzo Emerald',
+        contentAr: `في قمة تصنيف الأحجار الملونة غير المعالجة، يتربع "الثالوث الإمبراطوري" الذي تسعى وراءه البلاطات الملكية والمتاحف الكبرى:
+
+1. **ياقوت بورما "دم الحمام" (Burmese Pigeon’s Blood Ruby - Mogok):**
+يُعد وادي موغوك في ميانمار أسطورة حية. يتميز ياقوت موغوك بتركيز استثنائي لعنصر الكروم المانح للون الأحمر المتقد، مع انعدام شبه تام للحديد. انعدام الحديد يسمح للياقوت بأن يتوهج بظاهرة الفلورية الحمراء القوية (Strong Red Fluorescence) حتى تحت أشعة الشمس العادية؛ فالياقوت البورمي الأصيل غير المعالج يبدو وكأنه جمرة متقدة تضيء من الداخل ولا تنطفئ. حجر ياقوت بورمي طبيعي غير معالج بوزن يتجاوز 5 قراريط يُعد أندر بآلاف المرات من ألماسة نقية بنفس الوزن!
+
+2. **زفير كشمير المخملي (Kashmir Sapphire - Zanskar Range):**
+اكتُشفت هذه الأحجار إثر انهيار أرضي في جبال الهيمالايا عام 1881، ونفدت المناجم الأصلية بالكامل في غضون سنوات قليلة. يتميز زفير كشمير غير المعالج بتأثير بصري لا يضاهى يُعرف بـ "المخملية" (Velvety Softness)؛ وهو ناتج عن شوائب مجهرية متناهية الصغر من غبار الروتيل تُشتت الضوء برقة فائقة دون أن تعتم الحجر، مانحةً إياه لون "الرويال بلو" المشبع الذي يحتفظ ببريقه حتى في الإضاءة الخافتة.
+
+3. **زمرد موزو الكولومبي الأصيل (Colombian Muzo Emerald):**
+في عالم الزمرد (البريل الأخضر)، تُقاس الندرة بمدى نقاء "حديقة الزمرد" (Jardin). زمرد مناجم موزو وتشيفور الذي لم يتعرض لأي معالجة بالراتنجات الصناعية (No Resin / No Clarity Enhancement) أو اقتصر على لمسة زيت أرز طبيعي طفيف (Minor Traditional Cedarwood Oil) هو سيد الأحجار الخضراء؛ فلونه الأخضر الدافئ المشبع بالكروم والفاناديوم يمثل المعيار الأسمى للأناقة الأرستقراطية.`,
+        contentEn: `At the zenith of untreated gemstone appraisal sits the "Imperial Trinity," revered across dynastic registries and global auction houses:
+
+1. Burmese "Pigeon’s Blood" Ruby (Mogok Valley):
+The historic marble-hosted tracts of Mogok, Myanmar, are legendary. Burmese corundum possesses exceptionally high concentrations of chromium (Cr³⁺) with almost negligible trace iron. The absence of iron prevents fluorescent quenching, allowing the crystal to emit vibrant scarlet red photoluminescence under ambient ultraviolet light. An unheated Mogok ruby exceeding 5 carats is exponentially rarer than an equivalent D-Flawless diamond.
+
+2. Kashmir Velvety Sapphire (Himalayan Zanskar Range):
+Unearthed following a massive landslide in 1881 at 4,500 meters altitude, the primary deposit was exhausted within a decade. Unheated Kashmir sapphires exhibit an unmatchable optical phenomenon: a soft, velvety texture created by sub-microscopic rutile dust that gently disperses light throughout the stone without extinguishing its pure Royal Blue saturation, retaining its royal vibrancy even under candlelight.
+
+3. Colombian Muzo Emeralds (Boyacá Andes):
+Unlike corundum, emeralds naturally harbor internal fluid fissures poetically named the "Jardin." Untreated Muzo emeralds bearing zero artificial resin or polymer enhancements—certified as "No Clarity Enhancement" or displaying solely traditional minor cedarwood oil—command the apex of beryl investment. Their intense warm green hue, driven by pristine chromium-vanadium geochemistry, epitomizes aristocratic heritage.`,
+      },
+      {
+        headingAr: '3. أسرار المجهر المخبري: كيف يكشف العلماء "حرير الروتيل السليم" ويفضحون الحشوات الزجاجية؟',
+        headingEn: '3. Microscopic Evidence: Detecting Intact Rutile Silk vs. Melted Glass and Beryllium Diffusion',
+        contentAr: `عندما يصل حجر كريم إلى مختبرنا الفاحص، لا نكتفي بالفحص البصري بالعين أو العدسة اليدوية، بل نُخضعه لمنظومة فحص فيزيائية وطيفية متقدمة:
+
+1. **فحص إبر الروتيل تحت المجهر الاستقطابي (Polarizing Microscope):**
+في الحجر الطبيعي غير المعالج حرارياً، تظهر إبر ثاني أكسيد التيتانيوم (الروتيل) حادة الأطراف، متقاطعة بزوايا هندسية 60 و120 درجة، متلألئة كخيوط الحرير الدقيقة. أما إذا كان الحجر قد دخل الفرن، تنفجر هذه الإبر وتتحول إلى قطيرات كروية متناثرة تُشبه كرات الثلج الذائبة (Discoidal Fractures with Melted Cores)، وهو الدليل القاطع على الحرق الصناعي.
+
+2. **التحليل الطيفي بالأشعة تحت الحمراء (FTIR Spectroscopy):**
+يقيس هذا الجهاز اهتزازات الروابط الجزيئية داخل البلورة؛ ويكشف على الفور بقايا المواد الزيتية أو الراتنجات الصناعية (Opticon أو الأيبوكسي) المخبأة داخل شقوق الزمرد، حتى لو كانت بكميات ميكروجرامية لا تراها العين.
+
+3. **مطيافية الأشعة السينية والتألق (EDXRF & Laser ICP-MS):**
+يحدد هذا الفحص التركيب الكيميائي الدقيق للعناصر النزرة (Trace Element Fingerprinting)، مما يتيح للعلماء ليس فقط تأكيد عدم وجود معالجات حرارية أو نشر كيميائي، بل إثبات المنجم الجغرافي الذي وُلد فيه الحجر بدقة تتجاوز 99%.`,
+        contentEn: `When an investment-grade gemstone enters our Swiss examination chamber, aesthetic visual inspection gives way to advanced optical crystallography and spectrometry:
+
+1. Polarizing Microscopy & Inclusion Diagnosis:
+In untreated corundum, titanium dioxide (rutile) needles appear razor-sharp, crossing at precise 60°/120° angles like glistening golden silk. Once exposed to thermal furnaces, differential expansion shatters adjacent lattices, causing rutile to coalesce into dotted strings and glassy discoidal tension halos resembling melted snowflakes—the definitive fingerprint of thermal heating.
+
+2. Fourier-Transform Infrared Spectroscopy (FTIR):
+FTIR detects molecular vibrational absorption bands. In emerald analysis, it definitively distinguishes natural cedarwood oils from foreign hydrocarbon polymers, resins (Opticon), or synthetic epoxies injected under vacuum pressure.
+
+3. Trace Element Fingerprinting via LA-ICP-MS:
+Laser Ablation Inductively Coupled Plasma Mass Spectrometry measures parts-per-billion ratios of gallium, iron, titanium, vanadium, and chromium. This chemical signature enables certified laboratories to trace the exact tectonic deposit (Mogok vs. Mozambique, or Kashmir vs. Ceylon) with clinical scientific certainty.`,
+      },
+      {
+        headingAr: '4. قراءة شهادات المختبرات العالمية الصارمة (SSEF, Gübelin, GIA, AGL): مصطلحات لا تقبل المساومة',
+        headingEn: '4. Decoding Tier-1 Laboratory Dossiers (SSEF, Gübelin, GIA, AGL): Terms You Must Never Compromise',
+        contentAr: `في سوق المجوهرات الراقية، "الحجر هو شهادته". لكن ليست كل الشهادات متساوية. المقتني الذكي لا يقبل إلا بتقارير من ما نسميه "مختبرات الفئة الأولى المستقلة عالمياً" (Tier-1 Independent Gemological Laboratories):
+
+- **مختبر SSEF السويسري (Swiss Gemmological Institute)**
+- **مختبر Gübelin السويسري العريق (Gübelin Gem Lab)**
+- **معهد الأحجار الكريمة الأمريكي GIA**
+- **مختبر AGL الأمريكي (American Gemological Laboratories)**
+
+المصطلحات الحاسمة التي يجب البحث عنها في خانة المعالجة (Treatments / Enhancements):
+- **في الياقوت والزفير:**
+  - الصياغة الذهبية المعتمدة: **"No indications of heating"** أو **"No indications of thermal enhancement"** (أي لا توجد أي أدلة على معالجة حرارية).
+  - إذا وجدت عبارات مثل "Indications of heating (H)" أو "Thermal enhancement with minor residues (H-a)"، فهذا يعني أن الحجر معالج حرارياً وقيمته الاستثمارية تنخفض إلى جزء من قيمته الأصلية.
+- **في الزمرد الكولومبي:**
+  - العبارة الأسمى: **"No indications of clarity enhancement"** (زمرد طبيعي نادر تماماً بدون أي زيت أو حشوات).
+  - العبارة المقبولة ملكياً للمجموعات التاريخية: **"Minor clarity enhancement (Traditional cedarwood oil only)"**.
+  - تجنب تماماً أي شهادة تذكر عبارة "Resin", "Polymer", أو "Moderate/Significant clarity enhancement".`,
+        contentEn: `In sovereign high-jewelry acquisitions, a gemstone is defined by its scientific pedigree. Astute connoisseurs insist exclusively on dossiers issued by Tier-1 independent arbiters:
+
+- SSEF (Swiss Gemmological Institute, Basel)
+- Gübelin Gem Lab (Lucerne, Switzerland)
+- GIA (Gemological Institute of America)
+- AGL (American Gemological Laboratories, New York)
+
+Critical Nomenclature to Audit Under "Treatments / Observations":
+- For Rubies & Sapphires:
+  - Non-Negotiable Sovereign Phrasing: "No indications of heating" or "No indications of thermal enhancement" (NTE).
+  - Cautionary Notations: "Indications of heating (H)", "Residues in cavities (H-b)", or "Beryllium diffusion" indicate commercial modification.
+- For Colombian Emeralds:
+  - The Holy Grail: "No indications of clarity enhancement" (completely pristine beryl).
+  - Aristocratic Heritage Standard: "Minor clarity enhancement with traditional cedarwood oil".
+  - Disqualifying Phrases: Any mention of "Resin," "Polymer filler," or "Significant enhancement" degrades the gem from an investment asset to decorative jewelry.`,
+      },
+      {
+        headingAr: '5. فجوة الأسعار الاستثمارية: لماذا يدفع المقتنون أضعاف السعر مقابل عبارة "No Indications of Heating"؟',
+        headingEn: '5. The Valuation Chasm: Why Discerning Collectors Pay Exponential Premiums for "No Heat"',
+        contentAr: `لتوضيح الفارق المالي العملي، دعونا نقارن بين حجرين متطابقين في المظهر الخارجي أمام العين المجردة (وزن 5 قراريط، لون أحمر غني):
+
+- **الحجر (أ) - ياقوت معالج حرارياً (Heated Ruby):**
+  - متوفر في الأسواق بكثرة.
+  - السعر التقديري: يتراوح بين 3,000 إلى 8,000 دولار أمريكي للقيراط الواحد.
+  - نمو القيمة الرأسمالية: بطيء ومقيد بوفرة المعروض.
+
+- **الحجر (ب) - ياقوت بورمي طبيعي غير معالج (Unheated Burmese Ruby مع شهادة SSEF):**
+  - نادر لدرجة أنه قد لا يظهر في المزادات إلا كل بضع سنوات.
+  - السعر التقديري: يبدأ من 40,000 إلى أكثر من 150,000 دولار أمريكي للقيراط الواحد!
+  - سجل الأداء الاستثماري: سجلت أحجار الياقوت غير المعالجة في مزادات جنيف ارتفاعاً متواصلاً في قيمتها بمعدل تجاوز 300% إلى 500% خلال العقدين الماضيين.
+
+السبب وراء هذه الفجوة ليس ترفاً، بل هو مبدأ الندرة الجيولوجية المطلقة (Finite Geological Scarcity)؛ فالأفران قادرة على إنتاج مئات الآلاف من الأحجار المعالجة سنوياً، لكن باطن الأرض توقف عن إنتاج أحجار الياقوت الطبيعي النقي غير المعالج منذ ملايين السنين.`,
+        contentEn: `To understand the empirical financial dynamics, consider two rubies indistinguishable to an untrained naked eye—both weighing 5.00 carats with identical visual red depth:
+
+- Stone A: Commercial Heated Ruby
+  - Availability: Plentiful across global trade markets.
+  - Valuation: $3,000 to $8,000 per carat.
+  - Capital Appreciation: Sluggish, capped by industrial supply chains.
+
+- Stone B: Untreated Burmese Pigeon’s Blood Ruby (Dual SSEF & Gübelin certification, "No Heat")
+  - Availability: Extreme museum-grade rarity appearing scarcely once every few years.
+  - Valuation: $40,000 to in excess of $150,000+ per carat.
+  - Capital Appreciation: Historical auction data records over 300% to 500% compounded valuation gains over the past two decades.
+
+This valuation chasm reflects finite geological scarcity: whereas modern furnaces can process industrial batches indefinitely, planet Earth generated its unheated corundum deposits millions of years ago in localized orogenic events that can never be replenished.`,
+      },
+      {
+        headingAr: '6. بروتوكول الاقتناء الآمن: 6 خطوات حاسمة قبل ضخ رؤوس الأموال في الأحجار الملونة النادرة',
+        headingEn: '6. Prudent Acquisition Protocol: 6 Non-Negotiable Steps Before Deploying Capital into Colored Gems',
+        contentAr: `قبل أن تتخذ قرار الاستثمار في حجر ملون فاخر أو طقم مجوهرات ملكي مرصع بالياقوت أو الزفير، ننصحك باتباع هذا البروتوكول الصارم المعتمد في مجوهرات النخبة الملكية:
+
+1. **قاعدة الشهادتين المستقلتين (Dual Certification):**
+للأحجار التي تتجاوز قيمتها 25,000 دولار، لا تعتمد على تقرير مخبري واحد. اطلب تقريرين مستقلين من كبار المختبرات العالمية (مثل SSEF مع Gübelin، أو GIA مع SSEF) لتأكيد خلو الحجر من الحرارة وإثبات أصله الجغرافي.
+
+2. **فحص الحجر وهو حر غير مرصع (Loose Stone Inspection):**
+احرص على معاينة الحجر أو فحص شهادته وهو غير مثبت في خاتم أو طوق؛ فالترصيع المعدني قد يخفي كسوراً أو حشوات أو طلاءات لونية موضوعة تحت الحجر (Foiling) لتضخيم لونه الطبيعي.
+
+3. **التحقق من كود الشهادة على قواعد البيانات السحابية الرسمية:**
+لا تكتفِ بالوثيقة الورقية المطبوعة. امسح رمز الاستجابة السريعة (QR Code) أو أدخل رقم التقرير مباشرة في موقع المختبر الرسمي (مثل verify.gia.edu أو ssef.ch) للتحقق من تطابق الوزن والأبعاد وصور الشوائب.
+
+4. **تجنب الأحجار ذات الترقيع الزجاجي (Composite / Glass-Filled):**
+هذه الأحجار هشّة وتتحلل حتى بملامسة عصير الليمون أو المنظفات المنزلية وتكاد تكون قيمتها المادية معدومة، وتُعد من أخطر الفخاخ التي يقع فيها المشترون غير المتخصصين.
+
+5. **مطابقة المنشأ الجغرافي ذي العلاوة السعرية (Origin Premium):**
+تأكد من أن الشهادة تنص صراحة على المنشأ المرموق (Burma Mogok للياقوت، Kashmir أو Ceylon للزفير، Muzo أو Chivor للزمرد)، لأن المنشأ الجغرافي الموثق يرفع قيمة الحجر بنسبة 40% إلى 100% مقارنة بحجر مجهول المصدر.
+
+6. **استشارة صائغ ملكي خبير بالترصيع الآمن:**
+الأحجار غير المعالجة نادرة وثمينة جداً؛ لذا يجب أن يتم ترصيعها بواسطة حرفي متخصص في المجوهرات الراقية (Haute Joaillerie Setter) يستخدم البلاتين 950 أو الذهب عيار 18k مع مخالب مصممة خصيصاً لحماية الحجر دون تعريضه لضغط ميكانيكي مفرط قد يسبب شروخاً دقيقة.
+
+يسعدنا في **بوتيك مجوهرات النخبة الملكية** استقبالكم في صالون الاستشارات الخاصة، لتقديم فحص دقيق وشامل لأندر الأحجار الكريمة الاستثمارية المعتمدة دولياً، بما يضمن بناء محفظة مجوهرات ملكية تتوارثها الأجيال بكل فخر وأمان.`,
+        contentEn: `Before allocating institutional or family capital into rare colored gemstones, adhere strictly to this sovereign verification protocol practiced at Royal Elite High Jewelry Boutique:
+
+1. The Dual-Laboratory Dossier Rule:
+For stones valued above $25,000, never rely on a single laboratory appraisal. Mandate two corroborating reports from premier independent institutions (e.g., SSEF paired with Gübelin, or GIA paired with SSEF) confirming non-heated status and provenance.
+
+2. Unmounted Gemological Examination:
+Whenever viable, examine or verify certification of the gemstone in its unmounted, loose state. Elaborate prongs and heavy closed-back bezel settings can obscure cleavage fissures, composite fillings, or reflective foils designed to falsely elevate optical saturation.
+
+3. Cloud-Registry Digital Verification:
+Never accept printed paper certificates at face value. Scan the embedded cryptographic QR codes and query the official lab portal (verify.gia.edu, ssef.ch, or gubelin.com) to confirm that carat weight, millimeter dimensions, and inclusion plots align flawlessly.
+
+4. Zero Tolerance for Composite/Glass Fissure Fillings:
+Lead-glass-filled corundum degrades upon mere contact with mild household acids or ultrasonic cleaners. They possess virtually zero intrinsic asset value and represent the most prevalent snare for uninformed buyers.
+
+5. Geographic Origin Premium Audit:
+Ensure the laboratory report explicitly certifies geographic origin (Burma-Mogok for ruby; Kashmir or Ceylon for sapphire; Colombia-Muzo for emerald). Rigorously proven provenance commands a 40% to 100%+ sovereign premium at auction liquidity events.
+
+6. Master Haute Joaillerie Bench Mounting:
+Untreated gems require nonpareil artisan hands. Commission setting exclusively to master bench jewelers utilizing bespoke hand-sculpted Platinum 950 or 18k solid gold prongs, engineered to shield fragile facets without exerting excessive localized shear stress.
+
+At **Royal Elite High Jewelry Boutique**, our gemologists and master bench curators welcome you to our private consultation salon to appraise, certify, and curate untreated royal treasures destined to safeguard family legacies through centuries.`,
+      },
+    ],
+  },
 ];
+
 
