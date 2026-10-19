@@ -3,6 +3,7 @@ import gemSettingImg from '../assets/images/gem_setting_craft_1791478730390.jpg'
 import gemCertImg from '../assets/images/gem_certificate_lab_1791478715397.jpg';
 import heroImg from '../assets/images/hero_luxury_jewelry_1791298014265.jpg';
 import unheatedGemstonesImg from '../assets/images/unheated_gemstones_lab_1792188421538.jpg';
+import transformableTiaraImg from '../assets/images/transformable_tiara_craft_1792447148613.jpg';
 
 export const ARTICLES_BATCH_3: Article[] = [
   // 23. أساليب وتقنيات ترصيع الأحجار الكريمة والمجوهرات
@@ -886,6 +887,229 @@ At **Royal Elite High Jewelry Boutique**, our gemologists and master bench curat
       },
     ],
   },
+  // 27. روائع المجوهرات الملكية القابلة للتحويل (Transformable Haute Joaillerie)
+  {
+    id: 'transformable-haute-joaillerie-royal-tiaras-guide',
+    slug: 'transformable-haute-joaillerie-royal-tiaras-guide',
+    titleAr: 'روائع المجوهرات الملكية القابلة للتحويل (Transformable Haute Joaillerie): عبقرية الهندسة الميكانيكية، من التيجان إلى العقود والبروشات، ودليل التثمين والتوريث',
+    titleEn: 'Mastery of Transformable Haute Joaillerie: The Micro-Mechanics of Royal Tiaras Converting into Collars & Brooches, Auction Valuation & Heirloom Care',
+    summaryAr: 'استكشاف معمق صِيغ بلمسة صائغ ومهندس ميكانيكا مجوهرات ملكية، يكشف الأسرار الهندسية الخفية خلف المجوهرات الفاخرة متعددة الاستخدام (Transformable Jewels) التي تتوارثها الأسر الملكية؛ من المفكات البلاتينية الدقيقة ومفاصل الإغلاق غير المرئية، إلى بروتوكولات تفكيك التيجان لتحويلها إلى عقود أو أساور، وأسباب تصدر هذه التحف لمبيعات مزادات جنيف ولندن بفارق سعري يتجاوز 50%.',
+    summaryEn: 'An exhaustive treatise crafted by a master royal jewelry restoration engineer, revealing the hidden micro-mechanisms behind sovereign transformable jewels: micro-screwdrivers, invisible locking bayonets, dismountable tiara frames, royal gala protocols, and the investment premiums commanded by convertible parures at elite global auctions.',
+    categoryAr: 'فنون الصياغة والتحف الملكية',
+    categoryEn: 'Imperial Haute Joaillerie & Mechanics',
+    publishDate: '2026-10-19',
+    readTimeAr: '13 دقيقة قراءة متعمقة',
+    readTimeEn: '13 min master read',
+    viewsCount: 3950,
+    likesCount: 360,
+    featuredImage: transformableTiaraImg,
+    author: {
+      nameAr: 'البروفيسور خالد بن منصور الهذلي',
+      nameEn: 'Prof. Khaled Al-Hodhali',
+      titleAr: 'كبير مرممي المجوهرات الملكية والتحف التاريخية ومستشار دار المزادات الأوروبية',
+      titleEn: 'Chief Conservator of Sovereign Parures & Historic High Jewelry Engineer',
+      credentialsAr: 'خريج مدرسة الصياغة بباريس (École Boulle) ودكتوراه في هندسة المواد النبيلة من مدرسة لوزان، 31 عاماً في صيانة وترميم التيجان الملكية ومجوهرات البلاطات والمقتنيات الاستثمارية النادرة.',
+      credentialsEn: 'Graduate of École Boulle (Paris), Ph.D. in Noble Metallurgy & Micro-Mechanisms (Lausanne), 31 years conserving imperial tiaras, convertible parures, and heirloom coronation jewelry.',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80',
+    },
+    tableOfContentsAr: [
+      'مقدمة بقلم الخبير: لماذا تعتبر المجوهرات القابلة للتحويل ذروة الإبداع في الصياغة الملكية؟',
+      '1. الميكانيكا المجهرية للتحويل: مفكات البلاتين، السكك المنزلقة، ومفاصل الإغلاق الخفية (Invisible Bayonet Mounts)',
+      '2. رحلة التاج الإمبراطوري: كيف يتحول تاج المناسبات الكبرى إلى عقد ماسي وأسورتين ومشبك شعر؟',
+      '3. بروشات النخبة متعددة الوظائف: فن ارتداء القطعة الواحدة في 4 إطلالات أرستقراطية مختلفة',
+      '4. ديناميكيات القيمة الاستثمارية: لماذا تحقق القطع القابلة للتحويل أرقاماً قياسية في كريستيز وسوذبيز؟',
+      '5. بروتوكول التعامل والصيانة المنزلية: كيف تفكك وتُركب القطعة دون خدش الذهب أو فقدان البراغي الدقيقة؟',
+      '6. دليل المقتني الذكي: 5 قواعد ذهبية قبل طلب تفصيل أو اقتناء مجوهرات قابلة للتحويل',
+    ],
+    tableOfContentsEn: [
+      'Curator Preface: Why Transformable Jewels Represent the Pinnacle of Sovereign Goldsmithing',
+      '1. Micro-Mechanics Decoded: Platinum Screwdrivers, Sliding Rails & Invisible Bayonet Mounts',
+      '2. The Imperial Tiara Metamorphosis: Deconstructing a Coronation Diadem into a Rivière, Bracelets & Aigrettes',
+      '3. Versatile Sovereign Brooches: Mastering 4 Distinct Aristocratic Styling Modes with a Single Jewel',
+      '4. Auction Valuation Dynamics: Why Convertible Parures Command 50%+ Premiums at Sotheby’s & Christie’s',
+      '5. Conservation & At-Home Protocols: Safe Disassembly Without Stripping Threads or Losing Micro-Screws',
+      '6. Connoisseur Commissioning Guide: 5 Non-Negotiable Rules Before Ordering a Transformable Bespoke Parure',
+    ],
+    sections: [
+      {
+        headingAr: 'مقدمة بقلم الخبير: لماذا تعتبر المجوهرات القابلة للتحويل ذروة الإبداع في الصياغة الملكية؟',
+        headingEn: 'Curator Preface: Why Transformable Jewels Represent the Pinnacle of Sovereign Goldsmithing',
+        contentAr: `على مدار أكثر من ثلاثة عقود قضيتها خلف مجاهر الترميم في محترفات باريس وجنيف وفي خزائن العائلات الملكية، لم يُثر دهشتي وإعجابي شيء كما تفعل "المجوهرات القابلة للتحويل" (Transformable Haute Joaillerie). 
+
+إن تصميم خاتم سوليتير أو قلادة كلاسيكية يتطلب براعة فنية لا شك فيها، لكن ابتكار قطعة مجوهرات واحدة يمكن ارتداؤها كتابع متألق في حفل تتويج ملكي مهيب، ثم تفكيكها بأيدي المقتنية بواسطة مفك مجهري من الذهب لتتحول إلى عقد ماسي رقيق (Rivière Necklace) لسهرة عشاء خاصة، وتنفصل أطرافها لتصبح سوارين متطابقين، وبروشاً يتوسط الصدر—هو قمة التقاء الفن التشكيلي بالهندسة الميكانيكية الدقيقة.
+
+نشأت هذه الفلسفة في بلاطات القرن التاسع عشر وبدايات القرن العشرين، حيث كانت الملكات والأميرات يبحثن عن قطع أسطورية تمنحهن الهيبة المطلقة في المناسبات الرسمية، دون أن تظل تلك المجوهرات سجينة الخزائن الحديدية طوال العام. واليوم، تمثل هذه الروائع الهندسية أكثر المقتنيات طلباً بين جامعي التحف وأصحاب الذوق الرفيع.`,
+        contentEn: `Over more than three decades spent behind restoration stereomicroscopes in Paris, Geneva, and private sovereign vaults, no genre of jewelry has captivated my analytical mind quite like "Transformable Haute Joaillerie."
+
+Designing a breathtaking diamond solitaire or static gala necklace is undeniably an artistic triumph; however, engineering a single masterwork capable of crowning a monarch as an imperial tiara, then dismantling via micro-screwdrivers into an intimate rivière necklace, two symmetrical cuffs, and a detachable corsage brooch represents the supreme fusion of sculpture and horological micromechanics.
+
+Originating in the grand royal courts of the 19th and early 20th centuries, queens and sovereign consorts required monumental jewelry for state banquets that could seamlessly adapt to private salon soirees without slumbering indefinitely in bank vaults. Today, these convertible treasures command the highest echelon of collector obsession worldwide.`,
+      },
+      {
+        headingAr: '1. الميكانيكا المجهرية للتحويل: مفكات البلاتين، السكك المنزلقة، ومفاصل الإغلاق الخفية (Invisible Bayonet Mounts)',
+        headingEn: '1. Micro-Mechanics Decoded: Platinum Screwdrivers, Sliding Rails & Invisible Bayonet Mounts',
+        contentAr: `السر الأعظم في المجوهرات القابلة للتحويل لا يظهر على السطح المرصع بالألماس، بل يكمن في ظهر القطعة (The Gallery & Under-Bezel). 
+
+في المشاغل الراقية، لا تُستخدم الوصلات الميكانيكية العادية، بل تُصنع أنظمة تحويل فائقة التعقيد:
+1. **نظام السقاطة الحربة الخفي (Bayonet & Click Fasteners):** وصلات ميكانيكية دقيقة من البلاتين الصلب 950، تدخل في فتحات مخفية خلف صفوف الألماس وتُقفل بربع لفة ناعمة مع صوت "كليك" مسموع ومطمئن.
+2. **البراغي المجهرية ذات السن العكسي (Reverse-Threaded Micro-Screws):** تُصنع خصيصاً من سبائك الذهب المعالج أو البلاتين لتقاوم التآكل الناتج عن الفك والتركيب المستمر عبر العقود. وتأتي القطعة دائماً مع مفك مخصص مدمج في علبة الجلد الفاخرة، صُمم رأسه بدقة ميكرونية ليلائم رأس البرغي دون أي انزلاق قد يخدش المعدن النفيس.
+3. **سكك الانزلاق المخفية (Concealed Slide Tracks):** تسمح بدخول الزخارف الجانبية في إطار التاج بسلاسة كالحرير، مع قفل تأمين ثانوي (Safety Catch) يمنع انفصال القطعة حتى في حال الحركة المفاجئة.
+
+إن إخفاء هذه الوصلات بالكامل تحت أحجار الألماس والياقوت بحيث لا يرى الناظر إلا خطوطاً ضوئية انسيابية هو الاختبار الأصعب لكبير الصاغة.`,
+        contentEn: `The true marvel of convertible jewelry is deliberately concealed from view, residing entirely in the architectural reverse gallery.
+
+At elite Place Vendôme ateliers, standard commercial hinges are banished in favor of horological-grade micromechanics:
+1. Invisible Bayonet & Click Fasteners: Micro-machined Platinum 950 pins that slide into concealed lateral sleeves beneath diamond pavilions, locking into place with a quarter-turn and an authoritative tactile "click."
+2. Micro-Threaded Gold & Platinum Screws: Custom-machined reverse-threaded bolts engineered to resist thread deformation across decades of assembly. Each parure is delivered with an atelier-crafted screwdriver whose hardened tip matches the screwhead slot to within microns, preventing slip-scratches.
+3. Concealed Dovetail Slide Tracks: Precision male-female guide rails enabling tiara motifs to glide smoothly onto rigid tiara frames, anchored by twin sprung safety levers that guarantee stone security even during vigorous gala movements.
+
+Concealing this mechanical symphony beneath light-refracting diamonds so that the observer perceives only fluid brilliance is the ultimate litmus test for a master jeweler.`,
+      },
+      {
+        headingAr: '2. رحلة التاج الإمبراطوري: كيف يتحول تاج المناسبات الكبرى إلى عقد ماسي وأسورتين ومشبك شعر؟',
+        headingEn: '2. The Imperial Tiara Metamorphosis: Deconstructing a Coronation Diadem into a Rivière, Bracelets & Aigrettes',
+        contentAr: `التاج الملكي الكلاسيكي هو النموذج الأكثر إبهاراً للمجوهرات متعددة الوظائف. في علبة التاج الملكية المصنوعة من جلد الماروكين الفاخر والمبطنة بالمخمل والحرير، ستجد دائماً:
+- الهيكل الحامل المنحني (Tiara Frame): وهو إطار خفيف الوزن من الفضة الإسترلينية أو الذهب الأبيض، مبطن بشريط من المخمل بلون مطابق لشعر السيدة ليخفيه تماماً عند الارتداء.
+- المفك الميكانيكي وملاقط التثبيت الذهبية.
+- تجهيزات العقد (Necklace Extension Chain) ومقابض تحويل الأساور.
+
+خطوات التحويل العملي التي تشهدها غرف المقتنين:
+1. **فصل الهيكل الأساسي:** يتم فك برغيين جانبيين لتحرير عقد الألماس المركزي بالكامل من إطار التاج الفضي.
+2. **تركيب وصلة الإغلاق الخلفية:** يُوصل قفل العقد الماسي ليتحول التاج في ثوانٍ إلى قلادة فاخرة (Collar Necklace) تلتف حول العنق بأناقة بالغة.
+3. **فصل الزخارف الطرفية:** الأجنحة الجانبية للتاج تنفصل لتُركب على قاعدتي أساور مرنة تلتف حول المعصم.
+4. **العنصر المركزي (Aigrette):** الحجر المركزي الأكبر أو الزخرفة الزهرية التاجية تُثبت على مشبك شعر ماسي أو بروش لصدر الفستان.
+
+بهذه الهندسة، يقتني المقتني أربعة مجوهرات منفصلة ومبهرة في تحفة فنية واحدة!`,
+        contentEn: `The imperial coronation tiara represents the undisputed pinnacle of multifunctional jewelry architecture. Inside the bespoke morocco leather presentation trunk lined with silk velvet, one discovers an entire engineering kit:
+- The Sovereign Tiara Frame: An ultra-lightweight rhodium-plated silver or white gold armature, wrapped in velvet ribbon dyed to match the patron's hairline for total optical invisibility.
+- Atelier Micro-Screwdrivers and Gemological Tweezers.
+- Rivière Extension Links and articulated bracelet clasps.
+
+The Anatomical Disassembly Sequence:
+1. Frame Decoupling: Removing two lateral locking screws frees the primary diamond garland from the rigid curved headband.
+2. Collar Assembly: Clicking the supplementary extension chain converts the primary tiara arch into an opulent rivière collar draping gracefully across the clavicle.
+3. Wing Conversion into Twin Cuffs: Lateral floral elements detach and slide into pre-tensioned platinum bracelet chassis.
+4. Central Aigrette Staging: The towering center apex motif mounts onto a sprung hair comb or detachable brooch pin for evening cocktail versatility.
+
+Through this mechanical alchemy, a single acquisition yields four distinct heirloom jewels, each engineered for flawless proportion.`,
+      },
+      {
+        headingAr: '3. بروشات النخبة متعددة الوظائف: فن ارتداء القطعة الواحدة في 4 إطلالات أرستقراطية مختلفة',
+        headingEn: '3. Versatile Sovereign Brooches: Mastering 4 Distinct Aristocratic Styling Modes with a Single Jewel',
+        contentAr: `شهدت دبابيس البروش الفاخرة عودة أسطورية إلى واجهة الموضة الرفيعة، لكن بروشات النخبة الملكية تختلف تماماً عن الدبابيس التقليدية. فالبروش المصمم بهندسة تحويل متقدمة يوفر أربعة أوضاع ارتداء:
+
+1. **بروش الصدر الكلاسيكي (Corsage Brooch):** يُرتدى على ياقة السترة أو فستان السهرة، ومزود بنظام إبرة مزدوجة (Double Pin with Trombone Clasp) لضمان ثبات القطعة دون إتلاف الأقمشة الحريرية الفاخرة.
+2. **دلاية قلادة مركزية (Pendant Drop):** حلقة التعليق المخفية (Concealed Bale) تنطوي بسلاسة من خلف البروش لتسمح بتمريره في طوق من الألماس أو حبل من اللؤلؤ الطبيعي.
+3. **مشبك الحزام أو الحقيبة الملكية (Chatelaine / Clasp Motif):** يُركب البروش على إبزيم حقيبة يد مسائية مصنوعة من الساتان، محولاً إياها إلى تحفة مرصعة بالأحجار الكريمة.
+4. **خاتم كوكتيل مسائي (Cocktail Ring Transformation):** في بعض القطع النادرة جداً، تنفصل الزهرة الماسية المركزية لتثبت على هيكل خاتم كوكتيل منفصل!
+
+هذا التنوع يمنح المقتنية حرية التعبير عن شخصيتها وتجديد حضورها في كل مناسبة دون الحاجة لشراء قطع متكررة.`,
+        contentEn: `Brooches have enjoyed a dramatic renaissance in high society, yet sovereign convertible brooches inhabit a dimension far removed from standard decorative pins:
+
+1. The Classic Gala Corsage: Mounted with dual hardened gold needles and a vintage French trombone safety clasp, distributing weight evenly across fragile silk faille without fabric distortion.
+2. The Center Pendant Drop: A hinged concealed bail swivels effortlessly from behind the pavilion, allowing the brooch to suspend dramatically from a graduated natural pearl strand or diamond collar.
+3. The Minaudière & Belt Accent: The brooch slides into bespoke chassis designed to affix securely to velvet evening belts or the clasp of an exotic leather minaudière.
+4. Cocktail Ring Transformation: In hyper-exclusive bespoke commissions, the center cluster unscrews entirely to mount upon a dedicated solitary ring shank.
+
+This stylistic versatility empowers the discerning patron to command diverse ceremonial appearances while preserving a unified aesthetic identity.`,
+      },
+      {
+        headingAr: '4. ديناميكيات القيمة الاستثمارية: لماذا تحقق القطع القابلة للتحويل أرقاماً قياسية في كريستيز وسوذبيز؟',
+        headingEn: '4. Auction Valuation Dynamics: Why Convertible Parures Command 50%+ Premiums at Sotheby’s & Christie’s',
+        contentAr: `في سجلات مزادات جنيف ونيويورك ولندن، تحظى المجوهرات القابلة للتحويل بمكانة استثنائية تؤكدها الأرقام والنتائج:
+
+1. **علاوة التعقيد الهندسي (Mechanical Complexity Premium):**
+تُباع القطع القابلة للتحويل المكتملة بعلبتها ومفكاتها الأصلية بعلاوة سعرية (Premium) تتراوح بين 35% إلى 60% مقارنة بقطع المجوهرات الثابتة المماثلة في وزن الذهب والقيراط. فالمشترون يدركون أن صنع هذه القطع يستغرق 400 إلى 800 ساعة عمل يدوي متواصل من كبار أساتذة الصياغة.
+
+2. **قيمة الاكتمال التاريخي (Complete Parure Intactness):**
+الشرط الجوهري لتحقيق أعلى سعر استثماري هو اكتمال كافة الملحقات: مفك الذهب الأصلي، براغي الاحتياط، هياكل التيجان والأساور، وصندوق العرض الجلدي التاريخي. فقدان مسمار واحد أو وصلة تمديد قد يخفض قيمة القطعة بنسبة 15% إلى 25%، ولذلك يُعتبر الحفاظ على الصندوق الأصلي بكافة مكوناته واجباً استثمارياً مقدساً.
+
+3. **السيولة السوقية العالية (High Market Liquidity):**
+القطع القابلة للتحويل أسهل في إعادة البيع مستقبلاً؛ لأن المشتري الجديد يحصل عملياً على خزانة مجوهرات مصغرة تناسب نمط الحياة المعاصر وتصلح للمناسبات الكبرى واليومية على حد سواء.`,
+        contentEn: `Historical sales ledgers at Sotheby's and Christie's Geneva affirm that transformable jewels represent blue-chip assets commanding unprecedented bidding momentum:
+
+1. The Mechanical Engineering Premium:
+Intact transformable parures accompanied by their original presentation boxes and screwdrivers command a 35% to 60%+ hammer premium over equivalent static pieces. Discerning bidders recognize that engineering articulated bayonets demands 400 to 800 hours of artisanal hand labor.
+
+2. The Imperative of Full Kit Integrity:
+Maximizing auction valuation hinges upon complete accessory provenance: the original hand-turned screwdriver, spare reverse-thread bolts, tiara chassis, and leather trunk. The loss of a single custom-fitted screw can discount realized prices by 15% to 25%, making meticulous preservation paramount.
+
+3. Exceptional Resale Liquidity:
+Transformable parures enjoy vastly superior cross-generational appeal. Modern heiresses and institutional collectors actively seek historic designs that adapt to modern gala and cocktail dress codes without appearing archaic.`,
+      },
+      {
+        headingAr: '5. بروتوكول التعامل والصيانة المنزلية: كيف تفكك وتُركب القطعة دون خدش الذهب أو فقدان البراغي الدقيقة؟',
+        headingEn: '5. Conservation & At-Home Protocols: Safe Disassembly Without Stripping Threads or Losing Micro-Screws',
+        contentAr: `إذا كنتِ تمتلكين أو تخططين لاقتناء قطعة مجوهرات ملكية قابلة للتحويل، فإن التعامل معها يتطلب طقساً خاصاً ودقة متناهية:
+
+1. **صينية العمل المبطنة بالساتان (The Velvet Tray):**
+إياكِ أن تقومي بفك أو تركيب القطعة فوق سطح صلب أو بالقرب من حوض مغسلة! ضعي صينية مبطنة بالمخمل أو الجلد الناعم ذات حواف مرتفعة، بحيث إذا سقط برغي مجهري يظل مستقراً داخل الصينية دون ارتداد.
+
+2. **استخدام المفك المخصص حصرياً:**
+لا تستخدمي أبداً مفكات النظارات أو الساعات التجارية؛ فرأس المفك الأصلي المصنوع من الذهب أو البلاتين مقاسه مطابق بدقة ميكرونية لرأس البرغي لمنع تقشير السن (Thread Stripping) أو انزلاقه على أسطح الألماس المصقولة.
+
+3. **قاعدة اليد اللطيفة (Finger-Tight Torque):**
+عند ربط البرغي، توقفي فور شعورك بالمقاومة الأولى. لا تبالغي في الشد أبداً؛ فالمعادن النبيلة مثل الذهب 18k طرية نسبياً، والشد المفرط قد يتلف السن الداخلي ويكلف آلاف الدولارات لإعادة خرطه وصيانته.
+
+4. **الفحص الدوري كل 18 شهراً:**
+يجب إرسال القطعة إلى ورشة صياغة متخصصة لفحص مرونة السكك وسوستات الأمان وتنظيف التجاويف الميكانيكية بالموجات الصوتية الدقيقة من أي غبار أو زيوت متراكمة.`,
+        contentEn: `Possessing and curating transformable high jewelry demands disciplined stewardship worthy of an horological conservator:
+
+1. The Padded Velvet Casket Protocol:
+Never disassemble convertible jewels over marble vanity countertops or near washbasins. Always operate within a deep-walled tray lined with velvet or suede; should a micro-screw escape your fingers, it will settle without bouncing.
+
+2. Exclusive Use of Atelier-Fitted Tools:
+Never utilize standard optical or horological screwdrivers. The proprietary gold or platinum screwdriver supplied with the parure features precision-beveled edges matching the screw slot to prevent cam-out slippage that could scar mirror-polished gold.
+
+3. Gentle Fingertip Torque Rules:
+Tighten screws until initial resistance is met, never forcing extra torque. Solid 18k gold and platinum are ductile noble metals; over-torquing permanently strips micro-threads, necessitating complex laser microsurgery to reconstruct.
+
+4. 18-Month Mechanical Calibration:
+Submit the parure biennially to master conservators to test spring fatigue, inspect dovetail tolerance, and clean micro-recesses of ambient dust via gentle ultrasonic immersion.`,
+      },
+      {
+        headingAr: '6. دليل المقتني الذكي: 5 قواعد ذهبية قبل طلب تفصيل أو اقتناء مجوهرات قابلة للتحويل',
+        headingEn: '6. Connoisseur Commissioning Guide: 5 Non-Negotiable Rules Before Ordering a Transformable Bespoke Parure',
+        contentAr: `سواء كنتِ تتطلعين لاقتناء تحفة تاريخية من المزادات أو تكليف مشغلنا الملكي بتصميم طقم زفاف قابل للتحويل خاص بكِ، ضعي هذه المعايير الخمسة نصب عينيكِ:
+
+1. **توازن الوزن والراحة (Ergonomic Balance):**
+تأكدي من تجربة القطعة في كافة أشكالها؛ فالتاج يجب ألا يضغط على جانبي الرأس، والعقد الناتج يجب أن يستقر بانسيابية مسطحة حول الترقوة دون أن ينقلب.
+
+2. **سلاسة التحويل دون مساعدة خبير:**
+القطعة الناجحة هندسياً هي التي تستطيعين تفكيكها وتركيبها بنفسكِ في أقل من ثلاث دقائق بمفردكِ قبل الحفل دون الحاجة إلى الاستعانة بصائغ محترف.
+
+3. **صلابة المعدن المستخدم (Metallurgical Integrity):**
+تأكدي أن مفاصل التعشيق والبراغي مصنوعة من الذهب المعالج حرارياً عيار 18k أو البلاتين 950؛ وتجنبي عيارات الذهب المنخفضة أو المعادن المطلية التي تتأكسد وتلتصق ببعضها.
+
+4. **شهادات الأحجار الكريمة المستقلة:**
+تأكدي من أن كل حجر مركزي في القطعة (سواء كان ألماساً أو ياقوتاً أو زمرداً) يحمل شهادة تصنيف فردية من GIA أو SSEF تثبت مواصفاته وخلوه من المعالجات.
+
+5. **توثيق الرسم الهندسي (Technical Blueprint Certificate):**
+اطلبي دائماً كتيباً أو مخططاً هندسياً يوضح طريقة الفك والتركيب وأرقام القطع التبادلية، ليكون دليلاً للأجيال القادمة التي سترث هذه التحفة الخالدة.
+
+في **بوتيك مجوهرات النخبة الملكية**، يضع كبار صاغتنا وخبراؤنا الهندسيون خلاصة قرون من الإرث الملكي بين يديكِ، لنصوغ معاً تحفاً قابلة للتحويل تحكي قصة مجدكِ وتتألق في أبهى محافل الفخامة.`,
+        contentEn: `Whether acquiring an historic parure from an aristocratic estate or commissioning our royal atelier for a bespoke bridal diadem, audit these five foundational criteria:
+
+1. Anatomical Equilibrium:
+Test the parure across every physical permutation. As a tiara, it must distribute weight across the temporal arches without pinch points; as a collar, it must articulate flush against the collarbone without rolling.
+
+2. Independent Operability Under 3 Minutes:
+True engineering mastery enables the patron to execute conversions independently within three minutes at her dressing table, without summoning professional bench jewelers.
+
+3. Metallurgical Resilience:
+Insist that all male-female bayonet fittings, threads, and catch springs are wrought from work-hardened 18k gold or Platinum 950. Base-metal alloys corrode over decades, seizing micro-mechanisms irreparably.
+
+4. Individual Center Gemstone Dossiers:
+Mandate that each separable focal diamond, sapphire, or emerald possesses independent GIA or SSEF certification verifying natural origin and non-treated status.
+
+5. Archival Blueprint Schematics:
+Always require a custom leather-bound technical manual illustrating disassembly sequences, screw diagrams, and replacement part inventories to guide future generations inheriting the heirloom.
+
+At **Royal Elite High Jewelry Boutique**, our master artisans synthesize centuries of royal court heritage with cutting-edge micro-mechanics, crafting unrepeatable transformable jewels destined to celebrate your most magnificent milestones through eternity.`,
+      },
+    ],
+  },
 ];
+
 
 
