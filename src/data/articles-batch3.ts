@@ -4,6 +4,7 @@ import gemCertImg from '../assets/images/gem_certificate_lab_1791478715397.jpg';
 import heroImg from '../assets/images/hero_luxury_jewelry_1791298014265.jpg';
 import unheatedGemstonesImg from '../assets/images/unheated_gemstones_lab_1792188421538.jpg';
 import transformableTiaraImg from '../assets/images/transformable_tiara_craft_1792447148613.jpg';
+import grandFeuEnamelImg from '../assets/images/grand_feu_enamel_craft_1792862261964.jpg';
 
 export const ARTICLES_BATCH_3: Article[] = [
   // 23. أساليب وتقنيات ترصيع الأحجار الكريمة والمجوهرات
@@ -1109,7 +1110,218 @@ At **Royal Elite High Jewelry Boutique**, our master artisans synthesize centuri
       },
     ],
   },
+  // 28. سحر المينا الملكية الحارة وفنون بليك-آ-جور (Grand Feu Enameling & Plique-à-Jour)
+  {
+    id: 'grand-feu-enameling-plique-a-jour-mastery',
+    slug: 'grand-feu-enameling-plique-a-jour-mastery',
+    titleAr: 'سحر المينا الملكية الحارة (Grand Feu Enameling): فنون "بليك-آ-جور" الشفافة والكلوازونيه — كيمياء تحويل الزجاج والذهب تحت 800°C بأنامل بشرية أسطورية',
+    titleEn: 'The Sovereign Alchemy of Grand Feu Enameling: Plique-à-Jour Translucency, Cloisonné & Guilloché — Mastering 800°C Vitreous Artistry on Pure Gold',
+    summaryAr: 'رسالة توثيقية حصرية صِيغت بقلم أستاذة المينا الملكية وترميم مقتنيات فابرجيه والآرت نوفو، تكشف الأسرار الكيميائية واليدوية الصارمة وراء فن المينا الزجاجية الحارة (Grand Feu Enamel)؛ من أسرار إذابة مساحيق السيليكا وأكاسيد المعادن في أفران 800°C، إلى معجزة تقنية "بليك-آ-جور" (Plique-à-Jour) التي تجعل المجوهرات كنوافذ الكاتدرائيات المضيئة بلا خلفية معدنية، مع دليل فحص التشققات المجهرية وقواعد حفظ هذه التحف الاستثمارية النادرة.',
+    summaryEn: 'An exhaustive treatise by a master royal enamelist and Fabergé conservator detailing the delicate chemistry and grueling human handcraft behind grand feu vitreous enameling: formulating silica oxides, firing suspended plique-à-jour windows at 800°C, micro-cloisonné gold ribbon architectures, inspecting micro-crazing, and auction valuation premiums for intact historic vitreous jewels.',
+    categoryAr: 'فنون الصياغة والمينا الملكية',
+    categoryEn: 'Imperial Enameling & Vitreous Arts',
+    publishDate: '2026-10-24',
+    readTimeAr: '13 دقيقة قراءة متعمقة',
+    readTimeEn: '13 min master read',
+    viewsCount: 4310,
+    likesCount: 412,
+    featuredImage: grandFeuEnamelImg,
+    author: {
+      nameAr: 'المايسترا مريم بنت يوسف الرشيد',
+      nameEn: 'Maestra Mariam Al-Rasheed',
+      titleAr: 'كبيرة أساتذة المينا الملكية ومستشارة ترميم مقتنيات المتاحف الأوروبية',
+      titleEn: 'Grand Master Enamelist & Historic Vitreous High Jewelry Conservator',
+      credentialsAr: 'خريجة المعهد الوطني للفنون الجميلة بفلورنسا (Florence Art Academy) ودبلوم الصياغة الدقيقة بجنيف، 27 عاماً في إحياء تقنيات المينا الحارة (Grand Feu) لبيوت المجوهرات الكبرى في باريس، ومقيمة معتمدة للتحف المزججة في مزادات سويسرا ولندن.',
+      credentialsEn: 'Florence Art Academy graduate in Vitreous Arts, 27 years mastering Grand Feu, Plique-à-Jour, and Fabergé guilloché for historic European houses, certified antique enamel conservator.',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop&q=80',
+    },
+    tableOfContentsAr: [
+      'مقدمة بقلم الخبير: لماذا تعجز التكنولوجيا الحديثة عن استبدال أنامل فنان المينا الحارة؟',
+      '1. كيمياء النار والزجاج: ما هو Grand Feu الحقيقي وفارق الـ 800°C عن المينا الباردة الرخيصة؟',
+      '2. أعجوبة "بليك-آ-جور" (Plique-à-Jour): عندما يتحول الذهب إلى نوافذ كاتدرائية زجاجية معلقة في الهواء',
+      '3. خريطة التقنيات الإمبراطورية: مقارنة الكلوازونيه (Cloisonné)، الشامبلفيه (Champlevé)، والجلوشيه (Guilloché)',
+      '4. دراما الفرن: ظاهرة الانفجار الحراري ولماذا يُتلف الصانع 40% من القطع ليصل إلى الكمال؟',
+      '5. فحص المقتني والخبير: كيف تكتشف الشروخ المجهرية (Crazing) وتميز المينا الأصلية من الراتنج؟',
+      '6. بروتوكول العناية والتوريث: 5 محظورات مطلقة تحمي المينا الزجاجية لمئات السنين',
+    ],
+    tableOfContentsEn: [
+      'Curator Preface: Why Digital Automation Can Never Usurp the Master Enamelist’s Touch',
+      '1. The Alchemical Crucible: Demystifying True Grand Feu vs. Ephemeral Cold Resin Enamels',
+      '2. The Plique-à-Jour Miracle: How Gold Frames Suspend Luminous Stained-Glass Windows in Free Air',
+      '3. The Imperial Technique Taxonomy: Cloisonné Wire Ribbons, Champlevé Bas-Relief & Guilloché',
+      '4. The Kiln Drama: Thermal Shock Cleavage and Why Artisans Sacrifice 40% of Firings for Perfection',
+      '5. The Connoisseur Diagnostic: Spotting Micro-Crazing and Distinguishing Vitreous Glass from Acrylic',
+      '6. Conservation & Dynastic Legacy: 5 Absolute Prohibitions to Preserve Enamel Masterpieces Across Centuries',
+    ],
+    sections: [
+      {
+        headingAr: 'مقدمة بقلم الخبير: لماذا تعجز التكنولوجيا الحديثة عن استبدال أنامل فنان المينا الحارة؟',
+        headingEn: 'Curator Preface: Why Digital Automation Can Never Usurp the Master Enamelist’s Touch',
+        contentAr: `في عصر الطابعات ثلاثية الأبعاد وبرامج التصميم الرقمي المعقدة، يقف فن المينا الملكية الحارة (Grand Feu Vitreous Enameling) كحصن أخير لا تستطيع أي آلة اقتحامه. 
+
+على مدار سبعة وعشرين عاماً قضيتها بين طاولات الصياغة في فلورنسا وجنيف وأمام لهيب الأفران التي تتوهج عند 800 إلى 850 درجة مئوية، تعلمت درساً فلسفياً عميقاً: "المينا الحارة ليست مجرد لون يُدهن على المعدن، بل هي كيمياء روحية بين الزجاج المصهور والذهب، يحكمها حدس الصائغ البشري ونبض يديه".
+
+لا توجد خوارزمية في العالم تستطيع أن تقرر متى يجب سحب صفيحة الذهب من قلب الفرن المشتعل في جزء من الثانية؛ فاللحظة الفارقة بين نضوج المينا الزجاجية وتحولها إلى بريق بلوري يشبه الياقوت السائل، وبين احتراقها وتفحم أكاسيدها وتحولها إلى رماد مشوه، لا تتجاوز ثانيتين أو ثلاث ثوانٍ! هذا التوتر الرهيب، وهذه العلاقة الحميمة مع النار، هي ما يجعل قطع المينا الحارة التاريخية من أندر وأغلى ما تتوارثه العائلات الملكية وتتنافس عليه كبرى المتاحف في باريس ولندن وسانت بطرسبرغ.`,
+        contentEn: `In an era dominated by multiaxis CNC milling and generative 3D prototyping, the imperial discipline of Grand Feu Vitreous Enameling endures as an unassailable bastion of pure human virtuosity.
+
+Over twenty-seven years spent between historic master benches in Florence and Geneva, confronting kiln chambers roaring at 800°C to 850°C, I internalized an immutable aesthetic truth: "True grand feu enamel is never mere cosmetic pigment applied to jewelry; it is a sacred metallurgical alchemy binding liquid silica glass to pure gold, governed exclusively by intuitive human touch and visceral judgment."
+
+No robotic sensor or digital algorithm can determine the exact micro-second to extract a glowing golden diadem from the kiln heart. The knife-edge demarcation between molten vitreous perfection—resembling freshly liquefied corundum—and catastrophic bubbling oxidation spans barely two seconds. This electrifying peril and intimacy with primal flame render grand feu creations among the rarest, most fiercely contested treasures preserved within sovereign royal vaults.`,
+      },
+      {
+        headingAr: '1. كيمياء النار والزجاج: ما هو Grand Feu الحقيقي وفارق الـ 800°C عن المينا الباردة الرخيصة؟',
+        headingEn: '1. The Alchemical Crucible: Demystifying True Grand Feu vs. Ephemeral Cold Resin Enamels',
+        contentAr: `من أكبر الأخطاء التي يقع فيها المشترون المعاصرون هو الخلط بين "المينا الزجاجية الحارة" (Grand Feu Enamel) وبين ما يُسمى تجارياً "المينا الباردة" (Cold Enamel / Epoxy Resin).
+
+الفارق العلمي والجوهري:
+- **المينا الباردة (الراتنج البلاستيكي):** هي مجرد بوليمر بتروكيماوي أو دهان إيبوكسي سائل يُجفف في الهواء أو تحت أشعة فوق بنفسجية في درجات حرارة الغرفة. بمرور سنتين أو ثلاث، يتأكسد الراتنج، ويتحول لونه إلى الأصفر، ويتشقق عند ملامسة العطور أو الكحول، وقيمته الاستثمارية معدومة تماماً.
+- **المينا الحارة الحقيقية (Grand Feu Vitreous Glass):** هي زجاج سيليكات نقي طبيعي 100% (Pure Silica)، يُطحن يدوياً في هاون من العقيق الصلب تحت الماء المقطر لعدة أيام حتى يتحول إلى مسحوق بلوري ميكروني فائق النعومة. تُخلط هذه المساحيق مع أكاسيد المعادن النبيلة: أكسيد الكوبالت للون الأزرق الملكي، وأكسيد النحاس للزمردي الفيروزي، وجزيئات الذهب الغروي النقي (Colloidal Gold) للحصول على اللون الأحمر الياقوتي الأسطوري.
+
+توضع هذه المساحيق المبللة بريشة شعر السمور قطرة بقطرة داخل خلايا الذهب عيار 18k أو 22k، ثم تُدخل إلى الفرن المتوهج عند 800°C لعدة طبقات متتالية (من 8 إلى 20 حرقة منفصلة). تندمج ذرات الزجاج في بنية الذهب الذرية لتولد مادة صلبة، لامعة، ومقاومة للزمن، لا يتغير لونها ولا يخبو بريقها حتى بعد ألف عام!`,
+        contentEn: `The most rampant pitfall confronting modern collectors is conflating authentic "Grand Feu Vitreous Enamel" with commercial "Cold Enamels" (epoxy resins).
+
+The Scientific Chasm:
+- Cold Resin Enamels: Ephemeral petrochemical polymers cured via ambient air or ultraviolet lamps. Within merely three to five years, UV radiation degrades the polymer chains, yellowing the colors, scratching easily, and stripping the jewel of secondary market value.
+- Authentic Grand Feu Vitreous Enamel: Composed of 100% natural pulverized silica glass, patiently ground by hand inside an agate mortar under distilled water for days until reduced to microscopic crystalline flour. These powders are infused with elemental metallic oxides: cobalt oxide for deep royal blue, copper carbonate for lush tourmaline green, and pure colloidal gold salts to achieve the legendary "Flambé Ruby Red."
+
+This hydrated paste is applied grain by microscopic grain using zero-gauge marten-hair brushes into 18k or 22k gold recesses. The artifact is thrust into an inferno exceeding 800°C across 8 to 20 successive firings. The molten glass chemically fuses into the gold crystal lattice, creating an impervious, immutable gemstone surface destined to preserve its incandescent fire for millennia.`,
+      },
+      {
+        headingAr: '2. أعجوبة "بليك-آ-جور" (Plique-à-Jour): عندما يتحول الذهب إلى نوافذ كاتدرائية زجاجية معلقة في الهواء',
+        headingEn: '2. The Plique-à-Jour Miracle: How Gold Frames Suspend Luminous Stained-Glass Windows in Free Air',
+        contentAr: `إذا كانت المينا الحارة هي ملكة الصياغة، فإن تقنية **"بليك-آ-جور" (Plique-à-Jour)**—وهي كلمة فرنسية تعني حرفياً "إدخال ضوء النهار"—هي أسطورة الأساطير ومعجزة الصائغ التي لا يتقنها اليوم سوى بضعة حرفيين حول العالم.
+
+في هذه التقنية، لا توجد صفيحة ذهبية في الخلفية لتعكس الضوء! تُصاغ القطعة كهيكل شبكي مفتوح ومفرغ تماماً من الذهب عيار 18k أو البلاتين (يشبه أجنحة اليعسوب الشفافة أو بتلات الأزهار الرقيقة). وتوضع مساحيق المينا الزجاجية السائلة داخل الفراغات الهوائية معتمدة فقط على قوة التوتر السطحي (Surface Tension) للماء والزجاج!
+
+تُدخل القطعة إلى الفرن معلقة في الهواء أو مستندة مؤقتاً إلى رقاقة نحاسية رقيقة للغاية تُذاب كيميائياً بالحمض بعد الحرق (Acid Dissolution Technique). عندما تخرج القطعة وتُصقل، يتحول كل تجويف إلى لوح زجاجي نقي معلق في الفراغ يمر الضوء من خلاله بحرية تامة؛ فحين ترفع السيدة البروش أو القلادة نحو الشمس، تتوهج القطعة كأنها نافذة ملونة لكاتدرائية قوطية مصغرة ترتديها حول عنقها.`,
+        contentEn: `If grand feu is the royalty of goldsmithing, **Plique-à-Jour** (French for "letting in daylight") is its most sublime miracle—a discipline so perilous that fewer than fifteen masters globally possess the dexterity to execute it at museum grade.
+
+In plique-à-jour, there is no supportive metal backing behind the enamel! The goldsmith pierces an openwork latticework of 18k gold or platinum reminiscent of gossamer dragonfly wings. Pulverized vitreous paste is suspended across the open negative voids relying purely on capillary action and liquid surface tension!
+
+The jewel is fired suspended in open atmosphere or temporarily backed against micro-thin copper foil subsequently dissolved via nitric acid baths. Once diamond-lapped, each partition transforms into a floating translucent stained-glass pane allowing unobstructed photon transmission. Held against candlelight or solar rays, the jewel ignites with celestial iridescence, evoking the stained-glass roses of Sainte-Chapelle worn intimately against bare skin.`,
+      },
+      {
+        headingAr: '3. خريطة التقنيات الإمبراطورية: مقارنة الكلوازونيه (Cloisonné)، الشامبلفيه (Champlevé)، والجلوشيه (Guilloché)',
+        headingEn: '3. The Imperial Technique Taxonomy: Cloisonné Wire Ribbons, Champlevé Bas-Relief & Guilloché',
+        contentAr: `لتذوق المينا الملكية كخبير معتمد، يجب التمييز بين الأساليب الأربعة الكبرى التي خلدت أسماء كبار الصاغة عبر التاريخ:
+
+1. **الكلوازونيه (Cloisonné):**
+تعتمد على تشكيل أشرطة بالغة الدقة من الذهب الخالص (سماكتها أقل من شعر الإنسان: 0.05 إلى 0.10 ملم) ولحمها رأسياً فوق صفيحة الذهب لتكوين حواجز وخلايا مستقلة. تُملأ كل خلية بلون مختلف من المينا، وتُحرق وتُصقل حتى تصبح أشرطة الذهب مستوية تماماً مع سطح الزجاج كخطوط رسم مذهبة.
+
+2. **الشامبلفيه (Champlevé):**
+بدلاً من بناء حواجز سلكية، يقوم الحفار بنحت وحفر تجاويف غائرة عميقة مباشرة في كتلة الذهب السميك بواسطة أزاميل فولاذية حادة يدوياً، تاركاً خطوطاً نافرة من الذهب لتفصل بين المساحات الملونة، مما يعطي القطعة طابعاً نحتياً صلباً ومهيباً.
+
+3. **الجلوشيه الإمبراطوري (Guilloché Enamel):**
+الأسلوب الذي اشتهر به "كارل فابرجيه" في بيضات القيصر الروسي ومجوهراته الملكية؛ حيث يُنقش الذهب أولاً بآلة هندسية يدوية دقيقة تُحدث زخارف متموجة هندسية (Engine-Turning Pattern)، ثم تُغطى بطبقات متعددة من المينا الزجاجية الشفافة بنسبة 100%. ينفذ الضوء من خلال الزجاج الشفاف لينعكس على تموجات الذهب المحفورة في الأسفل، مانحاً بريقاً كهرومغناطيسياً ثلاثي الأبعاد لا نظير له في العالم.
+
+4. **الجريزاي (Grisaille):**
+الرسم المجهري أحادي اللون؛ حيث تُغطى قاعدة الذهب بطبقة مينا سوداء داكنة كالفحم، ثم يرسم الفنان فوقها تفاصيل الوجوه والتنانين بمسحوق مينا أبيض فرنسي نادر يُعرف بـ "Blanc de Limoges" بدرجات شفافية متدرجة تمنح عمقاً سريالياً مذهلاً.`,
+        contentEn: `To evaluate sovereign enamels with connoisseur authority, one must differentiate the four historic classical lineages:
+
+1. Cloisonné (Cellular Wire Partitioning):
+Artisans hand-bend microscopic ribbons of pure 24k gold wire (measuring barely 0.06mm in thickness) into baroque scrolls, fusing them edge-on onto the baseplate. Each cell acts as an isolated reservoir for distinct enamel pastes. Repeated firings and stone-polishing level the gold ribbons flush with the glass surface.
+
+2. Champlevé (Bas-Relief Engraving):
+Rather than raising wire cells, master sculptors carve recessed troughs directly into solid, heavy gold plate utilizing hardened steel burins, leaving raised metal ridges that delineate enamel reservoirs. The result is structural gravitas and heroic durability.
+
+3. Imperial Guilloché (Translucent Engine-Turning):
+Immortalized by Peter Carl Fabergé in Russian Imperial Easter eggs; geometrically complex moiré wave motifs are engraved into gold via hand-cranked rose engines, then flooded with layers of optic-grade translucent enamel. Incident light pierces the colored glass, bounces off the undulating gold engraving, and radiates outwards with holographic dimensionality.
+
+4. Grisaille (Monochromatic Shadow Play):
+A pitch-black vitreous ground is fired, upon which the artist paints figurative drapery and ethereal portraiture using microscopic washes of rare "Blanc de Limoges" white enamel, achieving chiaroscuro modeling rivaling Renaissance oil paintings.`,
+      },
+      {
+        headingAr: '4. دراما الفرن: ظاهرة الانفجار الحراري ولماذا يُتلف الصانع 40% من القطع ليصل إلى الكمال؟',
+        headingEn: '4. The Kiln Drama: Thermal Shock Cleavage and Why Artisans Sacrifice 40% of Firings for Perfection',
+        contentAr: `ما لا يعرفه الكثيرون هو أن مجوهرات المينا الحارة هي وليدة حرب كيميائية مستعرة داخل الفرن، ونسبة الخسارة فيها هي الأعلى في تاريخ الفنون التطبيقية.
+
+السبب الفيزيائي: **اختلاف معامل التمدد الحراري (Coefficient of Thermal Expansion - CTE)** بين الذهب والزجاج. الذهب يتمدد وينكمش تحت الحرارة بمعدل أسرع من الزجاج؛ وإذا لم تكن سبيكة الذهب عيار 18k محسوبة بنسب ميكروجرامية دقيقة من الفضة والنحاس، ولم تكن طبقة الزجاج متجانسة السماكة في كل زاوية، فإن القطعة عند خروجها من الفرن وتبريدها ستصدر صوتاً خافتاً كفرقعة الزجاج: "طَقْ"... هذا الصوت هو إعلان وفاة القطعة وتشققها بالكامل إثر الصدمة الحرارية!
+
+في مشغلنا الملكي، تتطلب القطعة الواحدة ما بين 12 إلى 25 عملية إدخال للفرن. وفي كل مرحلة حرق، يقف الصائغ مشدود الأنفاس؛ فخطأ واحد في درجة الحرارة بزيادة 5 درجات فقط كفيل بتغيير لون المينا البنفسجي النادر إلى رمادي باهت، أو إذابة حواجز الذهب الرقيقة لتختلط الألوان ويضيع عمل شهرين متواصلين في رماد الفرن. هذه التضحية بنسبة قد تصل إلى 40% من القطع المصنوعة قبل الوصول للتحفة الناجية هي السبب في أن قطع Grand Feu الأصلية تُقدر بثروات طائلة.`,
+        contentEn: `Behind the serene luminescence of fine enamel lies a harrowing physical struggle: vitreous high jewelry suffers the highest attrition rate of any luxury art form.
+
+The physical antagonist: The radical divergence in the **Coefficient of Thermal Expansion (CTE)** between noble gold and silica glass. Gold expands and contracts under thermal cycles at rates markedly distinct from rigid vitreous silica. Unless the 18k alloy is custom-smelted with microscopic tolerances of silver and copper, and unless the enamel thickness is balanced bilaterally (Counter-Enameling), the cooling cycle produces a sickening microscopic "ping"—the instantaneous death-knell of shattering glass under thermal shock.
+
+A complex imperial jewel endures between 12 and 25 independent kiln firings. At every thermal threshold, the master risks total annihilation: an oven overshoot of a mere 5°C alters delicate purple carmines into muddy browns, or liquefies fragile gold ribbons, destroying months of handcraft in seconds. Sacrificing up to 40% of production runs to yield a single flawless survivor explains why genuine grand feu works command staggering auction premiums.`,
+      },
+      {
+        headingAr: '5. فحص المقتني والخبير: كيف تكتشف الشروخ المجهرية (Crazing) وتميز المينا الأصلية من الراتنج؟',
+        headingEn: '5. The Connoisseur Diagnostic: Spotting Micro-Crazing and Distinguishing Vitreous Glass from Acrylic',
+        contentAr: `عند تقييم واقتناء قطعة مجوهرات بالمينا الملكية، سواء كانت قطعة تاريخية عتيقة أو تصميماً حديثاً، يجب اتباع هذا البروتوكول التشخيصي الدقيق:
+
+1. **اختبار الملمس والحرارة الفيزيائية (Thermal Touch):**
+المينا الزجاجية الحارة حجر حقيقي؛ تلمسها فتجدها باردة تماماً كالماس أو الكوارتز، وثقيلة وصلبة برنين زجاجي عند النقر الخفيف بظفرك. أما المينا الباردة (الراتنج البلاستيكي) فتشعر بأنها دافئة لملامسة الجلد وتبدو لزجة أو بلاستيكية الملمس.
+
+2. **الفحص بالعدسة المكبرة 10x تحت الإضاءة المائلة:**
+ابحثي عن الفقاعات والشروخ المجهرية (Micro-Crazing):
+- في المينا الحارة الأصلية، يكون السطح مصقولاً كالمرايا الماسية وتظهر فيه أحياناً فقاعات ميكرونية متناهية الصغر من غازات الفرن المحبوسة، وهي علامة الأصالة اليدوية وليست عيباً.
+- تجنبي تماماً القطع التي تظهر فيها شروخ شعرية رمادية تمتد حتى المعدن؛ فهذا دليل على صدمة ميكانيكية أو هبوط في بنية الذهب.
+
+3. **فحص حواف التماس مع الذهب (The Metal Interface):**
+في القطع المصنوعة بيد بشرية خبيرة، تتلاشى المينا داخل حواف الذهب بانسيابية تامة دون أي فراغات هوائية أو حواف حادة مقعرة (Meniscus Distortion).
+
+4. **اختبار مقاومة الخدش الخفيف:**
+المينا الزجاجية تتمتع بصلابة تتراوح بين 6 إلى 7 على مقياس موس؛ فلا يمكن لعملة معدنية أو دبوس أن يخدشها، بينما المينا البلاستيكية تنخدش على الفور حتى بمرور ظفر اليد القوي!`,
+        contentEn: `When examining historic estate or modern grand feu jewels, deploy this rigorous 4-step diagnostic protocol practiced by auction specialists:
+
+1. Thermal Tactile Verification:
+Vitreous enamel is crystalline glass: cold to initial touch, non-porous, and emitting an acoustic crystalline chime when lightly tapped with a fingernail. Acrylic resins feel immediately warm to the skin and possess a subtle petrochemical drag.
+
+2. 10x Magnification Under Oblique Illumination:
+Audit the surface topography for micro-fissuring and crazing:
+- In master grand feu, the finish exhibits mirror-like flatness occasionally punctuated by microscopic spherical gas bubbles born in the kiln—the definitive hallmark of organic hand-firing.
+- Disqualify pieces displaying spider-web crazing lines propagating through color fields down to the metal bed, which indicate terminal structural stress.
+
+3. The Gold-Enamel Interface Audit:
+In human bench mastery, the glass flows flush to the boundary walls without meniscus starvation or ragged voids.
+
+4. Mohs Hardness Resilience:
+Vitreous silica registers between 6.0 and 7.0 on Mohs hardness scale; it is utterly impervious to fingernail scratches or soft copper probes. Acrylic resins yield instantly to mild contact and soften under acetone solvents that leave true glass completely untouched.`,
+      },
+      {
+        headingAr: '6. بروتوكول العناية والتوريث: 5 محظورات مطلقة تحمي المينا الزجاجية لمئات السنين',
+        headingEn: '6. Conservation & Dynastic Legacy: 5 Absolute Prohibitions to Preserve Enamel Masterpieces Across Centuries',
+        contentAr: `المينا الملكية الزجاجية أصل خالد كالألماس، ولكنها تتطلب وعياً في التعامل لحمايتها من الكسر الميكانيكي. إليكِ المحظورات الخمسة الصارمة التي نوصي بها عملاء بوتيك النخبة:
+
+1. **حظر أجهزة التنظيف بالموجات فوق الصوتية (NO Ultrasonic Cleaners):**
+هذا هو الخطر الأكبر! الاهتزازات الصوتية عالية التردد في حمامات التنظيف تُحدث شروخاً فورية بين طبقات الزجاج وحواف الذهب وتؤدي لتفتت المينا الزجاجية وسقوطها.
+
+2. **تجنب الصدمات الحرارية المفاجئة:**
+إياكِ وارتداء مجوهرات المينا في حمامات البخار (الساونا) أو الانتقال بها من حرارة شمس شديدة إلى مياه جليدية باردة؛ فالانكماش الحراري المفاجئ كفيل بكسر الزجاج فوراً.
+
+3. **الحفظ المنفصل في أكياس حريرية:**
+نظراً لأن المينا الزجاجية أقل صلابة من الألماس والياقوت، يجب حفظ كل قطعة مينا في حجرة مبطنة بالحرير بمفردها تماماً حتى لا تخدشها مخالب الألماس المجاورة.
+
+4. **التنظيف بماء مقطر وقطن طبي ناعم فقط:**
+لا تستخدمي أبداً الكحول المركز، أو المنظفات المنزلية، أو الأمونيا. امسحي القطعة بقطعة قماش ناعمة مبللة ببضع قطرات من الماء المقطر وجففيها بلطف.
+
+5. **الاستعانة بمرمم معتمد للمينا عند الحاجة:**
+إذا تعرضت القطعة لأي صدمة، لا تدعي صائغاً تجارياً عادياً يحاول لحامها؛ لأن حرارة شعلة اللحام العادية ستفجر المينا المحيطة بالكامل. تتطلب صيانة المينا أفراناً متخصصة وأشعة ليزر مجهرية دقيقة تحت إشراف مرمم معتمد.
+
+في **بوتيك مجوهرات النخبة الملكية**، نفخر بتقديم تشكيلات استثنائية صِيغت بتقنيات المينا الحارة وبليك-آ-جور بأيدي نخبة الصاغة، لتكون تحفاً نادرة تضيء حضوركِ وتتوارثها الأجيال كرموز للفخامة التي لا يمحوها الزمان.`,
+        contentEn: `While vitreous glass is geologically durable, its crystalline nature mandates disciplined stewardship. Observe these five non-negotiable curatorial commandments:
+
+1. Total Ban on Ultrasonic Cleaning Tanks:
+This is the single most catastrophic collector blunder! High-frequency sonic cavitation induces instantaneous interfacial shearing along gold-glass boundaries, shattering delicate plique-à-jour membranes into dust.
+
+2. Prevention of Severe Thermal Shocks:
+Never wear vitreous jewelry into saunas, steam rooms, or sub-zero climates followed by hot immersions. Differential thermal expansion rates will fracture delicate enamel panels.
+
+3. Isolated Silk Pouch Storage:
+Because vitreous glass (Mohs 6.5) is softer than faceted diamonds (Mohs 10) or corundum (Mohs 9), store enamel creations individually inside dedicated silk-lined cases to prevent abrasive contact with prong-set gems.
+
+4. Distilled Water & Microfiber Care Only:
+Forego industrial chemical cleansers, alcohol wipes, and ammonia solutions. Moisten an ultra-soft optical microfiber cloth with pure distilled water and pat dry with featherlight pressure.
+
+5. Mandatory Accredited Conservator Oversight:
+Should a historic enamel jewel suffer impact, never permit standard commercial bench jewelers to apply open blowtorches for sizing or prong repairs; ambient heat conduction will cause catastrophic explosion of neighboring enamel fields. Conservation demands precision laser micro-welding in inert gas chambers.
+
+At **Royal Elite High Jewelry Boutique**, our master ateliers celebrate the living legacy of grand feu and plique-à-jour vitreous arts, handcrafting unrepeatable treasures engineered to illuminate dynastic collections through centuries.`,
+      },
+    ],
+  },
 ];
+
 
 
 

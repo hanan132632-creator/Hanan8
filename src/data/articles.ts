@@ -36,6 +36,7 @@ const ARTICLE_ENGAGEMENT_METRICS: Record<string, { views: number; likes: number 
   'timeless-jewelry-capsule-wardrobe-guide': { views: 3820, likes: 345 },
   'unheated-natural-gemstones-investment-guide': { views: 4120, likes: 375 },
   'transformable-haute-joaillerie-royal-tiaras-guide': { views: 3950, likes: 360 },
+  'grand-feu-enameling-plique-a-jour-mastery': { views: 4310, likes: 412 },
 };
 
 const INITIAL_ARTICLES: Article[] = [
