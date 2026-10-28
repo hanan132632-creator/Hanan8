@@ -45,24 +45,29 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { id: 'home', label: t.navHome },
-    { id: 'catalog', label: t.theStore },
+    { id: 'home', label: t.navHome, url: '/?tab=home' },
+    { id: 'catalog', label: t.theStore, url: '/?tab=catalog' },
     {
       id: 'journal',
       label: language === 'ar' ? `المدونة (${articlesCount} مقالاً)` : `Journal (${articlesCount} Articles)`,
       hasBadge: true,
+      url: '/?tab=journal',
     },
-    { id: 'tools', label: t.navTools },
-    { id: 'about', label: t.aboutUs },
-    { id: 'contact', label: t.contactUs },
-    { id: 'terms', label: t.termsOfUse },
-    { id: 'privacy', label: t.privacyPolicy },
+    { id: 'tools', label: t.navTools, url: '/?tab=tools' },
+    { id: 'sitemap', label: language === 'ar' ? 'خريطة الموقع' : 'Sitemap', url: '/?tab=sitemap' },
+    { id: 'about', label: t.aboutUs, url: '/?tab=about' },
+    { id: 'contact', label: t.contactUs, url: '/?tab=contact' },
+    { id: 'terms', label: t.termsOfUse, url: '/?tab=terms' },
+    { id: 'privacy', label: t.privacyPolicy, url: '/?tab=privacy' },
   ];
 
-  const handleNavClick = (id: string) => {
-    onTabChange(id);
-    setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleLink = (e: React.MouseEvent, id: string) => {
+    if (!e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey && e.button === 0) {
+      e.preventDefault();
+      onTabChange(id);
+      setMobileMenuOpen(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -75,17 +80,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={onOpenSiteSections}
               className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#D4AF37]/20 hover:bg-[#D4AF37]/30 text-[#D4AF37] border border-[#D4AF37]/40 transition-colors font-semibold cursor-pointer"
-              title={language === 'ar' ? 'انقر لعرض كافة أقسام الموقع' : 'Open Site Sections'}
+              title={language === 'ar' ? 'انقر لعرض خريطة وأقسام الموقع' : 'Open Site Sections & Sitemap'}
             >
               <Compass className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>{t.siteSections}</span>
+              <span>{language === 'ar' ? 'خريطة وأقسام الموقع' : 'Sitemap & Sections'}</span>
             </button>
 
             <span className="hidden md:inline text-white/30">|</span>
             <span className="hidden md:inline text-white/70">
               {language === 'ar'
-                ? `أقسام الموقع تشمل: الرئيسية · المتجر · المدونة (${articlesCount} مقالات) · من نحن · اتصل بنا · سياسة الخصوصية · شروط الاستخدام`
-                : `Site includes: Home · Store · Journal (${articlesCount} Articles) · About · Contact · Privacy · Terms`}
+                ? `روابط مباشرة: الرئيسية · المتجر · المدونة (${articlesCount} مقالات) · خريطة الموقع · من نحن · اتصل بنا`
+                : `Direct Links: Home · Store · Journal (${articlesCount} Articles) · Sitemap · About · Contact`}
             </span>
           </div>
 
@@ -103,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span className="text-white/40">·</span>
             <button
               onClick={() => onLanguageChange(language === 'ar' ? 'en' : 'ar')}
-              className="hover:text-[#D4AF37] transition-colors flex items-center gap-1 text-[11px] font-medium"
+              className="hover:text-[#D4AF37] transition-colors flex items-center gap-1 text-[11px] font-medium cursor-pointer"
               aria-label="Toggle Language"
             >
               <Globe className="w-3 h-3" />
@@ -119,39 +124,41 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center gap-3">
           <button
             onClick={onOpenSiteSections}
-            className="p-2 sm:px-3 sm:py-2 rounded-xl bg-white border border-[#D4AF37]/30 hover:border-[#D4AF37] text-[#18181B] shadow-sm hover:shadow flex items-center gap-2 transition-all cursor-pointer"
-            title={language === 'ar' ? 'فهرس وأقسام الموقع الرئيسي' : 'Site Sections & Directory'}
+            className="p-2 sm:px-3 sm:py-2 rounded-xl bg-white border border-[#D4AF37]/30 hover:border-[#D4AF37] text-[#18181B] shadow-xs hover:shadow flex items-center gap-2 transition-all cursor-pointer"
+            title={language === 'ar' ? 'خريطة الموقع وأقسامه الشاملة' : 'Sitemap & Sections Directory'}
           >
             <Compass className="w-5 h-5 text-[#B8902A]" />
             <span className="hidden sm:inline text-xs font-bold text-[#18181B] font-serif-luxury leading-tight">
-              {t.siteSections}
+              {language === 'ar' ? 'خريطة الموقع' : 'Sitemap'}
             </span>
           </button>
 
-          <button
-            onClick={() => handleNavClick('home')}
-            className="text-left text-current group cursor-pointer focus:outline-none"
+          <a
+            href="/?tab=home"
+            onClick={(e) => handleLink(e, 'home')}
+            className="text-left text-current group cursor-pointer focus:outline-hidden no-underline"
           >
             <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#18181B] font-serif-luxury group-hover:text-[#B8902A] transition-colors whitespace-nowrap">
               {t.brandName}
             </span>
-          </button>
+          </a>
         </div>
 
-        {/* Zone 2: Navigation links */}
-        <nav className="hidden xl:flex items-center gap-6 text-[13px] font-medium text-[#18181B]/80">
+        {/* Zone 2: Navigation direct links */}
+        <nav className="hidden xl:flex items-center gap-5 text-[13px] font-medium text-[#18181B]/80">
           {navLinks.map((link) => (
-            <button
+            <a
               key={link.id}
-              onClick={() => handleNavClick(link.id)}
-              className={`relative py-1.5 transition-colors whitespace-nowrap hover:text-[#B8902A] cursor-pointer ${
+              href={link.url}
+              onClick={(e) => handleLink(e, link.id)}
+              className={`relative py-1.5 transition-colors whitespace-nowrap hover:text-[#B8902A] cursor-pointer no-underline ${
                 activeTab === link.id
                   ? 'text-[#B8902A] font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#D4AF37]'
                   : 'text-[#18181B]/75'
               }`}
             >
               <span>{link.label}</span>
-            </button>
+            </a>
           ))}
         </nav>
 
@@ -159,14 +166,12 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={onOpenWishlist}
-            className={`p-2 sm:px-3 sm:py-2 text-xs rounded-lg transition-colors flex items-center gap-1.5 ${
-              wishlistCount > 0 ? 'text-[#B8902A]' : 'text-[#18181B]/70 hover:text-[#18181B]'
-            }`}
-            title={t.wishlist}
+            className="relative p-2.5 rounded-full hover:bg-white text-[#18181B] border border-transparent hover:border-[#D4AF37]/30 transition-all cursor-pointer"
+            aria-label="Wishlist"
           >
-            <Heart className={`w-5 h-5 ${wishlistCount > 0 ? 'fill-[#D4AF37] text-[#D4AF37]' : ''}`} />
+            <Heart className="w-5 h-5 text-[#18181B] hover:text-[#D4AF37] transition-colors" />
             {wishlistCount > 0 && (
-              <span className="font-mono text-xs font-semibold tabular-nums text-[#B8902A]">
+              <span className="absolute -top-1 -right-1 bg-[#D4AF37] text-[#18181B] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center font-mono shadow-xs">
                 {wishlistCount}
               </span>
             )}
@@ -174,82 +179,109 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={onOpenCart}
-            className="px-3.5 py-2 text-xs sm:text-sm font-medium text-[#FAF8F5] bg-[#18181B] hover:bg-[#27272A] rounded-lg transition-all flex items-center gap-2 shadow-sm border border-[#D4AF37]/30 hover:border-[#D4AF37]"
-            aria-label="Open Shopping Bag"
+            className="relative p-2.5 rounded-full hover:bg-white text-[#18181B] border border-transparent hover:border-[#D4AF37]/30 transition-all cursor-pointer"
+            aria-label="Shopping Cart"
           >
-            <ShoppingBag className="w-4 h-4 text-[#D4AF37]" />
-            <span className="hidden sm:inline whitespace-nowrap">{t.cart}</span>
-            <span className="w-5 h-5 rounded-full bg-[#D4AF37] text-[#18181B] font-mono text-xs font-bold flex items-center justify-center tabular-nums">
-              {cartCount}
-            </span>
+            <ShoppingBag className="w-5 h-5 text-[#18181B] hover:text-[#D4AF37] transition-colors" />
+            {cartCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-[#18181B] text-[#D4AF37] text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center font-mono border border-[#D4AF37] shadow-xs">
+                {cartCount}
+              </span>
+            )}
           </button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 xl:hidden text-[#18181B]/80 hover:text-[#18181B]"
-            aria-label="Toggle Mobile Navigation"
+            className="xl:hidden p-2 rounded-xl text-[#18181B] hover:bg-white transition-colors cursor-pointer"
+            aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      {/* Quick Site Sections Banner Strip (Visibly showing all required sections) */}
-      <div className="bg-[#FAF8F5] border-t border-[#D4AF37]/15 py-1.5 px-4 hidden sm:block">
-        <div className="max-w-7xl mx-auto flex items-center justify-between text-xs text-[#8C7A5B]">
+      {/* Sub-bar: Core direct link shortcuts strip */}
+      <div className="hidden md:block bg-white/70 border-t border-[#D4AF37]/15 py-1.5 px-4 text-xs text-[#8C7A5B]">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2 font-medium">
             <span className="text-[#18181B] font-semibold">{t.siteSections}:</span>
             <div className="flex items-center gap-3 flex-wrap">
-              <button
-                onClick={() => handleNavClick('catalog')}
+              <a
+                href="/?tab=catalog"
+                onClick={(e) => handleLink(e, 'catalog')}
                 className="hover:text-[#18181B] hover:underline"
               >
                 {t.theStore}
-              </button>
+              </a>
               <span>·</span>
-              <button
-                onClick={() => handleNavClick('journal')}
+              <a
+                href="/?tab=journal"
+                onClick={(e) => handleLink(e, 'journal')}
                 className="text-[#B8902A] font-semibold hover:underline"
               >
                 {language === 'ar' ? `المدونة (${articlesCount} مقالاً)` : `Journal (${articlesCount} Articles)`}
-              </button>
+              </a>
               <span>·</span>
-              <button
-                onClick={() => handleNavClick('about')}
+              <a
+                href="/?tab=sitemap"
+                onClick={(e) => handleLink(e, 'sitemap')}
+                className="text-[#D4AF37] font-bold hover:underline"
+              >
+                {language === 'ar' ? 'خريطة الموقع' : 'Sitemap'}
+              </a>
+              <span>·</span>
+              <a
+                href="/?tab=tools"
+                onClick={(e) => handleLink(e, 'tools')}
+                className="hover:text-[#18181B] hover:underline"
+              >
+                {t.navTools}
+              </a>
+              <span>·</span>
+              <a
+                href="/?tab=about"
+                onClick={(e) => handleLink(e, 'about')}
                 className="hover:text-[#18181B] hover:underline"
               >
                 {t.aboutUs}
-              </button>
+              </a>
               <span>·</span>
-              <button
-                onClick={() => handleNavClick('contact')}
+              <a
+                href="/?tab=contact"
+                onClick={(e) => handleLink(e, 'contact')}
                 className="hover:text-[#18181B] hover:underline"
               >
                 {t.contactUs}
-              </button>
+              </a>
               <span>·</span>
-              <button
-                onClick={() => handleNavClick('privacy')}
+              <a
+                href="/?tab=privacy"
+                onClick={(e) => handleLink(e, 'privacy')}
                 className="hover:text-[#18181B] hover:underline"
               >
                 {t.privacyPolicy}
-              </button>
+              </a>
               <span>·</span>
-              <button
-                onClick={() => handleNavClick('terms')}
+              <a
+                href="/?tab=terms"
+                onClick={(e) => handleLink(e, 'terms')}
                 className="hover:text-[#18181B] hover:underline"
               >
                 {t.termsOfUse}
-              </button>
+              </a>
             </div>
           </div>
 
-          <button
-            onClick={onOpenSiteSections}
-            className="text-[11px] text-[#B8902A] hover:underline font-semibold"
-          >
-            {language === 'ar' ? 'عرض الدليل الكامل ←' : 'View Full Index →'}
-          </button>
+          <div className="flex items-center gap-3">
+            <a
+              href="/?tab=sitemap"
+              onClick={(e) => handleLink(e, 'sitemap')}
+              className="text-[11px] text-[#B8902A] hover:underline font-semibold flex items-center gap-1"
+            >
+              <Compass className="w-3.5 h-3.5" />
+              <span>{language === 'ar' ? 'خريطة الموقع (روابط مباشرة) ←' : 'Direct Sitemap →'}</span>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -262,10 +294,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenSiteSections();
               }}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#18181B] text-[#D4AF37] text-xs font-semibold"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#18181B] text-[#D4AF37] text-xs font-semibold cursor-pointer"
             >
               <Compass className="w-4 h-4" />
-              <span>{t.siteSections}</span>
+              <span>{language === 'ar' ? 'خريطة الموقع' : 'Sitemap'}</span>
               <span className="bg-[#D4AF37] text-[#18181B] px-1 rounded text-[10px]">
                 {articlesCount}
               </span>
@@ -276,7 +308,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenWishlist();
               }}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#D4AF37]/40 text-[#B8902A] text-xs font-semibold bg-white shadow-xs"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#D4AF37]/40 text-[#B8902A] text-xs font-semibold bg-white shadow-xs cursor-pointer"
             >
               <Heart className="w-3.5 h-3.5 fill-[#D4AF37] text-[#D4AF37]" />
               <span>{t.wishlist}</span>
@@ -288,17 +320,18 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <nav className="flex flex-col gap-2.5">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.id}
-                onClick={() => handleNavClick(link.id)}
-                className={`text-right rtl:text-right ltr:text-left py-2 text-sm font-medium transition-colors ${
+                href={link.url}
+                onClick={(e) => handleLink(e, link.id)}
+                className={`text-right rtl:text-right ltr:text-left py-2 text-sm font-medium transition-colors no-underline ${
                   activeTab === link.id
                     ? 'text-[#B8902A] font-bold border-r-2 rtl:border-r-2 ltr:border-l-2 border-[#D4AF37] pr-3 rtl:pr-3 ltr:pl-3'
                     : 'text-[#18181B]/80 hover:text-[#B8902A]'
                 }`}
               >
                 {link.label}
-              </button>
+              </a>
             ))}
           </nav>
           <div className="pt-4 mt-4 border-t border-[#D4AF37]/20 flex items-center justify-between">
@@ -307,23 +340,21 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onLanguageChange(language === 'ar' ? 'en' : 'ar');
                 setMobileMenuOpen(false);
               }}
-              className="text-xs text-[#8C7A5B] flex items-center gap-1.5 font-medium"
+              className="text-xs text-[#8C7A5B] flex items-center gap-1.5 font-medium cursor-pointer"
             >
               <Globe className="w-4 h-4 text-[#D4AF37]" />
               <span>{language === 'ar' ? 'Switch to English' : 'التحويل للعربية'}</span>
             </button>
-            <button
-              onClick={() => {
-                handleNavClick('contact');
-              }}
+            <a
+              href="/?tab=contact"
+              onClick={(e) => handleLink(e, 'contact')}
               className="text-xs font-medium text-[#D4AF37] hover:underline"
             >
               {t.vipConcierge}
-            </button>
+            </a>
           </div>
         </div>
       )}
     </header>
   );
 };
-

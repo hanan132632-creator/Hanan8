@@ -3,7 +3,7 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!sitemap\\.xml|sitemap\\.xsl|robots\\.txt|ads\\.txt).*)",
       "destination": "/index.html"
     }
   ],

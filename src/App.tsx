@@ -41,6 +41,8 @@ import {
   Coins,
 } from 'lucide-react';
 
+import { SitemapView } from './components/SitemapView.tsx';
+
 // Helper to look up an article safely by id, slug, or normalized string
 const findArticle = (idOrSlug: string): Article | null => {
   if (!idOrSlug) return null;
@@ -52,10 +54,23 @@ const findArticle = (idOrSlug: string): Article | null => {
   );
 };
 
-const parseRouteFromLocation = (): { tab: string; article: Article | null } => {
+const KNOWN_TABS = ['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms', 'sitemap'];
+
+const parseRouteFromLocation = (): { tab: string; article: Article | null; category?: ProductCategory } => {
   try {
+    const pathname = (window.location.pathname || '').toLowerCase();
     const search = new URLSearchParams(window.location.search);
     const hash = window.location.hash || '';
+
+    // 0. Direct pathname routing: /sitemap.xml or /sitemap
+    if (
+      pathname === '/sitemap.xml' ||
+      pathname === '/sitemap' ||
+      pathname.endsWith('/sitemap.xml') ||
+      pathname.endsWith('/sitemap')
+    ) {
+      return { tab: 'sitemap', article: null };
+    }
 
     // 1. Direct article param: ?article=... or ?tab=journal&article=...
     const articleParam = search.get('article');
@@ -64,6 +79,8 @@ const parseRouteFromLocation = (): { tab: string; article: Article | null } => {
       if (art) return { tab: 'journal', article: art };
     }
 
+    const catParam = search.get('category') as ProductCategory | null;
+
     // 2. Tab param: ?tab=...
     const tabParam = search.get('tab');
     if (tabParam) {
@@ -71,9 +88,8 @@ const parseRouteFromLocation = (): { tab: string; article: Article | null } => {
       const art = findArticle(tabParam);
       if (art) return { tab: 'journal', article: art };
 
-      const knownTabs = ['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms'];
-      if (knownTabs.includes(tabParam)) {
-        return { tab: tabParam, article: null };
+      if (KNOWN_TABS.includes(tabParam)) {
+        return { tab: tabParam, article: null, category: catParam || undefined };
       }
     }
 
@@ -86,9 +102,15 @@ const parseRouteFromLocation = (): { tab: string; article: Article | null } => {
       const cleanHash = hash.replace('#', '');
       const art = findArticle(cleanHash);
       if (art) return { tab: 'journal', article: art };
-      const knownTabs = ['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms'];
-      if (knownTabs.includes(cleanHash)) {
-        return { tab: cleanHash, article: null };
+      if (KNOWN_TABS.includes(cleanHash)) {
+        return { tab: cleanHash, article: null, category: catParam || undefined };
+      }
+    }
+
+    // 4. Other direct pathnames: /catalog, /journal, /tools, etc.
+    for (const known of KNOWN_TABS) {
+      if (pathname === `/${known}` || pathname.endsWith(`/${known}`)) {
+        return { tab: known, article: null, category: catParam || undefined };
       }
     }
   } catch {
@@ -123,6 +145,17 @@ const syncBrowserUrl = (tab: string, article: Article | null) => {
         document.title = 'بوتيك مجوهرات النخبة الملكية | Royal Elite High Jewelry Boutique';
         const canonicalEl = document.getElementById('canonical-url') || document.querySelector('link[rel="canonical"]');
         if (canonicalEl) canonicalEl.setAttribute('href', 'https://hanan.blog/');
+      } else if (tab === 'sitemap') {
+        const isDirectXmlPath = window.location.pathname.toLowerCase().endsWith('sitemap.xml');
+        if (!isDirectXmlPath) {
+          url.searchParams.set('tab', 'sitemap');
+          url.searchParams.delete('article');
+          url.hash = 'sitemap';
+          window.history.replaceState({ tab: 'sitemap' }, '', url.toString());
+        }
+        document.title = 'خريطة الموقع الشاملة (روابط مباشرة) | مجوهرات النخبة الملكية';
+        const canonicalEl = document.getElementById('canonical-url') || document.querySelector('link[rel="canonical"]');
+        if (canonicalEl) canonicalEl.setAttribute('href', 'https://hanan.blog/sitemap.xml');
       } else {
         url.searchParams.set('tab', tab);
         url.searchParams.delete('article');
@@ -140,7 +173,9 @@ export default function App() {
   const initialRoute = useMemo(() => parseRouteFromLocation(), []);
   const [activeTab, setActiveTab] = useState<string>(initialRoute.tab);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(initialRoute.article);
-  const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all');
+  const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>(
+    initialRoute.category || 'all'
+  );
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isSiteSectionsOpen, setIsSiteSectionsOpen] = useState<boolean>(false);
@@ -188,6 +223,9 @@ export default function App() {
       const route = parseRouteFromLocation();
       setActiveTab(route.tab);
       setSelectedArticle(route.article);
+      if (route.category) {
+        setSelectedCategory(route.category);
+      }
     };
 
     window.addEventListener('popstate', handleUrlChange);
@@ -238,13 +276,23 @@ export default function App() {
     } catch {}
   };
 
-  const handleTabChange = (tab: string) => {
+  const handleTabChange = (tab: string, category?: ProductCategory | string) => {
+    if (category) {
+      setSelectedCategory(category as ProductCategory);
+    }
     setActiveTab(tab);
     if (tab === 'journal') {
       setSelectedArticle(null);
     }
     syncBrowserUrl(tab, null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleDirectLink = (e: React.MouseEvent, tab: string, category?: ProductCategory | string) => {
+    if (!e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey && e.button === 0) {
+      e.preventDefault();
+      handleTabChange(tab, category);
+    }
   };
 
   const handleAddToCart = (
@@ -298,8 +346,7 @@ export default function App() {
   const featuredProducts = PRODUCTS_DATA.filter((p) => p.featured);
   const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  const knownTabs = ['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms'];
-  const effectiveTab = knownTabs.includes(activeTab)
+  const effectiveTab = KNOWN_TABS.includes(activeTab)
     ? activeTab
     : selectedArticle
       ? 'journal'
@@ -333,72 +380,94 @@ export default function App() {
                   <button
                     onClick={() => setIsSiteSectionsOpen(true)}
                     className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#B8902A] hover:opacity-95 text-[#18181B] font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer shrink-0"
-                    title={language === 'ar' ? 'انقر لفتح دليل كافة أقسام الموقع' : 'Click to view all site sections'}
+                    title={language === 'ar' ? 'دليل وخريطة أقسام الموقع المباشرة' : 'Site Sections & Sitemap'}
                   >
                     <Compass className="w-4 h-4 text-[#18181B]" />
-                    <span>{language === 'ar' ? 'أقسام الموقع الرئيسي' : 'Site Sections'}</span>
+                    <span>{language === 'ar' ? 'أقسام وخريطة الموقع' : 'Site Sections & Sitemap'}</span>
                   </button>
 
                   <div className="hidden sm:block text-xs text-white/80">
                     <span className="text-[#D4AF37] font-semibold">
-                      {language === 'ar' ? 'ما يشمله الموقع:' : 'Includes:'}
+                      {language === 'ar' ? 'روابط مباشرة تشمل:' : 'Direct Links Include:'}
                     </span>{' '}
                     <span className="text-white/70">
                       {language === 'ar'
-                        ? `الرئيسية · المتجر · المدونة (${ARTICLES_DATA.length} مقالاً) · من نحن · اتصل بنا · سياسة الخصوصية · شروط الاستخدام`
-                        : `Home · Store · Journal (${ARTICLES_DATA.length} Articles) · About · Contact · Privacy · Terms`}
+                        ? `الرئيسية · المتجر · المدونة (${ARTICLES_DATA.length} مقالاً) · خريطة الموقع · الأدوات · من نحن · اتصل بنا`
+                        : `Home · Store · Journal (${ARTICLES_DATA.length} Articles) · Sitemap · Tools · About · Contact`}
                     </span>
                   </div>
                 </div>
 
-                {/* Direct quick navigation shortcuts */}
+                {/* Direct quick navigation shortcuts with real <a> tags */}
                 <div className="flex items-center gap-1.5 flex-wrap justify-center text-[11px] font-medium text-white/90">
-                  <button
-                    onClick={() => handleTabChange('home')}
-                    className="px-2.5 py-1 rounded-lg bg-[#D4AF37] text-[#18181B] font-bold shadow-xs transition-colors cursor-pointer flex items-center gap-1"
+                  <a
+                    href="/?tab=home"
+                    onClick={(e) => handleDirectLink(e, 'home')}
+                    className="px-2.5 py-1 rounded-lg bg-[#D4AF37] text-[#18181B] font-bold shadow-xs transition-colors cursor-pointer flex items-center gap-1 no-underline"
                   >
                     <Home className="w-3 h-3" />
                     <span>{t.navHome}</span>
-                  </button>
-                  <button
-                    onClick={() => handleTabChange('catalog')}
-                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
+                  </a>
+                  <a
+                    href="/?tab=catalog"
+                    onClick={(e) => handleDirectLink(e, 'catalog')}
+                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer no-underline text-white"
                   >
                     {t.theStore}
-                  </button>
-                  <button
-                    onClick={() => handleTabChange('journal')}
-                    className="px-2.5 py-1 rounded-lg bg-[#D4AF37]/25 border border-[#D4AF37]/50 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer font-bold flex items-center gap-1"
+                  </a>
+                  <a
+                    href="/?tab=journal"
+                    onClick={(e) => handleDirectLink(e, 'journal')}
+                    className="px-2.5 py-1 rounded-lg bg-[#D4AF37]/25 border border-[#D4AF37]/50 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer font-bold flex items-center gap-1 no-underline"
                   >
                     <span>{t.theBlog}</span>
                     <span className="font-mono text-[10px] bg-[#18181B] text-[#D4AF37] px-1 rounded font-bold">
                       {ARTICLES_DATA.length}
                     </span>
-                  </button>
-                  <button
-                    onClick={() => handleTabChange('about')}
-                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
+                  </a>
+                  <a
+                    href="/?tab=sitemap"
+                    onClick={(e) => handleDirectLink(e, 'sitemap')}
+                    className="px-2.5 py-1 rounded-lg bg-[#D4AF37] text-[#18181B] hover:opacity-90 font-bold transition-colors cursor-pointer flex items-center gap-1 no-underline"
+                  >
+                    <Compass className="w-3 h-3" />
+                    <span>{language === 'ar' ? 'خريطة الموقع' : 'Sitemap'}</span>
+                  </a>
+                  <a
+                    href="/?tab=tools"
+                    onClick={(e) => handleDirectLink(e, 'tools')}
+                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer no-underline text-white"
+                  >
+                    {t.navTools}
+                  </a>
+                  <a
+                    href="/?tab=about"
+                    onClick={(e) => handleDirectLink(e, 'about')}
+                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer no-underline text-white"
                   >
                     {t.aboutUs}
-                  </button>
-                  <button
-                    onClick={() => handleTabChange('contact')}
-                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
+                  </a>
+                  <a
+                    href="/?tab=contact"
+                    onClick={(e) => handleDirectLink(e, 'contact')}
+                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer no-underline text-white"
                   >
                     {t.contactUs}
-                  </button>
-                  <button
-                    onClick={() => handleTabChange('privacy')}
-                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
+                  </a>
+                  <a
+                    href="/?tab=privacy"
+                    onClick={(e) => handleDirectLink(e, 'privacy')}
+                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer no-underline text-white"
                   >
                     {t.privacyPolicy}
-                  </button>
-                  <button
-                    onClick={() => handleTabChange('terms')}
-                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer"
+                  </a>
+                  <a
+                    href="/?tab=terms"
+                    onClick={(e) => handleDirectLink(e, 'terms')}
+                    className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#18181B] transition-colors cursor-pointer no-underline text-white"
                   >
                     {t.termsOfUse}
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -410,7 +479,7 @@ export default function App() {
               onBookVip={() => handleTabChange('contact')}
             />
 
-            {/* Comprehensive Site Sections Directory (أقسام الموقع الرئيسي) */}
+            {/* Comprehensive Site Sections Directory (أقسام الموقع الرئيسي بروابط مباشرة) */}
             <section className="bg-white border-b border-[#D4AF37]/20 py-8">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
@@ -420,34 +489,42 @@ export default function App() {
                     </div>
                     <div>
                       <h3 className="text-base sm:text-lg font-bold text-[#18181B] font-serif-luxury">
-                        {language === 'ar' ? 'أقسام ودليل الموقع الرئيسي' : 'Main Website Sections Directory'}
+                        {language === 'ar' ? 'خريطة وأقسام الموقع الرئيسي (روابط مباشرة)' : 'Main Website Sections Directory (Direct Links)'}
                       </h3>
                       <p className="text-xs text-[#8C7A5B]">
                         {language === 'ar'
-                          ? `يشمل الموقع: الرئيسية، المتجر، المدونة (${ARTICLES_DATA.length} مقالات)، من نحن، اتصل بنا، سياسة الخصوصية، وشروط الاستخدام`
-                          : `Includes: Home, Store, Journal (${ARTICLES_DATA.length} Articles), About, Contact, Privacy, and Terms`}
+                          ? `روابط مباشرة دائمة: الرئيسية، المتجر، المدونة (${ARTICLES_DATA.length} مقالات)، خريطة الموقع، الأدوات، من نحن، اتصل بنا، والسياسات`
+                          : `Direct canonical URLs: Home, Store, Journal (${ARTICLES_DATA.length} Articles), Sitemap, Tools, About, Contact, and Policies`}
                       </p>
                     </div>
                   </div>
 
-                  <button
-                    onClick={() => setIsSiteSectionsOpen(true)}
-                    className="self-start sm:self-auto px-3.5 py-1.5 rounded-lg border border-[#D4AF37]/40 text-xs font-semibold text-[#18181B] hover:bg-[#FAF8F5] transition-colors flex items-center gap-1.5 shadow-sm"
-                  >
-                    <Compass className="w-4 h-4 text-[#B8902A]" />
-                    <span>{language === 'ar' ? 'فتح فهرس الأقسام كاملاً' : 'Open Full Index Modal'}</span>
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="/?tab=sitemap"
+                      onClick={(e) => handleDirectLink(e, 'sitemap')}
+                      className="px-3.5 py-1.5 rounded-lg bg-[#18181B] text-[#D4AF37] text-xs font-bold hover:bg-slate-800 transition-colors flex items-center gap-1.5 shadow-sm no-underline"
+                    >
+                      <Compass className="w-4 h-4 text-[#D4AF37]" />
+                      <span>{language === 'ar' ? 'صفحة خريطة الموقع الكاملة' : 'Full Sitemap Page'}</span>
+                    </a>
+
+                    <button
+                      onClick={() => setIsSiteSectionsOpen(true)}
+                      className="px-3.5 py-1.5 rounded-lg border border-[#D4AF37]/40 text-xs font-semibold text-[#18181B] hover:bg-[#FAF8F5] transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
+                    >
+                      <span>{language === 'ar' ? 'دليل الأقسام' : 'Directory Modal'}</span>
+                    </button>
+                  </div>
                 </div>
 
-                {/* Grid of the core main sections */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3 sm:gap-4">
+                {/* Grid of the core main sections as direct links */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
                   {/* 1. الرئيسية */}
-                  <button
-                    onClick={() => {
-                      setActiveTab('home');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="p-3.5 rounded-xl border-2 border-[#D4AF37] bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
+                  <a
+                    href="/?tab=home"
+                    onClick={(e) => handleDirectLink(e, 'home')}
+                    className="p-3.5 rounded-xl border-2 border-[#D4AF37] bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-xs hover:shadow no-underline block"
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="p-2 rounded-lg bg-[#18181B] text-[#D4AF37]">
@@ -461,12 +538,13 @@ export default function App() {
                     <span className="text-[11px] text-[#8C7A5B] block mt-0.5 truncate">
                       {language === 'ar' ? 'الصفحة الرئيسية' : 'Current Page'}
                     </span>
-                  </button>
+                  </a>
 
                   {/* 2. المتجر */}
-                  <button
-                    onClick={() => handleTabChange('catalog')}
-                    className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
+                  <a
+                    href="/?tab=catalog"
+                    onClick={(e) => handleDirectLink(e, 'catalog')}
+                    className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-xs hover:shadow no-underline block"
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="p-2 rounded-lg bg-white border border-slate-200 group-hover:border-[#D4AF37]/40 text-[#D4AF37]">
@@ -480,12 +558,13 @@ export default function App() {
                     <span className="text-[11px] text-[#8C7A5B] block mt-0.5 truncate">
                       {language === 'ar' ? 'تشكيلات الذهب والألماس' : 'High Jewelry'}
                     </span>
-                  </button>
+                  </a>
 
                   {/* 3. المدونة (مع كتابة عدد المقالات) */}
-                  <button
-                    onClick={() => handleTabChange('journal')}
-                    className="p-3.5 rounded-xl border-2 border-[#D4AF37] bg-gradient-to-br from-amber-50/40 via-white to-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
+                  <a
+                    href="/?tab=journal"
+                    onClick={(e) => handleDirectLink(e, 'journal')}
+                    className="p-3.5 rounded-xl border-2 border-[#D4AF37] bg-gradient-to-br from-amber-50/40 via-white to-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-xs hover:shadow no-underline block"
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="p-2 rounded-lg bg-[#18181B] text-[#D4AF37]">
@@ -501,18 +580,61 @@ export default function App() {
                     <span className="text-[11px] text-[#B8902A] font-semibold block mt-0.5 truncate">
                       {language === 'ar' ? `(${ARTICLES_DATA.length} مقالات حصرية)` : `(${ARTICLES_DATA.length} Deep Guides)`}
                     </span>
-                  </button>
+                  </a>
 
-                  {/* 4. من نحن */}
-                  <button
-                    onClick={() => handleTabChange('about')}
-                    className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
+                  {/* 4. خريطة الموقع (روابط مباشرة) */}
+                  <a
+                    href="/?tab=sitemap"
+                    onClick={(e) => handleDirectLink(e, 'sitemap')}
+                    className="p-3.5 rounded-xl border-2 border-[#D4AF37] bg-[#18181B] text-[#FAF8F5] hover:bg-slate-800 transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-md hover:shadow-lg no-underline block"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="p-2 rounded-lg bg-[#D4AF37] text-[#18181B]">
+                        <Compass className="w-4 h-4" />
+                      </div>
+                      <span className="text-[10px] bg-[#D4AF37] text-[#18181B] px-1.5 py-0.5 rounded font-mono font-bold">
+                        Direct
+                      </span>
+                    </div>
+                    <span className="text-xs sm:text-sm font-bold text-[#D4AF37] group-hover:text-white block font-serif-luxury">
+                      {language === 'ar' ? 'خريطة الموقع' : 'Sitemap'}
+                    </span>
+                    <span className="text-[11px] text-white/80 block mt-0.5 truncate">
+                      {language === 'ar' ? 'فهرس الروابط المباشرة' : 'Direct Links Index'}
+                    </span>
+                  </a>
+
+                  {/* 5. الأدوات التفاعلية */}
+                  <a
+                    href="/?tab=tools"
+                    onClick={(e) => handleDirectLink(e, 'tools')}
+                    className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-xs hover:shadow no-underline block"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="p-2 rounded-lg bg-white border border-slate-200 group-hover:border-[#D4AF37]/40 text-[#D4AF37]">
+                        <Coins className="w-4 h-4" />
+                      </div>
+                      <span className="text-[10px] text-slate-500 font-mono">05</span>
+                    </div>
+                    <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
+                      {t.navTools}
+                    </span>
+                    <span className="text-[11px] text-[#8C7A5B] block mt-0.5 truncate">
+                      {language === 'ar' ? 'حاسبة الذهب والمقاسات' : 'Gold & Sizer'}
+                    </span>
+                  </a>
+
+                  {/* 6. من نحن */}
+                  <a
+                    href="/?tab=about"
+                    onClick={(e) => handleDirectLink(e, 'about')}
+                    className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-xs hover:shadow no-underline block"
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="p-2 rounded-lg bg-white border border-slate-200 group-hover:border-[#D4AF37]/40 text-emerald-600">
                         <Users className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] text-slate-500 font-mono">04</span>
+                      <span className="text-[10px] text-slate-500 font-mono">06</span>
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
                       {t.aboutUs}
@@ -520,18 +642,19 @@ export default function App() {
                     <span className="text-[11px] text-[#8C7A5B] block mt-0.5 truncate">
                       {language === 'ar' ? 'قصة التأسيس والحرفية' : 'Heritage Story'}
                     </span>
-                  </button>
+                  </a>
 
-                  {/* 5. اتصل بنا */}
-                  <button
-                    onClick={() => handleTabChange('contact')}
-                    className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
+                  {/* 7. اتصل بنا */}
+                  <a
+                    href="/?tab=contact"
+                    onClick={(e) => handleDirectLink(e, 'contact')}
+                    className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-xs hover:shadow no-underline block"
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="p-2 rounded-lg bg-white border border-slate-200 group-hover:border-[#D4AF37]/40 text-blue-600">
                         <PhoneCall className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] text-slate-500 font-mono">05</span>
+                      <span className="text-[10px] text-slate-500 font-mono">07</span>
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
                       {t.contactUs}
@@ -539,45 +662,27 @@ export default function App() {
                     <span className="text-[11px] text-[#8C7A5B] block mt-0.5 truncate">
                       {language === 'ar' ? 'حجز موعد وصالات VIP' : 'Salons & Phone'}
                     </span>
-                  </button>
+                  </a>
 
-                  {/* 6. سياسة الخصوصية */}
-                  <button
-                    onClick={() => handleTabChange('privacy')}
-                    className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
+                  {/* 8. السياسات والضمان */}
+                  <a
+                    href="/?tab=privacy"
+                    onClick={(e) => handleDirectLink(e, 'privacy')}
+                    className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-xs hover:shadow no-underline block"
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="p-2 rounded-lg bg-white border border-slate-200 group-hover:border-[#D4AF37]/40 text-purple-600">
                         <ShieldCheck className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] text-slate-500 font-mono">06</span>
+                      <span className="text-[10px] text-slate-500 font-mono">08</span>
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
                       {t.privacyPolicy}
                     </span>
                     <span className="text-[11px] text-[#8C7A5B] block mt-0.5 truncate">
-                      {language === 'ar' ? 'الخصوصية ومعايير GDPR' : 'Privacy & GDPR'}
+                      {language === 'ar' ? 'الخصوصية والضمان' : 'Privacy & Terms'}
                     </span>
-                  </button>
-
-                  {/* 7. شروط الاستخدام */}
-                  <button
-                    onClick={() => handleTabChange('terms')}
-                    className="p-3.5 rounded-xl border border-slate-200 hover:border-[#D4AF37] bg-[#FAF8F5] hover:bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-sm hover:shadow"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="p-2 rounded-lg bg-white border border-slate-200 group-hover:border-[#D4AF37]/40 text-rose-600">
-                        <Scale className="w-4 h-4" />
-                      </div>
-                      <span className="text-[10px] text-slate-500 font-mono">07</span>
-                    </div>
-                    <span className="text-xs sm:text-sm font-bold text-[#18181B] group-hover:text-[#B8902A] block font-serif-luxury">
-                      {t.termsOfUse}
-                    </span>
-                    <span className="text-[11px] text-[#8C7A5B] block mt-0.5 truncate">
-                      {language === 'ar' ? 'الضمان والاسترجاع 14 يوم' : 'Warranty & Terms'}
-                    </span>
-                  </button>
+                  </a>
                 </div>
               </div>
             </section>
@@ -811,6 +916,15 @@ export default function App() {
 
         {/* Terms Tab */}
         {effectiveTab === 'terms' && <LegalPages language={language} initialTab="terms" />}
+
+        {/* Comprehensive Sitemap Tab (خريطة الموقع روابط مباشرة) */}
+        {effectiveTab === 'sitemap' && (
+          <SitemapView
+            language={language}
+            onNavigate={handleTabChange}
+            onSelectArticle={handleOpenArticle}
+          />
+        )}
       </main>
 
       {/* Global Product Dossier Modal */}
