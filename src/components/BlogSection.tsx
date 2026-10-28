@@ -4,6 +4,7 @@ import { Article, Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { ARTICLES_DATA } from '../data/articles.ts';
 import { ArticleView } from './ArticleView.tsx';
+import { AdBanner } from './AdBanner.tsx';
 
 interface BlogSectionProps {
   language: Language;
@@ -269,73 +270,94 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Main Articles List (col 8) */}
         <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {filteredArticles.map((article) => (
-            <div
-              key={article.id}
-              onClick={() => handleSelectArticle(article)}
-              className="group bg-white rounded-2xl border border-[#D4AF37]/25 hover:border-[#D4AF37] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
-            >
-              <div className="aspect-[16/10] overflow-hidden bg-[#FAF8F5]">
-                <img
-                  src={article.featuredImage}
-                  alt={language === 'ar' ? article.titleAr : article.titleEn}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+          {filteredArticles.map((article, idx) => (
+            <React.Fragment key={article.id}>
+              <div
+                onClick={() => handleSelectArticle(article)}
+                className="group bg-white rounded-2xl border border-[#D4AF37]/25 hover:border-[#D4AF37] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
+              >
+                <div className="aspect-[16/10] overflow-hidden bg-[#FAF8F5]">
+                  <img
+                    src={article.featuredImage}
+                    alt={language === 'ar' ? article.titleAr : article.titleEn}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
 
-              <div className="p-5 flex flex-col justify-between flex-1 space-y-4">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-[11px] text-[#8C7A5B] flex-wrap gap-1">
-                    <div className="flex items-center gap-1.5">
-                      <span>{language === 'ar' ? article.categoryAr : article.categoryEn}</span>
-                      <span>·</span>
-                      <span>{language === 'ar' ? article.readTimeAr : article.readTimeEn}</span>
+                <div className="p-5 flex flex-col justify-between flex-1 space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-[11px] text-[#8C7A5B] flex-wrap gap-1">
+                      <div className="flex items-center gap-1.5">
+                        <span>{language === 'ar' ? article.categoryAr : article.categoryEn}</span>
+                        <span>·</span>
+                        <span>{language === 'ar' ? article.readTimeAr : article.readTimeEn}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-slate-500 font-medium">
+                        <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد المشاهدات' : 'Views'}>
+                          <Eye className="w-3 h-3 text-[#B8902A]" />
+                          <span>{article.viewsCount?.toLocaleString() ?? '1,840'}</span>
+                        </span>
+                        <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد الإعجابات' : 'Likes'}>
+                          <Heart className="w-3 h-3 text-rose-500 fill-rose-500/20" />
+                          <span>{article.likesCount?.toLocaleString() ?? '142'}</span>
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-500 font-medium">
-                      <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد المشاهدات' : 'Views'}>
-                        <Eye className="w-3 h-3 text-[#B8902A]" />
-                        <span>{article.viewsCount?.toLocaleString() ?? '1,840'}</span>
-                      </span>
-                      <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد الإعجابات' : 'Likes'}>
-                        <Heart className="w-3 h-3 text-rose-500 fill-rose-500/20" />
-                        <span>{article.likesCount?.toLocaleString() ?? '142'}</span>
-                      </span>
-                    </div>
+
+                    <h4 className="text-base font-bold text-[#18181B] group-hover:text-[#B8902A] transition-colors font-serif-luxury leading-snug line-clamp-2">
+                      {language === 'ar' ? article.titleAr : article.titleEn}
+                    </h4>
+
+                    <p className="text-xs text-[#18181B]/70 line-clamp-3 leading-relaxed font-light">
+                      {language === 'ar' ? article.summaryAr : article.summaryEn}
+                    </p>
                   </div>
 
-                  <h4 className="text-base font-bold text-[#18181B] group-hover:text-[#B8902A] transition-colors font-serif-luxury leading-snug line-clamp-2">
-                    {language === 'ar' ? article.titleAr : article.titleEn}
-                  </h4>
-
-                  <p className="text-xs text-[#18181B]/70 line-clamp-3 leading-relaxed font-light">
-                    {language === 'ar' ? article.summaryAr : article.summaryEn}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-[#D4AF37]/15 flex items-center justify-between text-xs">
-                  <span className="text-[#8C7A5B] font-medium">
-                    {language === 'ar' ? article.author.nameAr : article.author.nameEn}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleSelectArticle(article);
-                    }}
-                    className="font-semibold text-[#B8902A] hover:underline flex items-center gap-1 cursor-pointer"
-                  >
-                    <span>{language === 'ar' ? 'قراءة المقال' : 'Read Article'}</span>
-                    <ArrowIcon className="w-3 h-3" />
-                  </button>
+                  <div className="pt-3 border-t border-[#D4AF37]/15 flex items-center justify-between text-xs">
+                    <span className="text-[#8C7A5B] font-medium">
+                      {language === 'ar' ? article.author.nameAr : article.author.nameEn}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleSelectArticle(article);
+                      }}
+                      className="font-semibold text-[#B8902A] hover:underline flex items-center gap-1 cursor-pointer"
+                    >
+                      <span>{language === 'ar' ? 'قراءة المقال' : 'Read Article'}</span>
+                      <ArrowIcon className="w-3 h-3" />
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
+
+              {/* In-Feed Native Ad Slot every 4th article */}
+              {(idx + 1) % 4 === 0 && (
+                <div className="col-span-1 sm:col-span-2">
+                  <AdBanner
+                    slot="4567891230"
+                    type="in-feed"
+                    label={language === 'ar' ? 'إعلان رعاية ضمن قائمة المقالات' : 'Native Journal Feed Ad'}
+                    minHeight="110px"
+                  />
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
 
-        {/* Sidebar Column (col 4): Curated Gemology Guide + Trustworthiness note */}
-        <div className="lg:col-span-4 space-y-6">
+        {/* Sidebar Column (col 4): Curated Gemology Guide + Trustworthiness note + High-CTR Sidebar Ad */}
+        <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
+          {/* High-CTR Sidebar Ad Unit */}
+          <AdBanner
+            slot="7890123456"
+            type="display"
+            label={language === 'ar' ? 'إعلان رعاية جانبي' : 'Sidebar Sponsor Ad'}
+            minHeight="250px"
+          />
+
           {/* Curated Connoisseur Highlights Card */}
           <div className="p-6 rounded-2xl bg-gradient-to-br from-[#18181B] to-[#27272A] text-[#FAF8F5] border border-[#D4AF37]/40 shadow-lg space-y-4">
             <div className="flex items-center gap-2 text-xs font-semibold text-[#D4AF37] uppercase tracking-wider">

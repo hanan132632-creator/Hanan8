@@ -4,6 +4,7 @@ import { Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { RingSizeCalculator } from './RingSizeCalculator.tsx';
 import { GoldPriceCalculator } from './GoldPriceCalculator.tsx';
+import { AdBanner } from './AdBanner.tsx';
 
 interface ToolsSectionProps {
   language: Language;
@@ -60,6 +61,15 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({ language }) => {
       ) : (
         <GoldPriceCalculator language={language} />
       )}
+
+      {/* Contextual Tools Page Ad Banner */}
+      <AdBanner
+        slot="8877665544"
+        type="display"
+        label={language === 'ar' ? 'إعلان رعاية أدوات الحاسبة' : 'Calculator Sponsor Ad'}
+        minHeight="110px"
+        className="mt-12"
+      />
     </section>
   );
 };

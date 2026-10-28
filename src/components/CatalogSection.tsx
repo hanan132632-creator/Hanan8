@@ -3,6 +3,7 @@ import { Filter, SlidersHorizontal, RotateCcw, Gem, Sparkles, Heart } from 'luci
 import { Product, Language, ProductCategory, MetalType, GemstoneType } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { ProductCard } from './ProductCard.tsx';
+import { AdBanner } from './AdBanner.tsx';
 
 interface CatalogSectionProps {
   products: Product[];
@@ -187,16 +188,29 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
       {/* Products Grid */}
       {filteredProducts.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              language={language}
-              isWishlisted={wishlistIds.includes(product.id)}
-              onToggleWishlist={onToggleWishlist}
-              onQuickView={onQuickView}
-              onAddToCart={onAddToCart}
-            />
+          {filteredProducts.map((product, idx) => (
+            <React.Fragment key={product.id}>
+              <ProductCard
+                product={product}
+                language={language}
+                isWishlisted={wishlistIds.includes(product.id)}
+                onToggleWishlist={onToggleWishlist}
+                onQuickView={onQuickView}
+                onAddToCart={onAddToCart}
+              />
+
+              {/* In-Feed Catalog Native Ad Unit every 6 products */}
+              {(idx + 1) % 6 === 0 && (
+                <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-4">
+                  <AdBanner
+                    slot="6543210987"
+                    type="in-feed"
+                    label={language === 'ar' ? 'إعلان رعاية بين المجموعات الملكية' : 'Sovereign Collection Ad'}
+                    minHeight="110px"
+                  />
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
       ) : (

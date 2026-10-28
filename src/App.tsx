@@ -19,6 +19,8 @@ import { WishlistDrawer } from './components/WishlistDrawer.tsx';
 import { CookieBanner } from './components/CookieBanner.tsx';
 import { SiteSectionsModal } from './components/SiteSectionsModal.tsx';
 import { Footer } from './components/Footer.tsx';
+import { AdBanner } from './components/AdBanner.tsx';
+import { StickyAnchorAd } from './components/StickyAnchorAd.tsx';
 import { ProductCard } from './components/ProductCard.tsx';
 import { PRODUCTS_DATA } from './data/products.ts';
 import { ARTICLES_DATA } from './data/articles.ts';
@@ -58,21 +60,35 @@ const KNOWN_TABS = ['home', 'catalog', 'journal', 'tools', 'about', 'contact', '
 
 const parseRouteFromLocation = (): { tab: string; article: Article | null; category?: ProductCategory } => {
   try {
-    const pathname = (window.location.pathname || '').toLowerCase();
+    const rawPath = (window.location.pathname || '').toLowerCase().replace(/\/+$/, '');
     const search = new URLSearchParams(window.location.search);
     const hash = window.location.hash || '';
 
-    // 0. Direct pathname routing: /sitemap.xml or /sitemap
-    if (
-      pathname === '/sitemap.xml' ||
-      pathname === '/sitemap' ||
-      pathname.endsWith('/sitemap.xml') ||
-      pathname.endsWith('/sitemap')
-    ) {
+    // 0. Direct sitemap path
+    if (rawPath === '/sitemap.xml' || rawPath === '/sitemap') {
       return { tab: 'sitemap', article: null };
     }
 
-    // 1. Direct article param: ?article=... or ?tab=journal&article=...
+    // 1. Path-based article routing: /journal/article-id or /article/article-id or /blog/article-id
+    const articlePathMatch = rawPath.match(/^\/(journal|article|blog|post)\/(.+)$/);
+    if (articlePathMatch && articlePathMatch[2]) {
+      const art = findArticle(articlePathMatch[2]);
+      if (art) return { tab: 'journal', article: art };
+    }
+
+    // 2. Direct path matching for known tabs or direct article id
+    const pathSegment = rawPath.replace(/^\//, '');
+    if (pathSegment) {
+      const directArt = findArticle(pathSegment);
+      if (directArt) return { tab: 'journal', article: directArt };
+
+      if (KNOWN_TABS.includes(pathSegment)) {
+        const catParam = search.get('category') as ProductCategory | null;
+        return { tab: pathSegment, article: null, category: catParam || undefined };
+      }
+    }
+
+    // 3. Query param article: ?article=... or ?tab=journal&article=...
     const articleParam = search.get('article');
     if (articleParam) {
       const art = findArticle(articleParam);
@@ -81,10 +97,9 @@ const parseRouteFromLocation = (): { tab: string; article: Article | null; categ
 
     const catParam = search.get('category') as ProductCategory | null;
 
-    // 2. Tab param: ?tab=...
+    // 4. Query param tab: ?tab=...
     const tabParam = search.get('tab');
     if (tabParam) {
-      // Check if tabParam is actually an article ID!
       const art = findArticle(tabParam);
       if (art) return { tab: 'journal', article: art };
 
@@ -93,7 +108,7 @@ const parseRouteFromLocation = (): { tab: string; article: Article | null; categ
       }
     }
 
-    // 3. Hash routing: #article-... or #catalog etc.
+    // 5. Hash routing: #article-... or #catalog
     if (hash.startsWith('#article-')) {
       const artId = hash.replace('#article-', '');
       const art = findArticle(artId);
@@ -104,13 +119,6 @@ const parseRouteFromLocation = (): { tab: string; article: Article | null; categ
       if (art) return { tab: 'journal', article: art };
       if (KNOWN_TABS.includes(cleanHash)) {
         return { tab: cleanHash, article: null, category: catParam || undefined };
-      }
-    }
-
-    // 4. Other direct pathnames: /catalog, /journal, /tools, etc.
-    for (const known of KNOWN_TABS) {
-      if (pathname === `/${known}` || pathname.endsWith(`/${known}`)) {
-        return { tab: known, article: null, category: catParam || undefined };
       }
     }
   } catch {
@@ -367,6 +375,17 @@ export default function App() {
         onOpenSiteSections={() => setIsSiteSectionsOpen(true)}
         articlesCount={ARTICLES_DATA.length}
       />
+
+      {/* High-Viewability Header Leaderboard Banner */}
+      <div className="bg-[#FAF8F5] border-b border-[#D4AF37]/15">
+        <AdBanner
+          slot="1122334455"
+          type="display"
+          label={language === 'ar' ? 'إعلان تحليلي مميز (Header Leaderboard)' : 'Featured Header Leaderboard'}
+          minHeight="95px"
+          className="my-2"
+        />
+      </div>
 
       {/* Main Content Router */}
       <main className="flex-1">
@@ -985,6 +1004,9 @@ export default function App() {
         onOpenPrivacy={() => handleTabChange('privacy')}
         onOpenTerms={() => handleTabChange('terms')}
       />
+
+      {/* Fixed Sticky Anchor Ad Banner at viewport bottom */}
+      <StickyAnchorAd language={language} />
     </div>
   );
 }

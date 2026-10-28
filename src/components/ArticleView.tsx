@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Article, Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
+import { AdBanner } from './AdBanner.tsx';
 
 interface ArticleViewProps {
   article: Article;
@@ -333,16 +334,44 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
       {/* Article Body Sections */}
       <div className="space-y-8 text-sm sm:text-base text-[#18181B]/90 leading-relaxed font-light">
         {sections.map((section, idx) => (
-          <div key={idx} className="space-y-3">
-            <h2 className="text-lg sm:text-2xl font-bold text-[#18181B] font-serif-luxury pt-2 border-t border-[#D4AF37]/15">
-              {language === 'ar' ? String(section.headingAr || '') : String(section.headingEn || '')}
-            </h2>
-            <div className="text-justify whitespace-pre-line leading-relaxed text-[#18181B]/80">
-              {language === 'ar' ? String(section.contentAr || '') : String(section.contentEn || '')}
+          <React.Fragment key={idx}>
+            <div className="space-y-3">
+              <h2 className="text-lg sm:text-2xl font-bold text-[#18181B] font-serif-luxury pt-2 border-t border-[#D4AF37]/15">
+                {language === 'ar' ? String(section.headingAr || '') : String(section.headingEn || '')}
+              </h2>
+              <div className="text-justify whitespace-pre-line leading-relaxed text-[#18181B]/80">
+                {language === 'ar' ? String(section.contentAr || '') : String(section.contentEn || '')}
+              </div>
             </div>
-          </div>
+
+            {/* Strategic In-Article Ad Units for high viewability */}
+            {idx === 0 && (
+              <AdBanner
+                slot="2468013579"
+                type="in-article"
+                label={language === 'ar' ? 'إعلان رعاية تحليلي' : 'Sponsored Analysis'}
+                minHeight="120px"
+              />
+            )}
+            {idx === 2 && (
+              <AdBanner
+                slot="1357924680"
+                type="in-article"
+                label={language === 'ar' ? 'إعلان مجلة المجوهرات' : 'Jewelry Journal Ad'}
+                minHeight="120px"
+              />
+            )}
+          </React.Fragment>
         ))}
       </div>
+
+      {/* Pre-Engagement Bottom Ad Banner */}
+      <AdBanner
+        slot="9876543210"
+        type="display"
+        label={language === 'ar' ? 'إعلان رعاية موثوق' : 'Sponsored Content'}
+        minHeight="110px"
+      />
 
       {/* Reader Engagement & Feedback Box */}
       <div className="my-10 p-6 bg-gradient-to-r from-[#FAF8F5] via-white to-[#FAF8F5] border border-[#D4AF37]/35 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-right rtl:sm:text-right ltr:sm:text-left shadow-xs">
