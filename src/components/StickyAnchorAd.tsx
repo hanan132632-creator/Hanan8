@@ -14,27 +14,23 @@ export const StickyAnchorAd: React.FC<StickyAnchorAdProps> = ({ language }) => {
   return (
     <aside
       aria-label="Sponsored Anchor Ad"
-      className="fixed bottom-0 left-0 right-0 z-40 bg-[#18181B]/95 backdrop-blur-md border-t border-[#D4AF37]/40 shadow-2xl transition-all duration-300"
+      className="fixed bottom-0 left-0 right-0 z-40 transition-all duration-300 pointer-events-none"
     >
-      <div className="max-w-7xl mx-auto px-3 py-1.5 flex items-center justify-between gap-2">
-        <div className="flex-1 min-w-0">
-          <AdBanner
-            slot="3334445556"
-            type="sticky"
-            format="horizontal"
-            label={language === 'ar' ? 'إعلان مثبت سفلي' : 'Anchor Banner'}
-            minHeight="60px"
-            className="my-0 border-none bg-transparent shadow-none p-0"
-          />
-        </div>
-
+      <div className="max-w-5xl mx-auto px-2 relative pointer-events-auto">
         <button
           onClick={() => setDismissed(true)}
-          className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-[#D4AF37] hover:text-white transition-colors cursor-pointer shrink-0"
-          title={language === 'ar' ? 'إغلاق الإعلان المثبت' : 'Close sticky ad'}
+          className="absolute -top-3 right-3 z-50 p-1 rounded-full bg-[#18181B] text-[#D4AF37] border border-[#D4AF37]/40 shadow-md hover:bg-black text-[10px] flex items-center gap-1 px-2 cursor-pointer"
+          title={language === 'ar' ? 'إغلاق الإعلان' : 'Close ad'}
         >
-          <X className="w-4 h-4" />
+          <X className="w-3 h-3" />
+          <span>{language === 'ar' ? 'إغلاق' : 'Close'}</span>
         </button>
+        <AdBanner
+          slot="3334445556"
+          type="sticky"
+          format="horizontal"
+          className="my-0 shadow-lg bg-white/95 backdrop-blur-sm rounded-t-xl border-t border-x border-[#D4AF37]/30"
+        />
       </div>
     </aside>
   );

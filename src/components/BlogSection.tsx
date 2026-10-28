@@ -339,8 +339,6 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                   <AdBanner
                     slot="4567891230"
                     type="in-feed"
-                    label={language === 'ar' ? 'إعلان رعاية ضمن قائمة المقالات' : 'Native Journal Feed Ad'}
-                    minHeight="110px"
                   />
                 </div>
               )}
@@ -354,8 +352,6 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
           <AdBanner
             slot="7890123456"
             type="display"
-            label={language === 'ar' ? 'إعلان رعاية جانبي' : 'Sidebar Sponsor Ad'}
-            minHeight="250px"
           />
 
           {/* Curated Connoisseur Highlights Card */}

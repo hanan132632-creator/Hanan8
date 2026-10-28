@@ -66,8 +66,6 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({ language }) => {
       <AdBanner
         slot="8877665544"
         type="display"
-        label={language === 'ar' ? 'إعلان رعاية أدوات الحاسبة' : 'Calculator Sponsor Ad'}
-        minHeight="110px"
         className="mt-12"
       />
     </section>

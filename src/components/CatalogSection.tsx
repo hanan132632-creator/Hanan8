@@ -205,8 +205,6 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                   <AdBanner
                     slot="6543210987"
                     type="in-feed"
-                    label={language === 'ar' ? 'إعلان رعاية بين المجموعات الملكية' : 'Sovereign Collection Ad'}
-                    minHeight="110px"
                   />
                 </div>
               )}

@@ -349,16 +349,12 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
               <AdBanner
                 slot="2468013579"
                 type="in-article"
-                label={language === 'ar' ? 'إعلان رعاية تحليلي' : 'Sponsored Analysis'}
-                minHeight="120px"
               />
             )}
             {idx === 2 && (
               <AdBanner
                 slot="1357924680"
                 type="in-article"
-                label={language === 'ar' ? 'إعلان مجلة المجوهرات' : 'Jewelry Journal Ad'}
-                minHeight="120px"
               />
             )}
           </React.Fragment>
@@ -369,8 +365,6 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
       <AdBanner
         slot="9876543210"
         type="display"
-        label={language === 'ar' ? 'إعلان رعاية موثوق' : 'Sponsored Content'}
-        minHeight="110px"
       />
 
       {/* Reader Engagement & Feedback Box */}

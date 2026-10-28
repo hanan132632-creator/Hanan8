@@ -377,12 +377,10 @@ export default function App() {
       />
 
       {/* High-Viewability Header Leaderboard Banner */}
-      <div className="bg-[#FAF8F5] border-b border-[#D4AF37]/15">
+      <div className="max-w-7xl mx-auto px-4">
         <AdBanner
           slot="1122334455"
           type="display"
-          label={language === 'ar' ? 'إعلان تحليلي مميز (Header Leaderboard)' : 'Featured Header Leaderboard'}
-          minHeight="95px"
           className="my-2"
         />
       </div>
