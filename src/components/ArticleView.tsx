@@ -133,9 +133,11 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
 
   const handleCopyLink = () => {
     try {
-      navigator.clipboard.writeText(window.location.href);
+      const cleanUrl = `${window.location.origin}/?tab=journal&article=${article.id}`;
+      navigator.clipboard.writeText(cleanUrl);
     } catch {
       // fallback
+      navigator.clipboard.writeText(window.location.href);
     }
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);

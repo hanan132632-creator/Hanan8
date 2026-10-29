@@ -37,6 +37,7 @@ const ARTICLE_ENGAGEMENT_METRICS: Record<string, { views: number; likes: number 
   'unheated-natural-gemstones-investment-guide': { views: 4120, likes: 375 },
   'transformable-haute-joaillerie-royal-tiaras-guide': { views: 3950, likes: 360 },
   'grand-feu-enameling-plique-a-jour-mastery': { views: 4310, likes: 412 },
+  'american-style-jewelry-fashion-guide-2026': { views: 4890, likes: 432 },
 };
 
 const INITIAL_ARTICLES: Article[] = [

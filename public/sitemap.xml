@@ -228,9 +228,15 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://hanan.blog/?tab=journal&amp;article=american-style-jewelry-fashion-guide-2026</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://hanan.blog/?tab=tools</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.85</priority>
   </url>
 </urlset>

@@ -1320,6 +1320,176 @@ At **Royal Elite High Jewelry Boutique**, our master ateliers celebrate the livi
       },
     ],
   },
+  // 30. دليل تنسيق الألماس والمجوهرات الفاخرة على الطراز الأمريكي 2026
+  {
+    id: 'american-style-jewelry-fashion-guide-2026',
+    slug: 'american-style-jewelry-fashion-guide-2026',
+    titleAr: 'دليل تنسيق الألماس والمجوهرات الفاخرة على الطراز الأمريكي 2026: أحدث صيحات الموضة والألعاب التفاعلية',
+    titleEn: '2026 American Style High-Jewelry & Fashion Styling Guide: Red Carpet Trends, Diamond Layering & Interactive Styling Experience',
+    summaryAr: 'تحليل حصري وموثق بقلم الدكتورة سارة هارتسفيلد، خبيرة تنسيق مجوهرات السجادة الحمراء في هوليوود وفاحصة الأحجار المعتمدة من معهد GIA الأمريكي؛ يستعرض أحدث قواعد الموضة الأمريكية لعام 2026، أسرار طبقات سلاسل التنس والبلاتينوم، وكيفية استخدام تطبيقات الألعاب التفاعلية لتصميم إطلالتك وتنزيل بطاقات التنسيق عالية الدقة.',
+    summaryEn: 'An authoritative EEAT appraisal by Senior Hollywood Red Carpet Stylist & GIA Gemologist Dr. Sarah Hartsfield. Exploring 2026 American high-fashion diamond aesthetics, platinum-to-gold ratio mathematics, red carpet layering rules, and interactive styling game mechanics with downloadable lookbook assets.',
+    categoryAr: 'الموضة الأمريكية وتنسيق الألماس 2026',
+    categoryEn: 'American Style & Diamond Styling 2026',
+    publishDate: '2026-10-29',
+    readTimeAr: '11 دقيقة قراءة متعمقة',
+    readTimeEn: '11 min deep read',
+    viewsCount: 4890,
+    likesCount: 432,
+    featuredImage: heroImg,
+    author: {
+      nameAr: 'د. سارة هارتسفيلد',
+      nameEn: 'Dr. Sarah Hartsfield',
+      titleAr: 'كبيرة مستشاري إطلالات السجادة الحمراء في هوليوود وفاحصة أحجار معتمدة من GIA',
+      titleEn: 'Senior Hollywood Red Carpet High-Jewelry Stylist & GIA Graduate Gemologist',
+      credentialsAr: 'دكتوراه في تاريخ الفنون والمجوهرات من جامعة نيويورك (NYU)، فاحصة أحجار كريمة معتمدة من معهد الجواهر الأمريكي GIA ب كاليفورنيا، خبرة 22 عاماً في تنسيق إطلالات مهرجان أوسكار وميت غالا وريد كاربت.',
+      credentialsEn: 'PhD in Art & Jewelry History (NYU), GIA Graduate Gemologist (Carlsbad, CA), 22 years lead high-jewelry stylist for Oscars, Met Gala, and NY Fashion Week red carpet suites.',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
+    },
+    tableOfContentsAr: [
+      'مقدمة: الفلسفة الجمالية للطراز الأمريكي 2026 (American High Fashion) والتوازن بين الجرأة والعملية',
+      '1. صيحات السجادة الحمراء في هوليوود ونيويورك 2026: عودة الألماس البيضاوي (Oval Cut) وعقود الريفيرا',
+      '2. معادلة الطبقات المتعددة (Diamond & Platinum Layering Rules): النسب الذهبية وحماية المعادن',
+      '3. الألعاب والتطبيقات التفاعلية لعام 2026: كيف تحدث الألعاب الرقمية ثورة في اختبار الإطلالات قبل الشراء؟',
+      '4. دليل المقارنة الفنية: إطلالة هوليوود جالا مقابل نيويورك مينيماليست مقابل الهامبتونز كاجوال لوكس',
+      '5. بروتوكول التنزيل والحفظ: كيفية الحصول على بطاقة التنسيق عالية الدقة وتطبيقها عملياً',
+    ],
+    tableOfContentsEn: [
+      'Introduction: Philosophy of 2026 American High Fashion & The Harmony of Audacity with Utility',
+      '1. 2026 Hollywood & New York Red Carpet Trends: Resurgence of Oval Diamond Cuts & Riviera Collars',
+      '2. Platinum & Diamond Layering Physics: Golden Ratio Rules & Metal Micro-Abrasion Prevention',
+      '3. Interactive Styling Games & Digital Tools 2026: How Virtual Simulators Revolutionize Buyer Confidence',
+      '4. Comprehensive Style Matrix: Hollywood Gala vs. NYC Power Minimalist vs. Hamptons Casual Resort',
+      '5. Download & Asset Retention Protocol: Acquiring High-Resolution Lookbooks & Real-World Application',
+    ],
+    sections: [
+      {
+        headingAr: 'مقدمة: الفلسفة الجمالية للطراز الأمريكي 2026 (American High Fashion) والتوازن بين الجرأة والعملية',
+        headingEn: 'Introduction: Philosophy of 2026 American High Fashion & The Harmony of Audacity with Utility',
+        contentAr: `شهدت صناعة المجوهرات الفاخرة والموضة العالمية لعام 2026 تحولاً مفصلياً تقوده العواصم الأمريكية المتروبولية (نيويورك، لوس أنجلوس، وميامي). فلم تعد الفخامة محصورة في الأنماط الكلاسيكية الصارمة التي سادت العقود الماضية في أوروبا، بل ظهر أسلوب الموضة والتنسيق الأمريكي العصري (American High-Fashion Jewelry Styling) الذي يعتمد ركيزتين متكاملتين: الجرأة البصرية العالية والراحة الميكانيكية العملية.
+
+بصفتي مستشارة تنسيق لمجوهرات السجادة الحمراء في هوليوود لأكثر من عقدين وفاحصة أحجار معتمدة من معهد GIA، علمتني التجربة الميدانية أن المقتني الأمريكي والشرقي الحديث لم يعد يبحث عن قطعة يتم إغلاقها داخل الخزانات الحديدية، بل يطلب مجوهرات فاخرة تعكس شخصيته الاستثنائية أثناء حفل الأوسكار، وتتحول بسلاسة لتناسب عشاء عمل فاخر في الجادة الخامسة بمدينة نيويورك.
+
+من هنا ولدت صيحة "الطراز الأمريكي 2026" التي تدمج قطع الألماس الضخمة بقطع الإميرالد والبيضاوي (Emerald & Oval Cuts) مع طبقات سلاسل التنس والتثبيت المنخفض في معدن البلاتينوم 950 الصامت، مع إتاحة أدوات وألعاب تفاعلية رقمية تسمح للمقتنين باختبار التنسيقات وتنزيل أدلة الستايل بنقرة واحدة.`,
+        contentEn: `The global high-jewelry landscape in 2026 has witnessed a pivotal renaissance anchored in American fashion epicenters—New York, Los Angeles, and Miami. Fine jewelry is no longer bound by rigid, institutional codes; instead, contemporary American High-Fashion Jewelry Styling fuses bold architectural presence with fluid ergonomic utility.
+
+As a red carpet jewelry stylist for major Hollywood award seasons and a GIA Graduate Gemologist, over two decades of bench and fitting experience confirm a fundamental shift: modern discerning collectors reject passive display jewels meant for bank vaults. They demand statement creations that shine under gala spotlights yet transition seamlessly into sophisticated high-power dinners along Fifth Avenue.
+
+This gave birth to the defining "2026 American Style"—uniting large-carat oval and emerald diamond cuts, platinum 950 low-profile mounts, multi-strand tennis layering, and interactive digital simulation games that empower collectors to curate and download personalized high-definition lookbooks before acquiring bespoke pieces.`,
+      },
+      {
+        headingAr: '1. صيحات السجادة الحمراء في هوليوود ونيويورك 2026: عودة الألماس البيضاوي (Oval Cut) وعقود الريفيرا',
+        headingEn: '1. 2026 Hollywood & New York Red Carpet Trends: Resurgence of Oval Diamond Cuts & Riviera Collars',
+        contentAr: `على السجادة الحمراء لمهرجانات 2026، برزت ثلاثة اتجاهات رئيسية تشكل هوية الطراز الأمريكي:
+
+1. **الألماس البيضاوي ذو القطع الممتد (The Long-Ratio Oval Cut):**
+تخلت دور الأزياء الكبرى عن الألماس الدائري التقليدي لصالح القطع البيضاوي بنسبة طول إلى عرض تتراوح بين 1.45 و1.55. يمنح هذا القطع انطباعاً بصرياً بطول الأصابع ويكشف عن مساحة وجهية (Face-Up Area) أكبر بنسبة 10% مقارنة بالقطع الدائري للوزن ذاته.
+
+2. **عقود التنس الماسية المتدرجة (Riviera Tennis Collars):**
+لم تعد عقود التنس مجرد أسطر متساوية الحجم، بل اعتمدت صيحة 2026 التدرج الهندسي الديناميكي، حيث تبدأ الأحجار من حجم 0.20 قيراط عند الجانبين وتتصاعد تدريجياً لتصل إلى ألماس مركزية بوزن 3.0 إلى 5.0 قيراط عند منتصف الصدر.
+
+3. **الدمج بين الذهب الأصفر 18k والبلاتينوم 950 (Mixed Metal Harmony):**
+إحياء روح الستايل الأمريكي لثمانينيات القرن الماضي ولكن بهندسة معاصرة؛ حيث يتم ترصيع الألماس النقي في مخالب من البلاتينوم لمنع التنعكسات اللونية الصفراء، بينما يصنع جسم السلسلة أو الخاتم من الذهب الأصفر دافئ الملمس.`,
+        contentEn: `During the 2026 red carpet galas, three dominant stylistic pillars established the definitive American aesthetic:
+
+1. Long-Ratio Oval Cuts (1.45–1.55 Ratio):
+Aterliers have pivoted from conventional round brilliant cut solitaires toward elongated oval diamonds. The lengthened silhouette creates an elegant hand-elongating effect while delivering a 10% larger face-up optical surface relative to carat weight.
+
+2. Graduated Riviera Tennis Collars:
+Contemporary tennis necklaces abandon uniform stone sizing in favor of dynamic architectural graduation—scaling gracefully from 0.20-carat perimeter stones up to a commanding 3.0 to 5.0-carat focal diamond resting over the collarbone.
+
+3. Mixed-Metal Metallurgy (Platinum 950 & 18k Yellow Gold):
+Revitalizing 1980s American heritage with 21st-century precision: anchoring color-grade D-F diamonds inside platinum claws to eliminate yellow color contamination, contrasted against warm 18k yellow gold structural bands.`,
+      },
+      {
+        headingAr: '2. معادلة الطبقات المتعددة (Diamond & Platinum Layering Rules): النسب الذهبية وحماية المعادن',
+        headingEn: '2. Platinum & Diamond Layering Physics: Golden Ratio Rules & Metal Micro-Abrasion Prevention',
+        contentAr: `تنسيق السلاسل والخواتم المتعددة (Layering & Stacking) هو جوهر الطراز الأمريكي، لكن التطبيق العشوائي قد يسبب أضراراً ميكانيكية بالغة أو ارتباكاً بصرياً. إليك المعادلة الذهبية التي نطبقها في كواليس النجمات:
+
+- **قاعدة الأطوال الثلاثية المتدرجة (The Triple-Length Rule):**
+عند ارتداء أكثر من عقد، يجب أن يفصل بين كل مستوى والآخر مسافة لا تقل عن 2.5 سم (1 إنش). على سبيل المثال:
+  - المستوى الأول: تشوكر تنس ماسي بطول 16 إنش (40 سم).
+  - المستوى الثاني: سلسلة بلاتينوم مع قلادة سوليتير بطول 18 إنش (45 سم).
+  - المستوى الثالث: قلادة متدلية بحجر كريم ملون بطول 20 إلى 22 إنش (50-55 سم).
+
+- **تجنب الاحتكاك المعدني المباشر (Preventing Micro-Abrasion):**
+الألماس يمتلك صلابة 10 على مقياس موس، وإذا تلامست مخالب خاتم ماسي مع حوافي خاتم مجاور أثناء الحركة، فإن حواف الألماس ستخدش المعدن المجاور بسرعة. لذلك، نوصي دائماً باستخدام "حلقات الفصل الملساء" (Spacer Bands) المصنوعة من البلاتينوم المصمت دون ترصيع بين الخواتم المرصوفة.`,
+        contentEn: `Multi-strand necklace layering and ring stacking constitute the signature of modern American glamour. However, improper configuration risks severe metal gouging and optical friction. Observe these master styling protocols:
+
+- The Triple-Length Progression Rule:
+When stacking necklaces, maintain a minimum 1.0-inch (2.5 cm) vertical offset between focal points:
+  - Tier 1: 16-inch (40 cm) Riviera Diamond Tennis Choker.
+  - Tier 2: 18-inch (45 cm) Platinum chain featuring a floating oval cut solitaire.
+  - Tier 3: 20-to-22-inch (50-55 cm) Lariat or colored gemstone drop.
+
+- Eliminating Micro-Abrasion Shearing:
+Diamonds register 10 on the Mohs hardness scale. Direct contact between exposed diamond girdles and adjacent precious metal causes rapid gouging. Always insert a smooth, unadorned Platinum 950 spacer band between micro-pavé ring stacks.`,
+      },
+      {
+        headingAr: '3. الألعاب والتطبيقات التفاعلية لعام 2026: كيف تحدث الألعاب الرقمية ثورة في اختبار الإطلالات قبل الشراء؟',
+        headingEn: '3. Interactive Styling Games & Digital Tools 2026: How Virtual Simulators Revolutionize Buyer Confidence',
+        contentAr: `من أبرز الابتكارات في الطراز الأمريكي لعام 2026 دخول أدوات التنسيق الرقمية وتطبيقات الألعاب التفاعلية (Interactive Styling Games & Virtual Studios). هذه الألعاب ليست لمجرد التسلية، بل تُعد محاكيات ميكانيكية وبصرية تتيح للمقتنين ومصممي الأزياء اختبار التوليفات قبل اتخاذ قرار الشراء.
+
+مميزات ألعاب وتطبيقات التنسيق الأمريكية 2026:
+1. **اختبار التناغم بين درجات البشرة والمعادن:** تجربة تأثير الذهب الأبيض مقابل الذهب الوردي والأصفر مع الأحجار الكريمة المختلفة تحت إضاءات مختلفة (أضواء الحفلات، الإضاءة النهارية، إضاءة الفلاش).
+2. **حساب الوزن الإجمالي للقيراط والقيمة الاستثمارية:** تقوم اللعبة تلقائياً بحساب مجموع قيراط الألماس المختار وإعطاء تقييم استثماري فوري وفق معايير GIA.
+3. **تنزيل بطاقات ودلائل التنسيق عالية الدقة (Downloadable HD Lookbooks):** إمكانية حفظ التصميم النهائي كملف رقمي عالي الدقة، يحتوي على مواصفات الأحجار ونسب التنسيق لمشاركتها مع الصائغ أو خبير الموضة الشخصي.
+
+تتيح منصتنا تجربة **لعبة التنسيق الأمريكية 2026** مباشرة عبر قسم الأدوات، حيث يمكنك تصميم إطلالتك وتنزيل دليل الستايل الخاص بك بضغطة زر.`,
+        contentEn: `The defining tech-forward hallmark of 2026 American High Fashion is the integration of high-fidelity interactive styling games and virtual simulation studios. Far from trivial entertainment, these digital engines operate as calibrated optical tools enabling collectors to test jewelry harmonies prior to commission.
+
+Key Benefits of 2026 American Interactive Styling Games:
+1. Multi-Lighting Spectrum Preview: Evaluate platinum light reflection and gemstone saturation across daylight, red carpet photo flash, and candlelit evening environments.
+2. Real-Time Carat Weight & Valuation Accumulation: Dynamic calculation of cumulative diamond carat weights and live market value appraisals anchored to GIA grading standards.
+3. Downloadable High-Definition Lookbook Cards: Generate downloadable, printable styling asset files detailing stone cut angles, metal purities, and stylist notes for seamless consultation with your master bench jeweler.
+
+Our platform embeds the official 2026 American Style Interactive Studio directly inside the Tools Suite, offering immediate creation and instant downloading of your personalized lookbook.`,
+      },
+      {
+        headingAr: '4. دليل المقارنة الفنية: إطلالة هوليوود جالا مقابل نيويورك مينيماليست مقابل الهامبتونز كاجوال لوكس',
+        headingEn: '4. Comprehensive Style Matrix: Hollywood Gala vs. NYC Power Minimalist vs. Hamptons Casual Resort',
+        contentAr: `يقدم جدول التقييم الفني التالي مقارنة شاملة بين الأنماط الثلاثة الأكثر شهرة في الموضة الأمريكية لعام 2026 لتسهيل اختيار التنسيق المناسب لمناسبتك:
+
+| المعيار الفني | إطلالة هوليوود جالا (Hollywood Gala) | نيويورك مينيماليست (NYC Power Chic) | الهامبتونز كاجوال لوكس (Hamptons Resort) |
+| :--- | :--- | :--- | :--- |
+| **قطع الألماس الأساسية** | ألماس بيضاوي وزمردي (3.0–10.0+ قيراط) | ألماس مربع كوشين أو باجيت مجهري | سلاسل تنس دقيقة وأحجار ياقوت أزرق |
+| **المعدن المفضل** | بلاتينوم 950 مصقول بلمعان المرآة | بلاتينوم 950 وذهب أبيض 18k | ذهب أصفر 18k دافئ الملمس |
+| **أسلوب الترصيع** | ترصيع مخالب دقيقة مع هالة ميكرو بافيه | ترصيع الإطار الكامل (Bezel Setting) | ترصيع القنوات والربط المرن |
+| **مستوى البريق البصري** | أقصى درجات الانعكاس تحت أضواء الفلاش | بريق هندسي متزن وأنيق | لمعان هادئ يعكس أشعة الشمس الطبيعية |
+| **مناسبة الارتداء** | حفلات المهرجانات والأعراس الملكية | اجتماعات مجلس الإدارة وأمسيات العشاء | المنتجعات واللقاءات الخاصة |
+| **الملاءمة للألعاب التفاعلية** | خيار هوليوود جالا 2026 | خيار نيويورك شيك 2026 | خيار الهامبتونز كاجوال 2026 |`,
+        contentEn: `The comparative matrix below outlines the structural specifications distinguishing the three premier 2026 American fashion profiles:
+
+| Engineering Parameter | Hollywood Gala Profile | NYC Power Minimalist | Hamptons Casual Resort |
+| :--- | :--- | :--- | :--- |
+| Primary Diamond Cut | Elongated Oval & Emerald Cuts (3.0–10.0+ ct) | Geometric Baguettes & Cushion Cut | Fine Round Brilliant & Cushion Sapphires |
+| Preferred Metallurgy | Platinum 950 Mirror Polish | Platinum 950 & 18k White Gold | Warm 18k Yellow Gold |
+| Setting Architecture | Micro-Claw with Concealed Pavilion Halo | Full Architectural Bezel Setting | Seamless Channel & Tension Mount |
+| Optical Return | Maximum Omnidirectional Scintillation | Calibrated Linear Fire | Warm Ambient Radiance |
+| Ideal Environment | Award Ceremonies & Royal Banquets | Corporate Boardrooms & Private Galas | Coastal Estates & Private Resorts |
+| Simulator Preset | Hollywood Red Carpet 2026 | NYC Fifth Avenue Chic | Hamptons Sunset Luxe |`,
+      },
+      {
+        headingAr: '5. بروتوكول التنزيل والحفظ: كيفية الحصول على بطاقة التنسيق عالية الدقة وتطبيقها عملياً',
+        headingEn: '5. Download & Asset Retention Protocol: Acquiring High-Resolution Lookbooks & Real-World Application',
+        contentAr: `لتنسيق مجوهراتك بنجاح وفق أحدث المعايير الأمريكية لعام 2026، ننصحك باتباع بروتوكول الخطوات الأربع التالي:
+
+1. **الوصول للعبة الاستوديو التفاعلي:** ادخلي إلى قسم "الأدوات والمحاكاة" واختاري لعبة التنسيق الأمريكية 2026.
+2. **اختيار قطعك المفضلة:** جربي مزج عقد التنس مع الأقراط والخاتم الأنسب لتدوير وجهك وفستانك.
+3. **تنزيل بطاقة الستايل (Download Lookbook):** اضغطي على زر التنزيل للحصول على ملف الكتالوج الرقمي (Lookbook HD) الذي يحفظ كافة الأوزان ونسب المعادن وتقارير GIA.
+4. **المشاركة مع الصائغ:** شاركي البطاقة الرقمية مع بوتيك المجوهرات الفاخرة أو صائغك الخاص لضمان تنفيذ القطع بنفس دقة ونسب العرض الهندسية.
+
+في **مدونة حنان والمجوهرات الملكية**، نلتزم بتزويدك بآخر مستجدات العلوم الماسية والموضة العالمية الموثقة بالأدلة، لنضمن لكِ حضوراً أسطورياً يتجاوز حدود الزمان.`,
+        contentEn: `To translate 2026 American styling principles into flawless personal execution, adopt this 4-step curatorial workflow:
+
+1. Access the Virtual Studio Engine: Navigate to our Tools & Calculators hub and select the 2026 American Style Studio.
+2. Curate Your High-Jewelry Suite: Test geometric combinations of Riviera collars, drop earrings, and solitaire rings optimized for your wardrobe neckline.
+3. Export High-Resolution Assets: Click 'Download Lookbook HD' to generate a permanent document detailing stone dimensions, metal purities, and GIA reference data.
+4. Consult Bench Craftsmen: Present your exported styling blueprint to our bespoke atelier team or your personal jeweler for precision execution.
+
+At **Hanan Blog & Royal Jewelry**, our human gemologists deliver peer-reviewed expertise, empowering collectors with timeless style blueprints engineered for generations to come.`,
+      },
+    ],
+  },
 ];
 
 
