@@ -56,8 +56,7 @@ const findArticle = (idOrSlug: string): Article | null => {
   );
 };
 
-const GAME_ALIASES = ['game', 'game-2026', 'play', 'american-style', 'american-game', 'style-2026'];
-const KNOWN_TABS = ['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms', 'sitemap', ...GAME_ALIASES];
+const KNOWN_TABS = ['home', 'catalog', 'journal', 'tools', 'about', 'contact', 'privacy', 'terms', 'sitemap'];
 
 const parseRouteFromLocation = (): { tab: string; article: Article | null; category?: ProductCategory } => {
   try {
@@ -70,16 +69,13 @@ const parseRouteFromLocation = (): { tab: string; article: Article | null; categ
       return { tab: 'sitemap', article: null };
     }
 
-    // 1. Hash routing (#game, #tools, #american-style-jewelry-fashion-guide-2026)
+    // 1. Hash routing (#tools, #american-style-jewelry-fashion-guide-2026)
     if (hash.startsWith('#article-')) {
       const artId = hash.replace('#article-', '');
       const art = findArticle(artId);
       if (art) return { tab: 'journal', article: art };
     } else if (hash.length > 1) {
       const cleanHash = hash.replace('#', '');
-      if (GAME_ALIASES.includes(cleanHash)) {
-        return { tab: 'tools', article: null };
-      }
       const art = findArticle(cleanHash);
       if (art) return { tab: 'journal', article: art };
       if (KNOWN_TABS.includes(cleanHash)) {
@@ -87,31 +83,27 @@ const parseRouteFromLocation = (): { tab: string; article: Article | null; categ
       }
     }
 
-    // 2. Direct game aliases path
     const pathSegment = rawPath.replace(/^\//, '');
-    if (GAME_ALIASES.includes(pathSegment)) {
-      return { tab: 'tools', article: null };
-    }
 
-    // 3. Path-based article routing: /journal/article-id or /article/article-id or /blog/article-id
+    // 2. Path-based article routing: /journal/article-id or /article/article-id or /blog/article-id
     const articlePathMatch = rawPath.match(/^\/(journal|article|blog|post)\/(.+)$/);
     if (articlePathMatch && articlePathMatch[2]) {
       const art = findArticle(articlePathMatch[2]);
       if (art) return { tab: 'journal', article: art };
     }
 
-    // 4. Direct path matching for known tabs or direct article id
+    // 3. Direct path matching for known tabs or direct article id
     if (pathSegment) {
       const directArt = findArticle(pathSegment);
       if (directArt) return { tab: 'journal', article: directArt };
 
       if (KNOWN_TABS.includes(pathSegment)) {
         const catParam = search.get('category') as ProductCategory | null;
-        return { tab: GAME_ALIASES.includes(pathSegment) ? 'tools' : pathSegment, article: null, category: catParam || undefined };
+        return { tab: pathSegment, article: null, category: catParam || undefined };
       }
     }
 
-    // 5. Query param article: ?article=... or ?tab=journal&article=...
+    // 4. Query param article: ?article=... or ?tab=journal&article=...
     const articleParam = search.get('article');
     if (articleParam) {
       const art = findArticle(articleParam);
@@ -120,12 +112,9 @@ const parseRouteFromLocation = (): { tab: string; article: Article | null; categ
 
     const catParam = search.get('category') as ProductCategory | null;
 
-    // 6. Query param tab: ?tab=...
+    // 5. Query param tab: ?tab=...
     const tabParam = search.get('tab');
     if (tabParam) {
-      if (GAME_ALIASES.includes(tabParam)) {
-        return { tab: 'tools', article: null };
-      }
       if (KNOWN_TABS.includes(tabParam)) {
         return { tab: tabParam, article: null, category: catParam || undefined };
       }

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Ruler, Coins, Sparkles, Crown } from 'lucide-react';
+import { Ruler, Coins, Sparkles } from 'lucide-react';
 import { Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { RingSizeCalculator } from './RingSizeCalculator.tsx';
 import { GoldPriceCalculator } from './GoldPriceCalculator.tsx';
-import { AmericanStyle2026Game } from './AmericanStyle2026Game.tsx';
 import { AdBanner } from './AdBanner.tsx';
 
 interface ToolsSectionProps {
@@ -15,11 +14,9 @@ interface ToolsSectionProps {
 
 export const ToolsSection: React.FC<ToolsSectionProps> = ({
   language,
-  onNavigateToArticle,
-  onNavigateToCatalog,
 }) => {
   const t = TRANSLATIONS[language];
-  const [activeTool, setActiveTool] = useState<'americanGame' | 'ring' | 'gold'>('americanGame');
+  const [activeTool, setActiveTool] = useState<'ring' | 'gold'>('ring');
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -29,7 +26,7 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({
           <span>{t.toolsSectionTitle}</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-bold text-[#18181B] font-serif-luxury">
-          {language === 'ar' ? 'أدوات القياس وألعاب التنسيق الأمريكية 2026' : 'Precision Tools & American Style 2026 Interactive Studio'}
+          {language === 'ar' ? 'أدوات القياس وحساب أسعار الذهب والدقة' : 'Precision Measurement & Precious Metals Calculators'}
         </h2>
         <p className="text-xs sm:text-sm text-[#18181B]/70 leading-relaxed font-light">
           {t.toolsSectionSubtitle}
@@ -38,22 +35,10 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({
         {/* Segmented Control */}
         <div className="inline-flex p-1.5 bg-white rounded-2xl border border-[#D4AF37]/30 shadow-md mt-4 flex-wrap justify-center gap-1">
           <button
-            onClick={() => setActiveTool('americanGame')}
-            className={`px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-xl transition-all cursor-pointer flex items-center gap-2 ${
-              activeTool === 'americanGame'
-                ? 'bg-[#18181B] text-[#D4AF37] shadow-md border border-[#D4AF37]/50'
-                : 'text-[#18181B]/70 hover:text-[#18181B]'
-            }`}
-          >
-            <Crown className="w-4 h-4 text-[#D4AF37]" />
-            <span>{language === 'ar' ? 'العاب ستايل أمريكى 2026' : 'American Style 2026 Game'}</span>
-          </button>
-
-          <button
             onClick={() => setActiveTool('ring')}
             className={`px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-xl transition-all cursor-pointer flex items-center gap-2 ${
               activeTool === 'ring'
-                ? 'bg-[#18181B] text-[#FAF8F5] shadow-sm'
+                ? 'bg-[#18181B] text-[#D4AF37] shadow-md border border-[#D4AF37]/50'
                 : 'text-[#18181B]/70 hover:text-[#18181B]'
             }`}
           >
@@ -65,7 +50,7 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({
             onClick={() => setActiveTool('gold')}
             className={`px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-xl transition-all cursor-pointer flex items-center gap-2 ${
               activeTool === 'gold'
-                ? 'bg-[#18181B] text-[#FAF8F5] shadow-sm'
+                ? 'bg-[#18181B] text-[#D4AF37] shadow-md border border-[#D4AF37]/50'
                 : 'text-[#18181B]/70 hover:text-[#18181B]'
             }`}
           >
@@ -75,13 +60,7 @@ export const ToolsSection: React.FC<ToolsSectionProps> = ({
         </div>
       </div>
 
-      {activeTool === 'americanGame' ? (
-        <AmericanStyle2026Game
-          language={language}
-          onNavigateToArticle={onNavigateToArticle}
-          onNavigateToCatalog={onNavigateToCatalog}
-        />
-      ) : activeTool === 'ring' ? (
+      {activeTool === 'ring' ? (
         <RingSizeCalculator language={language} />
       ) : (
         <GoldPriceCalculator language={language} />
