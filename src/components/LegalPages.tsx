@@ -92,6 +92,23 @@ export const LegalPages: React.FC<LegalPagesProps> = ({ language, initialTab = '
                 : 'All web transactions are protected via 256-bit SSL/TLS cryptographic protocols ensuring comprehensive integrity for valuations, inquiries, and checkout details.'}
             </p>
           </section>
+
+          <section className="space-y-3 p-5 rounded-2xl bg-[#FAF8F5] border border-[#D4AF37]/40">
+            <h2 className="text-base sm:text-lg font-bold text-[#18181B] font-serif-luxury flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />
+              <span>{language === 'ar' ? '4. إفصاح إعلانات Google AdSense وشبكات الإعلان الخارجية' : '4. Google AdSense & Third-Party Advertising Policy'}</span>
+            </h2>
+            <p>
+              {language === 'ar'
+                ? 'يلتزم موقعنا التزاماً كاملاً بسياسات برنامج Google AdSense وسياسات جودة المحتوى النظيف والخالي من المواد الضارة أو العنيفة. يستخدم موقعنا بائعي طرف ثالث (بما في ذلك Google) الذين يستخدمون ملفات تعريف الارتباط (مثل DoubleClick cookie) لعرض الإعلانات بناءً على زيارات المستخدم السابقة لموقعنا أو لمواقع أخرى على الإنترنت.'
+                : 'Our website strictly adheres to Google AdSense program policies and editorial quality guidelines. We may partner with third-party vendors, including Google, who use cookies (such as the DoubleClick cookie) to serve ads based on a user’s prior visits to our website or other websites on the Internet.'}
+            </p>
+            <p>
+              {language === 'ar'
+                ? 'يمكن للمستخدمين تعطيل استخدام ملف تعريف الارتباط للإعلانات المخصصة عن طريق زيارة إعدادات الإعلانات في حساب Google (adssettings.google.com). نحن نضمن أن كافة المحتويات، المقالات، والأدوات المنشورة في موقعنا هي محتويات موثوقة ومكتوبة بجهد بشري عالي الجودة متوافق مع معايير EEAT وشفافية AdSense الكاملة.'
+                : 'Users may opt out of personalized advertising by visiting Google Ads Settings (adssettings.google.com). We guarantee that all articles and tools hosted on our platform adhere to strict EEAT human editorial standards, providing genuine value to our audience.'}
+            </p>
+          </section>
         </div>
       ) : (
         <div className="bg-white rounded-3xl p-6 sm:p-12 border border-[#D4AF37]/30 shadow-xl space-y-8 text-xs sm:text-sm text-[#18181B]/80 leading-relaxed font-light">
