@@ -36,7 +36,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({
 
   return (
     <div
-      className={`relative my-4 mx-auto w-full max-w-5xl text-center overflow-hidden ${className}`}
+      className={`relative mx-auto w-full max-w-5xl text-center overflow-hidden empty:hidden min-h-0 ${className}`}
     >
       <ins
         ref={adRef}

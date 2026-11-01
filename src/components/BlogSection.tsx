@@ -116,9 +116,18 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     });
   }, [selectedCategory, searchQuery]);
 
+  const featured = ARTICLES_DATA[0];
+
+  const displayedArticles = useMemo(() => {
+    if (selectedCategory === 'all' && !searchQuery.trim() && featured) {
+      return filteredArticles.filter((a) => a.id !== featured.id);
+    }
+    return filteredArticles;
+  }, [filteredArticles, selectedCategory, searchQuery, featured]);
+
   if (selectedArticle) {
     return (
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
         <ArticleView
           article={selectedArticle}
           language={language}
@@ -130,12 +139,10 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
     );
   }
 
-  const featured = ARTICLES_DATA[0];
-
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       {/* Editorial Header */}
-      <div className="text-center max-w-3xl mx-auto space-y-4 mb-8">
+      <div className="text-center max-w-3xl mx-auto space-y-3 mb-6">
         <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#B8902A] tracking-wider uppercase">
           <Sparkles className="w-4 h-4 text-[#D4AF37]" />
           <span>
@@ -197,10 +204,10 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 
 
       {/* Featured Lead Article */}
-      {selectedCategory === 'all' && featured && (
+      {selectedCategory === 'all' && !searchQuery.trim() && featured && (
         <div
           onClick={() => handleSelectArticle(featured)}
-          className="mb-12 bg-white rounded-3xl border border-[#D4AF37]/30 overflow-hidden shadow-xl hover:shadow-2xl transition-all cursor-pointer grid grid-cols-1 lg:grid-cols-12 group"
+          className="mb-6 bg-white rounded-3xl border border-[#D4AF37]/30 overflow-hidden shadow-xl hover:shadow-2xl transition-all cursor-pointer grid grid-cols-1 lg:grid-cols-12 group"
         >
           <div className="lg:col-span-7 aspect-[16/10] lg:aspect-auto overflow-hidden bg-[#FAF8F5]">
             <img
@@ -266,83 +273,72 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         </div>
       )}
 
-      {/* Grid of Articles + Sidebar Ad Unit */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      {/* Grid of Articles + Sidebar Column */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Main Articles List (col 8) */}
-        <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {filteredArticles.map((article, idx) => (
-            <React.Fragment key={article.id}>
-              <div
-                onClick={() => handleSelectArticle(article)}
-                className="group bg-white rounded-2xl border border-[#D4AF37]/25 hover:border-[#D4AF37] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
-              >
-                <div className="aspect-[16/10] overflow-hidden bg-[#FAF8F5]">
-                  <img
-                    src={article.featuredImage}
-                    alt={language === 'ar' ? article.titleAr : article.titleEn}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-
-                <div className="p-5 flex flex-col justify-between flex-1 space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-[11px] text-[#8C7A5B] flex-wrap gap-1">
-                      <div className="flex items-center gap-1.5">
-                        <span>{language === 'ar' ? article.categoryAr : article.categoryEn}</span>
-                        <span>·</span>
-                        <span>{language === 'ar' ? article.readTimeAr : article.readTimeEn}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-slate-500 font-medium">
-                        <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد المشاهدات' : 'Views'}>
-                          <Eye className="w-3 h-3 text-[#B8902A]" />
-                          <span>{article.viewsCount?.toLocaleString() ?? '1,840'}</span>
-                        </span>
-                        <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد الإعجابات' : 'Likes'}>
-                          <Heart className="w-3 h-3 text-rose-500 fill-rose-500/20" />
-                          <span>{article.likesCount?.toLocaleString() ?? '142'}</span>
-                        </span>
-                      </div>
-                    </div>
-
-                    <h4 className="text-base font-bold text-[#18181B] group-hover:text-[#B8902A] transition-colors font-serif-luxury leading-snug line-clamp-2">
-                      {language === 'ar' ? article.titleAr : article.titleEn}
-                    </h4>
-
-                    <p className="text-xs text-[#18181B]/70 line-clamp-3 leading-relaxed font-light">
-                      {language === 'ar' ? article.summaryAr : article.summaryEn}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-[#D4AF37]/15 flex items-center justify-between text-xs">
-                    <span className="text-[#8C7A5B] font-medium">
-                      {language === 'ar' ? article.author.nameAr : article.author.nameEn}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleSelectArticle(article);
-                      }}
-                      className="font-semibold text-[#B8902A] hover:underline flex items-center gap-1 cursor-pointer"
-                    >
-                      <span>{language === 'ar' ? 'قراءة المقال' : 'Read Article'}</span>
-                      <ArrowIcon className="w-3 h-3" />
-                    </button>
-                  </div>
-                </div>
+        <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {displayedArticles.map((article) => (
+            <div
+              key={article.id}
+              onClick={() => handleSelectArticle(article)}
+              className="group bg-white rounded-2xl border border-[#D4AF37]/25 hover:border-[#D4AF37] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
+            >
+              <div className="aspect-[16/10] overflow-hidden bg-[#FAF8F5]">
+                <img
+                  src={article.featuredImage}
+                  alt={language === 'ar' ? article.titleAr : article.titleEn}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
 
-              {/* In-Feed Native Ad Slot every 4th article */}
-              {(idx + 1) % 4 === 0 && (
-                <div className="col-span-1 sm:col-span-2">
-                  <AdBanner
-                    slot="4567891230"
-                    type="in-feed"
-                  />
+              <div className="p-5 flex flex-col justify-between flex-1 space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-[11px] text-[#8C7A5B] flex-wrap gap-1">
+                    <div className="flex items-center gap-1.5">
+                      <span>{language === 'ar' ? article.categoryAr : article.categoryEn}</span>
+                      <span>·</span>
+                      <span>{language === 'ar' ? article.readTimeAr : article.readTimeEn}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-slate-500 font-medium">
+                      <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد المشاهدات' : 'Views'}>
+                        <Eye className="w-3 h-3 text-[#B8902A]" />
+                        <span>{article.viewsCount?.toLocaleString() ?? '1,840'}</span>
+                      </span>
+                      <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد الإعجابات' : 'Likes'}>
+                        <Heart className="w-3 h-3 text-rose-500 fill-rose-500/20" />
+                        <span>{article.likesCount?.toLocaleString() ?? '142'}</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <h4 className="text-base font-bold text-[#18181B] group-hover:text-[#B8902A] transition-colors font-serif-luxury leading-snug line-clamp-2">
+                    {language === 'ar' ? article.titleAr : article.titleEn}
+                  </h4>
+
+                  <p className="text-xs text-[#18181B]/70 line-clamp-3 leading-relaxed font-light">
+                    {language === 'ar' ? article.summaryAr : article.summaryEn}
+                  </p>
                 </div>
-              )}
-            </React.Fragment>
+
+                <div className="pt-3 border-t border-[#D4AF37]/15 flex items-center justify-between text-xs">
+                  <span className="text-[#8C7A5B] font-medium">
+                    {language === 'ar' ? article.author.nameAr : article.author.nameEn}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelectArticle(article);
+                    }}
+                    className="font-semibold text-[#B8902A] hover:underline flex items-center gap-1 cursor-pointer"
+                  >
+                    <span>{language === 'ar' ? 'قراءة المقال' : 'Read Article'}</span>
+                    <ArrowIcon className="w-3 h-3" />
+                  </button>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 

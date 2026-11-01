@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import { Article, Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
-import { AdBanner } from './AdBanner.tsx';
 
 interface ArticleViewProps {
   article: Article;
@@ -159,7 +158,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
   const tableOfContents = Array.isArray(rawToc) ? rawToc : [];
 
   return (
-    <article className="bg-white rounded-3xl shadow-xl border border-[#D4AF37]/35 p-6 sm:p-12">
+    <article className="bg-white rounded-3xl shadow-xl border border-[#D4AF37]/35 p-5 sm:p-8">
       {/* Top Header Navigation Bar with Back and Next/Prev quick controls */}
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-[#D4AF37]/20 pb-4">
         <button
@@ -334,43 +333,21 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
       )}
 
       {/* Article Body Sections */}
-      <div className="space-y-8 text-sm sm:text-base text-[#18181B]/90 leading-relaxed font-light">
+      <div className="space-y-6 text-sm sm:text-base text-[#18181B]/90 leading-relaxed font-light">
         {sections.map((section, idx) => (
-          <React.Fragment key={idx}>
-            <div className="space-y-3">
-              <h2 className="text-lg sm:text-2xl font-bold text-[#18181B] font-serif-luxury pt-2 border-t border-[#D4AF37]/15">
-                {language === 'ar' ? String(section.headingAr || '') : String(section.headingEn || '')}
-              </h2>
-              <div className="text-justify whitespace-pre-line leading-relaxed text-[#18181B]/80">
-                {language === 'ar' ? String(section.contentAr || '') : String(section.contentEn || '')}
-              </div>
+          <div key={idx} className="space-y-2.5">
+            <h2 className="text-lg sm:text-2xl font-bold text-[#18181B] font-serif-luxury pt-2 border-t border-[#D4AF37]/15">
+              {language === 'ar' ? String(section.headingAr || '') : String(section.headingEn || '')}
+            </h2>
+            <div className="text-justify whitespace-pre-line leading-relaxed text-[#18181B]/80">
+              {language === 'ar' ? String(section.contentAr || '') : String(section.contentEn || '')}
             </div>
-
-            {/* Strategic In-Article Ad Units for high viewability */}
-            {idx === 0 && (
-              <AdBanner
-                slot="2468013579"
-                type="in-article"
-              />
-            )}
-            {idx === 2 && (
-              <AdBanner
-                slot="1357924680"
-                type="in-article"
-              />
-            )}
-          </React.Fragment>
+          </div>
         ))}
       </div>
 
-      {/* Pre-Engagement Bottom Ad Banner */}
-      <AdBanner
-        slot="9876543210"
-        type="display"
-      />
-
       {/* Reader Engagement & Feedback Box */}
-      <div className="my-10 p-6 bg-gradient-to-r from-[#FAF8F5] via-white to-[#FAF8F5] border border-[#D4AF37]/35 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-right rtl:sm:text-right ltr:sm:text-left shadow-xs">
+      <div className="my-6 p-5 bg-gradient-to-r from-[#FAF8F5] via-white to-[#FAF8F5] border border-[#D4AF37]/35 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right rtl:sm:text-right ltr:sm:text-left shadow-xs">
         <div className="space-y-1">
           <h4 className="text-base font-bold text-[#18181B] font-serif-luxury">
             {language === 'ar' ? 'هل كان هذا التحليل التخصصي مفيداً ومثرياً لك؟' : 'Was this specialized gemological analysis valuable to you?'}
@@ -400,8 +377,8 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
 
       {/* Dedicated Next & Previous Article Navigation */}
       {safeAllArticles.length > 1 && (
-        <nav aria-label="Article Pagination" className="my-10 pt-8 border-t-2 border-[#D4AF37]/30">
-          <div className="flex items-center justify-between mb-4">
+        <nav aria-label="Article Pagination" className="my-6 pt-5 border-t border-[#D4AF37]/20">
+          <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <Bookmark className="w-4 h-4 text-[#D4AF37]" />
               <h3 className="text-sm font-bold text-[#18181B] font-serif-luxury uppercase tracking-wider">
@@ -483,7 +460,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
 
       {/* Related Dissertations */}
       {related.length > 0 && (
-        <div className="pt-8 border-t border-[#D4AF37]/20">
+        <div className="pt-5 border-t border-[#D4AF37]/20">
           <h3 className="text-sm font-bold text-[#18181B] font-serif-luxury uppercase tracking-wider mb-4">
             {language === 'ar' ? 'مقالات وأبحاث مجوهرات ذات صلة' : 'Recommended Gemological Dissertations'}
           </h3>
