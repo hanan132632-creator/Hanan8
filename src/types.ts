@@ -48,6 +48,17 @@ export interface CartItem {
   certificateRequested: boolean;
 }
 
+export interface ArticleSource {
+  titleAr: string;
+  titleEn: string;
+  institutionAr: string;
+  institutionEn: string;
+  documentNo: string;
+  year: string;
+  scopeAr: string;
+  scopeEn: string;
+}
+
 export interface Author {
   nameAr: string;
   nameEn: string;
@@ -56,6 +67,13 @@ export interface Author {
   credentialsAr: string;
   credentialsEn: string;
   avatar: string;
+  bioAr?: string;
+  bioEn?: string;
+  licenseNo?: string;
+  membershipId?: string;
+  specializationAr?: string;
+  specializationEn?: string;
+  email?: string;
 }
 
 export interface Article {
@@ -76,6 +94,7 @@ export interface Article {
   featuredImage: string;
   tableOfContentsAr: string[];
   tableOfContentsEn: string[];
+  sources?: ArticleSource[];
   sections: {
     headingAr: string;
     headingEn: string;

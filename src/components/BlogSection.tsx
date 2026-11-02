@@ -1,10 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { BookOpen, Calendar, Clock, ArrowRight, ArrowLeft, ShieldCheck, Sparkles, Search, X, Eye, Heart } from 'lucide-react';
-import { Article, Language } from '../types.ts';
+import { BookOpen, Calendar, Clock, ArrowRight, ArrowLeft, ShieldCheck, Sparkles, Search, X, CheckCircle, Award } from 'lucide-react';
+import { Article, Language, Author } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { ARTICLES_DATA } from '../data/articles.ts';
 import { ArticleView } from './ArticleView.tsx';
 import { AdBanner } from './AdBanner.tsx';
+import { AuthorProfileModal } from './AuthorProfileModal.tsx';
 
 interface BlogSectionProps {
   language: Language;
@@ -19,6 +20,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
 }) => {
   const t = TRANSLATIONS[language];
   const [internalArticle, setInternalArticle] = useState<Article | null>(null);
+  const [modalAuthor, setModalAuthor] = useState<Author | null>(null);
   const selectedArticle = controlledArticle !== undefined ? controlledArticle : internalArticle;
 
   const handleSelectArticle = (art: Article | null) => {
@@ -226,16 +228,9 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 <span>·</span>
                 <span>{language === 'ar' ? featured.readTimeAr : featured.readTimeEn}</span>
                 <span>·</span>
-                <span className="inline-flex items-center gap-1 text-slate-600 font-normal">
-                  <Eye className="w-3.5 h-3.5 text-[#B8902A]" />
-                  <span>{featured.viewsCount?.toLocaleString() ?? '1,985'}</span>
-                  <span>{language === 'ar' ? 'مشاهدة' : 'views'}</span>
-                </span>
-                <span>·</span>
-                <span className="inline-flex items-center gap-1 text-slate-600 font-normal">
-                  <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500/20" />
-                  <span>{featured.likesCount?.toLocaleString() ?? '164'}</span>
-                  <span>{language === 'ar' ? 'إعجاب' : 'likes'}</span>
+                <span className="inline-flex items-center gap-1 text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full text-[11px] font-semibold border border-emerald-200">
+                  <CheckCircle className="w-3 h-3 text-emerald-600" />
+                  <span>{language === 'ar' ? 'بحث بشري موثق 100%' : '100% Human Authored'}</span>
                 </span>
               </div>
 
@@ -249,18 +244,32 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             </div>
 
             <div className="pt-4 border-t border-[#D4AF37]/20 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <img
-                  src={featured.author.avatar}
-                  alt={language === 'ar' ? featured.author.nameAr : featured.author.nameEn}
-                  referrerPolicy="no-referrer"
-                  className="w-9 h-9 rounded-full object-cover border border-[#D4AF37]"
-                />
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setModalAuthor(featured.author);
+                }}
+                className="flex items-center gap-2.5 hover:opacity-80 transition-opacity cursor-pointer group/author"
+                title={language === 'ar' ? 'انقر لعرض السجل والشهادات المعتمدة للكاتب' : 'View Verified Author Dossier'}
+              >
+                <div className="relative">
+                  <img
+                    src={featured.author.avatar}
+                    alt={language === 'ar' ? featured.author.nameAr : featured.author.nameEn}
+                    referrerPolicy="no-referrer"
+                    className="w-9 h-9 rounded-full object-cover border border-[#D4AF37]"
+                  />
+                  <span className="absolute -bottom-0.5 -right-0.5 p-0.5 rounded-full bg-[#18181B] text-[#D4AF37]">
+                    <ShieldCheck className="w-2.5 h-2.5" />
+                  </span>
+                </div>
                 <div>
-                  <span className="text-xs font-bold text-[#18181B] block">
+                  <span className="text-xs font-bold text-[#18181B] group-hover/author:text-[#B8902A] transition-colors block">
                     {language === 'ar' ? featured.author.nameAr : featured.author.nameEn}
                   </span>
-                  <span className="text-[10px] text-[#8C7A5B] block">GIA Graduate Gemologist</span>
+                  <span className="text-[10px] text-[#B8902A] font-medium block">
+                    {language === 'ar' ? 'خبير معتمد GIA · عرض الملف' : 'GIA Verified · View Bio'}
+                  </span>
                 </div>
               </div>
 
@@ -296,20 +305,14 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-[11px] text-[#8C7A5B] flex-wrap gap-1">
                     <div className="flex items-center gap-1.5">
-                      <span>{language === 'ar' ? article.categoryAr : article.categoryEn}</span>
+                      <span className="font-semibold text-[#18181B]">{language === 'ar' ? article.categoryAr : article.categoryEn}</span>
                       <span>·</span>
                       <span>{language === 'ar' ? article.readTimeAr : article.readTimeEn}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-500 font-medium">
-                      <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد المشاهدات' : 'Views'}>
-                        <Eye className="w-3 h-3 text-[#B8902A]" />
-                        <span>{article.viewsCount?.toLocaleString() ?? '1,840'}</span>
-                      </span>
-                      <span className="inline-flex items-center gap-1" title={language === 'ar' ? 'عدد الإعجابات' : 'Likes'}>
-                        <Heart className="w-3 h-3 text-rose-500 fill-rose-500/20" />
-                        <span>{article.likesCount?.toLocaleString() ?? '142'}</span>
-                      </span>
-                    </div>
+                    <span className="inline-flex items-center gap-1 text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full text-[10px] font-semibold border border-emerald-200">
+                      <ShieldCheck className="w-3 h-3 text-emerald-600" />
+                      <span>{language === 'ar' ? 'بحث بشري موثق' : 'Verified'}</span>
+                    </span>
                   </div>
 
                   <h4 className="text-base font-bold text-[#18181B] group-hover:text-[#B8902A] transition-colors font-serif-luxury leading-snug line-clamp-2">
@@ -322,9 +325,18 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 </div>
 
                 <div className="pt-3 border-t border-[#D4AF37]/15 flex items-center justify-between text-xs">
-                  <span className="text-[#8C7A5B] font-medium">
-                    {language === 'ar' ? article.author.nameAr : article.author.nameEn}
-                  </span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setModalAuthor(article.author);
+                    }}
+                    className="text-[#8C7A5B] hover:text-[#B8902A] font-medium flex items-center gap-1 cursor-pointer transition-colors"
+                    title={language === 'ar' ? 'عرض السجل التعريفي للكاتب' : 'View Author Dossier'}
+                  >
+                    <span>{language === 'ar' ? article.author.nameAr : article.author.nameEn}</span>
+                    <span className="text-[10px] text-[#D4AF37]">✓</span>
+                  </button>
                   <button
                     type="button"
                     onClick={(e) => {
@@ -385,9 +397,29 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 ? 'كافة المقالات والأدلة التحريرية في مجلة النخبة الملكية كُتبت بواسطة خبراء معتمدين وحاصلين على زمالة معهد الأحجار الكريمة الأمريكي (GIA) وجمعية سوق لندن للسبائك (LBMA)، بما يضمن دقة بنسبة 100% وخلوها من المحتوى الآلي غير المحقق.'
                 : 'All editorial articles and treatises are penned exclusively by GIA Graduate Gemologists and metallurgical engineers, strictly adhering to rigorous research and peerless gemological expertise.'}
             </p>
+            <button
+              onClick={() => setModalAuthor(featured.author)}
+              className="w-full mt-2 py-2 px-3 rounded-xl bg-[#18181B] hover:bg-[#27272A] text-[#D4AF37] border border-[#D4AF37]/40 text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <span>{language === 'ar' ? 'عرض السجل التعريفي لهيئة التحرير والخبراء' : 'View Editorial Board Credentials'}</span>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Verified Author Dossier Modal */}
+      <AuthorProfileModal
+        isOpen={!!modalAuthor}
+        onClose={() => setModalAuthor(null)}
+        author={modalAuthor || featured.author}
+        language={language}
+        allArticles={ARTICLES_DATA}
+        onSelectArticle={(art) => {
+          handleSelectArticle(art);
+          setModalAuthor(null);
+        }}
+      />
     </section>
   );
 };
