@@ -1668,6 +1668,161 @@ The hallmark of royal craftsmanship lies in multi-functional transformable mecha
       },
     ],
   },
+  // 32. دليل استثمار مجوهرات العرائس الملكية 2026
+  {
+    id: 'royal-bridal-jewelry-investment-masterclass-2026',
+    slug: 'royal-bridal-jewelry-investment-masterclass-2026',
+    titleAr: 'دليل استثمار مجوهرات العرائس الملكية 2026: أسرار اختيار طقم الزفاف الماسي، هندسة الأوزان، وشهادات النقاء المعتمدة',
+    titleEn: 'Royal Bridal High Jewelry Investment Guide 2026: Diamond Wedding Suite Curation, Ergonomic Balancing & Accredited Certification Protocols',
+    summaryAr: 'دراسة متعمقة وموسعة صِيغت بقلم أخصائية استشارات الأعراس الملكية ومقتنيات النخبة؛ تكشف المعايير العلمية والهندسية الحاكمة لاختيار أطقم الزفاف الماسية الخالدة، توازن توزيع الأوزان الهيكلية، قواعد فحص شهادات GIA وSSEF، واستراتيجيات حفظ القيمة المالية والتوريث الاستثماري كأصول عائلية سيادية.',
+    summaryEn: 'An exhaustive masterclass authored by a senior royal bridal consultant: detailing the engineering and gemological criteria for selecting natural diamond bridal parures, structural weight distribution ergonomics, GIA/SSEF certificate verification, and long-term asset preservation for royal weddings.',
+    categoryAr: 'أسرار الأناقة والاقتناء',
+    categoryEn: 'Fine Jewelry Styling & Curation',
+    publishDate: '2026-11-05',
+    readTimeAr: '14 دقيقة قراءة متعمقة',
+    readTimeEn: '14 min deep read',
+    viewsCount: 6120,
+    likesCount: 540,
+    featuredImage: heroImg,
+    author: {
+      nameAr: 'الأستاذة مها التميمي',
+      nameEn: 'Maha Al-Tamimi',
+      titleAr: 'مستشارة تنسيق المجوهرات الفاخرة والأعراس الملكية ومؤلفة دليل الإتيكيت المعاصر',
+      titleEn: 'Haute Joaillerie Bridal & Stylist Consultant',
+      credentialsAr: 'خبرة 15 عاماً في تنسيق أطقم المجوهرات الملكية والعرائسية في الشرق الأوسط، معتمدة من CIBJO',
+      credentialsEn: '15 years consulting royal brides across the Gulf, certified CIBJO & High Jewelry Stylist',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
+    },
+    tableOfContentsAr: [
+      'مقدمة بقلم الخبير: فلسفة اقتناء طقم الزفاف الملكي بين الأناقة والاستثمار السيادي',
+      '1. ركائز طقم العروس الملكي المكتمل: التاج، القلادة، الأقراط المتدلية، وسوار التنس',
+      '2. معايير اختيار الألماس الحر: النقاء البصري D-F والتصنيف المجهري VVS1-VS1',
+      '3. هندسة الأوزان والمرونة الهيكلية: كيف يضمن البلاتينوم 950 ارتداءً مريحاً طوال ليلة الزفاف؟',
+      '4. التناغم بين قصة الألماس وخطوط ياقة فستان الزفاف (Neckline & Diamond Cut Dynamics)',
+      '5. بروتوكول التوثيق والشهادات المخبرية: لماذا تُعد شهادة GIA حجر الزاوية لأمان الاستثمار؟',
+      '6. خطوات الرعاية والصيانة الدورية للحفاظ على بريق طقم الزفاف للأجيال القادمة',
+    ],
+    tableOfContentsEn: [
+      'Expert Preface: The Philosophy of Royal Bridal Suite Curation — Adornment Meets Wealth Retention',
+      '1. The Anatomy of a Full Royal Bridal Parure: Coronation Tiara, Rivière Necklace, Drop Earrings & Tennis Bracelet',
+      '2. Natural Diamond Curation: D-F Color Spectrum and VVS1-VS1 Microscope Clarity Benchmarks',
+      '3. Structural Ergonomics & Fluid Mechanics: How Platinum 950 Guarantees All-Night Gala Comfort',
+      '4. Chromatic & Cut Dynamics: Harmonizing Diamond Shapes with Bridal Necklines',
+      '5. Verification & Laboratory Certification Protocol: Why Dual GIA/SSEF Accreditation Protects Your Wealth',
+      '6. Generational Maintenance Cadence: Preserving the Brilliance of Royal Bridal Treasures',
+    ],
+    sections: [
+      {
+        headingAr: 'مقدمة بقلم الخبير: فلسفة اقتناء طقم الزفاف الملكي بين الأناقة والاستثمار السيادي',
+        headingEn: 'Expert Preface: The Philosophy of Royal Bridal Suite Curation — Adornment Meets Wealth Retention',
+        contentAr: `على مدار 15 عاماً قضيتها في تقديم الاستشارات الخاصة للعرائس والعائلات الملكية في منطقة الخليج العربي وأوروبا، ظل طقم الزفاف الماسي هو أكثر القطع تعبيراً عن لحظة الفخامة الكبرى في حياة العروس. ورغم أن القيمة الجمالية واللحظية تُشكل الدافع الأول للشراء، فإن العائلات الأرستقراطية تنظر إلى طقم الزفاف بصورته الحقيقية: "أصل استثماري سيادي عائلي يجمع بين البهاء البصري والقيمة المالية المتنامية عبر العقود".
+
+اختيار طقم الزفاف لا يخضع للموضة العابرة؛ فالقطعة الفاخرة بحق هي التي تمتلك بنية هندسية متوازنة وتفاصيل صياغة يدوية بالبلاتينوم 950 أو الذهب عيار 18k، مرصعة بأحجار ألماس طبيعي مائة بالمائة تمتلك أداءً ضوئياً متفجراً (Scintillation) وتحمل وثائق اعتماد مخبرية مستقلة تجعل من القطعة وثيقة ثروة قابلة للتوارث عبر الأجيال بدون أي فقدان للقيمة.`,
+        contentEn: `Over 15 years advising royal brides and elite families across the Gulf and Europe, the bridal high jewelry suite remains the single most significant investment of a bride's lifetime. While emotional resonance initiates the acquisition, aristocratic traditions treat the bridal suite as what it fundamentally is: a sovereign physical asset fusing aesthetic grandeur with decade-transcending capital appreciation.
+
+Royal bridal curation rejects ephemeral trends. True Haute Joaillerie bridal suites possess articulated platinum 950 or 18k gold frameworks set exclusively with 100% natural, unenhanced diamonds engineered for maximum optical scintillation and backed by dual laboratory passports.`,
+      },
+      {
+        headingAr: '1. ركائز طقم العروس الملكي المكتمل: التاج، القلادة، الأقراط المتدلية، وسوار التنس',
+        headingEn: '1. The Anatomy of a Full Royal Bridal Parure: Coronation Tiara, Rivière Necklace, Drop Earrings & Tennis Bracelet',
+        contentAr: `يتكون طقم الزفاف الملكي المتكامل (Grand Bridal Parure) من أربع ركائز أساسية تتناغم هندسياً وبصرياً:
+
+1. **التاج الملكي أو عصابة الألماس (Royal Bridal Tiara / Diadem):**
+يُعد التاج ذروة الفخامة؛ حيث يُشترط فيه خفة الوزن الإنشائي بفضل استخدام هيكل البلاتينوم 950 دقيق الأسلاك، مع إمكانية فك الجزء العلوي ليتحول إلى عقد ريفيرا أو بروش مستقل.
+
+2. **القلادة الإمبراطورية المتدرجة (Imperial Graduated Rivière Necklace):**
+تتكون القلادة الملكية من صفوف ماسية متدرجة تبدأ من أحجار بحجم 0.30 قيراط عند خلف الرقبة وتتدرج بسلاسة حتى الحجر المركزي الذي يتراوح بين 2.00 و 5.00 قيراط. يضمن الترصيع المفصلي الخفي (Invisible Articulation) استلقاء القلادة باستقامة تامة على الترقوة دون أي انثنار أثناء الحركة.
+
+3. **الأقراط الماسية المتدلية (Chandler & Drop Earrings):**
+تأتي بطول يتناسب مع تسريحة الشعر وتصميم الياقة، وتتميز بحجر ماسي سفلي مقطوع بقصة الكمثرى (Pear Cut) أو البيضاوي (Oval Cut) يعكس الضوء مباشرة نحو الوجنتين والعينين.
+
+4. **سوار التنس الماسي المزدوج (Bridal Tennis Bracelet):**
+يتميز بآلية قفل صندوقي مزدوج (Dual Safety Box Clasp) يضمن حماية السوار من السقوط العرضي، مع حركات مفصلية ناعمة تحيط بالمعصم بمرونة كاملة.`,
+        contentEn: `A full sovereign bridal parure comprises four harmonized architectural pillars:
+
+1. The Convertible Coronation Tiara: Engineered with lightweight platinum 950 wirework, featuring detachable central motifs converting into standalone brooches or necklaces.
+2. The Imperial Graduated Rivière Necklace: Articulated diamond cascades expanding from 0.30 ct nape accents to a commanding 2.00–5.00 ct centerpiece, utilizing invisible hinges for flat anatomical drape.
+3. The Chandelier Drop Earrings: Suspended with matched pear or oval brilliant diamonds calibrated to reflect ambient gala light across the jawline.
+4. The Dual-Safety Tennis Bracelet: Formulated with continuous brilliant diamonds secured by dual-latch box locks to prevent accidental release during gala movement.`,
+      },
+      {
+        headingAr: '2. معايير اختيار الألماس الحر: النقاء البصري D-F والتصنيف المجهري VVS1-VS1',
+        headingEn: '2. Natural Diamond Curation: D-F Color Spectrum and VVS1-VS1 Microscope Clarity Benchmarks',
+        contentAr: `في طقم الزفاف الملكي، تكون العين مجرد خط الدفاع الأول، بينما الفحص المجهري المخبري هو الحكم الفاصل. نعتمد معايير اختيار صارمة للألماس:
+
+- **الدرجة اللونية عديمة اللون تماماً (D, E, F):** يُشترط أن تكون جميع الأحجار الماسيّة المكونة للطقم ضمن هذه الفئة النادرة، مع التطابق التام في الدرجة اللونية بين الأحجار الصغيرة والكبيرة لمنع ظهور أي تباين أصفر غير متناسق تحت إضاءة القاعة.
+- **مقياس النقاء المجهري (VVS1 - VS1):** خلو الأحجار من الشوائب الداكنة المركزية. الشوائب المجهرية إن وجدت يجب أن تكون خفيفة ودقيقة جداً تقع تحت الأوجه الجانبية (Crown Facets) بحيث لا تؤثر نهائياً على انكسار الضوء.
+- **القطع الثلاثي التميز (Triple Excellent Cut, Polish & Symmetry):** يضمن زوايا تاج بنسبة 34.5 درجة وزوايا قاعدة بنسبة 40.7 درجة تحقيقاً لأعلى درجات الانعكاس الضوئي الكلي (Total Internal Reflection).
+- **الخلو التام من الفلورسنس:** استبعاد الأحجار ذات الفلورسنس الأزرق القوي لمنع حدوث الضبابية (Milky Haze) في الصور الضوئية تحت الفلاش والضوء الطبيعي.`,
+        contentEn: `In royal bridal parures, gemological precision governs stone selection:
+
+- Color Spectrum: Strictly confined to D-F Colorless grades, meticulously color-matched across both accent melee and solitaire centerpieces to guarantee unbroken visual purity under gala illumination.
+- Microscopic Clarity: VVS1 to VS1 ratings ensuring inclusions remain micro-fine and peripheral, positioned away from the table facet to maintain optical velocity.
+- Triple Excellent Calibration: Proportions engineered with 34.5° crown angles and 40.7° pavilion angles to yield 100% total internal light return.
+- Zero Blue Fluorescence: Absolute exclusion of medium/strong fluorescence to eliminate milky haze under camera flash.`,
+      },
+      {
+        headingAr: '3. هندسة الأوزان والمرونة الهيكلية: كيف يضمن البلاتينوم 950 ارتداءً مريحاً طوال ليلة الزفاف؟',
+        headingEn: '3. Structural Ergonomics & Fluid Mechanics: How Platinum 950 Guarantees All-Night Gala Comfort',
+        contentAr: `أحد أكبر التحديات في تصميم أطقم الزفاف الثقيلة هو "الإرهاق الجسدي للعروس" نتيجة الوزن أو خشن الأجزاء المعدنية. حل هذه المشكلة يكمن في هندسة المواد والفيزياء الهيكلية:
+
+1. **اعتماد سبيكة البلاتينوم 950 (Pt950):** البلاتينوم نقي بنسبة 95% ومضاد للحساسية الجلدية تماماً (Hypoallergenic). وبفضل متانته العالية، يمكن للصائغ تقليل سمك الحوامل المعدنية دون التضحية بأمان تثبيت الأحجار، مما يمنح القطعة خفة وانسيابية مذهلة.
+2. **المفصلات المجهرية الدقيقة (Micro-Articulated Joints):** توصيل كل قطعة ماسية بالتي تليها عبر مفصل مجهري مفرغ يسمح للقلادة والسوار بالانثناء والدوران بحرية 360 درجة، متكيّفة تماماً مع انحناءات الجسد أثناء المشي والحركة.
+3. **توزيع مركز الثقل (Center of Gravity Balance):** توازن وزن التاج والقلادة يضمن عدم انزلاق القطعة للأمام أو الخلف، مما يوفر راحة كاملة للعروس طوال ساعات الاحتفال.`,
+        contentEn: `Engineering structural ergonomics solves the physical burden of wearing high-carat bridal parures:
+
+1. Platinum 950 Metallurgy: Pt950’s extreme tensile strength allows master jewelers to minimize visible metal volume while enhancing prong security, yielding a hypoallergenic, lightweight tactile presence.
+2. Micro-Articulated Linking: Inter-gem joints feature hollowed micro-hinges providing 360° fluid movement that drapes naturally across contour lines without binding.
+3. Center-of-Gravity Equilibrium: Weight distribution across tiaras and necklaces is mathematically counterbalanced to eliminate forward slippage and pressure points during extended wear.`,
+      },
+      {
+        headingAr: '4. التناغم بين قصة الألماس وخطوط ياقة فستان الزفاف (Neckline & Diamond Cut Dynamics)',
+        headingEn: '4. Chromatic & Cut Dynamics: Harmonizing Diamond Shapes with Bridal Necklines',
+        contentAr: `لتحقيق أقصى درجات التناغم الجمالي، يجب اختيار قصة الألماس وشكل القلادة بناءً على الهندسة المعمارية لياقة فستان الزفاف:
+
+- **الياقة المفتوحة المكشوفة (Sweetheart & Strapless Necklines):** تتماشى مع القلائد الماسية الغنية من نمط الريفيرا المزدوجة (Double-Row Riviera) أو القلائد المرصعة بأحجار ماسية دائرية (Round Brilliant) وكمثرية متعاقبة.
+- **ياقة الـ V-Neck العميقة:** تتطلب قلادة ذات دلاية ماسية متدلية بحجم كبير (Drop Pendant) بقطع البيضاوي أو قصة الكوشين (Cushion Cut) لتوجيه النظر عمودياً نحو الرقبة.
+- **الياقة العالية الدانتيل (High-Neck & Illusion Lace):** يُفضل الاستغناء عن القلادة والتركيز الكامل على التاج الملكي والأقراط المتدلية الكبيرة (Chandelier Earrings) وسوار التنس العريض لضمان عدم تشابك المعدن مع خيوط الدانتيل الناعمة.`,
+        contentEn: `Aesthetic harmony relies on pairing diamond cut silhouettes with bridal gown architecture:
+
+- Strapless & Sweetheart Necklines: Best complemented by multi-row Riviera or graduated round brilliant cascades that frame the decolletage seamlessly.
+- Deep V-Necklines: Call for elongate drops anchored by substantial oval or cushion cut solitaires to visually accentuate vertical symmetry.
+- High Lace Necklines: Require omitting necklaces to avoid fabric abrasion, shifting focus to coronation tiaras, dramatic chandelier earrings, and multi-row tennis cuffs.`,
+      },
+      {
+        headingAr: '5. بروتوكول التوثيق والشهادات المخبرية: لماذا تُعد شهادة GIA حجر الزاوية لأمان الاستثمار؟',
+        headingEn: '5. Verification & Laboratory Certification Protocol: Why Dual GIA/SSEF Accreditation Protects Your Wealth',
+        contentAr: `شراء طقم زفاف ملكي بدون توثيق مخبري مستقل يمثل مخاطرة مالية غير مقبولة. لحماية ثروتكِ، تأكدي من تطبيق البنود التالية:
+
+1. **الشهادة الفردية لكل حجر رئيسي يزيد عن 0.50 قيراط:** يجب أن يحمل كل حجر في القلادة والأقراط شهادة مستقلة صادرة من معهد GIA الأمريكي تثبت وزنه ونقاءه ولونه ونسبة قطعه.
+2. **مطابقة النقش الليزري على الحزام (Girdle Serial Inscription):** مطابقة الرقم المحفور بالليزر على حافة كل ألماسة مع رقم الشهادة الورقية والإلكترونية عبر المجهر الرقمي بمتجر المجوهرات قبل توقيع الفاتورة.
+3. **التأمين الشامل الموثق بالفاتورة:** تضمين أرقام الشهادات والدمغات الرسمية (أختام العيار والبلاتينوم) في فاتورة الشراء القانونية لسهولة التامين الدولي وإحالة الملكية للمكاتب العائلية (Family Offices).`,
+        contentEn: `Securing high jewelry capital requires mandatory institutional documentation:
+
+1. Individual GIA Passports for Stones ≥ 0.50 ct: Every center stone must possess a standalone GIA dossier detailing carat, color, clarity, and Triple Excellent cut metrics.
+2. Girdle Laser Inscription Matching: Verifying micro-etched serial numbers on diamond girdles under 20x magnification to guarantee stone identity against laboratory databases.
+3. Binding Itemized Invoices: Legal sales records must explicitly list report numbers, metal hallmarks (Pt950 / 18k stamps), and gross weights to enable all-risk insurance and family office vault registration.`,
+      },
+      {
+        headingAr: '6. خطوات الرعاية والصيانة الدورية للحفاظ على بريق طقم الزفاف للأجيال القادمة',
+        headingEn: '6. Generational Maintenance Cadence: Preserving the Brilliance of Royal Bridal Treasures',
+        contentAr: `لتظل مجوهرات زفافكِ متألقة كأول يوم وتنتقل لأبنائكِ وأحفادكِ بكامل بهائها، اعدي هذا البروتوكول الدائم:
+
+1. **الحفظ الفردي في العلب المخملية المقسمة:** عدم وضع قطع الطقم الماسي معاً في علبة واحدة لتفادي احتكاك حواف الألماس الحادة (Girdles) ببعضها أو خدش معدن البلاتينوم.
+2. **تجنب المنظفات الكيميائية والعطور:** ارتداء طقم المجوهرات كآخر خطوة بعد إتمام المكياج ورش العطور؛ لحماية المعدن والأحجار من الرواسب الزيتية.
+3. **الصيانة المخبرية السنوية:** إحضار الطقم لورشة الصيانة الملكية كل 18 شهراً لإجراء فحص مجهري للمخالب (Prong Retipping)، وااختبار أقفال السلامة، والتنظيف بأمواج السونار فوق الصوتية.
+
+باتباع هذه الإرشادات العلمية، يظل طقم زفافكِ رمزاً خالداً للحب الملكي وأصلاً استثمارياً عالي القيمة يتوارثه الأجيال بكل فخر واعتزاز.`,
+        contentEn: `To ensure your royal bridal parure retains pristine brilliance across generations, maintain this preservation cadence:
+
+1. Individual Compartmentalized Velvet Storage: Isolate each jewel to prevent diamond-on-diamond micro-abrasion and metal scuffing.
+2. The Golden Rule of Adornment: Put on fine jewelry as the absolute final step after cosmetics, hairsprays, and perfumes to protect diamond tables from oil buildup.
+3. Biannual Bench Audits: Submit your suite every 18 months for binocular prong checkups, safety clasp tension adjustments, and ultrasonic cleaning.
+
+Adhering to these gemological directives preserves your wedding parure as a radiant testament to sovereign elegance and an enduring family asset.`,
+      },
+    ],
+  },
 ];
 
 
