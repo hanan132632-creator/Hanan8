@@ -878,11 +878,13 @@ export const ARTICLES_DATA: Article[] = [
   ...INITIAL_ARTICLES,
   ...ARTICLES_BATCH_2,
   ...ARTICLES_BATCH_3,
-].map((art) => {
-  const metric = ARTICLE_ENGAGEMENT_METRICS[art.id];
-  return {
-    ...art,
-    viewsCount: art.viewsCount ?? metric?.views ?? 1850,
-    likesCount: art.likesCount ?? metric?.likes ?? 142,
-  };
-});
+]
+  .map((art) => {
+    const metric = ARTICLE_ENGAGEMENT_METRICS[art.id];
+    return {
+      ...art,
+      viewsCount: art.viewsCount ?? metric?.views ?? 1850,
+      likesCount: art.likesCount ?? metric?.likes ?? 142,
+    };
+  })
+  .sort((a, b) => (b.publishDate || '').localeCompare(a.publishDate || ''));

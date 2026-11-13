@@ -17,7 +17,7 @@ import {
 import { Article, Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 import { AuthorProfileModal } from './AuthorProfileModal.tsx';
-import { getDocumentedSourcesForArticle } from '../data/authorDossiers.ts';
+import { getDocumentedSourcesForArticle, resolveAuthorDossier } from '../data/authorDossiers.ts';
 
 interface ArticleViewProps {
   article: Article;
@@ -83,6 +83,7 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
   const NextArrow = language === 'ar' ? ArrowLeft : ArrowRight;
 
   const documentedSources = getDocumentedSourcesForArticle(article.id, article.categoryAr || '');
+  const authorDossier = resolveAuthorDossier(author);
 
   const handleCopyLink = () => {
     try {
@@ -213,12 +214,15 @@ export const ArticleView: React.FC<ArticleViewProps> = ({
               </span>
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 flex-wrap">
                 <span className="text-sm font-bold text-[#18181B] font-serif-luxury group-hover:text-[#B8902A] transition-colors">
                   {language === 'ar' ? author.nameAr : author.nameEn}
                 </span>
                 <span className="text-[10px] px-1.5 py-0.2 rounded bg-[#D4AF37]/15 text-[#B8902A] font-semibold">
                   {language === 'ar' ? 'كاتب معتمد GIA' : 'GIA Verified'}
+                </span>
+                <span className="text-[10px] px-1.5 py-0.2 rounded bg-white border border-slate-200 text-[#18181B]/70 font-mono">
+                  {authorDossier.licenseNo}
                 </span>
               </div>
               <span className="text-xs text-[#8C7A5B] block">
