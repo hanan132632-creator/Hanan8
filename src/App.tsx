@@ -127,51 +127,145 @@ const parseRouteFromLocation = (): { tab: string; article: Article | null; categ
   return { tab: 'home', article: null };
 };
 
-const syncBrowserUrl = (tab: string, article: Article | null) => {
+const CATEGORY_SEO: Record<string, { title: string; desc: string }> = {
+  bridal: {
+    title: 'مجوهرات الزفاف والأطقم الملكية | بوتيك مجوهرات النخبة الملكية',
+    desc: 'أطقم الأعراس الملكية الفاخرة المرصعة بالألماس الطبيعي المعتمد من معهد GIA وصياغة البلاتينوم 950 والذهب الخالص.',
+  },
+  solitaire: {
+    title: 'خواتم السوليتير الألماسية المعتمدة | بوتيك مجوهرات النخبة الملكية',
+    desc: 'خواتم سوليتير الألماس الطبيعي بدرجات نقاء D-F وقطع Triple Excellent بشهادات GIA الرسمية.',
+  },
+  bracelets: {
+    title: 'أساور التنس الماسية واللؤلؤ الملكي | بوتيك مجوهرات النخبة الملكية',
+    desc: 'أساور التنس المرصعة بالألماس الطبيعي وأساور اللؤلؤ البحري بالذهب الأبيض والأصفر عيار 18k.',
+  },
+  necklaces: {
+    title: 'قلائد وعقود النخبة الماسية والأحجار الكريمة | بوتيك مجوهرات النخبة الملكية',
+    desc: 'قلائد ريفيرا الماسية وعقود الزمرد الكولومبي والياقوت الملكي بتصاميم أرستقراطية خالدة.',
+  },
+  investment: {
+    title: 'سبائك الذهب الاستثمارية عيار 24k النقية 999.9 | بوتيك مجوهرات النخبة الملكية',
+    desc: 'سبائك ذهب خالص معتمدة من LBMA عيار 24 قيراط (999.9) لحفظ الثروات والاستثمار السيادي.',
+  },
+  daily: {
+    title: 'المجوهرات اليومية الراقية والفضة الإسترلينية 925 | بوتيك مجوهرات النخبة الملكية',
+    desc: 'تشكيلة مجوهرات يومية ناعمة من الذهب عيار 18k والفضة الإسترلينية 925 المطلية بالروديوم.',
+  },
+};
+
+const TAB_SEO: Record<string, { title: string; desc: string }> = {
+  catalog: {
+    title: 'المتجر والكتالوج الفاخر للمجوهرات المعتمدة | بوتيك مجوهرات النخبة الملكية',
+    desc: 'استعرض تشكيلات الألماس الطبيعي المعتمد، الذهب عيار 18k و21k، سبائك 24k، والفضة الإسترلينية 925.',
+  },
+  journal: {
+    title: 'المجلة الجيولوجية وأبحاث المجوهرات الموثقة EEAT | بوتيك مجوهرات النخبة الملكية',
+    desc: 'مقالات علمية موثقة بأرقام الشهادات المخبرية GIA وLBMA وSSEF بقلم خبراء معتمدين في الأحجار الكريمة.',
+  },
+  tools: {
+    title: 'حاسبة أسعار الذهب المباشرة ومقياس مقاسات الخواتم | بوتيك مجوهرات النخبة الملكية',
+    desc: 'أدوات تفاعلية دقيقة لحساب سعر جرام الذهب حسب العيار والمصنعية وتحديد مقاسات الخواتم الدولية.',
+  },
+  about: {
+    title: 'لمحة عنا وهيئة التحرير الجيولوجية المعتمدة | بوتيك مجوهرات النخبة الملكية',
+    desc: 'تعرف على فريق خبراء الأحجار الكريمة GIA وLBMA والالتزام بمعايير المصداقية والنزاهة.',
+  },
+  contact: {
+    title: 'تواصل معنا والاستشارات الملكية VIP | بوتيك مجوهرات النخبة الملكية',
+    desc: 'مكتب الاستشارات الخاصة وحجز المعاينة الملكية في الرياض والتواصل المباشر مع خبراء المجوهرات.',
+  },
+  privacy: {
+    title: 'سياسة الخصوصية وحماية البيانات | بوتيك مجوهرات النخبة الملكية',
+    desc: 'سياسة الخصوصية الكاملة، حماية بيانات الزوار، وإعدادات ملفات تعريف الارتباط والإعلانات.',
+  },
+  terms: {
+    title: 'الشروط والأحكام وضمان الأصالة | بوتيك مجوهرات النخبة الملكية',
+    desc: 'شروط الاستخدام، شهادات الضمان المخبرية للألماس والمعادن الثمينة، وسياسات التوريث والصيانة.',
+  },
+};
+
+const updateHeadTags = (title: string, desc: string, canonicalHref: string) => {
+  document.title = title;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute('content', desc);
+
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', title);
+
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', desc);
+
+  const ogUrl = document.getElementById('og-url') || document.querySelector('meta[property="og:url"]');
+  if (ogUrl) ogUrl.setAttribute('content', canonicalHref);
+
+  let canonicalEl = document.getElementById('canonical-url') || document.querySelector('link[rel="canonical"]');
+  if (!canonicalEl) {
+    canonicalEl = document.createElement('link');
+    canonicalEl.setAttribute('rel', 'canonical');
+    canonicalEl.setAttribute('id', 'canonical-url');
+    document.head.appendChild(canonicalEl);
+  }
+  canonicalEl.setAttribute('href', canonicalHref);
+};
+
+const syncBrowserUrl = (tab: string, article: Article | null, category?: ProductCategory | 'all') => {
   try {
     const url = new URL(window.location.href);
+    const base = 'https://hanan.blog';
+
     if (article) {
-      url.searchParams.set('tab', 'journal');
-      url.searchParams.set('article', article.id);
-      url.hash = `article-${article.id}`;
+      url.pathname = '/';
+      url.search = `?tab=journal&article=${encodeURIComponent(article.id)}`;
+      url.hash = '';
       window.history.replaceState({ tab: 'journal', articleId: article.id }, '', url.toString());
 
-      // Update document title, description, and canonical tag
-      const title = `${article.titleAr} | بوتيك مجوهرات النخبة الملكية`;
-      document.title = title;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute('content', article.summaryAr || '');
-      const canonicalEl = document.getElementById('canonical-url') || document.querySelector('link[rel="canonical"]');
-      if (canonicalEl) {
-        canonicalEl.setAttribute('href', `https://hanan.blog/?tab=journal&article=${article.id}`);
-      }
-    } else {
-      if (tab === 'home') {
-        url.search = '';
+      const canonical = `${base}/?tab=journal&article=${article.id}`;
+      updateHeadTags(
+        `${article.titleAr} | بوتيك مجوهرات النخبة الملكية`,
+        article.summaryAr || '',
+        canonical
+      );
+    } else if (tab === 'home') {
+      url.pathname = '/';
+      url.search = '';
+      url.hash = '';
+      window.history.replaceState({ tab: 'home' }, '', url.toString());
+      updateHeadTags(
+        'بوتيك مجوهرات النخبة الملكية | Royal Elite High Jewelry Boutique',
+        'بوتيك مجوهرات النخبة الملكية الفاخر - تشكيلات ألماس معتمد، ذهب خالص، وفضة استرلينية 925 مع مجلة مجوهرات متخصصة وأدوات تسعير وقياس تفاعلية حصرية.',
+        `${base}/`
+      );
+    } else if (tab === 'sitemap') {
+      const isDirectXmlPath = window.location.pathname.toLowerCase().endsWith('sitemap.xml');
+      if (!isDirectXmlPath) {
+        url.pathname = '/';
+        url.search = '?tab=sitemap';
         url.hash = '';
-        window.history.replaceState({ tab: 'home' }, '', url.pathname);
-        document.title = 'بوتيك مجوهرات النخبة الملكية | Royal Elite High Jewelry Boutique';
-        const canonicalEl = document.getElementById('canonical-url') || document.querySelector('link[rel="canonical"]');
-        if (canonicalEl) canonicalEl.setAttribute('href', 'https://hanan.blog/');
-      } else if (tab === 'sitemap') {
-        const isDirectXmlPath = window.location.pathname.toLowerCase().endsWith('sitemap.xml');
-        if (!isDirectXmlPath) {
-          url.searchParams.set('tab', 'sitemap');
-          url.searchParams.delete('article');
-          url.hash = 'sitemap';
-          window.history.replaceState({ tab: 'sitemap' }, '', url.toString());
-        }
-        document.title = 'خريطة الموقع الشاملة (روابط مباشرة) | مجوهرات النخبة الملكية';
-        const canonicalEl = document.getElementById('canonical-url') || document.querySelector('link[rel="canonical"]');
-        if (canonicalEl) canonicalEl.setAttribute('href', 'https://hanan.blog/sitemap.xml');
-      } else {
-        url.searchParams.set('tab', tab);
-        url.searchParams.delete('article');
-        url.hash = tab;
-        window.history.replaceState({ tab }, '', url.toString());
-        const canonicalEl = document.getElementById('canonical-url') || document.querySelector('link[rel="canonical"]');
-        if (canonicalEl) canonicalEl.setAttribute('href', `https://hanan.blog/?tab=${tab}`);
+        window.history.replaceState({ tab: 'sitemap' }, '', url.toString());
       }
+      updateHeadTags(
+        'خريطة الموقع الشاملة (روابط مباشرة) | مجوهرات النخبة الملكية',
+        'خريطة الموقع والفهرس المباشر لجميع صفحات وأقسام ومقالات بوتيك مجوهرات النخبة الملكية.',
+        `${base}/sitemap.xml`
+      );
+    } else if (tab === 'catalog' && category && category !== 'all') {
+      url.pathname = '/';
+      url.search = `?tab=catalog&category=${encodeURIComponent(category)}`;
+      url.hash = '';
+      window.history.replaceState({ tab: 'catalog', category }, '', url.toString());
+      const seo = CATEGORY_SEO[category] || TAB_SEO.catalog;
+      updateHeadTags(seo.title, seo.desc, `${base}/?tab=catalog&category=${category}`);
+    } else {
+      url.pathname = '/';
+      url.search = `?tab=${encodeURIComponent(tab)}`;
+      url.hash = '';
+      window.history.replaceState({ tab }, '', url.toString());
+      const seo = TAB_SEO[tab] || {
+        title: 'بوتيك مجوهرات النخبة الملكية | Royal Elite High Jewelry Boutique',
+        desc: 'بوتيك مجوهرات النخبة الملكية الفاخر - تشكيلات ألماس معتمد وذهب خالص وفضة 925.',
+      };
+      updateHeadTags(seo.title, seo.desc, `${base}/?tab=${tab}`);
     }
   } catch {}
 };
@@ -225,7 +319,7 @@ export default function App() {
 
   // Sync route on mount and on popstate/hashchange
   useEffect(() => {
-    syncBrowserUrl(activeTab, selectedArticle);
+    syncBrowserUrl(activeTab, selectedArticle, selectedCategory);
 
     const handleUrlChange = () => {
       const route = parseRouteFromLocation();
@@ -285,14 +379,17 @@ export default function App() {
   };
 
   const handleTabChange = (tab: string, category?: ProductCategory | string) => {
+    const nextCategory = category ? (category as ProductCategory) : tab === 'catalog' ? 'all' : selectedCategory;
     if (category) {
       setSelectedCategory(category as ProductCategory);
+    } else if (tab === 'catalog') {
+      setSelectedCategory('all');
     }
     setActiveTab(tab);
     if (tab === 'journal') {
       setSelectedArticle(null);
     }
-    syncBrowserUrl(tab, null);
+    syncBrowserUrl(tab, null, tab === 'catalog' ? nextCategory : undefined);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -904,6 +1001,10 @@ export default function App() {
             onQuickView={setQuickViewProduct}
             onAddToCart={(p) => handleAddToCart(p)}
             initialCategory={selectedCategory}
+            onCategoryChange={(cat) => {
+              setSelectedCategory(cat);
+              syncBrowserUrl('catalog', null, cat);
+            }}
           />
         )}
 

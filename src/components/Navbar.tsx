@@ -45,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { id: 'home', label: t.navHome, url: '/?tab=home' },
+    { id: 'home', label: t.navHome, url: '/' },
     { id: 'catalog', label: t.theStore, url: '/?tab=catalog' },
     {
       id: 'journal',
@@ -134,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
 
           <a
-            href="/?tab=home"
+            href="/"
             onClick={(e) => handleLink(e, 'home')}
             className="text-left text-current group cursor-pointer focus:outline-hidden no-underline"
           >

@@ -82,8 +82,8 @@ export const SitemapView: React.FC<SitemapViewProps> = ({
     {
       id: 'page-home',
       tab: 'home',
-      url: '/?tab=home',
-      fullUrl: `${baseUrl}/?tab=home`,
+      url: '/',
+      fullUrl: `${baseUrl}/`,
       titleAr: 'الصفحة الرئيسية للبوتيك الملكي',
       titleEn: 'Royal Boutique Homepage',
       descAr: 'واجهة الدار الرسمية، أحدث التشكيلات الماسية والذهبية، وشهادات الاعتماد GIA.',

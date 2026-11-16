@@ -70,7 +70,7 @@ export const SiteSectionsModal: React.FC<SiteSectionsModalProps> = ({
       color: 'text-[#D4AF37]',
       bg: 'bg-[#D4AF37]/15',
       actionTab: 'home',
-      directUrl: '/?tab=home',
+      directUrl: '/',
     },
     {
       id: 'catalog',

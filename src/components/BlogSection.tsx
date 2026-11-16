@@ -28,13 +28,11 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
       onControlledSelectArticle(art);
     } else {
       setInternalArticle(art);
+      try {
+        window.location.hash = art ? `article-${art.id}` : 'journal';
+      } catch {}
     }
     try {
-      if (art) {
-        window.location.hash = `article-${art.id}`;
-      } else {
-        window.location.hash = 'journal';
-      }
       window.scrollTo({ top: 0, behavior: 'auto' });
     } catch {
       // fallback

@@ -14,9 +14,42 @@
       content="بوتيك مجوهرات النخبة الملكية الفاخر - تشكيلات ألماس معتمد، ذهب خالص، وفضة استرلينية 925 مع مجلة مجوهرات متخصصة وأدوات تسعير وقياس تفاعلية حصرية."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hanan.blog/" />
+    <meta property="og:url" id="og-url" content="https://hanan.blog/" />
     <meta property="og:site_name" content="Royal Elite Jewels" />
-    <link rel="canonical" id="canonical-url" href="https://hanan.blog/" />
+    <script>
+      (function () {
+        try {
+          var base = 'https://hanan.blog';
+          var params = new URLSearchParams(window.location.search || '');
+          var rawPath = (window.location.pathname || '/').toLowerCase().replace(/\/+$/, '') || '/';
+          var tab = params.get('tab');
+          var article = params.get('article');
+          var category = params.get('category');
+          var canonical = base + '/';
+
+          if (article) {
+            canonical = base + '/?tab=journal&article=' + encodeURIComponent(article);
+          } else if (tab === 'catalog' && category && category !== 'all') {
+            canonical = base + '/?tab=catalog&category=' + encodeURIComponent(category);
+          } else if (tab === 'sitemap' || rawPath === '/sitemap.xml' || rawPath === '/sitemap') {
+            canonical = base + '/sitemap.xml';
+          } else if (tab && tab !== 'home') {
+            canonical = base + '/?tab=' + encodeURIComponent(tab);
+          } else if (rawPath !== '/' && rawPath !== '/home') {
+            canonical = base + rawPath;
+          }
+
+          var link = document.createElement('link');
+          link.rel = 'canonical';
+          link.id = 'canonical-url';
+          link.href = canonical;
+          document.head.appendChild(link);
+
+          var og = document.getElementById('og-url');
+          if (og) og.setAttribute('content', canonical);
+        } catch (e) {}
+      })();
+    </script>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="بوتيك مجوهرات النخبة الملكية | Royal Elite High Jewelry Boutique" />
     <meta

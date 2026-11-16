@@ -68,7 +68,7 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2 text-xs text-[#FAF8F5]/80">
               <li>
                 <a
-                  href="/?tab=home"
+                  href="/"
                   onClick={(e) => handleLink(e, 'home')}
                   className="hover:text-[#D4AF37] transition-colors cursor-pointer block"
                 >

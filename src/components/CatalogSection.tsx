@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Filter, SlidersHorizontal, RotateCcw, Gem, Sparkles, Heart } from 'lucide-react';
 import { Product, Language, ProductCategory, MetalType, GemstoneType } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
@@ -13,6 +13,7 @@ interface CatalogSectionProps {
   onQuickView: (product: Product) => void;
   onAddToCart: (product: Product) => void;
   initialCategory?: ProductCategory | 'all';
+  onCategoryChange?: (category: ProductCategory | 'all') => void;
 }
 
 export const CatalogSection: React.FC<CatalogSectionProps> = ({
@@ -23,6 +24,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
   onQuickView,
   onAddToCart,
   initialCategory = 'all',
+  onCategoryChange,
 }) => {
   const t = TRANSLATIONS[language];
 
@@ -34,8 +36,13 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
   const [showFiltersMobile, setShowFiltersMobile] = useState<boolean>(false);
   const [onlyWishlist, setOnlyWishlist] = useState<boolean>(false);
 
+  useEffect(() => {
+    setCategoryFilter(initialCategory);
+  }, [initialCategory]);
+
   const resetFilters = () => {
     setCategoryFilter('all');
+    if (onCategoryChange) onCategoryChange('all');
     setMetalFilter('all');
     setGemstoneFilter('all');
     setSortBy('featured');
