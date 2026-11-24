@@ -515,7 +515,7 @@ export default function App() {
                 {/* Direct quick navigation shortcuts with real <a> tags */}
                 <div className="flex items-center gap-1.5 flex-wrap justify-center text-[11px] font-medium text-white/90">
                   <a
-                    href="/?tab=home"
+                    href="/"
                     onClick={(e) => handleDirectLink(e, 'home')}
                     className="px-2.5 py-1 rounded-lg bg-[#D4AF37] text-[#18181B] font-bold shadow-xs transition-colors cursor-pointer flex items-center gap-1 no-underline"
                   >
@@ -636,7 +636,7 @@ export default function App() {
                 <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
                   {/* 1. الرئيسية */}
                   <a
-                    href="/?tab=home"
+                    href="/"
                     onClick={(e) => handleDirectLink(e, 'home')}
                     className="p-3.5 rounded-xl border-2 border-[#D4AF37] bg-white transition-all text-right rtl:text-right ltr:text-left group cursor-pointer shadow-xs hover:shadow no-underline block"
                   >
@@ -1108,9 +1108,6 @@ export default function App() {
         }}
       />
 
-      {/* Privacy & GDPR Cookie Consent Banner */}
-      <CookieBanner language={language} />
-
       {/* Comprehensive Footer */}
       <Footer
         language={language}
@@ -1118,6 +1115,9 @@ export default function App() {
         onOpenPrivacy={() => handleTabChange('privacy')}
         onOpenTerms={() => handleTabChange('terms')}
       />
+
+      {/* Compact Full-Width Privacy & GDPR Cookie Strip at the very bottom of the site */}
+      <CookieBanner language={language} />
 
       {/* Fixed Sticky Anchor Ad Banner at viewport bottom */}
       <StickyAnchorAd language={language} />

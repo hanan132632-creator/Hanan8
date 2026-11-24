@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, Settings, Check, X } from 'lucide-react';
+import { ShieldCheck, Settings, X } from 'lucide-react';
 import { Language } from '../types.ts';
 import { TRANSLATIONS } from '../data/translations.ts';
 
@@ -9,17 +9,22 @@ interface CookieBannerProps {
 
 export const CookieBanner: React.FC<CookieBannerProps> = ({ language }) => {
   const t = TRANSLATIONS[language];
-  const [isOpen, setIsOpen] = useState(false);
+  const [consentSaved, setConsentSaved] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
   const [marketingConsent, setMarketingConsent] = useState(true);
   const [analyticsConsent, setAnalyticsConsent] = useState(true);
 
   useEffect(() => {
-    const consent = localStorage.getItem('royal_elite_cookie_consent');
-    if (!consent) {
-      // Delay prompt slightly for elegance
-      const timer = setTimeout(() => setIsOpen(true), 1200);
-      return () => clearTimeout(timer);
+    try {
+      const saved = localStorage.getItem('royal_elite_cookie_consent');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setMarketingConsent(parsed.marketing ?? true);
+        setAnalyticsConsent(parsed.analytics ?? true);
+        setConsentSaved(true);
+      }
+    } catch {
+      // ignore storage errors
     }
   }, []);
 
@@ -28,7 +33,10 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ language }) => {
       'royal_elite_cookie_consent',
       JSON.stringify({ essential: true, marketing: true, analytics: true, timestamp: Date.now() })
     );
-    setIsOpen(false);
+    setMarketingConsent(true);
+    setAnalyticsConsent(true);
+    setConsentSaved(true);
+    setShowPreferences(false);
   };
 
   const handleEssentialOnly = () => {
@@ -36,7 +44,10 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ language }) => {
       'royal_elite_cookie_consent',
       JSON.stringify({ essential: true, marketing: false, analytics: false, timestamp: Date.now() })
     );
-    setIsOpen(false);
+    setMarketingConsent(false);
+    setAnalyticsConsent(false);
+    setConsentSaved(true);
+    setShowPreferences(false);
   };
 
   const handleSavePreferences = () => {
@@ -44,126 +55,133 @@ export const CookieBanner: React.FC<CookieBannerProps> = ({ language }) => {
       'royal_elite_cookie_consent',
       JSON.stringify({ essential: true, marketing: marketingConsent, analytics: analyticsConsent, timestamp: Date.now() })
     );
+    setConsentSaved(true);
     setShowPreferences(false);
-    setIsOpen(false);
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6 bg-gradient-to-t from-black/20 to-transparent pointer-events-none">
-      <div className="max-w-4xl mx-auto bg-[#18181B] text-[#FAF8F5] border border-[#D4AF37]/40 rounded-2xl p-5 shadow-2xl pointer-events-auto backdrop-blur-md">
+    <section
+      aria-label={language === 'ar' ? 'خصوصية العميل وملفات تعريف الارتباط' : 'Client Privacy & Cookie Preferences'}
+      className="w-full bg-[#121215] text-[#FAF8F5] border-t border-[#D4AF37]/25 py-2.5 px-4"
+    >
+      <div className="max-w-7xl mx-auto">
         {!showPreferences ? (
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div className="flex items-start gap-3">
-              <div className="p-2.5 rounded-xl bg-[#D4AF37]/15 border border-[#D4AF37]/30 text-[#D4AF37] shrink-0 mt-0.5">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-semibold text-[#D4AF37] font-serif-luxury mb-1">
-                  {language === 'ar' ? 'خصوصية العميل وملفات تعريف الارتباط الملكية' : 'Sovereign Privacy & Cookie Preference'}
-                </h4>
-                <p className="text-xs text-[#FAF8F5]/80 leading-relaxed max-w-2xl">
-                  {t.cookieBannerText}
-                </p>
-              </div>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-2.5 text-[11px]">
+            <div className="flex items-center gap-2 text-center md:text-start">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 hidden sm:block" />
+              <p className="text-[#FAF8F5]/80 leading-snug">
+                <span className="font-semibold text-[#D4AF37] me-1.5">
+                  {language === 'ar' ? 'خصوصية العميل:' : 'Client Privacy:'}
+                </span>
+                {consentSaved
+                  ? language === 'ar'
+                    ? 'تم حفظ تفضيلات الخصوصية وملفات الارتباط بنجاح.'
+                    : 'Your privacy and cookie preferences are saved.'
+                  : t.cookieBannerText}
+              </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 self-end md:self-center shrink-0">
+            <div className="flex flex-wrap items-center justify-center gap-1.5 shrink-0">
               <button
                 onClick={() => setShowPreferences(true)}
-                className="px-3 py-1.5 text-xs text-[#FAF8F5]/70 hover:text-white transition-colors border border-white/10 rounded-lg flex items-center gap-1.5"
+                className="px-2.5 py-1 text-[11px] text-[#FAF8F5]/75 hover:text-white border border-white/15 rounded-md transition-colors flex items-center gap-1 cursor-pointer"
               >
-                <Settings className="w-3.5 h-3.5" />
-                <span>{t.cookieCustomize}</span>
+                <Settings className="w-3 h-3" />
+                <span>
+                  {consentSaved
+                    ? language === 'ar'
+                      ? 'تعديل الخيارات'
+                      : 'Manage'
+                    : t.cookieCustomize}
+                </span>
               </button>
-              <button
-                onClick={handleEssentialOnly}
-                className="px-3.5 py-1.5 text-xs font-medium text-[#FAF8F5]/90 hover:text-white bg-white/10 hover:bg-white/15 rounded-lg transition-colors"
-              >
-                {t.cookieEssentialOnly}
-              </button>
-              <button
-                onClick={handleAcceptAll}
-                className="px-4 py-1.5 text-xs font-semibold text-[#18181B] bg-[#D4AF37] hover:bg-[#B8902A] rounded-lg transition-colors shadow-sm"
-              >
-                {t.cookieAcceptAll}
-              </button>
+
+              {!consentSaved && (
+                <>
+                  <button
+                    onClick={handleEssentialOnly}
+                    className="px-2.5 py-1 text-[11px] font-medium text-[#FAF8F5]/90 hover:text-white bg-white/10 hover:bg-white/15 rounded-md transition-colors cursor-pointer"
+                  >
+                    {t.cookieEssentialOnly}
+                  </button>
+                  <button
+                    onClick={handleAcceptAll}
+                    className="px-3 py-1 text-[11px] font-semibold text-[#18181B] bg-[#D4AF37] hover:bg-[#B8902A] rounded-md transition-colors cursor-pointer"
+                  >
+                    {t.cookieAcceptAll}
+                  </button>
+                </>
+              )}
             </div>
           </div>
         ) : (
-          <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <h4 className="text-sm font-semibold text-[#D4AF37] font-serif-luxury">
-                {language === 'ar' ? 'تخصيص أذونات ملفات الارتباط وسياسة الخصوصية' : 'Manage Cookie & Privacy Preferences'}
-              </h4>
+          <div className="py-1.5 space-y-2.5">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2">
+              <span className="text-xs font-semibold text-[#D4AF37] font-serif-luxury">
+                {language === 'ar' ? 'إعدادات خصوصية العميل وملفات الارتباط' : 'Client Privacy & Cookie Settings'}
+              </span>
               <button
                 onClick={() => setShowPreferences(false)}
-                className="text-white/60 hover:text-white"
+                className="text-white/60 hover:text-white cursor-pointer"
+                aria-label={t.close}
               >
-                <X className="w-4 h-4" />
+                <X className="w-3.5 h-3.5" />
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-              <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="font-semibold text-[#FAF8F5]">{language === 'ar' ? 'الملفات الأساسية' : 'Strictly Essential'}</span>
-                  <span className="text-[10px] text-emerald-400 font-mono">{language === 'ar' ? 'إلزامي' : 'Mandatory'}</span>
-                </div>
-                <p className="text-[11px] text-white/60">
-                  {language === 'ar' ? 'لحفظ حقيبة التسوق، اللغة، وأمان المعاملات.' : 'Core shopping bag, language and security tokens.'}
-                </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">
+              <div className="p-2 rounded-md bg-white/5 border border-white/10 flex items-center justify-between gap-2">
+                <span className="font-medium text-[#FAF8F5]">
+                  {language === 'ar' ? 'الملفات الأساسية' : 'Essential'}
+                </span>
+                <span className="text-[10px] text-emerald-400 font-mono">
+                  {language === 'ar' ? 'إلزامي' : 'Required'}
+                </span>
               </div>
 
-              <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="font-semibold text-[#FAF8F5]">{language === 'ar' ? 'التسويق والشراكات' : 'Marketing & Partners'}</span>
-                  <input
-                    type="checkbox"
-                    checked={marketingConsent}
-                    onChange={(e) => setMarketingConsent(e.target.checked)}
-                    className="w-4 h-4 accent-[#D4AF37] cursor-pointer"
-                  />
-                </div>
-                <p className="text-[11px] text-white/60">
-                  {language === 'ar' ? 'عرض توصيات ملائمة للاهتمامات وتفضيلات الفخامة.' : 'Contextual high-jewelry recommendations and partner preferences.'}
-                </p>
-              </div>
+              <label className="p-2 rounded-md bg-white/5 border border-white/10 flex items-center justify-between gap-2 cursor-pointer">
+                <span className="font-medium text-[#FAF8F5]">
+                  {language === 'ar' ? 'التسويق والشراكات' : 'Marketing'}
+                </span>
+                <input
+                  type="checkbox"
+                  checked={marketingConsent}
+                  onChange={(e) => setMarketingConsent(e.target.checked)}
+                  className="w-3.5 h-3.5 accent-[#D4AF37] cursor-pointer"
+                />
+              </label>
 
-              <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-                <div className="flex items-center justify-between mb-1.5">
-                  <span className="font-semibold text-[#FAF8F5]">{language === 'ar' ? 'التحليلات والأداء' : 'Analytics & Insight'}</span>
-                  <input
-                    type="checkbox"
-                    checked={analyticsConsent}
-                    onChange={(e) => setAnalyticsConsent(e.target.checked)}
-                    className="w-4 h-4 accent-[#D4AF37] cursor-pointer"
-                  />
-                </div>
-                <p className="text-[11px] text-white/60">
-                  {language === 'ar' ? 'تحسين سرعة الأدوات التفاعلية ودقة الكتالوج.' : 'Tool responsiveness, performance metrics and caching.'}
-                </p>
-              </div>
+              <label className="p-2 rounded-md bg-white/5 border border-white/10 flex items-center justify-between gap-2 cursor-pointer">
+                <span className="font-medium text-[#FAF8F5]">
+                  {language === 'ar' ? 'التحليلات والأداء' : 'Analytics'}
+                </span>
+                <input
+                  type="checkbox"
+                  checked={analyticsConsent}
+                  onChange={(e) => setAnalyticsConsent(e.target.checked)}
+                  className="w-3.5 h-3.5 accent-[#D4AF37] cursor-pointer"
+                />
+              </label>
             </div>
 
-            <div className="flex justify-end gap-2 pt-2">
+            <div className="flex justify-end gap-2">
               <button
                 onClick={() => setShowPreferences(false)}
-                className="px-3 py-1.5 text-xs text-white/70 hover:text-white"
+                className="px-2.5 py-1 text-[11px] text-white/70 hover:text-white cursor-pointer"
               >
                 {t.close}
               </button>
               <button
                 onClick={handleSavePreferences}
-                className="px-4 py-1.5 text-xs font-semibold text-[#18181B] bg-[#D4AF37] hover:bg-[#B8902A] rounded-lg"
+                className="px-3 py-1 text-[11px] font-semibold text-[#18181B] bg-[#D4AF37] hover:bg-[#B8902A] rounded-md cursor-pointer"
               >
-                {language === 'ar' ? 'حفظ الخيارات' : 'Save Preferences'}
+                {language === 'ar' ? 'حفظ الخيارات' : 'Save'}
               </button>
             </div>
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
+

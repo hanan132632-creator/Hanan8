@@ -7,7 +7,7 @@
   <xsl:template match="/">
     <html dir="rtl" lang="ar">
       <head>
-        <title>خريطة الموقع XML المباشرة | بوتيك مجوهرات النخبة الملكية (hanan.pro)</title>
+        <title>خريطة الموقع XML المباشرة | بوتيك مجوهرات النخبة الملكية (hanan.blog)</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style type="text/css">
@@ -134,7 +134,7 @@
         <div class="container">
           <div class="header">
             <div class="badge">خريطة الموقع XML الرسمية · بروتوكول Sitemaps.org</div>
-            <h1>خريطة الموقع وروابط الفهرسة المباشرة (hanan.pro/sitemap.xml)</h1>
+            <h1>خريطة الموقع وروابط الفهرسة المباشرة (hanan.blog/sitemap.xml)</h1>
             <p>
               يتم استعراض كافة الروابط المباشرة الدائمة لبوتيك مجوهرات النخبة الملكية تلقائياً. كل رابط في هذا الجدول هو رابط مباشر قابل للنقر الفوري والأرشفة المعتمدة لدى محركات البحث العالمية.
             </p>
